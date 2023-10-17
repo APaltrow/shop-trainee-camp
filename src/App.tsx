@@ -1,5 +1,7 @@
-import "./App.css";
+import { FC } from 'react';
 
-export const App = () => {
-  return <div>All up and running</div>;
+import style from '@style/App.module.scss';
+
+export const App: FC = () => {
+  return <div className={style.app}>All up and running</div>;
 };
