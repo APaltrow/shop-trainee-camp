@@ -4,3 +4,18 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+.app {
+  text-align: center;
+}
+
+.navbar {
+  padding: 20px;
+  background-color: lightgray;
+  display: flex;
+  gap: 30px;
+}
+
+.active {
+  border-bottom: 5px solid blue;
+}
