@@ -1,0 +1,6 @@
+@import './_variables.scss';
+
+@mixin with-border {
+  border: 1px solid var(--clr-secondary-200);
+  border-radius: $border_radius;
+}

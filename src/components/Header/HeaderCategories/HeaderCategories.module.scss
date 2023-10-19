@@ -1,0 +1,25 @@
+@import '@style/_media.scss';
+
+.navbar {
+  padding: 16px 45px;
+  background-color: var(--clr-secondary-100);
+
+  display: flex;
+  gap: 40px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  overflow: auto;
+
+  & > a {
+    text-wrap: nowrap;
+  }
+}
+
+@include tablet {
+  .navbar {
+    padding: 16px 10px;
+    gap: 20px;
+  }
+}

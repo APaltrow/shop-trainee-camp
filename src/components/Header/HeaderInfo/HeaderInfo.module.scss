@@ -1,0 +1,43 @@
+@import '@style/_media.scss';
+
+.container {
+  position: relative;
+  padding: 16px 0px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  text-wrap: nowrap;
+
+  border-bottom: 1px solid var(--clr-secondary-100);
+
+  & > ul {
+    display: flex;
+    gap: 30px;
+  }
+}
+
+@include tablet {
+  .container {
+    padding: 10px 0px;
+
+    overflow: hidden;
+
+    flex-direction: column;
+    gap: 10px;
+
+    & > ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    & > ul:nth-child(1) {
+      order: 2;
+    }
+  }
+}

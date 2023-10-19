@@ -1,0 +1,54 @@
+@import '@style/_media.scss';
+
+.container {
+  position: relative;
+}
+
+.content {
+  display: block;
+}
+
+.expand_btn {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+
+  display: none;
+
+  transform: translateX(-50%);
+
+  & > button {
+    padding: 5px 50px;
+
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+
+    & > svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@include tablet {
+  .container {
+    padding-bottom: 20px;
+  }
+
+  .content {
+    display: none;
+  }
+
+  .expand_btn {
+    display: block;
+  }
+}
+
+.expanded {
+  display: block;
+}
+
+.rotate {
+  transform: translateX(-50%) rotate(180deg);
+}

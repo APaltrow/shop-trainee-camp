@@ -1,7 +1,7 @@
 export enum RoutesPaths {
   MAIN = '',
   ALL_PRODUCTS = 'all-products',
-  PRODUCT = 'product/:id',
+  PRODUCT = 'all-products/:id',
   CART = 'cart',
   NOT_FOUND = '*',
 }

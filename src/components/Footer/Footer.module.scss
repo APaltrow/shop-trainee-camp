@@ -1,0 +1,44 @@
+@import '@style/_media';
+
+.container {
+  padding: 64px 0px;
+}
+
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-wrap: nowrap;
+}
+
+.nav_title {
+  padding-bottom: 16px;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@include tablet {
+  .container {
+    padding: 10px 0px;
+  }
+
+  .nav_container {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .nav_title {
+    padding-bottom: 0px;
+  }
+}

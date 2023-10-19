@@ -1,0 +1,22 @@
+.breadcrumbs {
+  padding: 16px 0px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--clr-secondary-300);
+}
+
+.active {
+  color: var(--clr-secondary);
+  pointer-events: none;
+}
+
+.not_active {
+  &::after {
+    content: ' / ';
+  }
+
+  &:hover {
+    color: var(--clr-accent-B-400);
+  }
+}
