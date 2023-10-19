@@ -1,0 +1,51 @@
+@import '@style/_media.scss';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.logo {
+  padding: 16px 0px;
+}
+
+.search_bar {
+  margin: 0 auto;
+  min-width: 380px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-wrap: nowrap;
+  font-weight: bold;
+  font-size: 15px;
+
+  & > svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@include tablet {
+  .search_bar {
+    order: 3;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .container {
+    gap: 5px;
+  }
+}

@@ -1,0 +1,38 @@
+@import './_variables.scss';
+
+@mixin color-scheme {
+  --clr-primary: #{$clr_white};
+
+  --clr-secondary: #{$clr_black};
+  --clr-secondary-400: #{$clr_black_400};
+  --clr-secondary-300: #{$clr_black_300};
+  --clr-secondary-200: #{$clr_black_200};
+  --clr-secondary-100: #{$clr_black_100};
+
+  --clr-accent-A: #{$clr_green};
+  --clr-accent-A-400: #{$clr_green_400};
+  --clr-accent-A-300: #{$clr_green_300};
+  --clr-accent-A-200: #{$clr_green_200};
+  --clr-accent-A-100: #{$clr_green_100};
+
+  --clr-accent-B: #{$clr_brown};
+  --clr-accent-B-400: #{$clr_brown_400};
+  --clr-accent-B-300: #{$clr_brown_300};
+  --clr-accent-B-200: #{$clr_brown_200};
+  --clr-accent-B-100: #{$clr_brown_100};
+
+  --clr-accent-C: #{$clr_orange};
+  --clr-accent-C-400: #{$clr_orange_400};
+  --clr-accent-C-300: #{$clr_orange_300};
+  --clr-accent-C-200: #{$clr_orange_200};
+  --clr-accent-C-100: #{$clr_orange_100};
+
+  --clr-accent-D: #{$clr_aqua};
+  --clr-accent-D-400: #{$clr_aqua_400};
+  --clr-accent-D-300: #{$clr_aqua_300};
+  --clr-accent-D-200: #{$clr_aqua_200};
+  --clr-accent-D-100: #{$clr_aqua_100};
+
+  --text-strong: #{$clr_black};
+  --text-weak: #{$clr_black_300};
+}

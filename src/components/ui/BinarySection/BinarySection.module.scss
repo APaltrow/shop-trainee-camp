@@ -1,0 +1,23 @@
+@import '@style/_mixins';
+@import '@style/_variables';
+
+.container {
+  width: 100%;
+  padding: 10px 16px;
+
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  @include with-border;
+}
+
+.left_el {
+  padding-right: 24px;
+  border-right: 1px solid var(--clr-secondary-200);
+}
+
+.right_el {
+  padding-left: 24px;
+  flex: 1;
+}

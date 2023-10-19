@@ -1,0 +1,41 @@
+@import '@style/_media';
+@import '@style/_variables';
+
+.container {
+  background-color: $clr_white;
+}
+
+.overlay {
+  position: relative;
+  z-index: 100;
+}
+
+.main_block {
+  padding: 16px 0px;
+  padding-left: 17px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overlay_bg {
+  position: absolute;
+  top: 0;
+  left: -45px;
+  background-color: $clr_overlay;
+
+  height: 100%;
+  width: 100vw;
+  z-index: -10;
+}
+
+@include tablet {
+  .overlay_bg {
+    left: -10px;
+  }
+
+  .main_block {
+    padding: 16px 0px;
+  }
+}
