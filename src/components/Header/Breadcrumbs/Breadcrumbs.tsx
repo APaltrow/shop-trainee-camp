@@ -22,7 +22,8 @@ export const Breadcrumbs: FC = () => {
       </NavLink>
       {paths.length
         ? paths.map((path) => {
-            const breadcrumb = PATHS_TO_BREADCRUMBS[path] || PRODUCT_NAME;
+            const breadcrumb =
+              PATHS_TO_BREADCRUMBS[path as NavigationPaths] || PRODUCT_NAME;
             const isActive = path === paths[paths.length - 1];
 
             return (
