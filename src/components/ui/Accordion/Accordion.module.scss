@@ -4,25 +4,33 @@
   position: relative;
 }
 
+.title {
+  padding-bottom: 16px;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .content {
   display: block;
 }
 
 .expand_btn {
   position: absolute;
-  bottom: 0px;
-  left: 50%;
 
   display: none;
 
   transform: translateX(-50%);
 
   & > button {
-    padding: 5px 50px;
+    padding: 4px 19px;
 
     display: flex;
     align-items: center;
+
     background-color: transparent;
+    border: 1px solid var(--clr-accent-A-200);
+    border-radius: $border_radius;
 
     & > svg {
       width: 10px;
@@ -31,9 +39,25 @@
   }
 }
 
+.position_bottom {
+  bottom: 0px;
+  left: 50%;
+}
+
+.position_right {
+  top: 5px;
+  right: 0px;
+}
+
 @include tablet {
   .container {
     padding-bottom: 20px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid var(--clr-secondary-200);
   }
 
   .content {

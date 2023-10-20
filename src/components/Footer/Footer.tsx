@@ -1,18 +1,25 @@
 import { FC } from 'react';
 
 import { FOOTER_LINKS } from '@constants';
-import { Accordion } from '@components';
+import { Accordion, AccordionPositions } from '@components';
 
 import style from './Footer.module.scss';
 
+const DEFAULT_COUNT = 20;
+const DEFAULT_NAME = 'Tag';
+
 export const Footer: FC = () => {
+  const tagsList = new Array(DEFAULT_COUNT).fill(DEFAULT_NAME);
+
   return (
     <footer className={style.container}>
-      <nav className={style.nav_container}>
+      <section className={style.nav_container}>
         {FOOTER_LINKS.map(({ title, links }) => (
-          <div key={`footer_links_${title}`}>
-            <h4 className={style.nav_title}>{title}</h4>
-            <Accordion>
+          <nav key={`footer_links_${title}`}>
+            <Accordion
+              title={title}
+              position={AccordionPositions.RIGHT}
+            >
               <ul className={style.nav_list}>
                 {links.map(({ id, link, text }) => (
                   <li key={id}>
@@ -21,9 +28,32 @@ export const Footer: FC = () => {
                 ))}
               </ul>
             </Accordion>
-          </div>
+          </nav>
         ))}
-      </nav>
+      </section>
+
+      <section className={style.tags_container}>
+        <Accordion
+          title="Product tags"
+          position={AccordionPositions.RIGHT}
+        >
+          <ul className={style.tags_list}>
+            {tagsList.map((tag, idx) => {
+              const tagString = `${tag}_#${idx + 1}`;
+              return (
+                <li
+                  key={tagString}
+                  className={style.tag_item}
+                >
+                  {tagString}
+                </li>
+              );
+            })}
+          </ul>
+        </Accordion>
+      </section>
+
+      <p className={style.copyright}>© Reenbit - trainee camp™ 2023</p>
     </footer>
   );
 };

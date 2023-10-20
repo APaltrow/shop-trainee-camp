@@ -29,7 +29,7 @@ export const HeaderToolbar: FC = () => {
           }
           rightElement={
             <Search
-              placeholder="Search..."
+              placeholder="Search products..."
               onChange={() => {}}
             />
           }

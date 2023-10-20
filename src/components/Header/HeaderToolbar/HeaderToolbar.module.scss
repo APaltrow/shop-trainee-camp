@@ -39,13 +39,17 @@
 }
 
 @include tablet {
+  .container {
+    gap: 5px;
+  }
+
+  .logo {
+    padding: 6px 0px;
+  }
+
   .search_bar {
     order: 3;
     width: 100%;
     min-width: auto;
-  }
-
-  .container {
-    gap: 5px;
   }
 }
