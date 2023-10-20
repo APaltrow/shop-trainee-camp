@@ -4,7 +4,7 @@ export enum NavigationPaths {
   CART = 'cart',
 }
 
-export const PATHS_TO_BREADCRUMBS = {
+export const PATHS_TO_BREADCRUMBS: Record<NavigationPaths, string> = {
   [NavigationPaths.HOME]: 'Homepage',
   [NavigationPaths.ALL_PRODUCTS]: 'All products',
   [NavigationPaths.CART]: 'Cart',
