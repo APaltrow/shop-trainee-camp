@@ -1,9 +1,10 @@
 import { RoutesPaths } from '@constants';
+import { HomePage } from '@pages';
 
 export const AppRoutes = [
   {
     path: RoutesPaths.MAIN,
-    element: <div>Home page</div>,
+    element: <HomePage />,
   },
   {
     path: RoutesPaths.ALL_PRODUCTS,
