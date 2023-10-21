@@ -33,8 +33,9 @@
   font-size: 15px;
 
   & > svg {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    fill: var(--clr-accent-A);
   }
 }
 
