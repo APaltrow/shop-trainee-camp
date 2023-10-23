@@ -1,0 +1,46 @@
+@import '@style/_mixins';
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  & > svg {
+    width: 15px;
+    height: 15px;
+    fill: var(--clr-accent-A);
+  }
+}
+
+.options_list {
+  position: absolute;
+  left: -15px;
+  top: 32px;
+  z-index: 50;
+  min-width: 100%;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--clr-primary);
+  @include with-border;
+
+  & > li {
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid var(--clr-secondary-300);
+    }
+  }
+}
+
+.option_text {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
