@@ -1,0 +1,12 @@
+@import '@style/_variables';
+
+.container {
+  padding: 0px 8px;
+  max-height: 18px;
+
+  font-weight: 600;
+  color: var(--clr-accent-A);
+
+  background-color: var(--clr-accent-A-100);
+  border-radius: $border_radius;
+}
