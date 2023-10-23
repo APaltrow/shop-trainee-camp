@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { IconsTypes, NavigationPaths } from '@constants';
-import { BinarySection, Icon, Search } from '@components';
+import { BinarySection, CustomSelect, Icon, Search } from '@components';
 import logo from '@assets/Freshnesecom.svg';
 
 import style from './HeaderToolbar.module.scss';
@@ -23,9 +23,11 @@ export const HeaderToolbar: FC = () => {
       <div className={style.search_bar}>
         <BinarySection
           leftElement={
-            <p className={style.select}>
-              All categories <Icon iconName={IconsTypes.ARROW_DOWN} />
-            </p>
+            <CustomSelect
+              defaultValue="All categories"
+              options={['electronics', 'food', 'clothes', 'toys', 'books']}
+              onChange={() => {}}
+            />
           }
           rightElement={
             <Search
