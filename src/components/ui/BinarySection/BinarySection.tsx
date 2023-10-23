@@ -13,8 +13,8 @@ export const BinarySection: FC<BinarySectionProps> = ({
 }) => {
   return (
     <div className={style.container}>
-      <span className={style.left_el}>{leftElement}</span>
-      <span className={style.right_el}>{rightElement}</span>
+      <div className={style.left_el}>{leftElement}</div>
+      <div className={style.right_el}>{rightElement}</div>
     </div>
   );
 };

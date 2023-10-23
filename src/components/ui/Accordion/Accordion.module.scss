@@ -20,8 +20,6 @@
 
   display: none;
 
-  transform: translateX(-50%);
-
   & > button {
     padding: 4px 19px;
 
@@ -52,7 +50,7 @@
 
 @include tablet {
   .container {
-    padding-bottom: 20px;
+    padding-bottom: 25px;
   }
 
   .title {
@@ -75,5 +73,5 @@
 }
 
 .rotate {
-  transform: translateX(-50%) rotate(180deg);
+  transform: rotate(180deg);
 }
