@@ -1,21 +1,28 @@
 import { FC } from 'react';
-import { NavLink } from 'react-router-dom';
 
-import { NAV_LINKS } from '@constants';
+import { CustomSelect } from '@components';
 
 import style from './HeaderCategories.module.scss';
 
-export const HeaderCategories: FC = () => {
+interface CategoriesProps {
+  categories: string[];
+}
+
+const DEFAULT_BRANDS = ['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4'];
+
+export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
   return (
-    <nav className={style.navbar}>
-      {NAV_LINKS.map(({ text, path }) => (
-        <NavLink
-          key={`categories_link_${text}`}
-          to={path}
-        >
-          {text}
-        </NavLink>
+    <ul className={style.navbar}>
+      {categories.map((category) => (
+        <li key={`category_${category}`}>
+          <CustomSelect
+            isReadOnly
+            defaultValue={category}
+            options={DEFAULT_BRANDS}
+            onChange={() => {}}
+          />
+        </li>
       ))}
-    </nav>
+    </ul>
   );
 };
