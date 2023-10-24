@@ -7,6 +7,7 @@ import { fetchProductsThunk } from '../thunks';
 
 const initialState: ProductsState = {
   productsList: [],
+  categories: null,
 
   isLoading: false,
   error: null,
@@ -23,9 +24,11 @@ export const productsSlice = createSlice({
         state.error = null;
 
         state.productsList = [];
+        state.categories = null;
       })
       .addCase(fetchProductsThunk.fulfilled, (state, { payload }) => {
-        state.productsList = payload;
+        state.productsList = payload.products;
+        state.categories = payload.categories;
 
         state.isLoading = false;
       })

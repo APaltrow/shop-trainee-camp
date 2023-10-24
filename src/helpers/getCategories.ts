@@ -1,11 +1,19 @@
 import { IProduct } from '@types';
 
+type Categories = Record<string, string[]>;
+
 export const getCategories = (productsList: IProduct[]) => {
-  const categories = new Set<string>();
+  return productsList.reduce((acc, { category, brands }) => {
+    const formattedBrands = brands.map(({ brandName }) => brandName);
 
-  productsList.forEach(({ category }) => {
-    categories.add(category);
-  });
+    const allBrands: string[] = acc[category]
+      ? [...acc[category], ...formattedBrands]
+      : formattedBrands;
 
-  return [...categories];
+    const uniqueBrands = new Set<string>(allBrands);
+
+    acc[category] = [...uniqueBrands];
+
+    return acc;
+  }, {} as Categories);
 };

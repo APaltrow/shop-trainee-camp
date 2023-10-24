@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useAppSelector } from '@redux';
 import { IconsTypes, NavigationPaths } from '@constants';
 import { BinarySection, CustomSelect, Icon, Search } from '@components';
 import logo from '@assets/Freshnesecom.svg';
@@ -8,6 +9,10 @@ import logo from '@assets/Freshnesecom.svg';
 import style from './HeaderToolbar.module.scss';
 
 export const HeaderToolbar: FC = () => {
+  const categories = useAppSelector((state) => state.products.categories);
+
+  const categoriesList = categories ? Object.keys(categories) : [];
+
   return (
     <div className={style.container}>
       <NavLink
@@ -25,8 +30,8 @@ export const HeaderToolbar: FC = () => {
           leftElement={
             <CustomSelect
               defaultValue="All categories"
-              options={['electronics', 'food', 'clothes', 'toys', 'books']}
-              onChange={(option) => {}}
+              options={categoriesList}
+              onChange={() => {}}
             />
           }
           rightElement={

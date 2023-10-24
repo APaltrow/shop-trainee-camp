@@ -4,3 +4,14 @@
   border: 1px solid var(--clr-secondary-200);
   border-radius: $border_radius;
 }
+
+@mixin with-skeleton {
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(39, 20%, 60%);
+    }
+    100% {
+      background-color: hsl(39, 20%, 90%);
+    }
+  }
+}

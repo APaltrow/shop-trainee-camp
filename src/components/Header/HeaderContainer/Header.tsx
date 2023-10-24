@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
-import { getCategories } from '@helpers';
 
 import { HeaderInfo } from '../HeaderInfo';
 import { HeaderToolbar } from '../HeaderToolbar';
@@ -11,9 +10,8 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import style from './Header.module.scss';
 
 export const Header: FC = () => {
-  const { productsList } = useAppSelector((state) => state.products);
-
-  const categories = getCategories(productsList);
+  const { categories } = useAppSelector((state) => state.products);
+  const categoriesList = categories ? Object.entries(categories) : [];
 
   return (
     <header className={style.container}>
@@ -21,7 +19,7 @@ export const Header: FC = () => {
       <div className={style.overlay}>
         <div className={style.main_block}>
           <HeaderToolbar />
-          <HeaderCategories categories={categories} />
+          <HeaderCategories categories={categoriesList} />
         </div>
         <Breadcrumbs />
         <div className={style.overlay_bg} />

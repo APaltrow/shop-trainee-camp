@@ -1,5 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 
+import { useActions } from '@redux';
 import { Footer, Header } from '@components';
 
 import style from './MainLayout.module.scss';
@@ -9,6 +10,12 @@ interface MainLayoutProps {
 }
 
 export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+  const { fetchProductsThunk } = useActions();
+
+  useEffect(() => {
+    fetchProductsThunk();
+  }, []);
+
   return (
     <>
       <Header />

@@ -1,4 +1,5 @@
 @import '@style/_media.scss';
+@import '@style/_mixins.scss';
 
 .navbar {
   padding: 16px 45px;
@@ -26,3 +27,13 @@
     gap: 10px;
   }
 }
+
+.skeleton {
+  height: 18px;
+  width: 50px;
+  border-radius: 12px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@include with-skeleton;

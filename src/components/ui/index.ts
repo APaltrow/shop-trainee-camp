@@ -6,3 +6,5 @@ export * from './Rating';
 export * from './CustomButton';
 export * from './InfoTooltip';
 export * from './CustomSelect';
+export * from './Image';
+export * from './Error';

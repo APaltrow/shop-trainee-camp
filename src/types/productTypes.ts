@@ -56,4 +56,5 @@ export interface IProduct {
 
 export interface ProductsState extends IState {
   productsList: IProduct[];
+  categories: Record<string, string[]> | null;
 }

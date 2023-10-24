@@ -7,4 +7,5 @@ export enum IconsTypes {
   STAR = 'star',
   STAR_EMPTY = 'star-empty',
   HEART = 'heart',
+  ERROR = 'error',
 }

@@ -38,6 +38,8 @@ export const CustomSelect: FC<CustomSelectProps> = ({
 
   const dropdownRef = useClickOutside(() => setOpened(false));
 
+  const isOptionAdded = !isReadOnly && selected !== initialValue;
+
   return (
     <div
       className={style.container}
@@ -54,7 +56,7 @@ export const CustomSelect: FC<CustomSelectProps> = ({
 
       {isOpened ? (
         <ul className={style.options_list}>
-          {selected !== initialValue ? (
+          {isOptionAdded ? (
             <li>
               <CustomButton onClick={() => handleSelect(initialValue)}>
                 <span className={style.option_text}>{initialValue}</span>
