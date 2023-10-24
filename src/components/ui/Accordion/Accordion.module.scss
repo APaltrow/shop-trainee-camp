@@ -17,6 +17,8 @@
 
 .expand_btn {
   position: absolute;
+  top: 5px;
+  right: 0px;
 
   display: none;
 
@@ -36,16 +38,6 @@
       fill: var(--clr-accent-A);
     }
   }
-}
-
-.position_bottom {
-  bottom: 0px;
-  left: 50%;
-}
-
-.position_right {
-  top: 5px;
-  right: 0px;
 }
 
 @include tablet {

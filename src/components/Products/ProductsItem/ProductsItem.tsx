@@ -4,14 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { IProduct } from '@types';
 import { ButtonSizes, ButtonVariants, IconsTypes } from '@constants';
 import { calculateDiscount } from '@helpers';
-import {
-  Accordion,
-  AccordionPositions,
-  CustomButton,
-  Icon,
-  Rating,
-  Image,
-} from '@components';
+import { Accordion, CustomButton, Icon, Rating, Image } from '@components';
 
 import style from './ProductsItem.module.scss';
 
@@ -63,7 +56,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
             <p>{description.short}</p>
             <Rating rating={rating} />
           </div>
-          <Accordion position={AccordionPositions.RIGHT}>
+          <Accordion>
             <div className={style.additional_info_container}>
               <ul className={style.additional_info}>
                 <li>Origin</li>

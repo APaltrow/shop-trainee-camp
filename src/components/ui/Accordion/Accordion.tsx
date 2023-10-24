@@ -5,29 +5,18 @@ import { Icon } from '@components';
 
 import style from './Accordion.module.scss';
 
-export enum AccordionPositions {
-  BOTTOM = 'bottom',
-  RIGHT = 'right',
-}
-
 interface AccordionProps {
   children: ReactNode;
   title?: string;
   isVisible?: boolean;
-  position?: AccordionPositions;
 }
 
 export const Accordion: FC<AccordionProps> = ({
   children,
   isVisible,
   title,
-  position = AccordionPositions.BOTTOM,
 }) => {
   const [isExpanded, setExpanded] = useState(!!isVisible);
-
-  const buttonClasses = `${style.expand_btn} ${
-    isExpanded ? style.rotate : ''
-  } ${style[`position_${position}`]}`;
 
   const handleExpand = () => setExpanded((prev) => !prev);
 
@@ -38,7 +27,7 @@ export const Accordion: FC<AccordionProps> = ({
         {children}
       </div>
 
-      <span className={buttonClasses}>
+      <span className={`${style.expand_btn} ${isExpanded ? style.rotate : ''}`}>
         <button
           type="button"
           onClick={handleExpand}

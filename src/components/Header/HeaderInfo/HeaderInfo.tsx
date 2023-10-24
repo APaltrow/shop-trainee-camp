@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 import { CONTACT_LINKS, INFO_LINKS } from '@constants';
-import { Accordion, AccordionPositions } from '@components';
+import { Accordion } from '@components';
 
 import style from './HeaderInfo.module.scss';
 
 export const HeaderInfo: FC = () => {
   return (
-    <Accordion position={AccordionPositions.RIGHT}>
+    <Accordion>
       <nav className={style.container}>
         <ul>
           {CONTACT_LINKS.map(({ id, link, text }) => (

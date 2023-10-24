@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { FOOTER_LINKS } from '@constants';
-import { Accordion, AccordionPositions } from '@components';
+import { Accordion } from '@components';
 
 import { TagsList } from '../TagsList';
 
@@ -13,10 +13,7 @@ export const Footer: FC = () => {
       <section className={style.nav_container}>
         {FOOTER_LINKS.map(({ title, links }) => (
           <nav key={`footer_links_${title}`}>
-            <Accordion
-              title={title}
-              position={AccordionPositions.RIGHT}
-            >
+            <Accordion title={title}>
               <ul className={style.nav_list}>
                 {links.map(({ id, link, text }) => (
                   <li key={id}>
