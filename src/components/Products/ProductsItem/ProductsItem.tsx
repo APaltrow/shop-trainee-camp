@@ -61,8 +61,8 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
               </ul>
               <ul className={style.additional_info}>
                 <li>{originCountry}</li>
-                <li>{brands[0].brandName}</li>
-                <li>{delivery.area[0]}</li>
+                <li>{brands.join(', ')}</li>
+                <li>{delivery.area.join(', ')}</li>
                 <li>{`${stock.amount} ${stock.measure}`}</li>
               </ul>
             </div>
