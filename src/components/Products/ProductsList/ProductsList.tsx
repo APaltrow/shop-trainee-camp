@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { IProduct } from '@types';
+import { NoResults } from '@components';
 
 import { ProductsItem } from '../ProductsItem';
 import { ProductsSkeleton } from '../Skeleton';
@@ -18,6 +19,10 @@ export const ProductsList: FC<ProductsListProps> = ({
 }) => {
   if (isLoading) {
     return <ProductsSkeleton />;
+  }
+
+  if (!productsList.length) {
+    return <NoResults />;
   }
 
   return (

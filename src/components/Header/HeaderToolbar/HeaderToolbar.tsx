@@ -17,7 +17,7 @@ export const HeaderToolbar: FC = () => {
   const categories = useAppSelector((state) => state.products.categories);
   const { activeCategory } = useAppSelector((state) => state.productsFilter);
 
-  const { setActiveCategory } = useActions();
+  const { setActiveCategory, resetBrands } = useActions();
 
   const { searchValue, onSearch } = useSearch();
 
@@ -25,6 +25,7 @@ export const HeaderToolbar: FC = () => {
 
   const handleCategoryChange = (option: string) => {
     navigate(NavigationPaths.ALL_PRODUCTS);
+    resetBrands();
 
     if (option === ALL_CATEGORIES) {
       setActiveCategory(null);

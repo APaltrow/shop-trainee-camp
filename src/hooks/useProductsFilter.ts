@@ -4,7 +4,7 @@ import { filterProducts } from '@helpers';
 export const useProductsFilter = () => {
   const { productsList } = useAppSelector((state) => state.products);
 
-  const { searchValue, activeCategory } = useAppSelector(
+  const { activeCategory, activeBrands, searchValue } = useAppSelector(
     (state) => state.productsFilter,
   );
 
@@ -13,8 +13,13 @@ export const useProductsFilter = () => {
     activeCategory,
   );
 
-  const filteredBySearchValue = filterProducts.bySearchValue(
+  const filteredByBrands = filterProducts.byBrands(
     filteredByCategory,
+    activeBrands,
+  );
+
+  const filteredBySearchValue = filterProducts.bySearchValue(
+    filteredByBrands,
     searchValue,
   );
 

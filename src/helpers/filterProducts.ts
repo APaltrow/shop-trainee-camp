@@ -6,6 +6,13 @@ export const filterProducts = {
 
     return products.filter(({ category }) => category === activeCategory);
   },
+  byBrands: (products: IProduct[], activeBrands: string[]) => {
+    if (!activeBrands.length) return products;
+
+    return products.filter(({ brands }) =>
+      brands.some((brand: string) => activeBrands.includes(brand)),
+    );
+  },
   bySearchValue: (products: IProduct[], searchValue: string) => {
     if (!searchValue) return products;
 

@@ -4,6 +4,7 @@ import { ProductsFilterState } from '@types';
 
 const initialState: ProductsFilterState = {
   activeCategory: null,
+  activeBrands: [],
   searchValue: '',
 };
 
@@ -11,11 +12,17 @@ export const productsFilterSlice = createSlice({
   name: 'productsFilter',
   initialState,
   reducers: {
-    setSearch: (state, { payload }: PayloadAction<string>) => {
-      state.searchValue = payload;
-    },
     setActiveCategory: (state, { payload }: PayloadAction<string | null>) => {
       state.activeCategory = payload;
+    },
+    setActiveBrand: (state, { payload }: PayloadAction<string>) => {
+      state.activeBrands = [payload];
+    },
+    resetBrands: (state) => {
+      state.activeBrands = [];
+    },
+    setSearch: (state, { payload }: PayloadAction<string>) => {
+      state.searchValue = payload;
     },
   },
 });
