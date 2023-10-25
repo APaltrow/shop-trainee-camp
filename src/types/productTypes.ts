@@ -7,6 +7,7 @@ export interface IStock {
 
 export interface IPrice {
   amount: number;
+  discountedAmount: number;
   discount: number;
   currency: string;
 }
@@ -21,11 +22,6 @@ export interface IDelivery {
   timeframe: number;
   cost: number;
   area: string[];
-}
-
-export interface IBrand {
-  brandName: string;
-  brandId: string;
 }
 
 export enum BuyBy {
@@ -47,8 +43,8 @@ export interface IProduct {
   description: IDescription;
   delivery: IDelivery;
   buyBy: BuyBy[];
-  brands: IBrand[];
 
+  brands: string[];
   imgs: string[];
   reviews: string[];
   questions: string[];

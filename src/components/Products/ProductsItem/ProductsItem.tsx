@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 import { IProduct } from '@types';
 import { ButtonSizes, ButtonVariants, IconsTypes } from '@constants';
-import { calculateDiscount } from '@helpers';
 import { Accordion, CustomButton, Icon, Rating, Image } from '@components';
 
 import style from './ProductsItem.module.scss';
@@ -28,11 +27,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     originCountry,
   } = product;
 
-  const actualPrice = price.discount
-    ? calculateDiscount(price.amount, price.discount)
-    : price.amount;
-
-  const productPrice = price.discount ? actualPrice : price.amount;
+  const productPrice = price.discount ? price.discountedAmount : price.amount;
 
   const deliveryCost = delivery.cost
     ? `${delivery.cost} ${price.currency}`
