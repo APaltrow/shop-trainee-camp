@@ -1,54 +1,42 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { IconsTypes } from '@constants';
-import { useClickOutside } from '@hooks';
+import { useClickOutside, useToggle } from '@hooks';
 import { CustomButton, Icon } from '@components';
 
 import style from './CustomSelect.module.scss';
 
 interface CustomSelectProps {
   options: string[];
-  defaultValue: string;
-  isReadOnly?: boolean;
+  selected: string;
 
   onChange: (option: string) => void;
 }
 
-const DEFAULT_ALL = 'All';
-
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
-  defaultValue,
-  isReadOnly = false,
+  selected,
 
   onChange,
 }) => {
-  const initialValue = defaultValue || DEFAULT_ALL;
+  const { isOpened, toggle, onClose } = useToggle();
 
-  const [isOpened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(initialValue);
+  const dropdownRef = useClickOutside(() => onClose());
 
-  const handleSelect = (option: string) => {
-    setSelected(option);
+  const handleSelectClick = () => toggle();
+
+  const handleSelectOption = (option: string) => {
     onChange(option);
-    setOpened(false);
+    onClose();
   };
-
-  const handleClick = () => setOpened((prev) => !prev);
-
-  const dropdownRef = useClickOutside(() => setOpened(false));
-
-  const isOptionAdded = !isReadOnly && selected !== initialValue;
 
   return (
     <div
       className={style.container}
       ref={dropdownRef}
     >
-      <CustomButton onClick={handleClick}>
-        <span className={style.option_text}>
-          {isReadOnly ? defaultValue : selected}
-        </span>
+      <CustomButton onClick={handleSelectClick}>
+        <span className={style.option_text}>{selected}</span>
         <span className={style.btn}>
           <Icon iconName={IconsTypes.ARROW_DOWN} />
         </span>
@@ -56,21 +44,17 @@ export const CustomSelect: FC<CustomSelectProps> = ({
 
       {isOpened ? (
         <ul className={style.options_list}>
-          {isOptionAdded ? (
-            <li>
-              <CustomButton onClick={() => handleSelect(initialValue)}>
-                <span className={style.option_text}>{initialValue}</span>
-              </CustomButton>
-            </li>
-          ) : null}
+          {options.map((option) => {
+            if (option === selected) return null;
 
-          {options.map((option) => (
-            <li key={`select_${option}`}>
-              <CustomButton onClick={() => handleSelect(option)}>
-                <span className={style.option_text}>{option}</span>
-              </CustomButton>
-            </li>
-          ))}
+            return (
+              <li key={`select_${option}`}>
+                <CustomButton onClick={() => handleSelectOption(option)}>
+                  <span className={style.option_text}>{option}</span>
+                </CustomButton>
+              </li>
+            );
+          })}
         </ul>
       ) : null}
     </div>

@@ -6,7 +6,7 @@ import { Icon } from '@components';
 import style from './Search.module.scss';
 
 interface SearchProps {
-  value?: string;
+  value: string;
   placeholder: string;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;

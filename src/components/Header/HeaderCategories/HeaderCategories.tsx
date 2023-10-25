@@ -23,8 +23,7 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
       {categories.map(([category, brands]) => (
         <li key={`category_${category}`}>
           <CustomSelect
-            isReadOnly
-            defaultValue={category}
+            selected={category}
             options={brands}
             onChange={() => {}}
           />
