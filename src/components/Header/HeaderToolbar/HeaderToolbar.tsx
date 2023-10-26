@@ -17,21 +17,22 @@ export const HeaderToolbar: FC = () => {
   const categories = useAppSelector((state) => state.products.categories);
   const { activeCategory } = useAppSelector((state) => state.productsFilter);
 
-  const { setActiveCategory, resetBrands } = useActions();
+  const { setActiveCategory, setActiveBrand } = useActions();
 
   const { searchValue, onSearch } = useSearch();
 
   const navigate = useNavigate();
 
   const handleCategoryChange = (option: string) => {
-    navigate(NavigationPaths.ALL_PRODUCTS);
-    resetBrands();
+    setActiveBrand(null);
 
     if (option === ALL_CATEGORIES) {
       setActiveCategory(null);
     } else {
       setActiveCategory(option);
     }
+
+    navigate(NavigationPaths.ALL_PRODUCTS);
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {

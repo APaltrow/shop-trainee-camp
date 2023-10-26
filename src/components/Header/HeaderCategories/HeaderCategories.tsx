@@ -13,6 +13,8 @@ interface CategoriesProps {
   categories: [string, string[]][];
 }
 
+const ALL_BRANDS = 'All brands';
+
 export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
   const isLoading = useAppSelector((state) => state.products.isLoading);
 
@@ -22,7 +24,12 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
 
   const handleBrandSelect = (category: string, brand: string) => {
     setActiveCategory(category);
-    setActiveBrand(brand);
+
+    if (brand === ALL_BRANDS) {
+      setActiveBrand(null);
+    } else {
+      setActiveBrand(brand);
+    }
 
     navigate(NavigationPaths.ALL_PRODUCTS);
   };
@@ -37,7 +44,7 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
         <li key={`category_${category}`}>
           <CustomSelect
             selected={category}
-            options={brands}
+            options={[ALL_BRANDS, ...brands]}
             onChange={(selectedBrand) =>
               handleBrandSelect(category, selectedBrand)
             }

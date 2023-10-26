@@ -15,11 +15,12 @@ export const productsFilterSlice = createSlice({
     setActiveCategory: (state, { payload }: PayloadAction<string | null>) => {
       state.activeCategory = payload;
     },
-    setActiveBrand: (state, { payload }: PayloadAction<string>) => {
-      state.activeBrands = [payload];
-    },
-    resetBrands: (state) => {
-      state.activeBrands = [];
+    setActiveBrand: (state, { payload }: PayloadAction<string | null>) => {
+      if (!payload) {
+        state.activeBrands = [];
+      } else {
+        state.activeBrands = [payload];
+      }
     },
     setSearch: (state, { payload }: PayloadAction<string>) => {
       state.searchValue = payload;
