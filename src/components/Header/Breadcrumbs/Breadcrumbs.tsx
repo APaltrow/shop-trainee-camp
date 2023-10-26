@@ -1,16 +1,28 @@
 import { FC } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation, NavLink, useParams } from 'react-router-dom';
 
+import { useAppSelector } from '@redux';
 import { NavigationPaths, PATHS_TO_BREADCRUMBS } from '@constants';
 
 import style from './Breadcrumbs.module.scss';
 
-const PRODUCT_NAME = 'Carrots from Tomissy Farm';
+const NOT_FOUND = 'Not found';
 
 export const Breadcrumbs: FC = () => {
+  const productsList = useAppSelector((state) => state.products.productsList);
   const { pathname } = useLocation();
+  const { id } = useParams();
 
   const paths = pathname.split('/').filter((path) => !!path);
+
+  const productTitle = productsList.find(({ productId }) => productId === id)
+    ?.productTitle;
+
+  const getBreadcrumb = (path: string) => {
+    const breadcrumb = PATHS_TO_BREADCRUMBS[path as NavigationPaths];
+
+    return breadcrumb || productTitle || NOT_FOUND;
+  };
 
   return (
     <nav className={style.breadcrumbs}>
@@ -22,8 +34,7 @@ export const Breadcrumbs: FC = () => {
       </NavLink>
       {paths.length
         ? paths.map((path) => {
-            const breadcrumb =
-              PATHS_TO_BREADCRUMBS[path as NavigationPaths] || PRODUCT_NAME;
+            const breadcrumb = getBreadcrumb(path);
             const isActive = path === paths[paths.length - 1];
 
             return (
