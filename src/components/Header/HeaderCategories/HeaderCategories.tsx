@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
-import { NavigationPaths } from '@constants';
+import { NavigationPaths, SelectVariants } from '@constants';
 import { CustomSelect } from '@components';
 
 import { CategorySkeleton } from './CategorySkeleton';
@@ -43,6 +43,7 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
       {categories.map(([category, brands]) => (
         <li key={`category_${category}`}>
           <CustomSelect
+            variant={SelectVariants.SECONDARY}
             selected={category}
             options={[ALL_BRANDS, ...brands]}
             onChange={(selectedBrand) =>

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { IconsTypes } from '@constants';
+import { IconsTypes, SelectVariants } from '@constants';
 import { useClickOutside, useToggle } from '@hooks';
 import { CustomButton, Icon } from '@components';
 
@@ -9,6 +9,7 @@ import style from './CustomSelect.module.scss';
 interface CustomSelectProps {
   options: string[];
   selected: string;
+  variant: SelectVariants;
 
   onChange: (option: string) => void;
 }
@@ -16,6 +17,7 @@ interface CustomSelectProps {
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
   selected,
+  variant = SelectVariants.DEFAULT,
 
   onChange,
 }) => {
@@ -36,8 +38,10 @@ export const CustomSelect: FC<CustomSelectProps> = ({
       ref={dropdownRef}
     >
       <CustomButton onClick={handleSelectClick}>
-        <span className={style.option_text}>{selected}</span>
-        <span className={style.btn}>
+        <span className={`${style.option_text} ${style[variant]}`}>
+          {selected}
+        </span>
+        <span className={style[`btn_${variant}`]}>
           <Icon iconName={IconsTypes.ARROW_DOWN} />
         </span>
       </CustomButton>
@@ -49,9 +53,12 @@ export const CustomSelect: FC<CustomSelectProps> = ({
 
             return (
               <li key={`select_${option}`}>
-                <CustomButton onClick={() => handleSelectOption(option)}>
-                  <span className={style.option_text}>{option}</span>
-                </CustomButton>
+                <button
+                  type="button"
+                  onClick={() => handleSelectOption(option)}
+                >
+                  {option}
+                </button>
               </li>
             );
           })}

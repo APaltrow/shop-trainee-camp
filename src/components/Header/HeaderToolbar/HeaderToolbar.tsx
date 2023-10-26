@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
-import { IconsTypes, NavigationPaths } from '@constants';
+import { IconsTypes, NavigationPaths, SelectVariants } from '@constants';
 import { useSearch } from '@hooks';
 import { BinarySection, CustomSelect, Icon, Search } from '@components';
 import logo from '@assets/Freshnesecom.svg';
@@ -62,6 +62,7 @@ export const HeaderToolbar: FC = () => {
         <BinarySection
           leftElement={
             <CustomSelect
+              variant={SelectVariants.PRIMARY}
               selected={activeCategory || ALL_CATEGORIES}
               options={categoriesOptions}
               onChange={handleCategoryChange}
