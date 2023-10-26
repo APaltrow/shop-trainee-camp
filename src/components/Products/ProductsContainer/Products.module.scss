@@ -1,3 +1,5 @@
+@import '@style/_media';
+
 .header {
   padding: 8px 0px;
 
@@ -21,9 +23,22 @@
   color: var(--clr-secondary-300);
 }
 
+.main {
+  padding: 65px 0px 35px;
+
+  display: flex;
+  gap: 30px;
+}
+
 .footer {
   padding: 16px 0px;
 
   display: flex;
   justify-content: flex-end;
+}
+
+@include laptop {
+  .main {
+    padding: 15px 0px;
+  }
 }

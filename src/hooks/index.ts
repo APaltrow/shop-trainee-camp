@@ -3,3 +3,4 @@ export * from './useDebounce';
 export * from './useSearch';
 export * from './useProductsFilter';
 export * from './useToggle';
+export * from './useCategoryTotals';

@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
 import { useProductsFilter } from '@hooks';
-import { InfoTooltip, Error } from '@components';
+import { InfoTooltip, Error, Sidebar } from '@components';
 
 import { ProductsList } from '../ProductsList';
 
@@ -27,11 +27,13 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
-
-      <ProductsList
-        productsList={products}
-        isLoading={isLoading}
-      />
+      <div className={style.main}>
+        <Sidebar />
+        <ProductsList
+          productsList={products}
+          isLoading={isLoading}
+        />
+      </div>
 
       <div className={style.footer}>
         <div className={style.totals}>

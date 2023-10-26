@@ -1,9 +1,8 @@
 @import '@style/_media';
 
 .container {
-  padding: 65px 0px 35px;
   display: flex;
-  gap: 30px;
+  flex: 1;
 }
 
 .list {
@@ -11,10 +10,4 @@
   flex-direction: column;
   gap: 32px;
   flex: 1;
-}
-
-@include laptop {
-  .container {
-    padding: 15px 0px;
-  }
 }
