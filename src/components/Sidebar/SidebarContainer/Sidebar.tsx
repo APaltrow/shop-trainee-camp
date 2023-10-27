@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { SidebarCategories } from '../SidebarCategories';
 import { Brands } from '../Brands';
 import { SidebarRating } from '../SidebarRating';
+import { SidebarPrice } from '../SidebarPrice';
 
 import style from './Sidebar.module.scss';
 
@@ -12,6 +13,7 @@ export const Sidebar: FC = () => {
       <SidebarCategories />
       <Brands />
       <SidebarRating />
+      <SidebarPrice />
     </aside>
   );
 };

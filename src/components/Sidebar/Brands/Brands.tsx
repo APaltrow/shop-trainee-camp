@@ -1,12 +1,23 @@
 import { FC } from 'react';
 
+import { useAppSelector } from '@redux';
+import { Checkbox } from '@components';
+
 import style from './Brands.module.scss';
-import { Checkbox } from '@/components';
 
 interface BrandsProps {}
 
 export const Brands: FC<BrandsProps> = () => {
-  const brandsList = new Array(5).fill('Brand');
+  const { activeCategory, activeBrands } = useAppSelector(
+    (state) => state.productsFilter,
+  );
+  const categories = useAppSelector((state) => state.products.categories);
+
+  const allBrands = categories ? Object.values(categories) : [];
+  const brandsByCategory =
+    categories && activeCategory ? categories[activeCategory] : [];
+
+  const brandsList = activeCategory ? brandsByCategory : allBrands.flat();
 
   return (
     <section className={style.container}>
@@ -14,8 +25,12 @@ export const Brands: FC<BrandsProps> = () => {
       <ul className={style.list}>
         {brandsList.map((brand, idx) => (
           <li key={`sidebar_brands_${brand}_${idx + 1}`}>
-            <Checkbox isChecked={idx % 2} />{' '}
-            <span>{`${brand} ${idx + 1}`}</span>
+            <Checkbox
+              id={brand}
+              isChecked={activeBrands.includes(brand)}
+              onChange={() => {}}
+            />
+            <span>{brand}</span>
           </li>
         ))}
       </ul>

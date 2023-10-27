@@ -15,7 +15,11 @@ export const SidebarRating: FC<SidebarRatingProps> = () => {
       <ul className={style.list}>
         {ratingsList.map((ratingitem, idx) => (
           <li key={`sidebar_rating_${ratingitem}_${idx + 1}`}>
-            <Checkbox isChecked={idx % 2} />
+            <Checkbox
+              id={`sidebar_rating_checkbox_${idx + 1}`}
+              isChecked={!!(idx % 2)}
+              onChange={() => {}}
+            />
             <Rating rating={ratingsList.length - idx} />
           </li>
         ))}
