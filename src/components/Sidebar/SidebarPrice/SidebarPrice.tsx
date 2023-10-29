@@ -53,7 +53,6 @@ export const SidebarPrice: FC<SidebarPriceProps> = ({
 
   const onMaxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const maxValue = +e.target.value;
-
     setMaxInput(maxValue);
 
     if (maxValue <= min + priceGap) {
