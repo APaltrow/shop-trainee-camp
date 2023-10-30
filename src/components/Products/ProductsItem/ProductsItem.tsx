@@ -12,6 +12,7 @@ interface ProductsItemProps {
 }
 
 const FREE_SHIPPING = 'Free Shipping';
+const PRICE_DESCIMALS = 2;
 
 export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   const {
@@ -27,7 +28,11 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     originCountry,
   } = product;
 
-  const productPrice = price.discount ? price.discountedAmount : price.amount;
+  const productPrice = price.discount
+    ? price.discountedAmount.toFixed(PRICE_DESCIMALS)
+    : price.amount.toFixed(PRICE_DESCIMALS);
+
+  const productOriginalPrice = price.amount.toFixed(PRICE_DESCIMALS);
 
   const deliveryCost = delivery.cost
     ? `${delivery.cost} ${price.currency}`
@@ -36,6 +41,15 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   const deliveryTime = `Delivery in ${delivery.timeframe} day${
     delivery.timeframe > 1 ? 's' : ''
   }`;
+
+  const additionalInfoDTO = {
+    origin: originCountry,
+    brand: brands.join(', '),
+    delivery: delivery.area.join(', '),
+    stock: `${stock.amount} ${stock.measure}`,
+  };
+
+  const additionalInfoList = Object.entries(additionalInfoDTO);
 
   return (
     <article className={style.container}>
@@ -51,7 +65,19 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
             <p>{description.short}</p>
             <Rating rating={rating} />
           </div>
-          <Accordion>
+
+          <div className={style.additional_info_container}>
+            <ul className={style.additional_info}>
+              {additionalInfoList.map(([infoTitle, info]) => (
+                <li className={style.additional_info_item}>
+                  <span>{infoTitle}</span>
+                  <span>{info}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* <Accordion>
             <div className={style.additional_info_container}>
               <ul className={style.additional_info}>
                 <li>Origin</li>
@@ -66,14 +92,14 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
                 <li>{`${stock.amount} ${stock.measure}`}</li>
               </ul>
             </div>
-          </Accordion>
+              </Accordion> */}
         </div>
 
         <div className={style.price_and_delivery_container}>
           <div className={style.price}>
             <p>{`${productPrice} ${price.currency}`}</p>
 
-            {price.discount ? <span>{price.amount.toFixed(2)}</span> : null}
+            {price.discount ? <span>{productOriginalPrice}</span> : null}
           </div>
 
           <div className={style.delivery_info}>

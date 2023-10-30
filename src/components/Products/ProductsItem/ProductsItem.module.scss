@@ -19,11 +19,12 @@
 }
 
 .info {
-  max-width: 250px;
+  min-width: 250px;
 
   display: flex;
   flex-direction: column;
   gap: 25px;
+  flex: 1;
 }
 
 .description {
@@ -35,24 +36,62 @@
     color: var(--clr-secondary);
     font-size: 18px;
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
 .additional_info_container {
   display: flex;
   gap: 32px;
-
-  white-space: nowrap;
 }
 
 .additional_info {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex: 1;
 
   font-size: 14px;
   font-weight: 400;
   color: var(--clr-secondary-300);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.additional_info_item {
+  display: flex;
+  gap: 20px;
+
+  & > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: wrap;
+  }
+
+  & > span:first-child {
+    width: 80px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  & > span:last-child {
+    flex: 1;
+  }
+
+  &:last-child {
+    & > span:last-child {
+      color: var(--clr-accent-A);
+    }
+  }
 }
 
 .price_and_delivery_container {
@@ -117,13 +156,7 @@
   }
 
   .info {
-    min-width: 100%;
-
     gap: 10px;
-  }
-
-  .delivery_info {
-    display: none;
   }
 }
 
