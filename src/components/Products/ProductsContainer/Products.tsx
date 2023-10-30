@@ -34,7 +34,7 @@ export const Products: FC = () => {
 
       <div className={style.footer}>
         <div className={style.totals}>
-          <InfoTooltip info={productsList.length} />
+          <InfoTooltip info={`${productsList.length}`} />
           <span>Products</span>
         </div>
       </div>
