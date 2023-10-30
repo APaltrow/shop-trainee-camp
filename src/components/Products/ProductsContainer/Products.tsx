@@ -23,7 +23,7 @@ export const Products: FC = () => {
         <h1>All products</h1>
 
         <div className={style.totals}>
-          <InfoTooltip info={totalFilteredProducts} />
+          <InfoTooltip info={`${totalFilteredProducts}`} />
           <span>Products</span>
         </div>
       </div>
@@ -35,7 +35,8 @@ export const Products: FC = () => {
 
       <div className={style.footer}>
         <div className={style.totals}>
-          <InfoTooltip info={totalProducts} />
+          <InfoTooltip info={`${totalProducts}`} />
+
           <span>Products</span>
         </div>
       </div>

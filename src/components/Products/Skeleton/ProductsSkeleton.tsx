@@ -44,20 +44,6 @@ export const ProductsSkeleton: FC = () => {
                         className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
                       />
                     </ul>
-                    <ul className={style.additional_info}>
-                      <p
-                        className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
-                      />
-                      <p
-                        className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
-                      />
-                      <p
-                        className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
-                      />
-                      <p
-                        className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
-                      />
-                    </ul>
                   </div>
                 </div>
 

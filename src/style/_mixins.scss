@@ -5,6 +5,12 @@
   border-radius: $border_radius;
 }
 
+@mixin with-text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+
 @mixin with-skeleton {
   @keyframes skeleton-loading {
     0% {

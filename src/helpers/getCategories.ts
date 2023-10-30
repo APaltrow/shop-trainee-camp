@@ -1,12 +1,10 @@
-import { IProduct } from '@types';
-
-type Categories = Record<string, string[]>;
+import { Categories, IProduct } from '@types';
 
 export const getCategories = (productsList: IProduct[]) => {
-  return productsList.reduce((acc, { category, brands }) => {
+  return productsList.reduce((acc, { category, brand }) => {
     const allBrands: string[] = acc[category]
-      ? [...acc[category], ...brands]
-      : brands;
+      ? [...acc[category], brand]
+      : [brand];
 
     const uniqueBrands = new Set<string>(allBrands);
 
