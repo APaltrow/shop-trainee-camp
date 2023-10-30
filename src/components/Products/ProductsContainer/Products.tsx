@@ -22,7 +22,7 @@ export const Products: FC = () => {
         <h1>All products</h1>
 
         <div className={style.totals}>
-          <InfoTooltip info={productsList.length} />
+          <InfoTooltip info={`${productsList.length}`} />
           <span>Products</span>
         </div>
       </div>

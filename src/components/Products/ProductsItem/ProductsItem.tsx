@@ -23,7 +23,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     imgs,
     stock,
     price,
-    brands,
+    brand,
     rating,
     delivery,
     productId,
@@ -48,7 +48,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
 
   const additionalInfoDTO = {
     origin: originCountry,
-    brand: brands.join(', '),
+    brand,
     delivery: delivery.area.join(', '),
     stock: `${stock.amount} ${stock.measure}`,
   };

@@ -10,6 +10,7 @@ export interface IProduct {
   rating: number;
   originCountry: string;
   category: string;
+  brand: string;
 
   price: IPrice;
   stock: IStock;
@@ -17,7 +18,6 @@ export interface IProduct {
   delivery: IDelivery;
   buyBy: BuyBy[];
 
-  brands: string[];
   imgs: string[];
   reviews: string[];
   questions: string[];
