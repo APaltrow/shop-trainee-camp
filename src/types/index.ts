@@ -1,2 +1,2 @@
-export * from './productTypes';
-export * from './stateTypes';
+export * from './product';
+export * from './store';
