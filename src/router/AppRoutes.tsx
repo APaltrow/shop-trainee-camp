@@ -1,5 +1,5 @@
 import { RoutesPaths } from '@constants';
-import { HomePage } from '@pages';
+import { HomePage, ProductsPage } from '@pages';
 
 export const AppRoutes = [
   {
@@ -8,7 +8,7 @@ export const AppRoutes = [
   },
   {
     path: RoutesPaths.ALL_PRODUCTS,
-    element: <div>All products page</div>,
+    element: <ProductsPage />,
   },
   {
     path: RoutesPaths.PRODUCT,

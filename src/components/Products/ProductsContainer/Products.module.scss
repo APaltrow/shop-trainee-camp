@@ -1,0 +1,29 @@
+.header {
+  padding: 8px 0px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & > h1 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+}
+
+.totals {
+  display: flex;
+  gap: 5px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--clr-secondary-300);
+}
+
+.footer {
+  padding: 16px 0px;
+
+  display: flex;
+  justify-content: flex-end;
+}

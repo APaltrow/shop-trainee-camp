@@ -30,11 +30,13 @@
   z-index: -10;
 }
 
-@include tablet {
+@include laptop {
   .overlay_bg {
     left: -10px;
   }
+}
 
+@include tablet {
   .main_block {
     padding: 16px 0px;
   }

@@ -4,4 +4,8 @@ export enum IconsTypes {
   SEARCH = 'search',
   ARROW_DOWN = 'arrow-down',
   PROFILE = 'profile',
+  STAR = 'star',
+  STAR_EMPTY = 'star-empty',
+  HEART = 'heart',
+  ERROR = 'error',
 }

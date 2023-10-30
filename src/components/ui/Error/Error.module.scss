@@ -1,0 +1,37 @@
+@import '@style/_media';
+
+.container {
+  padding: 20px 0px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  & > svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--clr-accent-C);
+  }
+
+  & > p {
+    font-style: italic;
+  }
+}
+
+@include tablet {
+  .container {
+    & > svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    & > h3 {
+      font-size: 18px;
+    }
+
+    & > p {
+      font-size: 14px;
+    }
+  }
+}

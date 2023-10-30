@@ -10,14 +10,6 @@ export const PATHS_TO_BREADCRUMBS: Record<NavigationPaths, string> = {
   [NavigationPaths.CART]: 'Cart',
 };
 
-export const NAV_LINKS = [
-  { text: 'All products', path: NavigationPaths.ALL_PRODUCTS },
-  { text: 'Single product', path: `${NavigationPaths.ALL_PRODUCTS}/1` },
-  { text: 'Some other category 1', path: `#` },
-  { text: 'Some other category 2', path: `#` },
-  { text: 'Some other category 3', path: `#` },
-];
-
 export const CONTACT_LINKS = [
   { link: '#', text: 'Chat with us', id: 'link_chat' },
   { link: 'tel:+420336775664', text: '+420 336 775 664', id: 'link_tel' },

@@ -13,7 +13,8 @@
       "@components": ["src/components"],
       "@layouts": ["src/layouts"],
       "@pages": ["src/pages"],
-      "@router": ["src/router"]
+      "@router": ["src/router"],
+      "@api": ["src/api"]
     },
 
     "target": "ES2020",
