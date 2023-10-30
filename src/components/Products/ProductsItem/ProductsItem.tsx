@@ -2,8 +2,13 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { IProduct } from '@types';
-import { ButtonSizes, ButtonVariants, IconsTypes } from '@constants';
-import { Accordion, CustomButton, Icon, Rating, Image } from '@components';
+import {
+  ButtonSizes,
+  ButtonVariants,
+  IconsTypes,
+  PRICE_DESCIMALS,
+} from '@constants';
+import { CustomButton, Icon, Rating, Image } from '@components';
 
 import style from './ProductsItem.module.scss';
 
@@ -12,7 +17,6 @@ interface ProductsItemProps {
 }
 
 const FREE_SHIPPING = 'Free Shipping';
-const PRICE_DESCIMALS = 2;
 
 export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   const {
@@ -53,58 +57,47 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
 
   return (
     <article className={style.container}>
-      <Image
-        src={imgs[0]}
-        alt={productTitle}
-      />
+      <NavLink to={productId}>
+        <Image
+          src={imgs[0]}
+          alt={productTitle}
+        />
+      </NavLink>
 
       <div className={style.content}>
         <div className={style.info}>
           <div className={style.description}>
-            <h2>{productTitle}</h2>
+            <h2>
+              <NavLink to={productId}>{productTitle}</NavLink>
+            </h2>
+
             <p>{description.short}</p>
             <Rating rating={rating} />
           </div>
 
-          <div className={style.additional_info_container}>
-            <ul className={style.additional_info}>
-              {additionalInfoList.map(([infoTitle, info]) => (
-                <li className={style.additional_info_item}>
-                  <span>{infoTitle}</span>
-                  <span>{info}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* <Accordion>
-            <div className={style.additional_info_container}>
-              <ul className={style.additional_info}>
-                <li>Origin</li>
-                <li>Brand</li>
-                <li>Delivery</li>
-                <li>Stock</li>
-              </ul>
-              <ul className={style.additional_info}>
-                <li>{originCountry}</li>
-                <li>{brands.join(', ')}</li>
-                <li>{delivery.area.join(', ')}</li>
-                <li>{`${stock.amount} ${stock.measure}`}</li>
-              </ul>
-            </div>
-              </Accordion> */}
+          <ul className={style.additional_info}>
+            {additionalInfoList.map(([infoTitle, info]) => (
+              <li
+                className={style.additional_info_item}
+                key={`info_${infoTitle}`}
+              >
+                <span>{infoTitle}</span>
+                <span>{info}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className={style.price_and_delivery_container}>
           <div className={style.price}>
             <p>{`${productPrice} ${price.currency}`}</p>
 
-            {price.discount ? <span>{productOriginalPrice}</span> : null}
+            {price.discount ? <p>{productOriginalPrice}</p> : null}
           </div>
 
           <div className={style.delivery_info}>
             <p>{deliveryCost}</p>
-            <span>{deliveryTime}</span>
+            <p>{deliveryTime}</p>
           </div>
 
           <div className={style.buttons}>
