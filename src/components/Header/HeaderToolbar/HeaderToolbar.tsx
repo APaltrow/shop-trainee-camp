@@ -1,10 +1,10 @@
 import { ChangeEvent, FC } from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import { IconsTypes, NavigationPaths, SelectVariants } from '@constants';
-import { filterProducts } from '@helpers';
-import { useSearch, useToggle } from '@hooks';
+
+import { useSearch, useSearchSuggestions, useToggle } from '@hooks';
 import {
   Icon,
   Search,
@@ -20,15 +20,10 @@ import style from './HeaderToolbar.module.scss';
 const ALL_CATEGORIES = 'All categories';
 const LOGO_ALT = 'Freshnesecom logo';
 const SEARCH_PLACEHOLDER = 'Search products...';
-const MIN_SEARCH_LENGTH = 2;
 
 export const HeaderToolbar: FC = () => {
-  const { categories, productsList } = useAppSelector(
-    (state) => state.products,
-  );
-  const { activeCategory, searchValue: searchedValue } = useAppSelector(
-    (state) => state.productsFilter,
-  );
+  const { categories } = useAppSelector((state) => state.products);
+  const { activeCategory } = useAppSelector((state) => state.productsFilter);
 
   const { setActiveCategory, setActiveBrand } = useActions();
 
@@ -36,7 +31,7 @@ export const HeaderToolbar: FC = () => {
 
   const { isOpened, onOpen, onClose } = useToggle();
 
-  const { pathname } = useLocation();
+  const searchSuggestions = useSearchSuggestions();
 
   const navigate = useNavigate();
 
@@ -67,18 +62,11 @@ export const HeaderToolbar: FC = () => {
 
   const categoriesList = categories ? Object.keys(categories) : [];
 
+  const isSuggestionsShown = isOpened && searchSuggestions.length;
+
   const categoriesOptions = activeCategory
     ? [ALL_CATEGORIES, ...categoriesList]
     : categoriesList;
-
-  const isSuggestionsShown =
-    isOpened &&
-    searchedValue.length > MIN_SEARCH_LENGTH &&
-    pathname.split('/').at(-1) !== NavigationPaths.ALL_PRODUCTS;
-
-  const searchSuggestions = isSuggestionsShown
-    ? filterProducts.bySearchValue(productsList, searchedValue)
-    : [];
 
   const search = (
     <Search
@@ -94,7 +82,7 @@ export const HeaderToolbar: FC = () => {
       anchor={search}
       onClose={onClose}
     >
-      {searchSuggestions.length
+      {isSuggestionsShown
         ? searchSuggestions.map(({ productTitle, productId }) => (
             <DropdownItem
               key={`search_option_${productId}`}
