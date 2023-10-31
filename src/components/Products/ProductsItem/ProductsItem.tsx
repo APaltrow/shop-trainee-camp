@@ -18,7 +18,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     imgs,
     stock,
     price,
-    brands,
+    brand,
     rating,
     delivery,
     productId,
@@ -61,7 +61,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
               </ul>
               <ul className={style.additional_info}>
                 <li>{originCountry}</li>
-                <li>{brands.join(', ')}</li>
+                <li>{brand}</li>
                 <li>{delivery.area.join(', ')}</li>
                 <li>{`${stock.amount} ${stock.measure}`}</li>
               </ul>

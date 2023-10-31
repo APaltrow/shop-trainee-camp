@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
 import { useCategoryTotals } from '@hooks';
-import { CustomButton, InfoTooltip } from '@components';
+import { Accordion, CustomButton, InfoTooltip } from '@components';
 
 import style from './SidebarCategories.module.scss';
 
@@ -16,8 +16,7 @@ export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
 
   const categoriesList = categories ? Object.keys(categories) : [];
   return (
-    <section className={style.container}>
-      <h4>Categories</h4>
+    <Accordion title="Categories">
       <ul className={style.list}>
         {categoriesList.map((category, idx) => (
           <li key={`sidebar_${category}_${idx + 1}`}>
@@ -34,6 +33,6 @@ export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </Accordion>
   );
 };

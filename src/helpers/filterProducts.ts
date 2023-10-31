@@ -9,9 +9,7 @@ export const filterProducts = {
   byBrands: (products: IProduct[], activeBrands: string[]) => {
     if (!activeBrands.length) return products;
 
-    return products.filter(({ brands }) =>
-      brands.some((brand: string) => activeBrands.includes(brand)),
-    );
+    return products.filter(({ brand }) => activeBrands.includes(brand));
   },
   bySearchValue: (products: IProduct[], searchValue: string) => {
     if (!searchValue) return products;

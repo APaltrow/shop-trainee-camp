@@ -1,8 +1,16 @@
 import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
-import { useProductsFilter } from '@hooks';
-import { InfoTooltip, Error, Sidebar } from '@components';
+import { useMedia, useProductsFilter, useToggle } from '@hooks';
+import { IconsTypes } from '@constants';
+import {
+  InfoTooltip,
+  Error,
+  Sidebar,
+  Icon,
+  CustomButton,
+  Portal,
+} from '@components';
 
 import { ProductsList } from '../ProductsList';
 
@@ -13,9 +21,32 @@ export const Products: FC = () => {
   const { products, totalProducts, totalFilteredProducts } =
     useProductsFilter();
 
+  const { isTablet } = useMedia();
+
+  const { isOpened, toggle } = useToggle();
+
   if (error) {
     return <Error errorMessage={error} />;
   }
+
+  const sidebar = !isTablet ? (
+    <Sidebar />
+  ) : (
+    <Portal>
+      <Sidebar
+        isOpened={isOpened}
+        onClose={toggle}
+      />
+    </Portal>
+  );
+  const filterButton = isTablet ? (
+    <CustomButton onClick={toggle}>
+      <span className={style.filer_btn}>
+        <Icon iconName={IconsTypes.FILTER} />
+      </span>
+      Filters
+    </CustomButton>
+  ) : null;
 
   return (
     <div>
@@ -27,8 +58,9 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
+      <div className={style.sort_container}>{filterButton}</div>
       <div className={style.main}>
-        <Sidebar />
+        {sidebar}
         <ProductsList
           productsList={products}
           isLoading={isLoading}

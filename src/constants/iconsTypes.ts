@@ -9,4 +9,6 @@ export enum IconsTypes {
   HEART = 'heart',
   ERROR = 'error',
   CHECK_MARK = 'check-mark',
+  FILTER = 'filter',
+  CLOSE = 'close',
 }

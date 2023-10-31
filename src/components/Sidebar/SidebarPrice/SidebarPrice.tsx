@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react';
 
 import style from './SidebarPrice.module.scss';
+import { Accordion } from '@/components';
 
 interface SidebarPriceProps {
   priceMin: number;
@@ -79,75 +80,75 @@ export const SidebarPrice: FC<SidebarPriceProps> = ({
   };
 
   return (
-    <section className={style.container}>
-      <h4>Price</h4>
-
-      <div className={style.slider_container}>
-        <span
-          className={style.slider_track}
-          style={{
-            left: `${sliderMin}%`,
-            right: `${sliderMax}%`,
-          }}
-        />
-        <input
-          type="range"
-          min={priceMin}
-          max={priceMax}
-          step={STEP}
-          value={min}
-          onChange={onMinChange}
-        />
-        <input
-          type="range"
-          min={priceMin}
-          max={priceMax}
-          step={STEP}
-          value={max}
-          onChange={onMaxChange}
-        />
-      </div>
-
-      <div>
-        <div className={style.min_max_container}>
-          <label
-            htmlFor="price_min"
-            className={style.label}
-          >
-            <span>Min</span>
-
-            <input
-              id="price_min"
-              type="number"
-              className={style.input}
-              min={priceMin}
-              max={priceMax}
-              onChange={onMinChange}
-              step={STEP}
-              value={minInput}
-            />
-          </label>
-
-          <label
-            htmlFor="price_max"
-            className={style.label}
-          >
-            <span>Max</span>
-
-            <input
-              id="price_max"
-              min={priceMin}
-              max={priceMax}
-              onChange={onMaxChange}
-              step={STEP}
-              type="number"
-              className={style.input}
-              value={maxInput}
-            />
-          </label>
+    <Accordion title="Price">
+      <div className={style.container}>
+        <div className={style.slider_container}>
+          <span
+            className={style.slider_track}
+            style={{
+              left: `${sliderMin}%`,
+              right: `${sliderMax}%`,
+            }}
+          />
+          <input
+            type="range"
+            min={priceMin}
+            max={priceMax}
+            step={STEP}
+            value={min}
+            onChange={onMinChange}
+          />
+          <input
+            type="range"
+            min={priceMin}
+            max={priceMax}
+            step={STEP}
+            value={max}
+            onChange={onMaxChange}
+          />
         </div>
-        <p className={style.error}>{priceError}</p>
+
+        <div>
+          <div className={style.min_max_container}>
+            <label
+              htmlFor="price_min"
+              className={style.label}
+            >
+              <span>Min</span>
+
+              <input
+                id="price_min"
+                type="number"
+                className={style.input}
+                min={priceMin}
+                max={priceMax}
+                onChange={onMinChange}
+                step={STEP}
+                value={minInput}
+              />
+            </label>
+
+            <label
+              htmlFor="price_max"
+              className={style.label}
+            >
+              <span>Max</span>
+
+              <input
+                id="price_max"
+                min={priceMin}
+                max={priceMax}
+                onChange={onMaxChange}
+                step={STEP}
+                type="number"
+                className={style.input}
+                value={maxInput}
+              />
+            </label>
+          </div>
+          <p className={style.error}>{priceError}</p>
+        </div>
       </div>
-    </section>
+    </Accordion>
   );
 };

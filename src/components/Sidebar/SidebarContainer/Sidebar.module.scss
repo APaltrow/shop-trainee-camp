@@ -1,7 +1,73 @@
+@import '@style/_media';
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 48px;
 
   width: 250px;
+}
+
+.close_btn {
+  display: none;
+}
+
+@include tablet {
+  .container {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 30px 20px;
+
+    position: fixed;
+    top: 0;
+    right: -110vw;
+
+    z-index: 100;
+
+    gap: 0px;
+
+    background-color: var(--clr-primary);
+  }
+
+  .close_btn {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+
+    & > button > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .opened {
+    right: 0;
+
+    animation: slide-in 0.3s ease-in-out;
+  }
+
+  .closed {
+    right: -110vw;
+
+    animation: slide-out 0.3s ease-in-out;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    right: -110vw;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -110vw;
+  }
 }

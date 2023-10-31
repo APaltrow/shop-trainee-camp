@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Checkbox, Rating } from '@components';
+import { Accordion, Checkbox, Rating } from '@components';
 
 import style from './SidebarRating.module.scss';
 
@@ -10,8 +10,7 @@ export const SidebarRating: FC<SidebarRatingProps> = () => {
   const ratingsList = new Array(5).fill('rating');
 
   return (
-    <section className={style.container}>
-      <h4>Rating</h4>
+    <Accordion title="Rating">
       <ul className={style.list}>
         {ratingsList.map((ratingitem, idx) => (
           <li key={`sidebar_rating_${ratingitem}_${idx + 1}`}>
@@ -24,6 +23,6 @@ export const SidebarRating: FC<SidebarRatingProps> = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </Accordion>
   );
 };

@@ -14,6 +14,19 @@
   }
 }
 
+.sort_container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filer_btn {
+  & > svg {
+    height: 24px;
+    width: 24px;
+    fill: var(--clr-secondary);
+  }
+}
+
 .totals {
   display: flex;
   gap: 5px;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
-import { Checkbox } from '@components';
+import { Accordion, Checkbox } from '@components';
 
 import style from './Brands.module.scss';
 
@@ -20,8 +20,7 @@ export const Brands: FC<BrandsProps> = () => {
   const brandsList = activeCategory ? brandsByCategory : allBrands.flat();
 
   return (
-    <section className={style.container}>
-      <h4>Brands</h4>
+    <Accordion title="Brands">
       <ul className={style.list}>
         {brandsList.map((brand, idx) => (
           <li key={`sidebar_brands_${brand}_${idx + 1}`}>
@@ -34,6 +33,6 @@ export const Brands: FC<BrandsProps> = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </Accordion>
   );
 };
