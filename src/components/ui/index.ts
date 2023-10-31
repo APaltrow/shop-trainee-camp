@@ -9,3 +9,4 @@ export * from './CustomSelect';
 export * from './Image';
 export * from './Error';
 export * from './NoResults';
+export * from './Dropdown';

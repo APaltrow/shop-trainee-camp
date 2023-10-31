@@ -35,7 +35,7 @@ export const Breadcrumbs: FC = () => {
       {paths.length
         ? paths.map((path) => {
             const breadcrumb = getBreadcrumb(path);
-            const isActive = path === paths[paths.length - 1];
+            const isActive = path === paths.at(-1);
 
             return (
               <NavLink

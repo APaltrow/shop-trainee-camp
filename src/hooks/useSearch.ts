@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 import { useDebounce } from '@hooks';
 import { useActions, useAppSelector } from '@redux';
@@ -18,10 +18,9 @@ export const useSearch = () => {
     DELAY,
   );
 
-  const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const searchText = e.target.value;
-
+  const onSearch = (searchText: string) => {
     setSearchValue(searchText);
+
     debouncedSearch(searchText.trim());
   };
 

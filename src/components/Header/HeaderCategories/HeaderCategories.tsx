@@ -16,7 +16,9 @@ interface CategoriesProps {
 const ALL_BRANDS = 'All brands';
 
 export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
-  const isLoading = useAppSelector((state) => state.products.isLoading);
+  const { categories: categoriesList, isLoading } = useAppSelector(
+    (state) => state.products,
+  );
 
   const { setActiveCategory, setActiveBrand } = useActions();
 
@@ -25,10 +27,10 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
   const handleBrandSelect = (category: string, brand: string) => {
     setActiveCategory(category);
 
-    if (brand === ALL_BRANDS) {
-      setActiveBrand(null);
+    if (brand === ALL_BRANDS && categoriesList) {
+      setActiveBrand(categoriesList[category]);
     } else {
-      setActiveBrand(brand);
+      setActiveBrand([brand]);
     }
 
     navigate(NavigationPaths.ALL_PRODUCTS);
