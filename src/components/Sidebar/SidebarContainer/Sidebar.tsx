@@ -16,20 +16,28 @@ interface SidebarProps {
   onClose?: () => void;
 }
 
-export const Sidebar: FC<SidebarProps> = ({ isOpened, onClose }) => {
+export const Sidebar: FC<SidebarProps> = ({
+  isOpened,
+
+  onClose = () => {},
+}) => {
   return (
-    <aside
-      className={`${style.container} ${isOpened ? style.opened : style.closed}`}
-    >
+    <aside className={`${style.container} ${isOpened ? style.opened : ''}`}>
       <span className={style.close_btn}>
         <CustomButton onClick={onClose}>
           <Icon iconName={IconsTypes.CLOSE} />
         </CustomButton>
       </span>
+
       <SidebarCategories />
       <Brands />
       <SidebarRating />
-      <SidebarPrice />
+      <SidebarPrice
+        priceMin={24.99}
+        priceMax={58.99}
+      />
+
+      <CustomButton onClick={() => {}}>Reset filters</CustomButton>
     </aside>
   );
 };

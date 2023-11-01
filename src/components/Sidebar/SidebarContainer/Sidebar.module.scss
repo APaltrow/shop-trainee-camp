@@ -12,28 +12,38 @@
   display: none;
 }
 
+@include desktop {
+  .container {
+    width: 200px;
+  }
+}
+
 @include tablet {
   .container {
     width: 100vw;
-    min-height: 100vh;
-    padding: 30px 20px;
+    height: 100vh;
+    padding: 50px 30px;
 
     position: fixed;
     top: 0;
-    right: -110vw;
-
     z-index: 100;
 
-    gap: 0px;
+    display: grid;
+    grid-template-columns: repeat(2, calc((100vw - 80px) / 2));
+    column-gap: 20px;
+    row-gap: 0px;
+    transition: transform 0.3s;
+    transform: translateX(100%);
 
     background-color: var(--clr-primary);
+    overflow: auto;
   }
 
   .close_btn {
     display: block;
     position: absolute;
-    right: 20px;
-    top: 5px;
+    right: 30px;
+    top: 20px;
 
     & > button > svg {
       width: 24px;
@@ -42,32 +52,14 @@
   }
 
   .opened {
-    right: 0;
-
-    animation: slide-in 0.3s ease-in-out;
-  }
-
-  .closed {
-    right: -110vw;
-
-    animation: slide-out 0.3s ease-in-out;
+    transform: translateX(0%);
   }
 }
 
-@keyframes slide-in {
-  0% {
-    right: -110vw;
-  }
-  100% {
-    right: 0;
-  }
-}
-
-@keyframes slide-out {
-  0% {
-    right: 0;
-  }
-  100% {
-    right: -110vw;
+@include mobile {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 }

@@ -1,8 +1,10 @@
 import { FC } from 'react';
 
-import { useAppSelector } from '@redux';
+import { useActions, useAppSelector } from '@redux';
 import { useCategoryTotals } from '@hooks';
-import { Accordion, CustomButton, InfoTooltip } from '@components';
+import { CustomButton, InfoTooltip } from '@components';
+
+import { SidebarBlock } from '../SidebarBlock';
 
 import style from './SidebarCategories.module.scss';
 
@@ -14,13 +16,23 @@ export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
 
   const categoryTotals = useCategoryTotals();
 
+  const { setActiveCategory, setActiveBrand } = useActions();
+
   const categoriesList = categories ? Object.keys(categories) : [];
+
+  const handleCategorySelect = (category: string) => {
+    if (!categories) return;
+
+    setActiveCategory(category);
+    setActiveBrand(categories[category]);
+  };
+
   return (
-    <Accordion title="Categories">
+    <SidebarBlock title="Categories">
       <ul className={style.list}>
         {categoriesList.map((category, idx) => (
           <li key={`sidebar_${category}_${idx + 1}`}>
-            <CustomButton onClick={() => {}}>
+            <CustomButton onClick={() => handleCategorySelect(category)}>
               <span
                 className={`${style.category_text} ${
                   category === activeCategory ? style.active : ''
@@ -29,10 +41,10 @@ export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
                 {category}
               </span>
             </CustomButton>
-            <InfoTooltip info={categoryTotals[category]} />
+            <InfoTooltip info={`${categoryTotals[category]}`} />
           </li>
         ))}
       </ul>
-    </Accordion>
+    </SidebarBlock>
   );
 };

@@ -1,7 +1,8 @@
 import { ChangeEvent, FC, useState } from 'react';
 
+import { SidebarBlock } from '../SidebarBlock';
+
 import style from './SidebarPrice.module.scss';
-import { Accordion } from '@/components';
 
 interface SidebarPriceProps {
   priceMin: number;
@@ -12,10 +13,7 @@ const STEP = 0.01;
 const MIN_GAP_PERCENT = 10;
 const ONE_HUNDRED_PERCENT = 100;
 
-export const SidebarPrice: FC<SidebarPriceProps> = ({
-  priceMin = 24.99,
-  priceMax = 58.99,
-}) => {
+export const SidebarPrice: FC<SidebarPriceProps> = ({ priceMin, priceMax }) => {
   const [sliderMin, setSliderMin] = useState(0);
   const [sliderMax, setSliderMax] = useState(0);
   const [min, setMin] = useState(priceMin);
@@ -80,7 +78,7 @@ export const SidebarPrice: FC<SidebarPriceProps> = ({
   };
 
   return (
-    <Accordion title="Price">
+    <SidebarBlock title="Price">
       <div className={style.container}>
         <div className={style.slider_container}>
           <span
@@ -149,6 +147,6 @@ export const SidebarPrice: FC<SidebarPriceProps> = ({
           <p className={style.error}>{priceError}</p>
         </div>
       </div>
-    </Accordion>
+    </SidebarBlock>
   );
 };

@@ -14,12 +14,12 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+
   flex: 1;
 }
 
 .info {
-  width: calc(100vw - 626px);
+  width: calc(100vw - 885px);
 
   display: flex;
   flex-direction: column;
@@ -147,12 +147,17 @@
   }
 }
 
-@include laptop {
+@include desktop {
   .content {
     padding: 10px;
-    gap: 10px;
   }
 
+  .info {
+    width: calc(100vw - 800px);
+  }
+}
+
+@include laptop {
   .info {
     width: calc(100vw - 526px);
   }

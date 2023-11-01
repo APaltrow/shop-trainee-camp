@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { useAppSelector } from '@redux';
 import { useMedia, useProductsFilter, useToggle } from '@hooks';
-import { IconsTypes } from '@constants';
+import { IconsTypes, NO_SCROLL_CLASS } from '@constants';
 import {
   InfoTooltip,
   Error,
@@ -39,6 +39,7 @@ export const Products: FC = () => {
       />
     </Portal>
   );
+
   const filterButton = isTablet ? (
     <CustomButton onClick={toggle}>
       <span className={style.filer_btn}>
@@ -47,6 +48,14 @@ export const Products: FC = () => {
       Filters
     </CustomButton>
   ) : null;
+
+  useEffect(() => {
+    if (isOpened) {
+      document.body.classList.add(NO_SCROLL_CLASS);
+    } else {
+      document.body.classList.remove(NO_SCROLL_CLASS);
+    }
+  }, [isOpened]);
 
   return (
     <div>
@@ -58,7 +67,9 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
-      <div className={style.sort_container}>{filterButton}</div>
+      {isTablet ? (
+        <div className={style.sort_container}>{filterButton}</div>
+      ) : null}
       <div className={style.main}>
         {sidebar}
         <ProductsList

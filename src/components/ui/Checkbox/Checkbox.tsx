@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import { IconsTypes } from '@constants';
 import { Icon } from '@components';
@@ -9,7 +9,7 @@ interface CheckboxProps {
   id: string;
   isChecked: boolean;
 
-  onChange: () => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({ id, isChecked, onChange }) => {

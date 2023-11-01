@@ -22,6 +22,11 @@
   }
 }
 
+body[class='no-scroll'] {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .app {
   min-height: 100vh;
 

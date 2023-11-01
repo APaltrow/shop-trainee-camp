@@ -4,10 +4,3 @@ export enum MediaBreakpoints {
   LAPTOP = '1024px',
   DESKTOP = '1200px',
 }
-
-export const DEFAULT_DEVICES = {
-  isMobile: false,
-  isTablet: false,
-  isLaptop: false,
-  isDesktop: false,
-};
