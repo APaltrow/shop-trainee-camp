@@ -1,78 +1,61 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
-import { IconsTypes } from '@constants';
-import { useClickOutside } from '@hooks';
-import { CustomButton, Icon } from '@components';
+import { IconsTypes, SelectVariants } from '@constants';
+import { useToggle } from '@hooks';
+import { CustomButton, Dropdown, DropdownItem, Icon } from '@components';
 
 import style from './CustomSelect.module.scss';
 
 interface CustomSelectProps {
   options: string[];
-  defaultValue: string;
-  isReadOnly?: boolean;
+  selected: string;
+  variant: SelectVariants;
 
   onChange: (option: string) => void;
 }
 
-const DEFAULT_ALL = 'All';
-
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
-  defaultValue,
-  isReadOnly = false,
+  selected,
+  variant = SelectVariants.DEFAULT,
 
   onChange,
 }) => {
-  const initialValue = defaultValue || DEFAULT_ALL;
+  const { isOpened, toggle, onClose } = useToggle();
 
-  const [isOpened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(initialValue);
-
-  const handleSelect = (option: string) => {
-    setSelected(option);
+  const handleSelectOption = (option: string) => {
     onChange(option);
-    setOpened(false);
+    onClose();
   };
 
-  const handleClick = () => setOpened((prev) => !prev);
-
-  const dropdownRef = useClickOutside(() => setOpened(false));
-
-  const isOptionAdded = !isReadOnly && selected !== initialValue;
+  const selectAnchor = (
+    <CustomButton onClick={toggle}>
+      <span className={`${style.option_text} ${style[variant]}`}>
+        {selected}
+      </span>
+      <span className={style[`btn_${variant}`]}>
+        <Icon iconName={IconsTypes.ARROW_DOWN} />
+      </span>
+    </CustomButton>
+  );
 
   return (
-    <div
-      className={style.container}
-      ref={dropdownRef}
+    <Dropdown
+      anchor={selectAnchor}
+      isOpened={isOpened}
+      onClose={onClose}
     >
-      <CustomButton onClick={handleClick}>
-        <span className={style.option_text}>
-          {isReadOnly ? defaultValue : selected}
-        </span>
-        <span className={style.btn}>
-          <Icon iconName={IconsTypes.ARROW_DOWN} />
-        </span>
-      </CustomButton>
+      {options.map((option) => {
+        if (option === selected) return null;
 
-      {isOpened ? (
-        <ul className={style.options_list}>
-          {isOptionAdded ? (
-            <li>
-              <CustomButton onClick={() => handleSelect(initialValue)}>
-                <span className={style.option_text}>{initialValue}</span>
-              </CustomButton>
-            </li>
-          ) : null}
-
-          {options.map((option) => (
-            <li key={`select_${option}`}>
-              <CustomButton onClick={() => handleSelect(option)}>
-                <span className={style.option_text}>{option}</span>
-              </CustomButton>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
+        return (
+          <DropdownItem
+            key={`select_${option}`}
+            option={option}
+            onSelect={() => handleSelectOption(option)}
+          />
+        );
+      })}
+    </Dropdown>
   );
 };

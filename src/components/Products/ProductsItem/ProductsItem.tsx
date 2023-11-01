@@ -6,7 +6,7 @@ import {
   ButtonSizes,
   ButtonVariants,
   IconsTypes,
-  PRICE_DESCIMALS,
+  PRICE_DECIMALS,
 } from '@constants';
 import { CustomButton, Icon, Rating, Image } from '@components';
 
@@ -33,10 +33,10 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   } = product;
 
   const productPrice = price.discount
-    ? price.discountedAmount.toFixed(PRICE_DESCIMALS)
-    : price.amount.toFixed(PRICE_DESCIMALS);
+    ? price.discountedAmount.toFixed(PRICE_DECIMALS)
+    : price.amount.toFixed(PRICE_DECIMALS);
 
-  const productOriginalPrice = price.amount.toFixed(PRICE_DESCIMALS);
+  const productOriginalPrice = price.amount.toFixed(PRICE_DECIMALS);
 
   const deliveryCost = delivery.cost
     ? `${delivery.cost} ${price.currency}`

@@ -6,13 +6,19 @@ import { Icon } from '@components';
 import style from './Search.module.scss';
 
 interface SearchProps {
-  value?: string;
+  value: string;
   placeholder: string;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus: () => void;
 }
 
-export const Search: FC<SearchProps> = ({ value, placeholder, onChange }) => {
+export const Search: FC<SearchProps> = ({
+  value,
+  placeholder,
+  onChange,
+  onFocus,
+}) => {
   return (
     <div className={style.container}>
       <input
@@ -20,6 +26,7 @@ export const Search: FC<SearchProps> = ({ value, placeholder, onChange }) => {
         value={value}
         autoComplete="off"
         onChange={onChange}
+        onFocus={onFocus}
         className={style.input}
         placeholder={placeholder}
       />

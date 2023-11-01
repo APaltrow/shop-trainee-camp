@@ -1,1 +1,1 @@
-export const PRICE_DESCIMALS = 2;
+export const PRICE_DECIMALS = 2;

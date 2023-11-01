@@ -1,16 +1,13 @@
 import { FC } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { NavigationPaths, PATHS_TO_BREADCRUMBS } from '@constants';
+import { useBreadcrumbs } from '@hooks';
+import { LAST_ELEMENT_INDEX, NavigationPaths } from '@constants';
 
 import style from './Breadcrumbs.module.scss';
 
-const PRODUCT_NAME = 'Carrots from Tomissy Farm';
-
 export const Breadcrumbs: FC = () => {
-  const { pathname } = useLocation();
-
-  const paths = pathname.split('/').filter((path) => !!path);
+  const { paths, getBreadcrumb } = useBreadcrumbs();
 
   return (
     <nav className={style.breadcrumbs}>
@@ -22,9 +19,8 @@ export const Breadcrumbs: FC = () => {
       </NavLink>
       {paths.length
         ? paths.map((path) => {
-            const breadcrumb =
-              PATHS_TO_BREADCRUMBS[path as NavigationPaths] || PRODUCT_NAME;
-            const isActive = path === paths[paths.length - 1];
+            const breadcrumb = getBreadcrumb(path);
+            const isActive = path === paths.at(LAST_ELEMENT_INDEX);
 
             return (
               <NavLink
