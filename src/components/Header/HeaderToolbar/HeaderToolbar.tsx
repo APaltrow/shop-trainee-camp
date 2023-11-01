@@ -51,8 +51,6 @@ export const HeaderToolbar: FC = () => {
       setActiveCategory(option);
       setActiveBrand(categories[option]);
     }
-
-    navigate(NavigationPaths.ALL_PRODUCTS);
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
