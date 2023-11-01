@@ -1,9 +1,11 @@
 import { useLocation, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '@redux';
-import { NavigationPaths, PATHS_TO_BREADCRUMBS } from '@constants';
-
-const NOT_FOUND = 'Not found';
+import {
+  ErrorsMessages,
+  NavigationPaths,
+  PATHS_TO_BREADCRUMBS,
+} from '@constants';
 
 export const useBreadcrumbs = () => {
   const productsList = useAppSelector((state) => state.products.productsList);
@@ -18,7 +20,7 @@ export const useBreadcrumbs = () => {
   const getBreadcrumb = (path: string) => {
     const breadcrumb = PATHS_TO_BREADCRUMBS[path as NavigationPaths];
 
-    return breadcrumb || productTitle || NOT_FOUND;
+    return breadcrumb || productTitle || ErrorsMessages.NOT_FOUND;
   };
 
   return {

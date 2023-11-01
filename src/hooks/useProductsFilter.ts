@@ -23,10 +23,16 @@ export const useProductsFilter = () => {
     searchValue,
   );
 
+  const searchSuggestionsList = filterProducts.bySearchValue(
+    filteredByCategory,
+    searchValue,
+  );
+
   return {
     products: filteredBySearchValue,
 
     totalProducts: productsList.length,
     totalFilteredProducts: filteredBySearchValue.length,
+    searchSuggestionsList,
   };
 };

@@ -46,6 +46,11 @@
     background-color: var(--clr-accent-A-200);
   }
 
+  &:disabled {
+    color: var(--clr-accent-C);
+    pointer-events: none;
+  }
+
   &::first-letter {
     text-transform: uppercase;
   }

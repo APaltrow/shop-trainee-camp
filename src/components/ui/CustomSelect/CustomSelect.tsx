@@ -42,21 +42,20 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   return (
     <Dropdown
       anchor={selectAnchor}
+      isOpened={isOpened}
       onClose={onClose}
     >
-      {isOpened
-        ? options.map((option) => {
-            if (option === selected) return null;
+      {options.map((option) => {
+        if (option === selected) return null;
 
-            return (
-              <DropdownItem
-                key={`select_${option}`}
-                option={option}
-                onSelect={() => handleSelectOption(option)}
-              />
-            );
-          })
-        : null}
+        return (
+          <DropdownItem
+            key={`select_${option}`}
+            option={option}
+            onSelect={() => handleSelectOption(option)}
+          />
+        );
+      })}
     </Dropdown>
   );
 };

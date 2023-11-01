@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useBreadcrumbs } from '@hooks';
-import { NavigationPaths } from '@constants';
+import { LAST_ELEMENT_INDEX, NavigationPaths } from '@constants';
 
 import style from './Breadcrumbs.module.scss';
 
@@ -20,7 +20,7 @@ export const Breadcrumbs: FC = () => {
       {paths.length
         ? paths.map((path) => {
             const breadcrumb = getBreadcrumb(path);
-            const isActive = path === paths.at(-1);
+            const isActive = path === paths.at(LAST_ELEMENT_INDEX);
 
             return (
               <NavLink

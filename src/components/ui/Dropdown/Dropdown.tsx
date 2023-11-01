@@ -7,12 +7,21 @@ import style from './Dropdown.module.scss';
 interface DropdownProps {
   children: ReactNode;
   anchor: JSX.Element;
+  isOpened: boolean;
 
   onClose: () => void;
 }
 
-export const Dropdown: FC<DropdownProps> = ({ anchor, children, onClose }) => {
+export const Dropdown: FC<DropdownProps> = ({
+  anchor,
+  children,
+  isOpened,
+
+  onClose,
+}) => {
   const dropdownRef = useClickOutside(() => onClose());
+
+  const isVisible = children && isOpened;
 
   return (
     <div
@@ -20,7 +29,7 @@ export const Dropdown: FC<DropdownProps> = ({ anchor, children, onClose }) => {
       ref={dropdownRef}
     >
       {anchor}
-      {children ? <ul className={style.options_list}>{children}</ul> : null}
+      {isVisible ? <ul className={style.options_list}>{children}</ul> : null}
     </div>
   );
 };

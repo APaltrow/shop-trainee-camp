@@ -2,7 +2,12 @@ import { ChangeEvent, FC } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
-import { IconsTypes, NavigationPaths, SelectVariants } from '@constants';
+import {
+  ErrorsMessages,
+  IconsTypes,
+  NavigationPaths,
+  SelectVariants,
+} from '@constants';
 
 import { useSearch, useSearchSuggestions, useToggle } from '@hooks';
 import {
@@ -31,7 +36,8 @@ export const HeaderToolbar: FC = () => {
 
   const { isOpened, onOpen, onClose } = useToggle();
 
-  const searchSuggestions = useSearchSuggestions();
+  const { searchSuggestions, isAnyResultFound, isSuggestionsShown } =
+    useSearchSuggestions();
 
   const navigate = useNavigate();
 
@@ -62,8 +68,6 @@ export const HeaderToolbar: FC = () => {
 
   const categoriesList = categories ? Object.keys(categories) : [];
 
-  const isSuggestionsShown = isOpened && searchSuggestions.length;
-
   const categoriesOptions = activeCategory
     ? [ALL_CATEGORIES, ...categoriesList]
     : categoriesList;
@@ -80,17 +84,23 @@ export const HeaderToolbar: FC = () => {
   const searchBar = (
     <Dropdown
       anchor={search}
+      isOpened={isSuggestionsShown && isOpened}
       onClose={onClose}
     >
-      {isSuggestionsShown
-        ? searchSuggestions.map(({ productTitle, productId }) => (
-            <DropdownItem
-              key={`search_option_${productId}`}
-              option={productTitle}
-              onSelect={() => handleSuggestionClick(productId)}
-            />
-          ))
-        : null}
+      {isAnyResultFound ? (
+        searchSuggestions.map(({ productTitle, productId }) => (
+          <DropdownItem
+            key={`search_option_${productId}`}
+            option={productTitle}
+            onSelect={() => handleSuggestionClick(productId)}
+          />
+        ))
+      ) : (
+        <DropdownItem
+          option={ErrorsMessages.NO_RESULTS}
+          isDisabled
+        />
+      )}
     </Dropdown>
   );
 

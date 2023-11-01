@@ -1,27 +1,29 @@
 import { useLocation } from 'react-router-dom';
 
 import { useAppSelector } from '@redux';
-import { NavigationPaths } from '@constants';
-import { filterProducts } from '@helpers';
+import { LAST_ELEMENT_INDEX, NavigationPaths } from '@constants';
+import { useProductsFilter } from '@hooks';
 
 const MIN_SEARCH_LENGTH = 2;
 
 export const useSearchSuggestions = () => {
-  const { productsList } = useAppSelector((state) => state.products);
   const { searchValue } = useAppSelector((state) => state.productsFilter);
+  const { searchSuggestionsList } = useProductsFilter();
 
   const { pathname } = useLocation();
 
   const isAllProductsPage =
-    pathname.split('/').at(-1) === NavigationPaths.ALL_PRODUCTS;
+    pathname.split('/').at(LAST_ELEMENT_INDEX) === NavigationPaths.ALL_PRODUCTS;
 
   const isSearchValueSutable = searchValue.length > MIN_SEARCH_LENGTH;
 
+  const isAnyResultFound = !!searchSuggestionsList.length;
+
   const isSuggestionsShown = isSearchValueSutable && !isAllProductsPage;
 
-  const searchSuggestions = isSuggestionsShown
-    ? filterProducts.bySearchValue(productsList, searchValue)
-    : [];
-
-  return searchSuggestions;
+  return {
+    searchSuggestions: searchSuggestionsList,
+    isAnyResultFound,
+    isSuggestionsShown,
+  };
 };

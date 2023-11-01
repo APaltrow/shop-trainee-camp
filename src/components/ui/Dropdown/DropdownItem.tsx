@@ -4,12 +4,14 @@ import style from './Dropdown.module.scss';
 
 interface DropdownItemProps {
   option: string;
+  isDisabled?: boolean;
 
-  onSelect: () => void;
+  onSelect?: () => void;
 }
 
 export const DropdownItem: FC<DropdownItemProps> = ({
   option,
+  isDisabled = false,
 
   onSelect,
 }) => {
@@ -18,6 +20,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
       <button
         className={style.item}
         type="button"
+        disabled={isDisabled}
         onClick={onSelect}
       >
         {option}
