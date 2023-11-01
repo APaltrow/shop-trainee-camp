@@ -1,6 +1,4 @@
-import { IProduct } from '@types';
-
-type Categories = Record<string, string[]>;
+import { Categories, IProduct } from '@types';
 
 export const getCategories = (productsList: IProduct[]) => {
   return productsList.reduce((acc, { category, brand }) => {

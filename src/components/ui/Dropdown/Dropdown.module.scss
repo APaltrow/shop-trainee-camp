@@ -1,0 +1,57 @@
+@import '@style/_mixins';
+@import '@style/_media';
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.options_list {
+  position: absolute;
+  left: -15px;
+  top: 32px;
+  z-index: 50;
+  max-width: 100%;
+  min-width: 110px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--clr-primary);
+  @include with-border;
+  box-shadow: -2px 2px 5px var(--clr-secondary-300);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.item {
+  max-width: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  padding: 8px 10px;
+
+  background-color: var(--clr-primary);
+
+  text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 15px;
+
+  &:hover {
+    background-color: var(--clr-accent-A-200);
+  }
+
+  &:disabled {
+    color: var(--clr-accent-C);
+    pointer-events: none;
+  }
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}

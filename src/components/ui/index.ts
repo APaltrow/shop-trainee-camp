@@ -11,3 +11,4 @@ export * from './Error';
 export * from './NoResults';
 export * from './Checkbox';
 export * from './Portal/Portal';
+export * from './Dropdown';

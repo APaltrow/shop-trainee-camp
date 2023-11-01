@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { IconsTypes, SelectVariants } from '@constants';
-import { useClickOutside, useToggle } from '@hooks';
-import { CustomButton, Icon } from '@components';
+import { useToggle } from '@hooks';
+import { CustomButton, Dropdown, DropdownItem, Icon } from '@components';
 
 import style from './CustomSelect.module.scss';
 
@@ -23,47 +23,39 @@ export const CustomSelect: FC<CustomSelectProps> = ({
 }) => {
   const { isOpened, toggle, onClose } = useToggle();
 
-  const dropdownRef = useClickOutside(() => onClose());
-
-  const handleSelectClick = () => toggle();
-
   const handleSelectOption = (option: string) => {
     onChange(option);
     onClose();
   };
 
+  const selectAnchor = (
+    <CustomButton onClick={toggle}>
+      <span className={`${style.option_text} ${style[variant]}`}>
+        {selected}
+      </span>
+      <span className={style[`btn_${variant}`]}>
+        <Icon iconName={IconsTypes.ARROW_DOWN} />
+      </span>
+    </CustomButton>
+  );
+
   return (
-    <div
-      className={style.container}
-      ref={dropdownRef}
+    <Dropdown
+      anchor={selectAnchor}
+      isOpened={isOpened}
+      onClose={onClose}
     >
-      <CustomButton onClick={handleSelectClick}>
-        <span className={`${style.option_text} ${style[variant]}`}>
-          {selected}
-        </span>
-        <span className={style[`btn_${variant}`]}>
-          <Icon iconName={IconsTypes.ARROW_DOWN} />
-        </span>
-      </CustomButton>
+      {options.map((option) => {
+        if (option === selected) return null;
 
-      {isOpened ? (
-        <ul className={style.options_list}>
-          {options.map((option) => {
-            if (option === selected) return null;
-
-            return (
-              <li key={`select_${option}`}>
-                <button
-                  type="button"
-                  onClick={() => handleSelectOption(option)}
-                >
-                  {option}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
-    </div>
+        return (
+          <DropdownItem
+            key={`select_${option}`}
+            option={option}
+            onSelect={() => handleSelectOption(option)}
+          />
+        );
+      })}
+    </Dropdown>
   );
 };

@@ -24,20 +24,18 @@
 
 @include tablet {
   .container {
-    padding: 10px 0px;
+    padding: 10px 10px;
 
     overflow: hidden;
-
-    flex-direction: column;
     gap: 10px;
 
     & > ul {
-      flex-direction: column;
       gap: 10px;
+      flex-direction: column;
     }
 
-    & > ul:nth-child(1) {
-      order: 2;
+    & > ul:last-child {
+      text-align: right;
     }
   }
 }

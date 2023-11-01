@@ -3,7 +3,7 @@ import { FC } from 'react';
 import style from './InfoTooltip.module.scss';
 
 interface InfoTooltipProps {
-  info: string | number;
+  info: string;
 }
 
 export const InfoTooltip: FC<InfoTooltipProps> = ({ info }) => {

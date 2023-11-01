@@ -1,3 +1,3 @@
-export * from './productTypes';
-export * from './stateTypes';
-export * from './productsFilterTypes';
+export * from './product';
+export * from './store';
+export * from './productFilter';

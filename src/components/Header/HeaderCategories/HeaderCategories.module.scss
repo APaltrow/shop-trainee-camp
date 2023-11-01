@@ -13,6 +13,7 @@
   font-weight: 500;
 
   & > li {
+    max-width: 120px;
     text-wrap: nowrap;
 
     &::first-letter {

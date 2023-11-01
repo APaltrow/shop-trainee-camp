@@ -5,3 +5,5 @@ export * from './useProductsFilter';
 export * from './useToggle';
 export * from './useCategoryTotals';
 export * from './useMedia';
+export * from './useSearchSuggestions';
+export * from './useBreadcrumbs';
