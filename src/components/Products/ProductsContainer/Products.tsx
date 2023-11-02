@@ -1,8 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
-import { useMedia, useProductsFilter, useToggle } from '@hooks';
-import { IconsTypes, NO_SCROLL_CLASS } from '@constants';
+import { useMedia, useNoScroll, useProductsFilter, useToggle } from '@hooks';
+import { IconsTypes } from '@constants';
 import {
   InfoTooltip,
   Error,
@@ -24,6 +24,8 @@ export const Products: FC = () => {
   const { isTablet } = useMedia();
 
   const { isOpened, toggle } = useToggle();
+
+  useNoScroll(isOpened);
 
   if (error) {
     return <Error errorMessage={error} />;
@@ -48,14 +50,6 @@ export const Products: FC = () => {
       Filters
     </CustomButton>
   ) : null;
-
-  useEffect(() => {
-    if (isOpened) {
-      document.body.classList.add(NO_SCROLL_CLASS);
-    } else {
-      document.body.classList.remove(NO_SCROLL_CLASS);
-    }
-  }, [isOpened]);
 
   return (
     <div>

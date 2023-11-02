@@ -32,10 +32,7 @@ export const Sidebar: FC<SidebarProps> = ({
       <SidebarCategories />
       <Brands />
       <SidebarRating />
-      <SidebarPrice
-        priceMin={24.99}
-        priceMax={58.99}
-      />
+      <SidebarPrice />
 
       <CustomButton onClick={() => {}}>Reset filters</CustomButton>
     </aside>

@@ -11,6 +11,11 @@ export const filterProducts = {
 
     return products.filter(({ brand }) => activeBrands.includes(brand));
   },
+  byRatings: (products: IProduct[], activeRatings: number[]) => {
+    if (!activeRatings.length) return products;
+
+    return products.filter(({ rating }) => activeRatings.includes(rating));
+  },
   bySearchValue: (products: IProduct[], searchValue: string) => {
     if (!searchValue) return products;
 

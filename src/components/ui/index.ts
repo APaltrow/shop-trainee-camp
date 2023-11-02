@@ -12,3 +12,5 @@ export * from './NoResults';
 export * from './Checkbox';
 export * from './Portal/Portal';
 export * from './Dropdown';
+export * from './Slider';
+export * from './PriceInput';
