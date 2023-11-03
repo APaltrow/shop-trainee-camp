@@ -32,11 +32,11 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     originCountry,
   } = product;
 
+  const productOriginalPrice = price.amount.toFixed(PRICE_DECIMALS);
+
   const productPrice = price.discount
     ? price.discountedAmount.toFixed(PRICE_DECIMALS)
-    : price.amount.toFixed(PRICE_DECIMALS);
-
-  const productOriginalPrice = price.amount.toFixed(PRICE_DECIMALS);
+    : productOriginalPrice;
 
   const deliveryCost = delivery.cost
     ? `${delivery.cost} ${price.currency}`
@@ -92,7 +92,9 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
           <div className={style.price}>
             <p>{`${productPrice} ${price.currency}`}</p>
 
-            {price.discount ? <p>{productOriginalPrice}</p> : null}
+            {price.discount ? (
+              <p className={style.old_price}>{productOriginalPrice}</p>
+            ) : null}
           </div>
 
           <div className={style.delivery_info}>

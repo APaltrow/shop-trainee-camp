@@ -108,7 +108,7 @@
     @include with-text-overflow;
   }
 
-  & > p:last-child {
+  .old_price {
     font-size: 12px;
     font-weight: 600;
     text-decoration: line-through;
