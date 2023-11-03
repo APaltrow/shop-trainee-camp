@@ -1,3 +1,5 @@
+@import '@style/_variables';
+
 .list {
   display: flex;
   flex-direction: column;
@@ -7,5 +9,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+    & > div > svg {
+      fill: $clr_gold;
+    }
   }
 }

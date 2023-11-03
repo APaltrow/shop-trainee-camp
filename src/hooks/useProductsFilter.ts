@@ -5,8 +5,13 @@ import { useEffect } from 'react';
 export const useProductsFilter = () => {
   const { productsList } = useAppSelector((state) => state.products);
 
-  const { activeCategory, activeBrands, activeRatings, searchValue } =
-    useAppSelector((state) => state.productsFilter);
+  const {
+    activeCategory,
+    activeBrands,
+    activeRatings,
+    activePriceRange,
+    searchValue,
+  } = useAppSelector((state) => state.productsFilter);
 
   const { setActivePriceRange, setPriceRange } = useActions();
 
@@ -25,8 +30,13 @@ export const useProductsFilter = () => {
     activeRatings,
   );
 
-  const filteredBySearchValue = filterProducts.bySearchValue(
+  const filteredByPriceRange = filterProducts.byPriceRange(
     filteredByRatings,
+    activePriceRange,
+  );
+
+  const filteredBySearchValue = filterProducts.bySearchValue(
+    filteredByPriceRange,
     searchValue,
   );
 

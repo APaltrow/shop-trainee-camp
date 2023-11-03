@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
-import { CustomButton, Icon } from '@components';
 import { IconsTypes } from '@constants';
+import { useActions } from '@redux';
+import { CustomButton, Icon } from '@components';
 
 import { SidebarCategories } from '../SidebarCategories';
 import { Brands } from '../Brands';
@@ -21,6 +22,10 @@ export const Sidebar: FC<SidebarProps> = ({
 
   onClose = () => {},
 }) => {
+  const { resetFilters } = useActions();
+
+  const handleResetFilters = () => resetFilters();
+
   return (
     <aside className={`${style.container} ${isOpened ? style.opened : ''}`}>
       <span className={style.close_btn}>
@@ -34,7 +39,7 @@ export const Sidebar: FC<SidebarProps> = ({
       <SidebarRating />
       <SidebarPrice />
 
-      <CustomButton onClick={() => {}}>Reset filters</CustomButton>
+      <CustomButton onClick={handleResetFilters}>Reset filters</CustomButton>
     </aside>
   );
 };

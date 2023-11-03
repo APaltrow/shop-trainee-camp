@@ -1,7 +1,11 @@
+@import '@style/_mixins';
+
 .list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  overflow: hidden;
 
   & > li {
     display: flex;
@@ -10,14 +14,21 @@
     flex: 1;
 
     font-size: 12px;
+
+    & > button {
+      justify-content: flex-start;
+    }
   }
 }
 
-.category_text {
+.text {
+  min-width: 100px;
+  max-width: 150px;
+
   font-size: 14px;
   font-weight: 400;
-
-  border-bottom: 2px solid transparent;
+  text-align: start;
+  @include with-text-overflow;
 
   &::first-letter {
     text-transform: uppercase;
@@ -27,5 +38,4 @@
 .active {
   font-weight: 700;
   color: var(--clr-accent-A);
-  border-bottom: 2px solid var(--clr-accent-A);
 }

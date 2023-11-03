@@ -1,4 +1,4 @@
-import { IProduct } from '@types';
+import { IPriceRange, IProduct } from '@types';
 
 export const filterProducts = {
   byCategory: (products: IProduct[], activeCategory: string | null) => {
@@ -15,6 +15,18 @@ export const filterProducts = {
     if (!activeRatings.length) return products;
 
     return products.filter(({ rating }) => activeRatings.includes(rating));
+  },
+  byPriceRange: (products: IProduct[], priceRange: IPriceRange) => {
+    const { min, max } = priceRange;
+
+    if (min === 0 && max === 0) return products;
+
+    return products.filter(({ price }) => {
+      const { amount, discount, discountedAmount } = price;
+      const actualPrice = discount ? discountedAmount : amount;
+
+      return actualPrice >= min && actualPrice <= max;
+    });
   },
   bySearchValue: (products: IProduct[], searchValue: string) => {
     if (!searchValue) return products;

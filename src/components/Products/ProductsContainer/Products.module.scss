@@ -15,10 +15,12 @@
 }
 
 .sort_container {
+  padding: 30px 0px;
+
   display: flex;
   justify-content: flex-end;
 
-  padding: 30px 0px;
+  background-color: var(--clr-primary);
 }
 
 .filer_btn {
@@ -55,5 +57,12 @@
 @include laptop {
   .main {
     padding: 15px 0px;
+  }
+}
+
+@include tablet {
+  .sort_container {
+    position: sticky;
+    top: 0;
   }
 }

@@ -1,0 +1,10 @@
+@import '@style/_mixins';
+
+.item {
+  height: 20px;
+  border-radius: 20px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@include with-skeleton;

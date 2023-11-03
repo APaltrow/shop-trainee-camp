@@ -46,6 +46,10 @@
 
     @include with-text-overflow;
   }
+
+  & > div > svg {
+    fill: var(--clr-secondary);
+  }
 }
 
 .additional_info {

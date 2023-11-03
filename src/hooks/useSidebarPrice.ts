@@ -110,6 +110,13 @@ export const useSidebarPrice = () => {
       min: priceMin,
       max: priceMax,
     });
+
+    setSliderPosition({
+      min: 0,
+      max: 0,
+    });
+
+    setPriceError('');
   }, [priceMin, priceMax]);
 
   const isDisabled = priceMin === priceMax;

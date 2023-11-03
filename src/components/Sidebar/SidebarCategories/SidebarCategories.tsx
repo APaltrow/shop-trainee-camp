@@ -5,13 +5,12 @@ import { useCategoryTotals } from '@hooks';
 import { CustomButton, InfoTooltip } from '@components';
 
 import { SidebarBlock } from '../SidebarBlock';
+import { SidebarSkeleton } from '../Skeletons';
 
 import style from './SidebarCategories.module.scss';
 
-interface SidebarCategoriesProps {}
-
-export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
-  const { categories } = useAppSelector((state) => state.products);
+export const SidebarCategories: FC = () => {
+  const { categories, isLoading } = useAppSelector((state) => state.products);
   const { activeCategory } = useAppSelector((state) => state.productsFilter);
 
   const categoryTotals = useCategoryTotals();
@@ -24,26 +23,36 @@ export const SidebarCategories: FC<SidebarCategoriesProps> = () => {
     if (!categories) return;
 
     setActiveCategory(category);
-    setActiveBrand(categories[category]);
+    setActiveBrand([]);
   };
+
+  if (isLoading) {
+    return (
+      <SidebarBlock title="Categories">
+        <SidebarSkeleton />
+      </SidebarBlock>
+    );
+  }
 
   return (
     <SidebarBlock title="Categories">
       <ul className={style.list}>
-        {categoriesList.map((category, idx) => (
-          <li key={`sidebar_${category}_${idx + 1}`}>
-            <CustomButton onClick={() => handleCategorySelect(category)}>
-              <span
-                className={`${style.category_text} ${
-                  category === activeCategory ? style.active : ''
-                }`}
-              >
-                {category}
-              </span>
-            </CustomButton>
-            <InfoTooltip info={`${categoryTotals[category]}`} />
-          </li>
-        ))}
+        {categoriesList.map((category, idx) => {
+          const isActive = category === activeCategory;
+
+          return (
+            <li key={`sidebar_${category}_${idx + 1}`}>
+              <CustomButton onClick={() => handleCategorySelect(category)}>
+                <span
+                  className={`${style.text} ${isActive ? style.active : ''}`}
+                >
+                  {category}
+                </span>
+              </CustomButton>
+              <InfoTooltip info={`${categoryTotals[category]}`} />
+            </li>
+          );
+        })}
       </ul>
     </SidebarBlock>
   );

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { FC } from 'react';
 
 import { useActions, useAppSelector } from '@redux';
 import { Checkbox, Rating } from '@components';
@@ -7,20 +7,16 @@ import { SidebarBlock } from '../SidebarBlock';
 
 import style from './SidebarRating.module.scss';
 
-interface SidebarRatingProps {}
+const DEFAULT_RATING = 5;
+const RATING_NAME = 'rating';
 
-export const SidebarRating: FC<SidebarRatingProps> = () => {
-  const ratingsList = new Array(5).fill('rating');
+export const SidebarRating: FC = () => {
+  const ratingsList = new Array(DEFAULT_RATING).fill(RATING_NAME);
   const { activeRatings } = useAppSelector((state) => state.productsFilter);
 
   const { setActiveRatings } = useActions();
 
-  const handleRatingSelect = (
-    rating: number,
-    e: ChangeEvent<HTMLInputElement>,
-  ) => {
-    const isSelected = e.target.checked;
-
+  const handleRatingSelect = (rating: number, isSelected: boolean) => {
     const updatedRatingsList = isSelected
       ? [...activeRatings, rating]
       : activeRatings.filter((activeRating) => activeRating !== rating);
@@ -35,11 +31,13 @@ export const SidebarRating: FC<SidebarRatingProps> = () => {
           const ratingValue = ratingsList.length - idx;
 
           return (
-            <li key={`sidebar_rating_${ratingitem}_${ratingValue}`}>
+            <li key={`${ratingitem}_${ratingValue}`}>
               <Checkbox
-                id={`sidebar_rating_checkbox_${ratingValue}`}
+                id={`checkbox_${ratingValue}`}
                 isChecked={activeRatings.includes(ratingValue)}
-                onChange={(e) => handleRatingSelect(ratingValue, e)}
+                onChange={(e) =>
+                  handleRatingSelect(ratingValue, e.target.checked)
+                }
               />
               <Rating rating={ratingValue} />
             </li>

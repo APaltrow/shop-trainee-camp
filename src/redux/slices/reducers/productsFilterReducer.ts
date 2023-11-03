@@ -5,7 +5,7 @@ import { IPriceRange, ProductsFilterState } from '@types';
 const initialState: ProductsFilterState = {
   activeCategory: null,
   activeBrands: [],
-  activeRatings: [1, 2, 3, 4, 5],
+  activeRatings: [],
   priceRange: {
     min: 0,
     max: 0,
@@ -32,12 +32,27 @@ export const productsFilterSlice = createSlice({
     },
     setPriceRange: (state, { payload }: PayloadAction<IPriceRange>) => {
       state.priceRange = payload;
+      state.activePriceRange = payload;
     },
     setActivePriceRange: (state, { payload }: PayloadAction<IPriceRange>) => {
       state.activePriceRange = { ...state.activePriceRange, ...payload };
     },
     setSearch: (state, { payload }: PayloadAction<string>) => {
       state.searchValue = payload;
+    },
+    resetFilters: (state) => {
+      state.activeCategory = null;
+      state.activeBrands = [];
+      state.activeRatings = [];
+      state.priceRange = {
+        min: 0,
+        max: 0,
+      };
+      state.activePriceRange = {
+        min: 0,
+        max: 0,
+      };
+      state.searchValue = '';
     },
   },
 });
