@@ -2,16 +2,10 @@ import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
 import { useMedia, useNoScroll, useProductsFilter, useToggle } from '@hooks';
-import { IconsTypes } from '@constants';
-import {
-  InfoTooltip,
-  Error,
-  Sidebar,
-  Icon,
-  CustomButton,
-  Portal,
-} from '@components';
 
+import { InfoTooltip, Error, Sidebar, Portal } from '@components';
+
+import { ProductsToolbar } from '../ProductsToolbar';
 import { ProductsList } from '../ProductsList';
 
 import style from './Products.module.scss';
@@ -42,15 +36,6 @@ export const Products: FC = () => {
     </Portal>
   );
 
-  const filterButton = isTablet ? (
-    <CustomButton onClick={toggle}>
-      <span className={style.filer_btn}>
-        <Icon iconName={IconsTypes.FILTER} />
-      </span>
-      Filters
-    </CustomButton>
-  ) : null;
-
   return (
     <div>
       <div className={style.header}>
@@ -61,9 +46,9 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
-      {isTablet ? (
-        <div className={style.sort_container}>{filterButton}</div>
-      ) : null}
+
+      <ProductsToolbar toggle={toggle} />
+
       <div className={style.main}>
         {sidebar}
         <ProductsList

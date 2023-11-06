@@ -5,3 +5,4 @@ export * from './getProductsMinMaxPrice';
 export * from './getPercentFromValue';
 export * from './scrollToTop';
 export * from './getAlreadyActiveBrands';
+export * from './sortProducts';

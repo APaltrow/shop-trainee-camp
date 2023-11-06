@@ -1,4 +1,5 @@
 @import '@style/_media';
+@import '@style/_mixins';
 
 .header {
   padding: 8px 0px;
@@ -11,23 +12,6 @@
   & > h1 {
     font-size: 32px;
     font-weight: 600;
-  }
-}
-
-.sort_container {
-  padding: 30px 0px;
-
-  display: flex;
-  justify-content: flex-end;
-
-  background-color: var(--clr-primary);
-}
-
-.filer_btn {
-  & > svg {
-    height: 24px;
-    width: 24px;
-    fill: var(--clr-secondary);
   }
 }
 
@@ -57,12 +41,5 @@
 @include laptop {
   .main {
     padding: 15px 0px;
-  }
-}
-
-@include tablet {
-  .sort_container {
-    position: sticky;
-    top: 0;
   }
 }

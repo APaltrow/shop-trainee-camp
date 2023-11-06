@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { IPriceRange, ProductsFilterState } from '@types';
+import { IPriceRange, ISort, ProductsFilterState } from '@types';
 
 const initialState: ProductsFilterState = {
   activeCategory: null,
@@ -14,6 +14,7 @@ const initialState: ProductsFilterState = {
     min: 0,
     max: 0,
   },
+  sort: null,
   searchValue: '',
 };
 
@@ -36,6 +37,9 @@ export const productsFilterSlice = createSlice({
     },
     setActivePriceRange: (state, { payload }: PayloadAction<IPriceRange>) => {
       state.activePriceRange = { ...state.activePriceRange, ...payload };
+    },
+    setSort: (state, { payload }: PayloadAction<ISort>) => {
+      state.sort = payload;
     },
     setSearch: (state, { payload }: PayloadAction<string>) => {
       state.searchValue = payload;

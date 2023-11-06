@@ -11,4 +11,6 @@ export enum IconsTypes {
   CHECK_MARK = 'check-mark',
   FILTER = 'filter',
   CLOSE = 'close',
+  ORDER_ASC = 'order-asc',
+  ORDER_DESC = 'order-desc',
 }

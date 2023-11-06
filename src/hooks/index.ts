@@ -9,3 +9,4 @@ export * from './useSearchSuggestions';
 export * from './useBreadcrumbs';
 export * from './useNoScroll';
 export * from './useSidebarPrice';
+export * from './useProductsSort';
