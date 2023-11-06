@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { IconsTypes } from '@constants';
 import { useActions } from '@redux';
+import { scrollToTop } from '@helpers';
 import { CustomButton, Icon } from '@components';
 
 import { SidebarCategories } from '../SidebarCategories';
@@ -24,7 +25,10 @@ export const Sidebar: FC<SidebarProps> = ({
 }) => {
   const { resetFilters } = useActions();
 
-  const handleResetFilters = () => resetFilters();
+  const handleResetFilters = () => {
+    resetFilters();
+    scrollToTop();
+  };
 
   return (
     <aside className={`${style.container} ${isOpened ? style.opened : ''}`}>

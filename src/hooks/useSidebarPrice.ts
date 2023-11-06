@@ -1,8 +1,13 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useActions, useAppSelector } from '@redux';
-import { getPercentFromValue, getPriceGap } from '@helpers';
-import { PRICE_DECIMALS } from '@constants';
+import { getPercentFromValue } from '@helpers';
+import {
+  MIN_PRICE_GAP_USD,
+  PRICE_DECIMALS,
+  PriceErrors,
+  ZERO_POSITION,
+} from '@constants';
 import { useDebounce } from '@hooks';
 import { IPriceRange } from '@types';
 
@@ -14,8 +19,8 @@ export const useSidebarPrice = () => {
   const { setActivePriceRange } = useActions();
 
   const [sliderPosition, setSliderPosition] = useState({
-    min: 0,
-    max: 0,
+    min: ZERO_POSITION,
+    max: ZERO_POSITION,
   });
 
   const [valueRange, setValueRange] = useState({
@@ -28,32 +33,30 @@ export const useSidebarPrice = () => {
     max: priceMax,
   });
 
-  const [priceError, setPriceError] = useState('');
+  const [priceError, setPriceError] = useState<PriceErrors | string>(
+    PriceErrors.DEFAULT,
+  );
 
   const priceMinMaxDifference = +(priceMax - priceMin).toFixed(PRICE_DECIMALS);
-  const priceGap = getPriceGap(priceMinMaxDifference);
 
   const handleActivePriceRange = useDebounce((range: IPriceRange) =>
     setActivePriceRange(range),
   );
 
-  const onMinChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const minValue = +e.target.value;
+  const onMinChange = (value: number) => {
+    const minValue = +value.toFixed(PRICE_DECIMALS);
 
     setInputValue((prev) => ({ ...prev, min: minValue }));
 
-    if (minValue >= valueRange.max - priceGap) {
-      setPriceError(
-        `Min price cannot exceed ${(valueRange.max - priceGap).toFixed(
-          PRICE_DECIMALS,
-        )}`,
-      );
+    const maxValueWithGap = valueRange.max - MIN_PRICE_GAP_USD;
+
+    if (minValue >= maxValueWithGap) {
+      setPriceError(`${PriceErrors.MIN_EXCEED} ${maxValueWithGap}`);
       return;
     }
+
     if (minValue < priceMin) {
-      setPriceError(
-        `Min price cannot be less than ${priceMin.toFixed(PRICE_DECIMALS)}`,
-      );
+      setPriceError(`${PriceErrors.MIN_BELOW} ${priceMin}`);
       return;
     }
 
@@ -62,29 +65,27 @@ export const useSidebarPrice = () => {
       priceMinMaxDifference,
     );
 
-    setPriceError('');
+    setPriceError(PriceErrors.DEFAULT);
 
     setSliderPosition((prev) => ({ ...prev, min: sliderMinPercent }));
     setValueRange((prev) => ({ ...prev, min: minValue }));
     handleActivePriceRange({ min: minValue } as IPriceRange);
   };
 
-  const onMaxChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const maxValue = +e.target.value;
+  const onMaxChange = (value: number) => {
+    const maxValue = +value.toFixed(PRICE_DECIMALS);
+
     setInputValue((prev) => ({ ...prev, max: maxValue }));
 
-    if (maxValue <= valueRange.min + priceGap) {
-      setPriceError(
-        `Max price cannot be less than ${(valueRange.min + priceGap).toFixed(
-          PRICE_DECIMALS,
-        )}`,
-      );
+    const minValueWithGap = valueRange.min + MIN_PRICE_GAP_USD;
+
+    if (maxValue <= minValueWithGap) {
+      setPriceError(`${PriceErrors.MAX_BELOW} ${minValueWithGap}`);
       return;
     }
+
     if (maxValue > priceMax) {
-      setPriceError(
-        `Max price should not exceed ${priceMax.toFixed(PRICE_DECIMALS)}`,
-      );
+      setPriceError(`${PriceErrors.MAX_EXCEED} ${priceMax}`);
       return;
     }
 
@@ -95,7 +96,7 @@ export const useSidebarPrice = () => {
 
     setSliderPosition((prev) => ({ ...prev, max: sliderMaxPercent }));
     setValueRange((prev) => ({ ...prev, max: maxValue }));
-    setPriceError('');
+    setPriceError(PriceErrors.DEFAULT);
 
     handleActivePriceRange({ max: maxValue } as IPriceRange);
   };
@@ -112,11 +113,11 @@ export const useSidebarPrice = () => {
     });
 
     setSliderPosition({
-      min: 0,
-      max: 0,
+      min: ZERO_POSITION,
+      max: ZERO_POSITION,
     });
 
-    setPriceError('');
+    setPriceError(PriceErrors.DEFAULT);
   }, [priceMin, priceMax]);
 
   const isDisabled = priceMin === priceMax;

@@ -38,8 +38,12 @@ export const SidebarRating: FC = () => {
                 onChange={(e) =>
                   handleRatingSelect(ratingValue, e.target.checked)
                 }
-              />
-              <Rating rating={ratingValue} />
+              >
+                <Rating
+                  rating={ratingValue}
+                  isActive
+                />
+              </Checkbox>
             </li>
           );
         })}

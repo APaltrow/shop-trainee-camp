@@ -5,17 +5,14 @@
   flex-direction: column;
   gap: 12px;
 
-  & > li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  max-height: 200px;
+  min-height: 150px;
+  overflow: auto;
 
+  & > li {
     font-size: 14px;
     font-weight: 400;
-
-    & > span {
-      max-width: 70%;
-      @include with-text-overflow;
-    }
   }
+
+  @include with-scrollbar(10px);
 }

@@ -1,5 +1,7 @@
 import { ChangeEvent, FC } from 'react';
 
+import { SPECIAL_CHARACTERS } from '@constants';
+
 import style from './PriceInput.module.scss';
 
 interface PriceInputProps {
@@ -13,7 +15,7 @@ interface PriceInputProps {
 
   isDisabled: boolean;
 
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: number) => void;
 }
 
 export const PriceInput: FC<PriceInputProps> = ({
@@ -28,6 +30,18 @@ export const PriceInput: FC<PriceInputProps> = ({
 
   onChange,
 }) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (SPECIAL_CHARACTERS.includes(e.key)) {
+      e.preventDefault();
+    }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const numericValue = +e.target.value;
+
+    onChange(numericValue);
+  };
+
   return (
     <label
       htmlFor={id}
@@ -42,9 +56,10 @@ export const PriceInput: FC<PriceInputProps> = ({
         className={style.input}
         min={min}
         max={max}
-        onChange={onChange}
+        onKeyDown={(e) => handleKeyDown(e)}
+        onChange={handleChange}
         step={step}
-        value={value}
+        value={value || ''}
       />
     </label>
   );

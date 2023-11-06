@@ -47,8 +47,9 @@ export const Brands: FC = () => {
               id={brand}
               isChecked={activeBrands.includes(brand)}
               onChange={(e) => handleBrandCheck(brand, e.target.checked)}
-            />
-            <span>{brand}</span>
+            >
+              {brand}
+            </Checkbox>
           </li>
         ))}
       </ul>

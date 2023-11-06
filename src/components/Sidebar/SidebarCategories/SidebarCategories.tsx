@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { useActions, useAppSelector } from '@redux';
 import { useCategoryTotals } from '@hooks';
+import { getAlreadyActiveBrands } from '@helpers';
 import { CustomButton, InfoTooltip } from '@components';
 
 import { SidebarBlock } from '../SidebarBlock';
@@ -11,7 +12,9 @@ import style from './SidebarCategories.module.scss';
 
 export const SidebarCategories: FC = () => {
   const { categories, isLoading } = useAppSelector((state) => state.products);
-  const { activeCategory } = useAppSelector((state) => state.productsFilter);
+  const { activeCategory, activeBrands } = useAppSelector(
+    (state) => state.productsFilter,
+  );
 
   const categoryTotals = useCategoryTotals();
 
@@ -23,7 +26,13 @@ export const SidebarCategories: FC = () => {
     if (!categories) return;
 
     setActiveCategory(category);
-    setActiveBrand([]);
+
+    const alreadyActiveBrands = getAlreadyActiveBrands(
+      categories[category],
+      activeBrands,
+    );
+
+    setActiveBrand(alreadyActiveBrands);
   };
 
   if (isLoading) {

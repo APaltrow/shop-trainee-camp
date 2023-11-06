@@ -8,3 +8,4 @@ export * from './price';
 export * from './selectTypes';
 export * from './media';
 export * from './common';
+export * from './validators/specialCharacters';

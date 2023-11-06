@@ -20,6 +20,8 @@
   a[href='#'] {
     color: var(--clr-accent-A);
   }
+
+  @include with-scrollbar(15px);
 }
 
 body[class='no-scroll'] {

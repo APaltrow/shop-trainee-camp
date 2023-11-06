@@ -1,3 +1,5 @@
+@import '@style/_variables';
+
 .container {
   display: flex;
   gap: 3px;
@@ -5,5 +7,13 @@
   & > svg {
     width: 16px;
     height: 16px;
+
+    fill: var(--clr-secondary);
+  }
+}
+
+.active {
+  & > svg {
+    fill: $clr_gold;
   }
 }

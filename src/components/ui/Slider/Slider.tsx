@@ -1,5 +1,7 @@
 import { ChangeEvent, FC } from 'react';
 
+import { MIN_GAP, ZERO_POSITION } from '@constants';
+
 import style from './Slider.module.scss';
 
 interface SliderProps {
@@ -15,8 +17,8 @@ interface SliderProps {
 
   isDisabled: boolean;
 
-  onMinChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onMaxChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onMinChange: (value: number) => void;
+  onMaxChange: (value: number) => void;
 }
 
 export const Slider: FC<SliderProps> = ({
@@ -35,33 +37,57 @@ export const Slider: FC<SliderProps> = ({
   onMinChange,
   onMaxChange,
 }) => {
+  const positionLeft =
+    sliderMin - MIN_GAP > ZERO_POSITION && !isDisabled
+      ? sliderMin - MIN_GAP
+      : ZERO_POSITION;
+
+  const positionRight =
+    sliderMax - MIN_GAP > ZERO_POSITION && !isDisabled
+      ? sliderMax - MIN_GAP
+      : ZERO_POSITION;
+
+  const handleMinChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const numericValue = +e.target.value;
+
+    onMinChange(numericValue);
+  };
+
+  const handleMaxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const numericValue = +e.target.value;
+
+    onMaxChange(numericValue);
+  };
+
   return (
-    <div className={style.slider_container}>
-      <span
-        className={style.slider_track}
-        style={{
-          left: `${!isDisabled ? sliderMin : 0}%`,
-          right: `${!isDisabled ? sliderMax : 0}%`,
-        }}
-      />
-      <input
-        type="range"
-        min={priceMin}
-        max={priceMax}
-        step={step}
-        value={minValue}
-        onChange={onMinChange}
-        className={isDisabled ? style.disabled : ''}
-      />
-      <input
-        type="range"
-        min={priceMin}
-        max={priceMax}
-        step={step}
-        value={maxValue}
-        onChange={onMaxChange}
-        className={isDisabled ? style.disabled : ''}
-      />
+    <div className={style.container}>
+      <div className={style.slider}>
+        <span
+          className={style.slider_track}
+          style={{
+            left: `${positionLeft}%`,
+            right: `${positionRight}%`,
+          }}
+        />
+        <input
+          type="range"
+          min={priceMin}
+          max={priceMax}
+          step={step}
+          value={minValue}
+          onChange={handleMinChange}
+          className={`${style.min} ${isDisabled ? style.disabled : ''}`}
+        />
+        <input
+          type="range"
+          min={priceMin}
+          max={priceMax}
+          step={step}
+          value={maxValue}
+          onChange={handleMaxChange}
+          className={`${style.max} ${isDisabled ? style.disabled : ''}`}
+        />
+      </div>
     </div>
   );
 };
