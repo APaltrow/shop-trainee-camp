@@ -12,7 +12,7 @@ export const NoResults: FC = () => {
       <p>
         Could not find a match
         {searchValue ? (
-          <span className={style.search_text}>{`for '${searchValue}'`}</span>
+          <span className={style.search_text}>{` for '${searchValue}'`}</span>
         ) : null}
       </p>
     </article>

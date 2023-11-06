@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 
-import { SPECIAL_CHARACTERS } from '@constants';
+import { PRICE_PLACEHOLDER, SPECIAL_CHARACTERS } from '@constants';
 
 import style from './PriceInput.module.scss';
 
@@ -60,6 +60,7 @@ export const PriceInput: FC<PriceInputProps> = ({
         onChange={handleChange}
         step={step}
         value={value || ''}
+        placeholder={PRICE_PLACEHOLDER}
       />
     </label>
   );

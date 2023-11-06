@@ -5,3 +5,4 @@ export const ZERO_POSITION = 0;
 export const ZERO_GAP = 0;
 export const MIN_GAP = 5;
 export const MIN_PRICE_GAP_USD = 1;
+export const PRICE_PLACEHOLDER = '0,00';
