@@ -48,6 +48,8 @@ export const HeaderToolbar: FC = () => {
 
     if (option === ALL_CATEGORIES) {
       setActiveCategory(null);
+
+      setActiveBrand([]);
     } else {
       setActiveCategory(option);
 

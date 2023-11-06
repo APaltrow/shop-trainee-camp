@@ -57,8 +57,8 @@ export const SidebarCategories: FC = () => {
                 >
                   {category}
                 </span>
+                <InfoTooltip info={`${categoryTotals[category]}`} />
               </CustomButton>
-              <InfoTooltip info={`${categoryTotals[category]}`} />
             </li>
           );
         })}

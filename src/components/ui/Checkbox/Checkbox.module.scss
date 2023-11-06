@@ -18,8 +18,9 @@
 }
 
 .label {
-  height: 24px;
-  max-width: 70%;
+  height: 28px;
+  max-width: calc(100% - 34px);
+  min-width: calc(100% - 34px);
 
   display: flex;
   align-items: center;

@@ -7,23 +7,15 @@
 
   overflow: hidden;
 
-  & > li {
-    display: flex;
-    align-items: center;
+  & > li > button {
+    max-width: 100%;
+    min-width: 100%;
     justify-content: space-between;
-    flex: 1;
-
-    font-size: 12px;
-
-    & > button {
-      justify-content: flex-start;
-    }
   }
 }
 
 .text {
-  min-width: 100px;
-  max-width: 150px;
+  max-width: 80%;
 
   font-size: 14px;
   font-weight: 400;
