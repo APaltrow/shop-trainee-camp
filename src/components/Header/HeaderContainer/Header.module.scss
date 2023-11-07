@@ -26,13 +26,14 @@
   background-color: $clr_overlay;
 
   height: 100%;
-  width: 100vw;
+  width: calc(100vw - 15px);
   z-index: -10;
 }
 
 @include laptop {
   .overlay_bg {
     left: -10px;
+    width: 100vw;
   }
 }
 
