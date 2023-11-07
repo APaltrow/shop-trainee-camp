@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 
-import { MIN_GAP, ZERO_POSITION } from '@constants';
+import { getSliderPosition } from '@helpers';
 
 import style from './Slider.module.scss';
 
@@ -37,15 +37,9 @@ export const Slider: FC<SliderProps> = ({
   onMinChange,
   onMaxChange,
 }) => {
-  const positionLeft =
-    sliderMin - MIN_GAP > ZERO_POSITION && !isDisabled
-      ? sliderMin - MIN_GAP
-      : ZERO_POSITION;
+  const positionLeft = getSliderPosition(sliderMin, isDisabled);
 
-  const positionRight =
-    sliderMax - MIN_GAP > ZERO_POSITION && !isDisabled
-      ? sliderMax - MIN_GAP
-      : ZERO_POSITION;
+  const positionRight = getSliderPosition(sliderMax, isDisabled);
 
   const handleMinChange = (e: ChangeEvent<HTMLInputElement>) => {
     const numericValue = +e.target.value;

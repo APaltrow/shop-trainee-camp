@@ -61,9 +61,7 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
-      {isTablet ? (
-        <div className={style.sort_container}>{filterButton}</div>
-      ) : null}
+      {isTablet && <div className={style.sort_container}>{filterButton}</div>}
       <div className={style.main}>
         {sidebar}
         <ProductsList

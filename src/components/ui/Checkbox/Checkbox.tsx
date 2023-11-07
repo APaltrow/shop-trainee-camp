@@ -36,11 +36,11 @@ export const Checkbox: FC<CheckboxProps> = ({
         <span className={style.content}>{children}</span>
       </label>
 
-      {isChecked ? (
+      {isChecked && (
         <span className={style.checkmark}>
           <Icon iconName={IconsTypes.CHECK_MARK} />
         </span>
-      ) : null}
+      )}
     </div>
   );
 };
