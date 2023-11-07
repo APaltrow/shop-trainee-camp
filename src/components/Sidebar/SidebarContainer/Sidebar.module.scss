@@ -1,15 +1,29 @@
 @import '@style/_media';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-
   width: 250px;
 }
 
-.close_btn {
+.header {
   display: none;
+
+  height: 40px;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: var(--clr-primary);
+
+  & > button > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 @include desktop {
@@ -22,42 +36,51 @@
   .container {
     width: 100vw;
     height: 100vh;
-    padding: 50px 30px;
+    padding-left: calc(100vw - 400px);
 
     position: fixed;
     top: 0;
     z-index: 100;
 
-    display: grid;
-    grid-template-columns: repeat(2, calc((100vw - 80px) / 2));
-    column-gap: 20px;
-    row-gap: 0px;
     transition: transform 0.3s;
     transform: translateX(100%);
-
-    background-color: var(--clr-primary);
+    background-color: transparent;
     overflow: auto;
   }
 
-  .close_btn {
-    display: block;
-    position: absolute;
-    right: 30px;
-    top: 20px;
+  .header {
+    display: flex;
+    position: sticky;
+    top: 0;
+  }
 
-    & > button > svg {
-      width: 24px;
-      height: 24px;
-    }
+  .content {
+    background-color: var(--clr-primary);
+
+    padding: 0px 30px 30px;
   }
 
   .opened {
     transform: translateX(0%);
+
+    transition: background-color 0.5s;
+    transition-delay: 0.1s;
+
+    background-color: rgba(black, 0.5);
   }
 }
 
 @include mobile {
   .container {
+    padding-left: 0;
+  }
+
+  .header {
+    width: 100vw;
+  }
+
+  .content {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     gap: 16px;
