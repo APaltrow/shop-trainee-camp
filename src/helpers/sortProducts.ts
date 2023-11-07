@@ -2,12 +2,13 @@ import { SortOrder, SortProperty } from '@constants';
 import { IPrice, IProduct, ISort } from '@types';
 
 export const sortProducts = (products: IProduct[], sort: ISort | null) => {
+  if (!products.length) return products;
   if (!sort) return products;
 
   const { property, order } = sort;
   const key = property as keyof IProduct;
 
-  return products.sort((firstProduct, secondProduct) => {
+  return [...products].sort((firstProduct, secondProduct) => {
     let firstProp: number | IPrice;
     let secondProp: number | IPrice;
 
