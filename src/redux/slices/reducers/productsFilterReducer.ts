@@ -56,6 +56,7 @@ export const productsFilterSlice = createSlice({
         min: 0,
         max: 0,
       };
+      state.sort = null;
       state.searchValue = '';
     },
   },
