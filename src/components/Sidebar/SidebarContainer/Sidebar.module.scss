@@ -26,6 +26,14 @@
   gap: 48px;
 }
 
+.reset_btn {
+  color: var(--clr-secondary-300);
+
+  &:hover {
+    color: var(--clr-secondary);
+  }
+}
+
 @include desktop {
   .container {
     width: 200px;

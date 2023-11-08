@@ -43,7 +43,9 @@ export const Sidebar: FC<SidebarProps> = ({
         <Brands />
         <SidebarRating />
         <SidebarPrice />
-        <CustomButton onClick={handleResetFilters}>Reset filters</CustomButton>
+        <CustomButton onClick={handleResetFilters}>
+          <span className={style.reset_btn}>Reset</span>
+        </CustomButton>
       </div>
     </aside>
   );

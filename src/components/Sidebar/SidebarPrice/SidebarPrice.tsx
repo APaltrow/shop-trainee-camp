@@ -63,7 +63,7 @@ export const SidebarPrice: FC = () => {
               isDisabled={isDisabled}
             />
           </div>
-          <p className={style.error}>{priceError}</p>
+          {!!priceError && <p className={style.error}>{priceError}</p>}
         </div>
       </div>
     </SidebarBlock>
