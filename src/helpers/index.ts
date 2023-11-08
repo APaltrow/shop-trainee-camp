@@ -6,3 +6,4 @@ export * from './getPercentFromValue';
 export * from './scrollToTop';
 export * from './getAlreadyActiveBrands';
 export * from './sortProducts';
+export * from './paginationHelpers';

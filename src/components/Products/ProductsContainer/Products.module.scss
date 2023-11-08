@@ -55,7 +55,7 @@
 
 .pagination_list {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 .btn_text {
@@ -79,6 +79,15 @@
   border: 1px solid var(--clr-accent-A-400);
   pointer-events: none;
 }
+
+.prev_btn {
+  transform: rotate(90deg);
+}
+
+.next_btn {
+  transform: rotate(-90deg);
+}
+
 //===============
 
 @include laptop {

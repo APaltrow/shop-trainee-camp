@@ -33,12 +33,12 @@ export const Products: FC = () => {
   const { isOpened, toggle } = useToggle();
 
   const {
-    activePage,
     pagesList,
-    itemsPerPage,
+    activePage,
+    isShowMoreVisible,
 
+    onShowMore,
     onActivePageChange,
-    onItemsPerPageChange,
   } = usePagination(totalFilteredProducts);
 
   useNoScroll(isOpened);
@@ -58,14 +58,13 @@ export const Products: FC = () => {
     </Portal>
   );
 
-  const startPoint = itemsPerPage * (activePage - 1);
-  const endPotint = activePage * itemsPerPage;
+  const activePageItem = pagesList[activePage - 1] || 0;
+  const startPoint = activePageItem?.range?.start || 0;
+  const endPoint = activePageItem?.range?.end || 0;
 
-  //  1: 1-5; 2: 5-10
-
-  // (4 * (activePage - 1), activePage * 4)
-
-  const productsWithPaggination = products.slice(startPoint, endPotint);
+  const productsWithPaggination = activePageItem
+    ? products.slice(startPoint, endPoint)
+    : products;
 
   return (
     <div>
@@ -91,36 +90,49 @@ export const Products: FC = () => {
       <div className={style.footer}>
         <div className={style.pagination}>
           <span className={style.title}>Page: </span>
+
+          <span className={style.prev_btn}>
+            <CustomButton>
+              <Icon iconName={IconsTypes.ARROW_DOWN} />
+            </CustomButton>
+          </span>
           <ul className={style.pagination_list}>
-            {pagesList.map((page, idx) => {
-              const pageNumber = idx + 1;
-              const isActive = pageNumber === activePage;
+            {pagesList.map(({ number }) => {
+              const isActive = number === activePage;
 
               return (
-                <li key={`${page}_${pageNumber}`}>
-                  <CustomButton onClick={() => onActivePageChange(pageNumber)}>
+                <li key={`page_${number}`}>
+                  <CustomButton onClick={() => onActivePageChange(number)}>
                     <span
                       className={`${style.btn_text} ${
                         isActive ? style.active : ''
                       }`}
                     >
-                      {pageNumber}
+                      {number}
                     </span>
                   </CustomButton>
                 </li>
               );
             })}
           </ul>
+
+          <span className={style.next_btn}>
+            <CustomButton>
+              <Icon iconName={IconsTypes.ARROW_DOWN} />
+            </CustomButton>
+          </span>
         </div>
 
-        <CustomButton
-          onClick={onItemsPerPageChange}
-          variant={ButtonVariants.PRIMARY}
-          size={ButtonSizes.MID}
-        >
-          Show more products
-          <Icon iconName={IconsTypes.ARROW_DOWN} />
-        </CustomButton>
+        {!isShowMoreVisible && (
+          <CustomButton
+            onClick={() => onShowMore(activePage)}
+            variant={ButtonVariants.PRIMARY}
+            size={ButtonSizes.MID}
+          >
+            Show more products
+            <Icon iconName={IconsTypes.ARROW_DOWN} />
+          </CustomButton>
+        )}
 
         <div className={style.totals}>
           <InfoTooltip info={`${totalProducts}`} />
