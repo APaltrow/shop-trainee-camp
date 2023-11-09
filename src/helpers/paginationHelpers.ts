@@ -1,14 +1,23 @@
 import {
+  ARRAY_INDEX_DIFF,
   DEFAULT_ITEMS_PER_PAGE,
-  DEFAULT_NAME,
+  DEFAULT_PAGE_NAME,
   SHOWMORE_AMOUNT,
+  ZERO_INDEX,
   ZERO_PAGES,
 } from '@constants';
 import { IPage } from '@types';
 
-export const getPagesRecord = (pagesList: string[], itemsCount: number) => {
+export const getPagesRecord = (itemsCount: number) => {
+  const pagesCount =
+    Math.ceil(itemsCount / DEFAULT_ITEMS_PER_PAGE) || ZERO_PAGES;
+
+  const pagesList = pagesCount
+    ? new Array(pagesCount).fill(DEFAULT_PAGE_NAME)
+    : [];
+
   return pagesList.map((_, idx) => {
-    const number = idx + 1;
+    const number = idx + ARRAY_INDEX_DIFF;
     const start = DEFAULT_ITEMS_PER_PAGE * idx;
     let end = start + DEFAULT_ITEMS_PER_PAGE;
 
@@ -28,42 +37,48 @@ export const getPagesRecord = (pagesList: string[], itemsCount: number) => {
 
 export const getUpdatedPagesRecord = (
   pagesRecord: IPage[],
-  pageNumber: number,
-  itemsCount: number,
+  activePageNumber: number,
+  itemsTotalCount: number,
 ) => {
-  const newRecord = pagesRecord.map((page) => {
-    if (!page) return null;
-    if (pageNumber > page.number) return page;
+  return pagesRecord.reduce((record, page) => {
+    if (activePageNumber > page.number) return [...record, page];
 
-    if (pageNumber === page.number) {
+    if (activePageNumber === page.number) {
       page.range.end += SHOWMORE_AMOUNT;
 
-      if (page.range.end > itemsCount) {
-        page.range.end = itemsCount;
+      if (page.range.end > itemsTotalCount) {
+        page.range.end = itemsTotalCount;
       }
 
-      return page;
+      return [...record, page];
     }
 
     page.range.start += SHOWMORE_AMOUNT;
     page.range.end += SHOWMORE_AMOUNT;
 
-    if (page.range.start > itemsCount) return null;
+    if (page.range.start > itemsTotalCount) return record;
 
-    if (page.range.end > itemsCount) {
-      page.range.end = itemsCount;
+    if (page.range.end > itemsTotalCount) {
+      page.range.end = itemsTotalCount;
     }
 
-    if (page.range.start === page.range.end) return null;
-    return page;
-  });
+    if (page.range.start === page.range.end) return record;
 
-  return newRecord.filter((page) => !!page) as IPage[];
+    return [...record, page];
+  }, [] as IPage[]);
 };
 
-export const getPagesList = (itemsCount: number, itemsPerPage: number) => {
-  const pagesCount = itemsCount / itemsPerPage || ZERO_PAGES;
-  const pagesList = new Array(Math.ceil(pagesCount)).fill(DEFAULT_NAME);
+export const getPaginatedList = <T>(
+  pagesList: IPage[],
+  list: T[],
+  activePage: number,
+) => {
+  const activePageItem = pagesList[activePage - ARRAY_INDEX_DIFF] || null;
 
-  return pagesCount ? pagesList : [];
+  if (!activePageItem) return list;
+
+  const startIndex = activePageItem?.range?.start || ZERO_INDEX;
+  const endIndex = activePageItem?.range?.end || ZERO_INDEX;
+
+  return list.slice(startIndex, endIndex);
 };

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
+import { getPaginatedList } from '@helpers';
 import {
   useMedia,
   useNoScroll,
@@ -16,6 +17,7 @@ import {
   Portal,
   CustomButton,
   Icon,
+  Pagination,
 } from '@components';
 
 import { ProductsToolbar } from '../ProductsToolbar';
@@ -25,6 +27,7 @@ import style from './Products.module.scss';
 
 export const Products: FC = () => {
   const { isLoading, error } = useAppSelector((state) => state.products);
+  const filter = useAppSelector((state) => state.productsFilter);
   const { products, totalProducts, totalFilteredProducts } =
     useProductsFilter();
 
@@ -39,7 +42,7 @@ export const Products: FC = () => {
 
     onShowMore,
     onActivePageChange,
-  } = usePagination(totalFilteredProducts);
+  } = usePagination(totalFilteredProducts, [filter]);
 
   useNoScroll(isOpened);
 
@@ -58,23 +61,17 @@ export const Products: FC = () => {
     </Portal>
   );
 
-  const activePageItem = pagesList[activePage - 1] || 0;
-  const startPoint = activePageItem?.range?.start || 0;
-  const endPoint = activePageItem?.range?.end || 0;
-
-  const productsWithPaggination = activePageItem
-    ? products.slice(startPoint, endPoint)
-    : products;
+  const paginatedProducts = getPaginatedList(pagesList, products, activePage);
 
   return (
     <div>
       <div className={style.header}>
         <h1>All products</h1>
 
-        <div className={style.totals}>
+        <p className={style.totals}>
           <InfoTooltip info={`${totalFilteredProducts}`} />
           <span>Products</span>
-        </div>
+        </p>
       </div>
 
       <ProductsToolbar toggle={toggle} />
@@ -82,48 +79,24 @@ export const Products: FC = () => {
       <div className={style.main}>
         {sidebar}
         <ProductsList
-          productsList={productsWithPaggination}
+          productsList={paginatedProducts}
           isLoading={isLoading}
         />
       </div>
 
       <div className={style.footer}>
-        <div className={style.pagination}>
-          <span className={style.title}>Page: </span>
-
-          <span className={style.prev_btn}>
-            <CustomButton>
-              <Icon iconName={IconsTypes.ARROW_DOWN} />
-            </CustomButton>
-          </span>
-          <ul className={style.pagination_list}>
-            {pagesList.map(({ number }) => {
-              const isActive = number === activePage;
-
-              return (
-                <li key={`page_${number}`}>
-                  <CustomButton onClick={() => onActivePageChange(number)}>
-                    <span
-                      className={`${style.btn_text} ${
-                        isActive ? style.active : ''
-                      }`}
-                    >
-                      {number}
-                    </span>
-                  </CustomButton>
-                </li>
-              );
-            })}
-          </ul>
-
-          <span className={style.next_btn}>
-            <CustomButton>
-              <Icon iconName={IconsTypes.ARROW_DOWN} />
-            </CustomButton>
-          </span>
+        <div className={style.pagination_container}>
+          <span>Page :</span>
+          {!!pagesList.length && (
+            <Pagination
+              pagesList={pagesList}
+              activePage={activePage}
+              onActivePageChange={onActivePageChange}
+            />
+          )}
         </div>
 
-        {!isShowMoreVisible && (
+        {isShowMoreVisible && (
           <CustomButton
             onClick={() => onShowMore(activePage)}
             variant={ButtonVariants.PRIMARY}
@@ -134,11 +107,10 @@ export const Products: FC = () => {
           </CustomButton>
         )}
 
-        <div className={style.totals}>
+        <p className={style.totals}>
           <InfoTooltip info={`${totalProducts}`} />
-
           <span>Products</span>
-        </div>
+        </p>
       </div>
     </div>
   );
