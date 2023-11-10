@@ -1,12 +1,19 @@
-import { useAppSelector } from '@redux';
-import { filterProducts } from '@helpers';
+import { useActions, useAppSelector } from '@redux';
+import { filterProducts, getProductsMinMaxPrice } from '@helpers';
+import { useEffect } from 'react';
 
 export const useProductsFilter = () => {
   const { productsList } = useAppSelector((state) => state.products);
 
-  const { activeCategory, activeBrands, searchValue } = useAppSelector(
-    (state) => state.productsFilter,
-  );
+  const {
+    activeCategory,
+    activeBrands,
+    activeRatings,
+    activePriceRange,
+    searchValue,
+  } = useAppSelector((state) => state.productsFilter);
+
+  const { setActivePriceRange, setPriceRange } = useActions();
 
   const filteredByCategory = filterProducts.byCategory(
     productsList,
@@ -18,8 +25,18 @@ export const useProductsFilter = () => {
     activeBrands,
   );
 
-  const filteredBySearchValue = filterProducts.bySearchValue(
+  const filteredByRatings = filterProducts.byRatings(
     filteredByBrands,
+    activeRatings,
+  );
+
+  const filteredByPriceRange = filterProducts.byPriceRange(
+    filteredByRatings,
+    activePriceRange,
+  );
+
+  const filteredBySearchValue = filterProducts.bySearchValue(
+    filteredByPriceRange,
     searchValue,
   );
 
@@ -27,6 +44,12 @@ export const useProductsFilter = () => {
     filteredByCategory,
     searchValue,
   );
+
+  useEffect(() => {
+    const priceRange = getProductsMinMaxPrice(filteredByRatings);
+    setPriceRange(priceRange);
+    setActivePriceRange(priceRange);
+  }, [productsList, activeCategory, activeBrands, activeRatings]);
 
   return {
     products: filteredBySearchValue,

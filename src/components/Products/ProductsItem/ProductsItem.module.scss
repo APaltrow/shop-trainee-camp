@@ -14,12 +14,12 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+
   flex: 1;
 }
 
 .info {
-  width: calc(100vw - 626px);
+  width: calc(100vw - 900px);
 
   display: flex;
   flex-direction: column;
@@ -45,6 +45,10 @@
     padding-bottom: 10px;
 
     @include with-text-overflow;
+  }
+
+  & > div > svg {
+    fill: var(--clr-secondary);
   }
 }
 
@@ -104,7 +108,7 @@
     @include with-text-overflow;
   }
 
-  & > p:last-child {
+  .old_price {
     font-size: 12px;
     font-weight: 600;
     text-decoration: line-through;
@@ -147,12 +151,17 @@
   }
 }
 
-@include laptop {
+@include desktop {
   .content {
     padding: 10px;
-    gap: 10px;
   }
 
+  .info {
+    width: calc(100vw - 815px);
+  }
+}
+
+@include laptop {
   .info {
     width: calc(100vw - 526px);
   }

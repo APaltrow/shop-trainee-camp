@@ -1,0 +1,31 @@
+@import '@style/_mixins';
+@import '@style/_variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.min_max_container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  &::after {
+    content: '-';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: var(--clr-secondary-300);
+  }
+}
+
+.error {
+  font-size: 12px;
+  color: var(--clr-accent-C);
+}

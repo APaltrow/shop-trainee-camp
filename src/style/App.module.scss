@@ -10,8 +10,9 @@
 
 :root {
   @include color-scheme;
-  max-width: 100vw;
-  margin-right: calc(-1 * (100vw - 100%));
+  margin: 0 auto;
+  padding: 0;
+
   overflow-x: hidden;
 
   background-color: var(--clr-primary);
@@ -20,6 +21,13 @@
   a[href='#'] {
     color: var(--clr-accent-A);
   }
+
+  @include with-scrollbar(15px);
+}
+
+body[class='no-scroll'] {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .app {

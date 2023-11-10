@@ -8,7 +8,7 @@ import {
   NavigationPaths,
   SelectVariants,
 } from '@constants';
-
+import { getAlreadyActiveBrands } from '@helpers';
 import { useSearch, useSearchSuggestions, useToggle } from '@hooks';
 import {
   Icon,
@@ -28,7 +28,9 @@ const SEARCH_PLACEHOLDER = 'Search products...';
 
 export const HeaderToolbar: FC = () => {
   const { categories } = useAppSelector((state) => state.products);
-  const { activeCategory } = useAppSelector((state) => state.productsFilter);
+  const { activeCategory, activeBrands } = useAppSelector(
+    (state) => state.productsFilter,
+  );
 
   const { setActiveCategory, setActiveBrand } = useActions();
 
@@ -46,10 +48,17 @@ export const HeaderToolbar: FC = () => {
 
     if (option === ALL_CATEGORIES) {
       setActiveCategory(null);
+
       setActiveBrand([]);
     } else {
       setActiveCategory(option);
-      setActiveBrand(categories[option]);
+
+      const alreadyActiveBrands = getAlreadyActiveBrands(
+        categories[option],
+        activeBrands,
+      );
+
+      setActiveBrand(alreadyActiveBrands);
     }
   };
 

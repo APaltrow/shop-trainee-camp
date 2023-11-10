@@ -5,12 +5,9 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  flex: 1;
 
   & > h3 {
     color: var(--clr-accent-C);
   }
-}
-
-.search_text {
-  color: var(--clr-accent-C);
 }

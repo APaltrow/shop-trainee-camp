@@ -4,3 +4,8 @@ export interface IPrice {
   discount: number;
   currency: string;
 }
+
+export interface IPriceRange {
+  min: number;
+  max: number;
+}

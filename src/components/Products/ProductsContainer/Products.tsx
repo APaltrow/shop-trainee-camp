@@ -1,8 +1,16 @@
 import { FC } from 'react';
 
 import { useAppSelector } from '@redux';
-import { useProductsFilter } from '@hooks';
-import { InfoTooltip, Error } from '@components';
+import { useMedia, useNoScroll, useProductsFilter, useToggle } from '@hooks';
+import { IconsTypes } from '@constants';
+import {
+  InfoTooltip,
+  Error,
+  Sidebar,
+  Icon,
+  CustomButton,
+  Portal,
+} from '@components';
 
 import { ProductsList } from '../ProductsList';
 
@@ -13,9 +21,41 @@ export const Products: FC = () => {
   const { products, totalProducts, totalFilteredProducts } =
     useProductsFilter();
 
+  const { isTablet } = useMedia();
+
+  const { isOpened, toggle } = useToggle();
+
+  useNoScroll(isOpened);
+
   if (error) {
     return <Error errorMessage={error} />;
   }
+
+  const sidebar = !isTablet ? (
+    <Sidebar />
+  ) : (
+    <Portal>
+      {isOpened && (
+        <div
+          className={style.overlay}
+          onClick={toggle}
+        />
+      )}
+      <Sidebar
+        isOpened={isOpened}
+        onClose={toggle}
+      />
+    </Portal>
+  );
+
+  const filterButton = isTablet ? (
+    <CustomButton onClick={toggle}>
+      <span className={style.filer_btn}>
+        <Icon iconName={IconsTypes.FILTER} />
+      </span>
+      Filters
+    </CustomButton>
+  ) : null;
 
   return (
     <div>
@@ -27,11 +67,14 @@ export const Products: FC = () => {
           <span>Products</span>
         </div>
       </div>
-
-      <ProductsList
-        productsList={products}
-        isLoading={isLoading}
-      />
+      {isTablet && <div className={style.sort_container}>{filterButton}</div>}
+      <div className={style.main}>
+        {sidebar}
+        <ProductsList
+          productsList={products}
+          isLoading={isLoading}
+        />
+      </div>
 
       <div className={style.footer}>
         <div className={style.totals}>

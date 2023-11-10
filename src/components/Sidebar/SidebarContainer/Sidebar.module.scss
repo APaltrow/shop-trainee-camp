@@ -1,0 +1,81 @@
+@import '@style/_media';
+
+.container {
+  width: 250px;
+}
+
+.header {
+  height: 40px;
+  width: 100%;
+
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: var(--clr-primary);
+
+  & > button > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.reset_btn {
+  color: var(--clr-secondary-300);
+
+  &:hover {
+    color: var(--clr-secondary);
+  }
+}
+
+@include desktop {
+  .container {
+    width: 200px;
+  }
+}
+
+@include tablet {
+  .container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 110;
+
+    width: 60vw;
+    height: 100vh;
+    padding: 0px 30px 30px;
+
+    transition: transform 0.3s;
+    transform: translateX(100%);
+
+    background-color: var(--clr-primary);
+    overflow: auto;
+  }
+
+  .header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+
+  .opened {
+    transform: translateX(0%);
+  }
+}
+
+@include mobile {
+  .container {
+    width: 100vw;
+  }
+
+  .content {
+    gap: 16px;
+  }
+}

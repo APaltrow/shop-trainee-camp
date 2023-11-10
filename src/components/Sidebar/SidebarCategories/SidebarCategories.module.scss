@@ -1,0 +1,33 @@
+@import '@style/_mixins';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  overflow: hidden;
+
+  & > li > button {
+    max-width: 100%;
+    min-width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.text {
+  max-width: 80%;
+
+  font-size: 14px;
+  font-weight: 400;
+  text-align: start;
+  @include with-text-overflow;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.active {
+  font-weight: 700;
+  color: var(--clr-accent-A);
+}

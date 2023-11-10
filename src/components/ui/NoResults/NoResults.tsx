@@ -10,8 +10,10 @@ export const NoResults: FC = () => {
     <article className={style.container}>
       <h3>No Results Found</h3>
       <p>
-        Could not find a match for
-        <span className={style.search_text}>{` '${searchValue}'`}</span>
+        Could not find a match
+        {!!searchValue && (
+          <span className={style.search_text}>{` for '${searchValue}'`}</span>
+        )}
       </p>
     </article>
   );
