@@ -32,18 +32,21 @@ export const Sidebar: FC<SidebarProps> = ({
 
   return (
     <aside className={`${style.container} ${isOpened ? style.opened : ''}`}>
-      <span className={style.close_btn}>
+      <div className={style.header}>
         <CustomButton onClick={onClose}>
           <Icon iconName={IconsTypes.CLOSE} />
         </CustomButton>
-      </span>
+      </div>
 
-      <SidebarCategories />
-      <Brands />
-      <SidebarRating />
-      <SidebarPrice />
-
-      <CustomButton onClick={handleResetFilters}>Reset filters</CustomButton>
+      <div className={style.content}>
+        <SidebarCategories />
+        <Brands />
+        <SidebarRating />
+        <SidebarPrice />
+        <CustomButton onClick={handleResetFilters}>
+          <span className={style.reset_btn}>Reset</span>
+        </CustomButton>
+      </div>
     </aside>
   );
 };

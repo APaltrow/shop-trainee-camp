@@ -29,6 +29,12 @@ export const Products: FC = () => {
     <Sidebar />
   ) : (
     <Portal>
+      {isOpened && (
+        <div
+          className={style.overlay}
+          onClick={toggle}
+        />
+      )}
       <Sidebar
         isOpened={isOpened}
         onClose={toggle}
