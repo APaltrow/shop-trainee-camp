@@ -54,4 +54,20 @@
       <path d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"/>  
     </symbol>
 
+    <symbol id="order-asc" viewBox="0 0 24 24">          
+      <path d="M14 14L2 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 10H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 6H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 18H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 14V4M19 4L22 7M19 4L16 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="order-desc" viewBox="0 0 24 24">          
+      <path d="M14 10L2 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 14H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 18H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 6L2 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 10V20M19 20L22 17M19 20L16 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
 </svg>    
