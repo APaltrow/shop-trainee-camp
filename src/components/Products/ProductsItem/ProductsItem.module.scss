@@ -170,6 +170,7 @@
 @include tablet {
   .content {
     flex-direction: column;
+    gap: 12px;
   }
 
   .price_and_delivery_container {
@@ -185,6 +186,12 @@
 @include mobile {
   .container {
     flex-direction: column;
+  }
+
+  .additional_info_item {
+    & > span:last-child {
+      text-align: end;
+    }
   }
 
   .price_and_delivery_container {

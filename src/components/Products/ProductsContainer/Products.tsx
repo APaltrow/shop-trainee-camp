@@ -86,7 +86,7 @@ export const Products: FC = () => {
 
       <div className={style.footer}>
         <div className={style.pagination_container}>
-          <span>Page :</span>
+          {!!pagesList.length && <span>Page :</span>}
           {!!pagesList.length && (
             <Pagination
               pagesList={pagesList}

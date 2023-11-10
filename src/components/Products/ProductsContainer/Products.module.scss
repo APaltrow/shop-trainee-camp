@@ -37,8 +37,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .pagination_container {
@@ -58,12 +58,18 @@
 }
 
 @include tablet {
-  .footer {
-    flex-direction: column-reverse;
+  .header {
+    & > h1 {
+      font-size: 24px;
+    }
   }
 
-  .totals {
-    width: 100%;
-    justify-content: flex-end;
+  .footer {
+    flex-direction: column-reverse;
+
+    & > .totals {
+      width: 100%;
+      justify-content: flex-end;
+    }
   }
 }
