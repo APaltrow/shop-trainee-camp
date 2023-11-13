@@ -1,4 +1,4 @@
-import { IPriceRange } from '@types';
+import { IPriceRange, ISort } from '@types';
 
 export interface ProductsFilterState {
   activeCategory: null | string;
@@ -6,5 +6,6 @@ export interface ProductsFilterState {
   activeRatings: number[];
   priceRange: IPriceRange;
   activePriceRange: IPriceRange;
+  sort: null | ISort;
   searchValue: string;
 }

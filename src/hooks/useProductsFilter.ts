@@ -1,5 +1,5 @@
 import { useActions, useAppSelector } from '@redux';
-import { filterProducts, getProductsMinMaxPrice } from '@helpers';
+import { filterProducts, getProductsMinMaxPrice, sortProducts } from '@helpers';
 import { useEffect } from 'react';
 
 export const useProductsFilter = () => {
@@ -10,6 +10,7 @@ export const useProductsFilter = () => {
     activeBrands,
     activeRatings,
     activePriceRange,
+    sort,
     searchValue,
   } = useAppSelector((state) => state.productsFilter);
 
@@ -35,8 +36,10 @@ export const useProductsFilter = () => {
     activePriceRange,
   );
 
+  const sortedProducts = sortProducts(filteredByPriceRange, sort);
+
   const filteredBySearchValue = filterProducts.bySearchValue(
-    filteredByPriceRange,
+    sortedProducts,
     searchValue,
   );
 

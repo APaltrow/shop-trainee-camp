@@ -1,0 +1,73 @@
+@import '@style/_media';
+@import '@style/_mixins';
+
+.container {
+  padding: 16px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background-color: var(--clr-primary);
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort_by {
+  font-size: 14px;
+  font-weight: 400;
+  text-wrap: nowrap;
+}
+
+.order_btn {
+  padding: 10px;
+  @include with-border;
+
+  & > svg {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.filter_btn {
+  display: none;
+
+  & > button > svg {
+    height: 24px;
+    width: 24px;
+    fill: var(--clr-secondary);
+  }
+}
+
+@include tablet {
+  .container {
+    position: sticky;
+    top: 0;
+  }
+
+  .filter_btn {
+    display: flex;
+  }
+}
+
+@include mobile {
+  .filter_btn {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+
+    justify-content: center;
+    align-items: center;
+
+    @include with-border;
+  }
+
+  .filter_btn_text {
+    display: none;
+  }
+}
