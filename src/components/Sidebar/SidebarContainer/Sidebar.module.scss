@@ -1,15 +1,37 @@
 @import '@style/_media';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-
   width: 250px;
 }
 
-.close_btn {
+.header {
+  height: 40px;
+  width: 100%;
+
   display: none;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: var(--clr-primary);
+
+  & > button > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.reset_btn {
+  color: var(--clr-secondary-300);
+
+  &:hover {
+    color: var(--clr-secondary);
+  }
 }
 
 @include desktop {
@@ -20,18 +42,15 @@
 
 @include tablet {
   .container {
-    width: 100vw;
-    height: 100vh;
-    padding: 50px 30px;
-
     position: fixed;
     top: 0;
-    z-index: 100;
+    right: 0;
+    z-index: 110;
 
-    display: grid;
-    grid-template-columns: repeat(2, calc((100vw - 80px) / 2));
-    column-gap: 20px;
-    row-gap: 0px;
+    width: 60vw;
+    height: 100vh;
+    padding: 0px 30px 30px;
+
     transition: transform 0.3s;
     transform: translateX(100%);
 
@@ -39,16 +58,11 @@
     overflow: auto;
   }
 
-  .close_btn {
-    display: block;
-    position: absolute;
-    right: 30px;
-    top: 20px;
-
-    & > button > svg {
-      width: 24px;
-      height: 24px;
-    }
+  .header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 200;
   }
 
   .opened {
@@ -58,8 +72,10 @@
 
 @include mobile {
   .container {
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+  }
+
+  .content {
     gap: 16px;
   }
 }

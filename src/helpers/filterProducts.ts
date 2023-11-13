@@ -19,7 +19,7 @@ export const filterProducts = {
   byPriceRange: (products: IProduct[], priceRange: IPriceRange) => {
     const { min, max } = priceRange;
 
-    if (min === 0 && max === 0) return products;
+    if (!min && !max) return products;
 
     return products.filter(({ price }) => {
       const { amount, discount, discountedAmount } = price;

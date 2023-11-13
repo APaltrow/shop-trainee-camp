@@ -39,7 +39,7 @@ export const ProductsToolbar: FC<ProductsToolbarProps> = ({ toggle }) => {
           }
         />
 
-        {sort ? (
+        {!!sort && (
           <CustomButton onClick={handleSortOrderChange}>
             <span className={style.order_btn}>
               <Icon
@@ -51,13 +51,13 @@ export const ProductsToolbar: FC<ProductsToolbarProps> = ({ toggle }) => {
               />
             </span>
           </CustomButton>
-        ) : null}
+        )}
       </div>
 
       <span className={style.filter_btn}>
         <CustomButton onClick={toggle}>
           <Icon iconName={IconsTypes.FILTER} />
-          Filters
+          <span className={style.filter_btn_text}>Filters</span>
         </CustomButton>
       </span>
     </div>

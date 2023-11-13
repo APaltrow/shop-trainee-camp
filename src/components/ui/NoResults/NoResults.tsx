@@ -11,9 +11,9 @@ export const NoResults: FC = () => {
       <h3>No Results Found</h3>
       <p>
         Could not find a match
-        {searchValue ? (
+        {!!searchValue && (
           <span className={style.search_text}>{` for '${searchValue}'`}</span>
-        ) : null}
+        )}
       </p>
     </article>
   );

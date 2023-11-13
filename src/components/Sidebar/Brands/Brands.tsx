@@ -30,6 +30,10 @@ export const Brands: FC = () => {
     setActiveBrand(updatedBrandsList);
   };
 
+  const checkIfBrandSelected = (brand: string) => {
+    return activeBrands.includes(brand);
+  };
+
   if (isLoading) {
     return (
       <SidebarBlock title="Brands">
@@ -45,7 +49,7 @@ export const Brands: FC = () => {
           <li key={`brands_${brand}_${idx + 1}`}>
             <Checkbox
               id={brand}
-              isChecked={activeBrands.includes(brand)}
+              isChecked={checkIfBrandSelected(brand)}
               onChange={(e) => handleBrandCheck(brand, e.target.checked)}
             >
               {brand}

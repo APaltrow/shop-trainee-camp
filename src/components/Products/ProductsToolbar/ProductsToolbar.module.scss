@@ -7,8 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 
   background-color: var(--clr-primary);
 }
@@ -16,23 +15,7 @@
 .sort {
   display: flex;
   align-items: center;
-  gap: 15px;
-
-  & > div {
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-
-    & > div {
-      padding: 0;
-      border: none;
-    }
-
-    & > div:first-child {
-      padding-right: 24px;
-      border-right: 1px solid var(--clr-secondary-200);
-    }
-  }
+  gap: 10px;
 }
 
 .sort_by {
@@ -61,12 +44,6 @@
   }
 }
 
-@include laptop {
-  .main {
-    padding: 15px 0px;
-  }
-}
-
 @include tablet {
   .container {
     position: sticky;
@@ -74,6 +51,23 @@
   }
 
   .filter_btn {
-    display: block;
+    display: flex;
+  }
+}
+
+@include mobile {
+  .filter_btn {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+
+    justify-content: center;
+    align-items: center;
+
+    @include with-border;
+  }
+
+  .filter_btn_text {
+    display: none;
   }
 }
