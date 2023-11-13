@@ -1,6 +1,12 @@
 import { FC } from 'react';
 
-import { IconsTypes } from '@constants';
+import {
+  ARRAY_INDEX_DIFF,
+  DEFAULT_RATING_COUNT,
+  STAR_NAME,
+  IconsTypes,
+} from '@constants';
+import { generateArray } from '@helpers';
 import { Icon } from '@components';
 
 import style from './Rating.module.scss';
@@ -11,20 +17,22 @@ interface RatingProps {
   isActive?: boolean;
 }
 
-const DEFAULT_RATING = 5;
-const DEFAULT_STAR = 'rating_star';
-
 export const Rating: FC<RatingProps> = ({ rating, isActive }) => {
-  const ratingList = new Array(DEFAULT_RATING).fill(DEFAULT_STAR);
+  const ratingList = generateArray(DEFAULT_RATING_COUNT, STAR_NAME);
 
   return (
     <span className={`${style.container} ${isActive ? style.active : ''}`}>
-      {ratingList.map((star, idx) => (
-        <Icon
-          key={`${star}_${idx + 1}`}
-          iconName={idx + 1 <= rating ? IconsTypes.STAR : IconsTypes.STAR_EMPTY}
-        />
-      ))}
+      {ratingList.map((star, idx) => {
+        const starNumber = idx + ARRAY_INDEX_DIFF;
+        const isFilledStar = starNumber <= rating;
+
+        return (
+          <Icon
+            key={`${star}_${starNumber}`}
+            iconName={isFilledStar ? IconsTypes.STAR : IconsTypes.STAR_EMPTY}
+          />
+        );
+      })}
     </span>
   );
 };

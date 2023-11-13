@@ -10,3 +10,7 @@ export * from './paginationHelpers';
 export * from './getSliderPosition';
 export * from './getActualProductPrice';
 export * from './compareTitles';
+export * from './generateArray';
+export * from './getDeliveryTime';
+export * from './getDeliveryCost';
+export * from './getAdditionalInfo';

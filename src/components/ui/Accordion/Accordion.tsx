@@ -22,7 +22,7 @@ export const Accordion: FC<AccordionProps> = ({
 
   return (
     <div className={style.container}>
-      {title ? <h4 className={style.title}>{title}</h4> : null}
+      {!!title && <h4 className={style.title}>{title}</h4>}
       <div className={`${style.content} ${isExpanded ? style.expanded : ''}`}>
         {children}
       </div>

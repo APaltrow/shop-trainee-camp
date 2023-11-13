@@ -1,22 +1,29 @@
 import { FC } from 'react';
 
+import {
+  ARRAY_INDEX_DIFF,
+  PRODUCT_SKELETONS_COUNT,
+  PRODUCT_SKELETON_NAME,
+} from '@constants';
+import { generateArray } from '@helpers';
+
 import listStyle from '../ProductsList/ProductsList.module.scss';
 import styleimg from '../../ui/Image/Image.module.scss';
 import style from '../ProductsItem/ProductsItem.module.scss';
 
 import skeletonStyle from './ProductsSkeleton.module.scss';
 
-const DEFAULT_SKELETONS = 5;
-const SKELETON_NAME = 'productItem_skeleton';
-
 export const ProductsSkeleton: FC = () => {
-  const skeletons = new Array(DEFAULT_SKELETONS).fill(SKELETON_NAME);
+  const skeletons = generateArray(
+    PRODUCT_SKELETONS_COUNT,
+    PRODUCT_SKELETON_NAME,
+  );
 
   return (
     <div className={listStyle.container}>
       <ul className={listStyle.list}>
         {skeletons.map((element, idx) => (
-          <li key={`${element}_${idx + 1} `}>
+          <li key={`${element}_${idx + ARRAY_INDEX_DIFF} `}>
             <div className={style.container}>
               <div
                 className={`${styleimg.img_container} ${skeletonStyle.skeleton}`}

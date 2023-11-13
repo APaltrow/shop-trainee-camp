@@ -28,6 +28,7 @@ import style from './Products.module.scss';
 export const Products: FC = () => {
   const { isLoading, error } = useAppSelector((state) => state.products);
   const filter = useAppSelector((state) => state.productsFilter);
+
   const { products, totalProducts, totalFilteredProducts } =
     useProductsFilter();
 

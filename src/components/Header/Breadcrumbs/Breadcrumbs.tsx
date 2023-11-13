@@ -17,22 +17,21 @@ export const Breadcrumbs: FC = () => {
       >
         Homepage
       </NavLink>
-      {paths.length
-        ? paths.map((path) => {
-            const breadcrumb = getBreadcrumb(path);
-            const isActive = path === paths.at(LAST_ELEMENT_INDEX);
+      {!!paths.length &&
+        paths.map((path) => {
+          const breadcrumb = getBreadcrumb(path);
+          const isActive = path === paths.at(LAST_ELEMENT_INDEX);
 
-            return (
-              <NavLink
-                to={path}
-                key={`breadcrumbs_link_${path}`}
-                className={isActive ? style.active : style.not_active}
-              >
-                {breadcrumb}
-              </NavLink>
-            );
-          })
-        : null}
+          return (
+            <NavLink
+              to={path}
+              key={`breadcrumbs_link_${path}`}
+              className={isActive ? style.active : style.not_active}
+            >
+              {breadcrumb}
+            </NavLink>
+          );
+        })}
     </nav>
   );
 };

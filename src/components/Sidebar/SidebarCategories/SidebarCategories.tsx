@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useActions, useAppSelector } from '@redux';
 import { useCategoryTotals } from '@hooks';
 import { getAlreadyActiveBrands } from '@helpers';
+import { ARRAY_INDEX_DIFF } from '@constants';
 import { CustomButton, InfoTooltip } from '@components';
 
 import { SidebarBlock } from '../SidebarBlock';
@@ -50,7 +51,7 @@ export const SidebarCategories: FC = () => {
           const isActive = category === activeCategory;
 
           return (
-            <li key={`sidebar_${category}_${idx + 1}`}>
+            <li key={`sidebar_${category}_${idx + ARRAY_INDEX_DIFF}`}>
               <CustomButton onClick={() => handleCategorySelect(category)}>
                 <span
                   className={`${style.text} ${isActive ? style.active : ''}`}

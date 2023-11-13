@@ -29,7 +29,7 @@ export const Dropdown: FC<DropdownProps> = ({
       ref={dropdownRef}
     >
       {anchor}
-      {isVisible ? <ul className={style.options_list}>{children}</ul> : null}
+      {!!isVisible && <ul className={style.options_list}>{children}</ul>}
     </div>
   );
 };
