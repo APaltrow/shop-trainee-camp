@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 10px;
 
   background-color: var(--clr-primary);
@@ -17,22 +16,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-
-  & > div {
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-
-    & > div {
-      padding: 0;
-      border: none;
-    }
-
-    & > div:first-child {
-      padding-right: 24px;
-      border-right: 1px solid var(--clr-secondary-200);
-    }
-  }
 }
 
 .sort_by {
@@ -61,12 +44,6 @@
   }
 }
 
-@include laptop {
-  .main {
-    padding: 15px 0px;
-  }
-}
-
 @include tablet {
   .container {
     position: sticky;
@@ -79,15 +56,6 @@
 }
 
 @include mobile {
-  .sort {
-    & > div {
-      gap: 10px;
-      & > div:first-child {
-        padding-right: 10px;
-      }
-    }
-  }
-
   .filter_btn {
     padding: 10px;
     width: 45px;
