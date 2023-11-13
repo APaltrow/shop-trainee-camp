@@ -3,6 +3,7 @@ export enum ErrorsMessages {
   TRY_AGAIN = 'Please, try again later',
   NO_RESULTS = 'No results ...',
   NOT_FOUND = 'Not found',
+  CONTACT_SUPPORT = 'Looks like an error occured, please try to contact support team.',
 }
 
 export enum PriceErrors {

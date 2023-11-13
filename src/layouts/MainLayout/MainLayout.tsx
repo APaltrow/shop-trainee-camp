@@ -1,7 +1,10 @@
 import { FC, ReactNode, useEffect } from 'react';
 
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { ErrorsMessages } from '@constants';
 import { useActions } from '@redux';
-import { Footer, Header } from '@components';
+import { Footer, Header, Error } from '@components';
 
 import style from './MainLayout.module.scss';
 
@@ -17,10 +20,12 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   }, []);
 
   return (
-    <>
+    <ErrorBoundary
+      fallback={<Error errorMessage={ErrorsMessages.CONTACT_SUPPORT} />}
+    >
       <Header />
       <main className={style.container}>{children}</main>
       <Footer />
-    </>
+    </ErrorBoundary>
   );
 };
