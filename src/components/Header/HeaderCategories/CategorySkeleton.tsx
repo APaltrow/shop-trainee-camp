@@ -1,12 +1,19 @@
 import { FC } from 'react';
 
+import {
+  ARRAY_INDEX_DIFF,
+  CATEGORY_SKELETON_NAME,
+  DEFAULT_SKELETONS_COUNT,
+} from '@constants';
+import { generateArray } from '@helpers';
+
 import style from './HeaderCategories.module.scss';
 
-const DEFAULT_SKELETONS = 5;
-const SKELETON_NAME = 'category_skeleton';
-
 export const CategorySkeleton: FC = () => {
-  const skeletons = new Array(DEFAULT_SKELETONS).fill(SKELETON_NAME);
+  const skeletons = generateArray(
+    DEFAULT_SKELETONS_COUNT,
+    CATEGORY_SKELETON_NAME,
+  );
 
   return (
     <ul className={style.navbar}>
@@ -14,7 +21,7 @@ export const CategorySkeleton: FC = () => {
         return (
           <li
             className={style.skeleton}
-            key={`${skel}_${idx + 1}`}
+            key={`${skel}_${idx + ARRAY_INDEX_DIFF}`}
           />
         );
       })}

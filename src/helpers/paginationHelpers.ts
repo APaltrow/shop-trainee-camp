@@ -7,13 +7,14 @@ import {
   ZERO_PAGES,
 } from '@constants';
 import { IPage } from '@types';
+import { generateArray } from '@helpers';
 
 export const getPagesRecord = (itemsCount: number) => {
   const pagesCount =
     Math.ceil(itemsCount / DEFAULT_ITEMS_PER_PAGE) || ZERO_PAGES;
 
   const pagesList = pagesCount
-    ? new Array(pagesCount).fill(DEFAULT_PAGE_NAME)
+    ? generateArray(pagesCount, DEFAULT_PAGE_NAME)
     : [];
 
   return pagesList.map((_, idx) => {

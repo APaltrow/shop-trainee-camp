@@ -24,6 +24,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
   const classes = `${style.button} ${style[`size_${size}`]} ${
     style[`variant_${variant}`]
   }`;
+
   return (
     <button
       type="button"

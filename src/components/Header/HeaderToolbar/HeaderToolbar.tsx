@@ -3,9 +3,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import {
+  ALL_CATEGORIES,
   ErrorsMessages,
   IconsTypes,
+  LOGO_ALT,
   NavigationPaths,
+  SEARCH_PLACEHOLDER,
   SelectVariants,
 } from '@constants';
 import { getAlreadyActiveBrands } from '@helpers';
@@ -21,10 +24,6 @@ import {
 import logo from '@assets/Freshnesecom.svg';
 
 import style from './HeaderToolbar.module.scss';
-
-const ALL_CATEGORIES = 'All categories';
-const LOGO_ALT = 'Freshnesecom logo';
-const SEARCH_PLACEHOLDER = 'Search products...';
 
 export const HeaderToolbar: FC = () => {
   const { categories } = useAppSelector((state) => state.products);

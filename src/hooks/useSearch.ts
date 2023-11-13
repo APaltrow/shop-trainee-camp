@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useDebounce } from '@hooks';
 import { useActions, useAppSelector } from '@redux';
 
-const DELAY = 300;
-
 export const useSearch = () => {
   const { searchValue: initialSearchValue } = useAppSelector(
     (state) => state.productsFilter,
@@ -13,9 +11,8 @@ export const useSearch = () => {
 
   const [searchValue, setSearchValue] = useState(initialSearchValue);
 
-  const debouncedSearch = useDebounce(
-    (searchText: string) => setSearch(searchText),
-    DELAY,
+  const debouncedSearch = useDebounce((searchText: string) =>
+    setSearch(searchText),
   );
 
   const onSearch = (searchText: string) => {

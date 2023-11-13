@@ -1,4 +1,5 @@
 import { IPriceRange, IProduct } from '@types';
+import { getActualProductPrice } from '@helpers';
 
 export const filterProducts = {
   byCategory: (products: IProduct[], activeCategory: string | null) => {
@@ -22,8 +23,7 @@ export const filterProducts = {
     if (!min && !max) return products;
 
     return products.filter(({ price }) => {
-      const { amount, discount, discountedAmount } = price;
-      const actualPrice = discount ? discountedAmount : amount;
+      const actualPrice = getActualProductPrice(price);
 
       return actualPrice >= min && actualPrice <= max;
     });

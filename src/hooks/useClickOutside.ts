@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+import { CLICK_EVENT } from '@constants';
+
 export const useClickOutside = (callback: () => void) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -11,9 +13,9 @@ export const useClickOutside = (callback: () => void) => {
         callback();
       }
     };
-    document.body.addEventListener('click', handleClickOutside);
+    document.body.addEventListener(CLICK_EVENT, handleClickOutside);
     return () => {
-      document.body.removeEventListener('click', handleClickOutside);
+      document.body.removeEventListener(CLICK_EVENT, handleClickOutside);
     };
   }, []);
 

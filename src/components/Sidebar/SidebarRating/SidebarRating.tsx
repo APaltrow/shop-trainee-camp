@@ -1,17 +1,16 @@
 import { FC } from 'react';
 
 import { useActions, useAppSelector } from '@redux';
+import { DEFAULT_RATING_COUNT, RATING_NAME } from '@constants';
+import { generateArray } from '@helpers';
 import { Checkbox, Rating } from '@components';
 
 import { SidebarBlock } from '../SidebarBlock';
 
 import style from './SidebarRating.module.scss';
 
-const DEFAULT_RATING = 5;
-const RATING_NAME = 'rating';
-
 export const SidebarRating: FC = () => {
-  const ratingsList = new Array(DEFAULT_RATING).fill(RATING_NAME);
+  const ratingsList = generateArray(DEFAULT_RATING_COUNT, RATING_NAME);
   const { activeRatings } = useAppSelector((state) => state.productsFilter);
 
   const { setActiveRatings } = useActions();

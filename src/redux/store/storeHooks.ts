@@ -3,12 +3,12 @@ import { bindActionCreators } from '@reduxjs/toolkit';
 
 import { ActionCreators } from '../slices/reducers';
 
-import type { RootState } from './store';
+import type { AppDispatch, RootState } from './store';
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export const useActions = () => {
-  const dispatch = useDispatch();
+  const appDispatch: AppDispatch = useDispatch();
 
-  return bindActionCreators(ActionCreators, dispatch);
+  return bindActionCreators(ActionCreators, appDispatch);
 };

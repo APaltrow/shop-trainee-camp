@@ -1,8 +1,10 @@
 import { useCallback, useRef } from 'react';
 
+import { DEFAULT_DELAY } from '@constants';
+
 export const useDebounce = <T extends any[]>(
   callback: (...args: T) => void,
-  delay: number = 300,
+  delay: number = DEFAULT_DELAY,
 ) => {
   const timer = useRef<null | NodeJS.Timeout>(null);
 

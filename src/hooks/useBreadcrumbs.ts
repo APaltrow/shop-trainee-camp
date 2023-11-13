@@ -5,6 +5,7 @@ import {
   ErrorsMessages,
   NavigationPaths,
   PATHS_TO_BREADCRUMBS,
+  PATH_DIVIDER,
 } from '@constants';
 
 export const useBreadcrumbs = () => {
@@ -12,7 +13,7 @@ export const useBreadcrumbs = () => {
   const { pathname } = useLocation();
   const { id } = useParams();
 
-  const paths = pathname.split('/').filter((path) => !!path);
+  const paths = pathname.split(PATH_DIVIDER).filter((path) => !!path);
 
   const productTitle = productsList.find(({ productId }) => productId === id)
     ?.productTitle;
@@ -25,6 +26,7 @@ export const useBreadcrumbs = () => {
 
   return {
     paths,
+
     getBreadcrumb,
   };
 };

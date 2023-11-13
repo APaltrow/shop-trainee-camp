@@ -3,10 +3,17 @@ import { NavLink } from 'react-router-dom';
 
 import { IProduct } from '@types';
 import {
+  getActualProductPrice,
+  getAdditionalInfo,
+  getDeliveryCost,
+  getDeliveryTime,
+} from '@helpers';
+import {
   ButtonSizes,
   ButtonVariants,
   IconsTypes,
   PRICE_DECIMALS,
+  ZERO_INDEX,
 } from '@constants';
 import { CustomButton, Icon, Rating, Image } from '@components';
 
@@ -15,8 +22,6 @@ import style from './ProductsItem.module.scss';
 interface ProductsItemProps {
   product: IProduct;
 }
-
-const FREE_SHIPPING = 'Free Shipping';
 
 export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   const {
@@ -33,33 +38,21 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   } = product;
 
   const productOriginalPrice = price.amount.toFixed(PRICE_DECIMALS);
-
-  const productPrice = price.discount
-    ? price.discountedAmount.toFixed(PRICE_DECIMALS)
-    : productOriginalPrice;
-
-  const deliveryCost = delivery.cost
-    ? `${delivery.cost} ${price.currency}`
-    : FREE_SHIPPING;
-
-  const deliveryTime = `Delivery in ${delivery.timeframe} day${
-    delivery.timeframe > 1 ? 's' : ''
-  }`;
-
-  const additionalInfoDTO = {
-    origin: originCountry,
+  const productPrice = getActualProductPrice(price).toFixed(PRICE_DECIMALS);
+  const deliveryCost = getDeliveryCost(delivery.cost, price.currency);
+  const deliveryTime = getDeliveryTime(delivery.timeframe);
+  const additionalInfoList = getAdditionalInfo(
+    originCountry,
     brand,
-    delivery: delivery.area.join(', '),
-    stock: `${stock.amount} ${stock.measure}`,
-  };
-
-  const additionalInfoList = Object.entries(additionalInfoDTO);
+    delivery.area.join(', '),
+    stock,
+  );
 
   return (
     <article className={style.container}>
       <NavLink to={productId}>
         <Image
-          src={imgs[0]}
+          src={imgs[ZERO_INDEX]}
           alt={productTitle}
         />
       </NavLink>
@@ -92,9 +85,9 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
           <div className={style.price}>
             <p>{`${productPrice} ${price.currency}`}</p>
 
-            {price.discount ? (
+            {!!price.discount && (
               <p className={style.old_price}>{productOriginalPrice}</p>
-            ) : null}
+            )}
           </div>
 
           <div className={style.delivery_info}>
