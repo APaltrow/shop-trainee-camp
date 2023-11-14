@@ -12,10 +12,6 @@
 @mixin with-variant($bg_color, $fill_color) {
   background-color: $bg_color;
   color: $fill_color;
-
-  & > svg {
-    fill: $fill_color;
-  }
 }
 
 .button {
@@ -34,11 +30,6 @@
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
-  }
-
-  & > svg {
-    width: 15px;
-    height: 15px;
   }
 }
 

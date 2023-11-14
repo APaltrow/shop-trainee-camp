@@ -1,6 +1,6 @@
 import { FC, ReactNode, useState } from 'react';
 
-import { IconsTypes } from '@constants';
+import { IconSizes, IconsTypes } from '@constants';
 import { Icon } from '@components';
 
 import style from './Accordion.module.scss';
@@ -27,14 +27,16 @@ export const Accordion: FC<AccordionProps> = ({
         {children}
       </div>
 
-      <span className={`${style.expand_btn} ${isExpanded ? style.rotate : ''}`}>
-        <button
-          type="button"
-          onClick={handleExpand}
-        >
-          <Icon iconName={IconsTypes.ARROW_DOWN} />
-        </button>
-      </span>
+      <button
+        type="button"
+        onClick={handleExpand}
+        className={`${style.expand_btn} ${isExpanded ? style.rotate : ''}`}
+      >
+        <Icon
+          iconName={IconsTypes.ARROW_DOWN}
+          size={IconSizes.SMALL}
+        />
+      </button>
     </div>
   );
 };

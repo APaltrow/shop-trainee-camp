@@ -30,11 +30,9 @@
 .icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   right: 0;
 
-  & > svg {
-    width: 15px;
-    height: 15px;
-  }
+  transform: translateY(-50%);
+
+  color: transparent;
 }

@@ -9,8 +9,9 @@ interface ImageProps {
 
 export const Image: FC<ImageProps> = ({ src, alt }) => {
   return (
-    <div className={style.img_container}>
+    <div className={style.container}>
       <img
+        className={style.img}
         src={src}
         alt={alt}
       />

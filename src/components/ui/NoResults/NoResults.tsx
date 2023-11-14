@@ -8,7 +8,7 @@ export const NoResults: FC = () => {
 
   return (
     <article className={style.container}>
-      <h3>No Results Found</h3>
+      <h3 className={style.title}>No Results Found</h3>
       <p>
         Could not find a match
         {!!searchValue && (

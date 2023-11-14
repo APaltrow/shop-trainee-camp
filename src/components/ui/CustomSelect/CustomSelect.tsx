@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { IconsTypes, SelectVariants } from '@constants';
+import { IconSizes, IconsTypes, SelectVariants } from '@constants';
 import { useToggle } from '@hooks';
 import { CustomButton, Dropdown, DropdownItem, Icon } from '@components';
 
@@ -34,7 +34,12 @@ export const CustomSelect: FC<CustomSelectProps> = ({
         {selected}
       </span>
       <span className={style[`btn_${variant}`]}>
-        <Icon iconName={IconsTypes.ARROW_DOWN} />
+        <Icon
+          iconName={IconsTypes.ARROW_DOWN}
+          size={
+            variant !== SelectVariants.PRIMARY ? IconSizes.SMALL : IconSizes.MID
+          }
+        />
       </span>
     </CustomButton>
   );

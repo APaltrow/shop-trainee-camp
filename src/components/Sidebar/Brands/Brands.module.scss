@@ -9,10 +9,10 @@
   min-height: 150px;
   overflow: auto;
 
-  & > li {
-    font-size: 14px;
-    font-weight: 400;
-  }
-
   @include with-scrollbar(10px);
+}
+
+.item {
+  font-size: 14px;
+  font-weight: 400;
 }

@@ -8,11 +8,11 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
 
-  & > h1 {
-    font-size: 32px;
-    font-weight: 600;
-  }
+.title {
+  font-size: 32px;
+  font-weight: 600;
 }
 
 .totals {
@@ -69,10 +69,8 @@
 }
 
 @include tablet {
-  .header {
-    & > h1 {
-      font-size: 24px;
-    }
+  .title {
+    font-size: 24px;
   }
 
   .footer {

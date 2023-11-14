@@ -33,14 +33,6 @@
   font-weight: 400;
   color: var(--clr-secondary-400);
 
-  & > h2 {
-    color: var(--clr-secondary);
-    font-size: 18px;
-    font-weight: 600;
-
-    @include with-text-overflow;
-  }
-
   & > p {
     padding-bottom: 10px;
 
@@ -50,6 +42,14 @@
   & > div > svg {
     fill: var(--clr-secondary);
   }
+}
+
+.title {
+  color: var(--clr-secondary);
+  font-size: 18px;
+  font-weight: 600;
+
+  @include with-text-overflow;
 }
 
 .additional_info {

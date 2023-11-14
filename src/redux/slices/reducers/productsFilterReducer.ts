@@ -45,7 +45,19 @@ export const productsFilterSlice = createSlice({
       state.searchValue = payload;
     },
     resetFilters: (state) => {
-      state = initialState;
+      state.activeCategory = null;
+      state.activeBrands = [];
+      state.activeRatings = [];
+      state.priceRange = {
+        min: 0,
+        max: 0,
+      };
+      state.activePriceRange = {
+        min: 0,
+        max: 0,
+      };
+      state.sort = null;
+      state.searchValue = '';
     },
   },
 });

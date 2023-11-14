@@ -11,27 +11,15 @@
 }
 
 .btn_default {
-  & > svg {
-    width: 12px;
-    height: 12px;
-    fill: var(--clr-secondary);
-  }
+  color: var(--clr-secondary);
 }
 
 .btn_primary {
-  & > svg {
-    width: 15px;
-    height: 15px;
-    fill: var(--clr-accent-A);
-  }
+  color: var(--clr-accent-A);
 }
 
 .btn_secondary {
-  & > svg {
-    width: 12px;
-    height: 12px;
-    fill: var(--clr-accent-A);
-  }
+  color: var(--clr-accent-A);
 }
 
 .option_text {

@@ -47,7 +47,7 @@ export const PriceInput: FC<PriceInputProps> = ({
       htmlFor={id}
       className={style.label}
     >
-      <span>{title}</span>
+      <span className={style.title}>{title}</span>
 
       <input
         readOnly={isDisabled}

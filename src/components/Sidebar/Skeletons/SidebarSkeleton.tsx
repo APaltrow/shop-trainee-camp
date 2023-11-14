@@ -21,8 +21,8 @@ export const SidebarSkeleton: FC = () => {
     <ul className={containerStyle.container}>
       {skeletonsList.map((skeleton, idx) => (
         <li
-          key={`${skeleton}_${idx + ARRAY_INDEX_DIFF}`}
           className={style.item}
+          key={`${skeleton}_${idx + ARRAY_INDEX_DIFF}`}
         />
       ))}
     </ul>

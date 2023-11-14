@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, ReactNode } from 'react';
 
-import { IconsTypes } from '@constants';
+import { IconSizes, IconsTypes } from '@constants';
 import { Icon } from '@components';
 
 import style from './Checkbox.module.scss';
@@ -38,7 +38,10 @@ export const Checkbox: FC<CheckboxProps> = ({
 
       {isChecked && (
         <span className={style.checkmark}>
-          <Icon iconName={IconsTypes.CHECK_MARK} />
+          <Icon
+            iconName={IconsTypes.CHECK_MARK}
+            size={IconSizes.LARGE}
+          />
         </span>
       )}
     </div>

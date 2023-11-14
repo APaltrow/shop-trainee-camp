@@ -6,8 +6,8 @@
   align-items: center;
   gap: 30px;
   flex: 1;
+}
 
-  & > h3 {
-    color: var(--clr-accent-C);
-  }
+.title {
+  color: var(--clr-accent-C);
 }

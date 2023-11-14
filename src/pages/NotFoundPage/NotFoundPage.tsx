@@ -14,7 +14,7 @@ export const NotFoundPage: FC = () => {
   return (
     <article className={style.container}>
       <p className={style.notice}>Oops!</p>
-      <h1>404 - PAGE NOT FOUND</h1>
+      <h1 className={style.title}>404 - PAGE NOT FOUND</h1>
       <p>
         The page you are looking for might be removed or temporarily
         unavailable...

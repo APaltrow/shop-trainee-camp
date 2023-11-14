@@ -73,7 +73,7 @@ export const Products: FC = () => {
   return (
     <div>
       <div className={style.header}>
-        <h1>All products</h1>
+        <h1 className={style.title}>All products</h1>
 
         <p className={style.totals}>
           <InfoTooltip info={`${totalFilteredProducts}`} />

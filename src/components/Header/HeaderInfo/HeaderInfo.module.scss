@@ -15,11 +15,11 @@
   text-wrap: nowrap;
 
   border-bottom: 1px solid var(--clr-secondary-100);
+}
 
-  & > ul {
-    display: flex;
-    gap: 30px;
-  }
+.list {
+  display: flex;
+  gap: 30px;
 }
 
 @include tablet {
@@ -28,14 +28,14 @@
 
     overflow: hidden;
     gap: 10px;
+  }
 
-    & > ul {
-      gap: 10px;
-      flex-direction: column;
-    }
+  .list {
+    gap: 10px;
+    flex-direction: column;
+  }
 
-    & > ul:last-child {
-      text-align: right;
-    }
+  .list:last-child {
+    text-align: right;
   }
 }

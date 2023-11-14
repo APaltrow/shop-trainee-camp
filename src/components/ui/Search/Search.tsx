@@ -16,6 +16,7 @@ interface SearchProps {
 export const Search: FC<SearchProps> = ({
   value,
   placeholder,
+
   onChange,
   onFocus,
 }) => {

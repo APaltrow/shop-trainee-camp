@@ -13,10 +13,10 @@
     height: 50px;
     fill: var(--clr-accent-C);
   }
+}
 
-  & > p {
-    font-style: italic;
-  }
+.message {
+  font-style: italic;
 }
 
 @include tablet {
@@ -25,13 +25,13 @@
       width: 30px;
       height: 30px;
     }
+  }
 
-    & > h3 {
-      font-size: 18px;
-    }
+  .title {
+    font-size: 18px;
+  }
 
-    & > p {
-      font-size: 14px;
-    }
+  .message {
+    font-size: 14px;
   }
 }

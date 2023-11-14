@@ -60,7 +60,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
       <div className={style.content}>
         <div className={style.info}>
           <div className={style.description}>
-            <h2>
+            <h2 className={style.title}>
               <NavLink to={productId}>{productTitle}</NavLink>
             </h2>
 
