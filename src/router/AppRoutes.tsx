@@ -1,5 +1,11 @@
 import { RoutesPaths } from '@constants';
-import { HomePage, ProductsPage } from '@pages';
+import {
+  HomePage,
+  ProductsPage,
+  NotFoundPage,
+  CartPage,
+  ProductPage,
+} from '@pages';
 
 export const AppRoutes = [
   {
@@ -12,14 +18,14 @@ export const AppRoutes = [
   },
   {
     path: RoutesPaths.PRODUCT,
-    element: <div>Product page</div>,
+    element: <ProductPage />,
   },
   {
     path: RoutesPaths.CART,
-    element: <div>Cart page</div>,
+    element: <CartPage />,
   },
   {
     path: RoutesPaths.NOT_FOUND,
-    element: <div>Not found: 404</div>,
+    element: <NotFoundPage />,
   },
 ];

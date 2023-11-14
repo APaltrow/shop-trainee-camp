@@ -10,3 +10,4 @@ export * from './media';
 export * from './common';
 export * from './validators/specialCharacters';
 export * from './sort';
+export * from './pagination';
