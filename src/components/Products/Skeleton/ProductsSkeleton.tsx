@@ -26,7 +26,7 @@ export const ProductsSkeleton: FC = () => {
           <li key={`${element}_${idx + ARRAY_INDEX_DIFF} `}>
             <div className={style.container}>
               <div
-                className={`${styleimg.img_container} ${skeletonStyle.skeleton}`}
+                className={`${styleimg.container} ${skeletonStyle.skeleton}`}
               />
 
               <div className={style.content}>
