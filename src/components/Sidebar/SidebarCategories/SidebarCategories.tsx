@@ -49,9 +49,13 @@ export const SidebarCategories: FC = () => {
       <ul className={style.list}>
         {categoriesList.map((category, idx) => {
           const isActive = category === activeCategory;
+          const key = `sidebar_${category}_${idx + ARRAY_INDEX_DIFF}`;
 
           return (
-            <li key={`sidebar_${category}_${idx + ARRAY_INDEX_DIFF}`}>
+            <li
+              key={key}
+              className={style.item}
+            >
               <CustomButton onClick={() => handleCategorySelect(category)}>
                 <span
                   className={`${style.text} ${isActive ? style.active : ''}`}

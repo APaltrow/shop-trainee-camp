@@ -10,6 +10,12 @@ export enum SortOrder {
   DESCENDING = 'desc',
 }
 
+export enum TitleSort {
+  EQUAL_INDEX = 0,
+  LESS_INDEX = -1,
+  BIGGER_INDEX = 1,
+}
+
 export const SORT_OPTIONS = [
   SortProperty.PRICE,
   SortProperty.RATING,

@@ -47,7 +47,10 @@ export const Brands: FC = () => {
     <SidebarBlock title="Brands">
       <ul className={style.list}>
         {brandsList.map((brand, idx) => (
-          <li key={`brands_${brand}_${idx + ARRAY_INDEX_DIFF}`}>
+          <li
+            className={style.item}
+            key={`brands_${brand}_${idx + ARRAY_INDEX_DIFF}`}
+          >
             <Checkbox
               id={brand}
               isChecked={checkIfBrandSelected(brand)}

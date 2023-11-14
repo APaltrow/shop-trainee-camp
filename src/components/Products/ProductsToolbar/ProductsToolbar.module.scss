@@ -28,20 +28,13 @@
   padding: 10px;
   @include with-border;
 
-  & > svg {
-    height: 24px;
-    width: 24px;
-  }
+  color: var(--clr-secondary);
 }
 
 .filter_btn {
   display: none;
 
-  & > button > svg {
-    height: 24px;
-    width: 24px;
-    fill: var(--clr-secondary);
-  }
+  color: var(--clr-secondary);
 }
 
 @include tablet {

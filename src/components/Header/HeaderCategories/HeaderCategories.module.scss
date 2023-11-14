@@ -11,14 +11,14 @@
 
   font-size: 15px;
   font-weight: 500;
+}
 
-  & > li {
-    max-width: 120px;
-    text-wrap: nowrap;
+.item {
+  max-width: 120px;
+  text-wrap: nowrap;
 
-    &::first-letter {
-      text-transform: uppercase;
-    }
+  &::first-letter {
+    text-transform: uppercase;
   }
 }
 

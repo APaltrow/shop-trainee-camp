@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import {
+  IconSizes,
   IconsTypes,
   SORT_OPTIONS,
   SelectVariants,
@@ -48,6 +49,7 @@ export const ProductsToolbar: FC<ProductsToolbarProps> = ({ toggle }) => {
                     ? IconsTypes.ORDER_ASC
                     : IconsTypes.ORDER_DESC
                 }
+                size={IconSizes.LARGE}
               />
             </span>
           </CustomButton>
@@ -56,7 +58,10 @@ export const ProductsToolbar: FC<ProductsToolbarProps> = ({ toggle }) => {
 
       <span className={style.filter_btn}>
         <CustomButton onClick={toggle}>
-          <Icon iconName={IconsTypes.FILTER} />
+          <Icon
+            iconName={IconsTypes.FILTER}
+            size={IconSizes.LARGE}
+          />
           <span className={style.filter_btn_text}>Filters</span>
         </CustomButton>
       </span>

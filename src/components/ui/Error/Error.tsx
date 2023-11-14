@@ -13,10 +13,10 @@ export const Error: FC<ErrorProps> = ({
   errorMessage = ErrorsMessages.TRY_AGAIN,
 }) => {
   return (
-    <div className={style.container}>
+    <article className={style.container}>
       <Icon iconName={IconsTypes.ERROR} />
-      <h3>Oops, something went wrong ...</h3>
-      <p>{errorMessage}</p>
-    </div>
+      <h3 className={style.title}>Oops, something went wrong ...</h3>
+      <p className={style.message}>{errorMessage}</p>
+    </article>
   );
 };

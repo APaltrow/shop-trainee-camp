@@ -1,5 +1,4 @@
-const TOP_POSITION = 0;
-const SMOOTH_BEHAVIOR = 'smooth';
+import { SMOOTH_BEHAVIOR, TOP_POSITION } from '@constants';
 
 export const scrollToTop = () => {
   window.scrollTo({

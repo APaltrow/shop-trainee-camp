@@ -71,7 +71,5 @@
   height: 20px;
   pointer-events: none;
 
-  & > svg {
-    fill: var(--clr-primary);
-  }
+  color: var(--clr-primary);
 }

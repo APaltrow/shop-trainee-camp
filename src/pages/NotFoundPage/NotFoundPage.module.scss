@@ -7,12 +7,11 @@
   gap: 20px;
 
   text-align: center;
+}
 
-  & > h1 {
-    font-size: 18px;
-
-    color: var(--clr-accent-C-300);
-  }
+.title {
+  font-size: 18px;
+  color: var(--clr-accent-C-300);
 }
 
 .notice {

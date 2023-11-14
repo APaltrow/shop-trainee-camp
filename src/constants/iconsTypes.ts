@@ -14,3 +14,9 @@ export enum IconsTypes {
   ORDER_ASC = 'order-asc',
   ORDER_DESC = 'order-desc',
 }
+
+export enum IconSizes {
+  SMALL = 'small',
+  MID = 'mid',
+  LARGE = 'large',
+}

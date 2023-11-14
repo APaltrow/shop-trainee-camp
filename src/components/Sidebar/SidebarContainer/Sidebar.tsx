@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { IconsTypes } from '@constants';
+import { IconSizes, IconsTypes } from '@constants';
 import { useActions } from '@redux';
 import { scrollToTop } from '@helpers';
 import { CustomButton, Icon } from '@components';
@@ -34,7 +34,10 @@ export const Sidebar: FC<SidebarProps> = ({
     <aside className={`${style.container} ${isOpened ? style.opened : ''}`}>
       <div className={style.header}>
         <CustomButton onClick={onClose}>
-          <Icon iconName={IconsTypes.CLOSE} />
+          <Icon
+            iconName={IconsTypes.CLOSE}
+            size={IconSizes.LARGE}
+          />
         </CustomButton>
       </div>
 

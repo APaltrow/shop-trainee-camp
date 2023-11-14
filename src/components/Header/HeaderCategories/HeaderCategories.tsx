@@ -9,14 +9,8 @@ import { CategorySkeleton } from './CategorySkeleton';
 
 import style from './HeaderCategories.module.scss';
 
-interface CategoriesProps {
-  categories: [string, string[]][];
-}
-
-export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
-  const { categories: categoriesList, isLoading } = useAppSelector(
-    (state) => state.products,
-  );
+export const HeaderCategories: FC = () => {
+  const { categories, isLoading } = useAppSelector((state) => state.products);
 
   const { setActiveCategory, setActiveBrand } = useActions();
 
@@ -25,8 +19,8 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
   const handleBrandSelect = (category: string, brand: string) => {
     setActiveCategory(category);
 
-    if (brand === ALL_BRANDS && categoriesList) {
-      setActiveBrand(categoriesList[category]);
+    if (brand === ALL_BRANDS && categories) {
+      setActiveBrand(categories[category]);
     } else {
       setActiveBrand([brand]);
     }
@@ -38,10 +32,15 @@ export const HeaderCategories: FC<CategoriesProps> = ({ categories }) => {
     return <CategorySkeleton />;
   }
 
+  const categoriesList = categories ? Object.entries(categories) : [];
+
   return (
     <ul className={style.navbar}>
-      {categories.map(([category, brands]) => (
-        <li key={`category_${category}`}>
+      {categoriesList.map(([category, brands]) => (
+        <li
+          key={`category_${category}`}
+          className={style.item}
+        >
           <CustomSelect
             variant={SelectVariants.SECONDARY}
             selected={category}

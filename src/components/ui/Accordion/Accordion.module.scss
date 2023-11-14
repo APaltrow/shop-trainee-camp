@@ -22,22 +22,13 @@
 
   display: none;
 
-  & > button {
-    padding: 4px 19px;
+  padding: 4px 19px;
 
-    display: flex;
-    align-items: center;
+  align-items: center;
 
-    background-color: transparent;
-    border: 1px solid var(--clr-accent-A-200);
-    border-radius: $border_radius;
+  background-color: transparent;
 
-    & > svg {
-      width: 10px;
-      height: 10px;
-      fill: var(--clr-accent-A);
-    }
-  }
+  color: var(--clr-accent-A);
 }
 
 @include tablet {
@@ -56,7 +47,7 @@
   }
 
   .expand_btn {
-    display: block;
+    display: flex;
   }
 }
 

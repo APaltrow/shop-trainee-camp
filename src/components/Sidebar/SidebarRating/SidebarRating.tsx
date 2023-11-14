@@ -23,6 +23,10 @@ export const SidebarRating: FC = () => {
     setActiveRatings(updatedRatingsList);
   };
 
+  const checkIfRatingSelected = (ratingValue: number) => {
+    return activeRatings.includes(ratingValue);
+  };
+
   return (
     <SidebarBlock title="Rating">
       <ul className={style.list}>
@@ -33,7 +37,7 @@ export const SidebarRating: FC = () => {
             <li key={`${ratingitem}_${ratingValue}`}>
               <Checkbox
                 id={`checkbox_${ratingValue}`}
-                isChecked={activeRatings.includes(ratingValue)}
+                isChecked={checkIfRatingSelected(ratingValue)}
                 onChange={(e) =>
                   handleRatingSelect(ratingValue, e.target.checked)
                 }

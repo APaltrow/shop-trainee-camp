@@ -5,6 +5,7 @@ import { useActions, useAppSelector } from '@redux';
 import {
   ALL_CATEGORIES,
   ErrorsMessages,
+  IconSizes,
   IconsTypes,
   LOGO_ALT,
   NavigationPaths,
@@ -135,11 +136,18 @@ export const HeaderToolbar: FC = () => {
           rightElement={searchBar}
         />
       </div>
+
       <div className={style.buttons}>
-        <Icon iconName={IconsTypes.PROFILE} />
+        <Icon
+          iconName={IconsTypes.PROFILE}
+          size={IconSizes.LARGE}
+        />
 
         <NavLink to={NavigationPaths.CART}>
-          <Icon iconName={IconsTypes.CART} />
+          <Icon
+            iconName={IconsTypes.CART}
+            size={IconSizes.LARGE}
+          />
         </NavLink>
       </div>
     </div>
