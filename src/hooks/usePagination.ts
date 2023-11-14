@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { IPage } from '@types';
 import { DEFAULT_ACTIVE_PAGE } from '@constants';
-import { getPagesRecord, getUpdatedPagesRecord } from '@helpers';
+import { getPagesRecord, getUpdatedPagesRecord, scrollToTop } from '@helpers';
 
 export const usePagination = (itemsCount: number, resetDeps: unknown[]) => {
   const [activePage, setActivePage] = useState(DEFAULT_ACTIVE_PAGE);
@@ -15,6 +15,7 @@ export const usePagination = (itemsCount: number, resetDeps: unknown[]) => {
 
   const onActivePageChange = (pageNumber: number) => {
     setActivePage(pageNumber);
+    scrollToTop();
   };
 
   const onShowMore = (activePageNumber: number) => {
