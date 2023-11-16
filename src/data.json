@@ -1,0 +1,2320 @@
+[
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_1",
+    "brand": "Apple",
+    "rating": 5,
+    "imgs": [
+      "https://www.diabetes.co.uk/images/iphone14.jpg",
+      "https://images.pexels.com/photos/16005007/pexels-photo-16005007/free-photo-of-apple-iphone-14-pro-max-mobile-phone.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/3651803/pexels-photo-3651803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    "productTitle": "Apple iPhone 14 Pro Max",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1099,
+      "discountedAmount": 901.18,
+      "discount": 18,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_2",
+    "brand": "Apple",
+    "rating": 4,
+    "imgs": [
+      "https://dhtimports.com/wp-content/uploads/2021/12/13-TODOS-1024x1024-1-1.png",
+      "https://media.istockphoto.com/id/1354142498/photo/iphone-13-pro-max.jpg?s=612x612&w=0&k=20&c=0XRJvG9SClFb7LRbLep6x4aFFfhVwBZiUCLgOYux3BA=",
+      "https://i.pinimg.com/736x/c9/c5/20/c9c520f768bd96038cb66ba3bedee644.jpg"
+    ],
+    "productTitle": "Apple iPhone 13 Pro Max",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 794.97,
+      "discountedAmount": 723.42,
+      "discount": 9,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_3",
+    "brand": "Samsung",
+    "rating": 3,
+    "imgs": [
+      "https://www.appliancesdirect.co.uk/Images/SM-F936BZKBEUB_8_Supersize.jpg?v=3",
+      "https://assets.hardwarezone.com/img/2020/02/samsung-galaxy-z-flip.jpg",
+      "https://images.hindustantimes.com/tech/img/2022/10/07/960x540/IMG_4523_1661607144405_1665170811051_1665170811051.jpg"
+    ],
+    "productTitle": "Samsung Galaxy Z",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 990.99,
+      "discountedAmount": 792.79,
+      "discount": 20,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_4",
+    "rating": 2,
+    "imgs": [
+      "https://www.lowyat.net/wp-content/uploads/2023/05/samsung-galaxy-a24.jpg",
+      "https://www.hificorp.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/s/m/sma245_galaxya24lte_black_frontandbackdecal_215583_ecommerce_57df.png",
+      "https://www.strike.com.au/cdn/shop/files/media_7d4970a7-275c-4421-83ca-4ded84d0eab2.jpg?v=1694015829"
+    ],
+    "productTitle": "Samsung Galaxy A24",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 825.32,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 726.28
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "Japan",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Samsung"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_5",
+    "rating": 1,
+    "imgs": [
+      "https://www.zeekonline.co.za/cdn/shop/products/060_52d86438-2c93-4d7f-a67d-5c96f5e27450_grande.jpg?v=1655387132",
+      "https://www.stuff.tv/wp-content/uploads/sites/2/2023/05/Sony-Xperia-1-V-static-rear.jpg",
+      "https://amateurphotographer.com/wp-content/uploads/sites/7/2022/08/Sony_Xperia_1IV_Product_Shot_008.jpg"
+    ],
+    "productTitle": "Sony Xperia 1 V",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 645.89,
+      "discount": 17,
+      "currency": "USD",
+      "discountedAmount": 536.08
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "Japan",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Sony"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_6",
+    "rating": 3,
+    "imgs": [
+      "https://cdn11.bigcommerce.com/s-ilhtqzrn07/images/stencil/1280x1280/products/693/944/iPad-Pro-129__42106.1571841169.1280.1280__69766.1595017075.jpg?c=1",
+      "https://craftwork.design/wp-content/uploads/edd/2022/10/3-4.png",
+      "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXBwbGUlMjBpcGFkJTIwcHJvfGVufDB8fDB8fHww"
+    ],
+    "productTitle": "Apple iPad Pro",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1299,
+      "discount": 8,
+      "currency": "USD",
+      "discountedAmount": 1195.08
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Apple"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_7",
+    "rating": 4,
+    "imgs": [
+      "https://goodmockups.com/wp-content/uploads/2020/10/Free-Apple-iPad-Air-2020-Mockup-PSD-1.jpg",
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-finish-unselect-gallery-1-202207_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1654902970705",
+      "https://i5.walmartimages.com/asr/a3d872da-8b65-44d6-b718-be524fa300a0.4385e31833c29fdbd092169c3943c0dd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+    ],
+    "productTitle": "Apple iPad Air",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 599,
+      "discount": 16,
+      "currency": "USD",
+      "discountedAmount": 503.16
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Apple"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_8",
+    "rating": 4,
+    "imgs": [
+      "https://hotline.ua/img/tx/892/8922235.jpg",
+      "https://assetsio.reedpopcdn.com/137180148175.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp",
+      "https://www.dpreview.com/files/p/articles/9195391484/_DXO0412.JPG"
+    ],
+    "productTitle": "Sony Xperia Tablet",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 489.72,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 430.32
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "Japan",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Sony"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_9",
+    "rating": 3,
+    "imgs": [
+      "https://eshop.hkcsl.com/on/demandware.static/-/Sites-master-hkt-hk/default/dw4ab90c36/images/4224341scol/4224341_1.jpg",
+      "https://images.immediate.co.uk/production/volatile/sites/3/2023/10/samsung-galaxy-tab-s9-fe-d1316cb.jpg?quality=90&resize=980,654",
+      "https://image-us.samsung.com/SamsungUS/configurator/01-configurator-800x600.jpg"
+    ],
+    "productTitle": "Samsung Galaxy S9 FE",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 347.77,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 306.03
+    },
+    "delivery": {
+      "area": ["Asia"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "Japan",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Samsung"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_10",
+    "rating": 4,
+    "imgs": [
+      "https://borngood.uk/cdn/shop/products/s-l1600_9517382e-e2d3-487e-88a8-339ea41ba405_1024x1024.jpg?v=1665131624",
+      "https://www.imei.info/media/t/gsm-cache/h/p/KVwCuu-d/hp-pro-tablet-10-ee-g1.jpg",
+      "https://www.notebookcheck-ru.com/uploads/tx_nbc2/4zu3_HP_Pro_Tablet_408_G1.jpg"
+    ],
+    "productTitle": "HP Pro Tablet 10 EE G1",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 476.27,
+      "discount": 11,
+      "currency": "USD",
+      "discountedAmount": 423.88
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Hewlett Packard"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_11",
+    "rating": 5,
+    "imgs": [
+      "https://www.freemockupworld.com/wp-content/uploads/2021/09/MacBook-Pro-16-Free-Mockup-01.jpg",
+      "https://www.designbolts.com/wp-content/uploads/2022/02/Free-Apple-MacBook-Pro-16-iPhone-13-Pro-Max-Mockup-PSD-2.jpg",
+      "https://images.unsplash.com/photo-1580719993950-0d35ce87c26f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFjYm9vayUyMHBybyUyMDE2fGVufDB8fDB8fHww&w=1000&q=80"
+    ],
+    "productTitle": "Apple MacBook Pro 16\"",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 2499.88,
+      "discount": 5,
+      "currency": "USD",
+      "discountedAmount": 2374.88
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Apple"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_12",
+    "rating": 4,
+    "imgs": [
+      "https://johnlewis.scene7.com/is/image/JohnLewis/241016759",
+      "https://www.01net.com/app/uploads/2022/08/Samsung-Galaxy-Book-Pro-2-360.jpg",
+      "https://www.01net.com/app/uploads/2022/08/Samsung-Galaxy-Book-Pro-2-360.jpg"
+    ],
+    "productTitle": "Samsung Galaxy Book2 Pro 360",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1349.99,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 1187.99
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Samsung"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_13",
+    "rating": 3,
+    "imgs": [
+      "https://images.prom.ua/4814198781_w640_h640_4814198781.jpg",
+      "https://images.prom.ua/4814198781_w640_h640_4814198781.jpg",
+      "https://images.prom.ua/4814198781_w640_h640_4814198781.jpg"
+    ],
+    "productTitle": "Sony Vaio",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 899.22,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 791.31
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Sony"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_14",
+    "rating": 4,
+    "imgs": [
+      "https://johnlewis.scene7.com/is/image/JohnLewis/235400354",
+      "https://tabletmonkeys.com/images/2015/06/2015-Model-HP-Pavilion-10-x2-red-660x463.jpg",
+      "https://little-beans.net/wp-content/uploads/2016/08/IMG_0147.jpg"
+    ],
+    "productTitle": "HP Pavilion x2",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1753.41,
+      "discount": 14,
+      "currency": "USD",
+      "discountedAmount": 1507.93
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Hewlett Packard"
+  },
+  {
+    "category": "electronics",
+    "productId": "product_id_electronics_15",
+    "rating": 4,
+    "imgs": [
+      "https://mockups-design.com/wp-content/uploads/2022/10/Macbook_Air_Mockup_3.jpg",
+      "https://www.mockupworld.co/wp-content/uploads/2020/03/free-macbook-air-2020-mockup-psd.jpg",
+      "https://www.mockupworld.co/wp-content/uploads/2020/03/free-macbook-air-2020-mockup-psd.jpg"
+    ],
+    "productTitle": "Apple Macbook air",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1999.83,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 1759.85
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Apple"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_1",
+    "brand": "Domino's",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/slice-cut-from-classic-pepperoni-pizza-with-green-pepper-rolls_114579-1963.jpg",
+      "https://img.freepik.com/free-photo/slice-cut-from-classic-pepperoni-pizza-with-green-pepper-rolls_114579-1963.jpg",
+      "https://img.freepik.com/free-photo/slice-cut-from-classic-pepperoni-pizza-with-green-pepper-rolls_114579-1963.jpg"
+    ],
+    "productTitle": "Pepperoni Pizza",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 50.13,
+      "discountedAmount": 47.62,
+      "discount": 5,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_2",
+    "brand": "Auchan",
+    "rating": 5,
+    "imgs": [
+      "https://freefoodphotos.com/imagelibrary/meals/slides/pizza.jpg",
+      "https://freefoodphotos.com/imagelibrary/meals/slides/pizza.jpg",
+      "https://freefoodphotos.com/imagelibrary/meals/slides/pizza.jpg"
+    ],
+    "productTitle": "Pepperoni Classic",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.99,
+      "discountedAmount": 22.87,
+      "discount": 12,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_3",
+    "brand": "Auchan",
+    "rating": 3,
+    "imgs": [
+      "https://i.pinimg.com/1200x/87/5c/29/875c292fd18016678efd4dc3d367805f.jpg",
+      "https://i.pinimg.com/1200x/87/5c/29/875c292fd18016678efd4dc3d367805f.jpg",
+      "https://i.pinimg.com/1200x/87/5c/29/875c292fd18016678efd4dc3d367805f.jpg"
+    ],
+    "productTitle": "Pepperoni Fresh Tomato",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 23.99,
+      "discountedAmount": 21.11,
+      "discount": 12,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_4",
+    "rating": 4,
+    "imgs": [
+      "https://st2.depositphotos.com/1375221/50597/i/450/depositphotos_505971914-stock-photo-delicious-authentic-neapolitan-pizza-margherita.jpg",
+      "https://st2.depositphotos.com/1375221/50597/i/450/depositphotos_505971914-stock-photo-delicious-authentic-neapolitan-pizza-margherita.jpg",
+      "https://st2.depositphotos.com/1375221/50597/i/450/depositphotos_505971914-stock-photo-delicious-authentic-neapolitan-pizza-margherita.jpg"
+    ],
+    "productTitle": "Neapolitan pizza",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.99,
+      "discount": 10,
+      "currency": "USD",
+      "discountedAmount": 23.39
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Walmart"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_5",
+    "rating": 2,
+    "imgs": [
+      "https://cdn.concreteplayground.com/content/uploads/2022/08/Hawaiian-pizza_Pizza-Hut_01_supplied-1920x1440.jpg"
+    ],
+    "productTitle": "Hawaiian pizza",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 36.97,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 32.53
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "Poland",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Lidl"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_6",
+    "rating": 4,
+    "imgs": [
+      "https://www.masslive.com/resizer/J7NdAoApfsy7MBN9kpc3kkHyHu8=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/6KT3RJCFU5HARLRARDKK7FEDCY.jpeg",
+      "https://www.masslive.com/resizer/J7NdAoApfsy7MBN9kpc3kkHyHu8=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/6KT3RJCFU5HARLRARDKK7FEDCY.jpeg",
+      "https://www.masslive.com/resizer/J7NdAoApfsy7MBN9kpc3kkHyHu8=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/6KT3RJCFU5HARLRARDKK7FEDCY.jpeg"
+    ],
+    "productTitle": "Fresh Burger",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.99,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 22.87
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "France",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Auchan"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_7",
+    "rating": 4,
+    "imgs": [
+      "https://media.istockphoto.com/id/1288860345/photo/two-hamburgers-putting-katchup-on-two-double-gourmet-hamburgers-cheese-tomato-bacon-lettuce.jpg?s=612x612&w=0&k=20&c=z8JjSErj6zo4NVTxIQn7EOruP5bMiJYjBTHKwlHp3lA=",
+      "https://media.istockphoto.com/id/1288860345/photo/two-hamburgers-putting-katchup-on-two-double-gourmet-hamburgers-cheese-tomato-bacon-lettuce.jpg?s=612x612&w=0&k=20&c=z8JjSErj6zo4NVTxIQn7EOruP5bMiJYjBTHKwlHp3lA=",
+      "https://media.istockphoto.com/id/1288860345/photo/two-hamburgers-putting-katchup-on-two-double-gourmet-hamburgers-cheese-tomato-bacon-lettuce.jpg?s=612x612&w=0&k=20&c=z8JjSErj6zo4NVTxIQn7EOruP5bMiJYjBTHKwlHp3lA="
+    ],
+    "productTitle": "Double Meat Burger",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 45.53,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 40.06
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Walmart"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_8",
+    "rating": 1,
+    "imgs": [
+      "https://media.istockphoto.com/id/511385974/photo/pastrami-burger-with-sliced-roast-beef-and-onion-fries-rings.jpg?s=612x612&w=0&k=20&c=yTdUvsp4ZAjOXwHsiWgeKy0slyJO8vULainT5aBPQLA=",
+      "https://media.istockphoto.com/id/511385974/photo/pastrami-burger-with-sliced-roast-beef-and-onion-fries-rings.jpg?s=612x612&w=0&k=20&c=yTdUvsp4ZAjOXwHsiWgeKy0slyJO8vULainT5aBPQLA=",
+      "https://media.istockphoto.com/id/511385974/photo/pastrami-burger-with-sliced-roast-beef-and-onion-fries-rings.jpg?s=612x612&w=0&k=20&c=yTdUvsp4ZAjOXwHsiWgeKy0slyJO8vULainT5aBPQLA="
+    ],
+    "productTitle": "Beef Burger",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 26.18,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Domino's"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_9",
+    "rating": 2,
+    "imgs": [
+      "https://thesaltycooker.com/wp-content/uploads/2022/05/PimentoCheeseBurgerwithBacon-Jam-BLOG-1024x1024.jpg",
+      "https://thesaltycooker.com/wp-content/uploads/2022/05/PimentoCheeseBurgerwithBacon-Jam-BLOG-1024x1024.jpg",
+      "https://thesaltycooker.com/wp-content/uploads/2022/05/PimentoCheeseBurgerwithBacon-Jam-BLOG-1024x1024.jpg"
+    ],
+    "productTitle": "Egg Burger",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 27.51,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "Poland",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Lidl"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_10",
+    "rating": 5,
+    "imgs": [
+      "https://gfjules.com/wp-content/uploads/2019/05/veggie-burger-on-bun-in-hand.jpg",
+      "https://gfjules.com/wp-content/uploads/2019/05/veggie-burger-on-bun-in-hand.jpg",
+      "https://gfjules.com/wp-content/uploads/2019/05/veggie-burger-on-bun-in-hand.jpg"
+    ],
+    "productTitle": "Vegan Burger",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 43.34,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "France",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Auchan"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_11",
+    "rating": 4,
+    "imgs": [
+      "https://images.pexels.com/photos/2616171/pexels-photo-2616171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2616171/pexels-photo-2616171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2616171/pexels-photo-2616171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    "productTitle": "Mango drink",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 10.57,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "France",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Auchan"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_12",
+    "rating": 4,
+    "imgs": [
+      "https://images.pexels.com/photos/5817630/pexels-photo-5817630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/5817630/pexels-photo-5817630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/5817630/pexels-photo-5817630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    "productTitle": "Strawberry drink",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 12.95,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Europe"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "Poland",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Lidl"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_14",
+    "rating": 4,
+    "imgs": [
+      "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
+    "productTitle": "Grapefruit drink",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 10.39,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Walmart"
+  },
+  {
+    "category": "food",
+    "productId": "product_id_food_15",
+    "rating": 4,
+    "imgs": [
+      "https://guiltlesswines.com/cdn/shop/files/ginger-mint-200ml.webp?v=1694697054",
+      "https://guiltlesswines.com/cdn/shop/files/ginger-mint-200ml.webp?v=1694697054",
+      "https://guiltlesswines.com/cdn/shop/files/ginger-mint-200ml.webp?v=1694697054"
+    ],
+    "productTitle": "Ginger drink",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 17.71,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Domino's"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_1",
+    "rating": 4,
+    "imgs": [
+      "https://johnlewis.scene7.com/is/image/JohnLewis/006606900?$fashion-ui$",
+      "https://johnlewis.scene7.com/is/image/JohnLewis/006606900?$fashion-ui$",
+      "https://johnlewis.scene7.com/is/image/JohnLewis/006606900?$fashion-ui$"
+    ],
+    "productTitle": "Siana Plain Coat",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 256.62,
+      "discount": 8,
+      "currency": "USD",
+      "discountedAmount": 236.09
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Zara"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_2",
+    "rating": 4,
+    "imgs": [
+      "https://static.zara.net/photos/2020/I/0/3/p/5854/587/707/2/w/560/5854587707_1_1_1.jpg?ts=1598461683768",
+      "https://static.zara.net/photos/2020/I/0/3/p/5854/587/707/2/w/560/5854587707_1_1_1.jpg?ts=1598461683768",
+      "https://static.zara.net/photos/2020/I/0/3/p/5854/587/707/2/w/560/5854587707_1_1_1.jpg?ts=1598461683768"
+    ],
+    "productTitle": "Lapel Collar Coat",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 322.39,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Zara"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_3",
+    "rating": 5,
+    "imgs": [
+      "https://di2ponv0v5otw.cloudfront.net/posts/2023/02/22/63f69f56382db850cd93abc5/m_63f69f5dacf462563572c3d4.jpg",
+      "https://di2ponv0v5otw.cloudfront.net/posts/2023/02/22/63f69f56382db850cd93abc5/m_63f69f5dacf462563572c3d4.jpg",
+      "https://di2ponv0v5otw.cloudfront.net/posts/2023/02/22/63f69f56382db850cd93abc5/m_63f69f5dacf462563572c3d4.jpg"
+    ],
+    "productTitle": "Fleece Lined Coat",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 881.55,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "Italy",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Versace"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_4",
+    "rating": 5,
+    "imgs": [
+      "https://img01.ztat.net/article/spp-media-p1/438aaf006b273e1788ad9e307da599fd/9b3ea16dffd04f93add2613085355840.jpg?imwidth=1800&filter=packshot",
+      "https://img01.ztat.net/article/spp-media-p1/438aaf006b273e1788ad9e307da599fd/9b3ea16dffd04f93add2613085355840.jpg?imwidth=1800&filter=packshot",
+      "https://img01.ztat.net/article/spp-media-p1/438aaf006b273e1788ad9e307da599fd/9b3ea16dffd04f93add2613085355840.jpg?imwidth=1800&filter=packshot"
+    ],
+    "productTitle": "Winter Coat",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1125.99,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "France",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Calvin Klein"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_5",
+    "rating": 5,
+    "imgs": [
+      "https://www.hauteacorn.com/wp-content/uploads/2021/08/11.Neutral-Color-Sable-Fur-Jacket.jpg",
+      "https://www.hauteacorn.com/wp-content/uploads/2021/08/11.Neutral-Color-Sable-Fur-Jacket.jpg",
+      "https://www.hauteacorn.com/wp-content/uploads/2021/08/11.Neutral-Color-Sable-Fur-Jacket.jpg"
+    ],
+    "productTitle": "Sable Fur Jacket",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 1989.54,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "Italy",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Gucci"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_6",
+    "rating": 4,
+    "imgs": [
+      "https://i.ebayimg.com/images/g/HIMAAOSwMulkCV8Y/s-l1600.png",
+      "https://i.ebayimg.com/images/g/HIMAAOSwMulkCV8Y/s-l1600.png",
+      "https://i.ebayimg.com/images/g/HIMAAOSwMulkCV8Y/s-l1600.png"
+    ],
+    "productTitle": "Cotton Jersey Sweatshirt",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 270.7,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "Italy",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Gucci"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_7",
+    "rating": 4,
+    "imgs": [
+      "https://cdn.childrensalon.com/media/catalog/product/v/e/versace-teen-black-cotton-logo-hoodie-476084-d44ea9d420b15bd527ec7a46bdd262be9ca615ec.jpg",
+      "https://cdn.childrensalon.com/media/catalog/product/v/e/versace-teen-black-cotton-logo-hoodie-476084-d44ea9d420b15bd527ec7a46bdd262be9ca615ec.jpg",
+      "https://cdn.childrensalon.com/media/catalog/product/v/e/versace-teen-black-cotton-logo-hoodie-476084-d44ea9d420b15bd527ec7a46bdd262be9ca615ec.jpg"
+    ],
+    "productTitle": "Black Cotton Hoodie",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 159.67,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "Italy",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Versace"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_8",
+    "rating": 2,
+    "imgs": [
+      "https://5.imimg.com/data5/IOS/Default/2020/10/VY/SH/JU/104485773/product-jpeg.png",
+      "https://5.imimg.com/data5/IOS/Default/2020/10/VY/SH/JU/104485773/product-jpeg.png",
+      "https://5.imimg.com/data5/IOS/Default/2020/10/VY/SH/JU/104485773/product-jpeg.png"
+    ],
+    "productTitle": "Cotton Plain Hoodie",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 52.93,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Zara"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_9",
+    "rating": 4,
+    "imgs": [
+      "https://photos6.spartoo.net/photos/215/21589674/21589674_500_A.jpg",
+      "https://photos6.spartoo.net/photos/215/21589674/21589674_500_A.jpg",
+      "https://photos6.spartoo.net/photos/215/21589674/21589674_500_A.jpg"
+    ],
+    "productTitle": "Jeans SLANTED Hoodie",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 525.99,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "France",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Calvin Klein"
+  },
+  {
+    "category": "clothes",
+    "productId": "product_id_clothes_10",
+    "rating": 3,
+    "imgs": [
+      "https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_456/01/nm_4238993_100106_m",
+      "https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_456/01/nm_4238993_100106_m",
+      "https://media.neimanmarcus.com/f_auto,q_auto:low,ar_4:5,c_fill,dpr_2.0,w_456/01/nm_4238993_100106_m"
+    ],
+    "productTitle": "Barocco-Print Hooded Jacket",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 833.49,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "Italy",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Versace"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_1",
+    "brand": "BookForMe",
+    "rating": 5,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Harry Potter - Philosopher Stone",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.99,
+      "discountedAmount": 22.87,
+      "discount": 12,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 100500,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_2",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Harry Potter - Chamber of Secrets",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 66.48,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "UK",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "BookForMe"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_3",
+    "brand": "BookForMe",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Harry Potter - Prisoner of Azkaban",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 19.95,
+      "discountedAmount": 17.95,
+      "discount": 10,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "UK",
+    "stock": {
+      "amount": 100500,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_4",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Harry Potter - Goblet of Fire",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 42.02,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "UK",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "BookForMe"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_5",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Harry Potter - Order of the Phoenix",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 51.51,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "UK",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "BookForMe"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_6",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Lord of the Rings - The Fellowship of the Ring",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 54.41,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Booker"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_7",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Lord of the Rings - The Two Towers",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.99,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Booker"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_8",
+    "rating": 4,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Lord of the Rings - The Return of the King",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.54,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Booker"
+  },
+  {
+    "category": "books",
+    "productId": "product_id_books_9",
+    "rating": 1,
+    "imgs": [
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph",
+      "https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=sph"
+    ],
+    "productTitle": "Lord of the Rings - The Hobbit",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 42.13,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 8,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "Booker"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_1",
+    "rating": 4,
+    "imgs": [
+      "https://media.4rgos.it/i/Argos/0923-m0014-m007-m050-asym-m008-m022-lego-brandshop-disney-pixarup?w=auto&qlt=50&fmt=auto&noiser=0&fmt.jpeg.interlaced=true&fmt.jp2.qlt=40&",
+      "https://media.4rgos.it/i/Argos/0923-m0014-m007-m050-asym-m008-m022-lego-brandshop-disney-pixarup?w=auto&qlt=50&fmt=auto&noiser=0&fmt.jpeg.interlaced=true&fmt.jp2.qlt=40&",
+      "https://media.4rgos.it/i/Argos/0923-m0014-m007-m050-asym-m008-m022-lego-brandshop-disney-pixarup?w=auto&qlt=50&fmt=auto&noiser=0&fmt.jpeg.interlaced=true&fmt.jp2.qlt=40&"
+    ],
+    "productTitle": "LEGO Shop at Argos",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 189.46,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 166.72
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "LEGO"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_2",
+    "rating": 4,
+    "imgs": [
+      "https://i.pngimg.me/thumb/f/720/8b04905e894248d6af52.jpg",
+      "https://i.pngimg.me/thumb/f/720/8b04905e894248d6af52.jpg",
+      "https://i.pngimg.me/thumb/f/720/8b04905e894248d6af52.jpg"
+    ],
+    "productTitle": "The Captain America",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 186.03,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 3,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "MARVEL"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_3",
+    "brand": "MARVEL",
+    "rating": 4,
+    "imgs": [
+      "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ec62015dd99d4b17a45e49e9e40cb40a_Large.jpg",
+      "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ec62015dd99d4b17a45e49e9e40cb40a_Large.jpg",
+      "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ec62015dd99d4b17a45e49e9e40cb40a_Large.jpg"
+    ],
+    "productTitle": "The Hulk",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 25.38,
+      "discountedAmount": 22.33,
+      "discount": 12,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 1,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_4",
+    "brand": "MARVEL",
+    "rating": 4,
+    "imgs": [
+      "https://i.pinimg.com/736x/b2/ff/02/b2ff020a299e78c92fe626a0221d3517.jpg",
+      "https://i.pinimg.com/736x/b2/ff/02/b2ff020a299e78c92fe626a0221d3517.jpg",
+      "https://i.pinimg.com/736x/b2/ff/02/b2ff020a299e78c92fe626a0221d3517.jpg"
+    ],
+    "productTitle": "League of Justice collection",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 31.57,
+      "discountedAmount": 27.78,
+      "discount": 12,
+      "currency": "USD"
+    },
+    "delivery": {
+      "area": ["North America"],
+      "timeframe": 2,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."]
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_5",
+    "rating": 4,
+    "imgs": [
+      "https://www.kidrobot.com/cdn/shop/products/Kidrobot-Sanrio-Hello-Kitty-With-Ice-Cream-And-Bicycle-Set-6_1000x1000.jpg?v=1660849681",
+      "https://www.kidrobot.com/cdn/shop/products/Kidrobot-Sanrio-Hello-Kitty-With-Ice-Cream-And-Bicycle-Set-6_1000x1000.jpg?v=1660849681",
+      "https://www.kidrobot.com/cdn/shop/products/Kidrobot-Sanrio-Hello-Kitty-With-Ice-Cream-And-Bicycle-Set-6_1000x1000.jpg?v=1660849681"
+    ],
+    "productTitle": "Tricycle and Ice Cream Play",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 37.72,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "HELLO KITTY"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_6",
+    "rating": 4,
+    "imgs": [
+      "https://toyworldmag.co.uk/wp-content/uploads/2023/01/HELLO-KITTY-CAPPUCCINO-COM1.jpg",
+      "https://toyworldmag.co.uk/wp-content/uploads/2023/01/HELLO-KITTY-CAPPUCCINO-COM1.jpg",
+      "https://toyworldmag.co.uk/wp-content/uploads/2023/01/HELLO-KITTY-CAPPUCCINO-COM1.jpg"
+    ],
+    "productTitle": "KAP Toys",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 73.67,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 5,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "HELLO KITTY"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_7",
+    "rating": 2,
+    "imgs": [
+      "https://cdn.trendhunterstatic.com/thumbs/bandai-robot.jpeg?auto=webp",
+      "https://cdn.trendhunterstatic.com/thumbs/bandai-robot.jpeg?auto=webp",
+      "https://cdn.trendhunterstatic.com/thumbs/bandai-robot.jpeg?auto=webp"
+    ],
+    "productTitle": "Bandai robot",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 30.43,
+      "discount": 12,
+      "currency": "USD",
+      "discountedAmount": 26.77
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "HELLO KITTY"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_8",
+    "rating": 5,
+    "imgs": [
+      "https://img.freepik.com/free-psd/cute-teddy-bear-toy_176382-350.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696982400&semt=ais",
+      "https://img.freepik.com/free-psd/cute-teddy-bear-toy_176382-350.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696982400&semt=ais",
+      "https://img.freepik.com/free-psd/cute-teddy-bear-toy_176382-350.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696982400&semt=ais"
+    ],
+    "productTitle": "Teddy Bear",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 151.73,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 7,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "HELLO KITTY"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_9",
+    "rating": 3,
+    "imgs": [
+      "https://i.pinimg.com/1200x/36/d9/0e/36d90edf0bd1bea54a5848ef0240d71a.jpg",
+      "https://i.pinimg.com/1200x/36/d9/0e/36d90edf0bd1bea54a5848ef0240d71a.jpg",
+      "https://i.pinimg.com/1200x/36/d9/0e/36d90edf0bd1bea54a5848ef0240d71a.jpg"
+    ],
+    "productTitle": "Fluffy Bear",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 120.12,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 6,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "HELLO KITTY"
+  },
+  {
+    "category": "toys",
+    "productId": "product_id_toys_10",
+    "rating": 4,
+    "imgs": [
+      "https://st3.depositphotos.com/6601624/16285/i/450/depositphotos_162850860-stock-photo-editorial-illustration-3d-render-of.jpg",
+      "https://st3.depositphotos.com/6601624/16285/i/450/depositphotos_162850860-stock-photo-editorial-illustration-3d-render-of.jpg",
+      "https://st3.depositphotos.com/6601624/16285/i/450/depositphotos_162850860-stock-photo-editorial-illustration-3d-render-of.jpg"
+    ],
+    "productTitle": "Poké Ball",
+    "description": {
+      "short": "Space for a small product description",
+      "long": "Space for a super long product description",
+      "full": "Space for full product description"
+    },
+    "price": {
+      "amount": 77.54,
+      "discount": 0,
+      "currency": "USD",
+      "discountedAmount": 0
+    },
+    "delivery": {
+      "area": ["Worldwide"],
+      "timeframe": 4,
+      "cost": 0
+    },
+    "originCountry": "USA",
+    "stock": {
+      "amount": 320,
+      "measure": "pcs"
+    },
+    "buyBy": { "pcs": 1, "box": 10, "pack": 5 },
+    "reviews": [
+      "Extremely good product!",
+      "Never seen better...",
+      "Amazing one!"
+    ],
+    "questions": ["No questions for now ..."],
+    "brand": "LEGO"
+  }
+]

@@ -11,3 +11,4 @@ export * from './useNoScroll';
 export * from './useSidebarPrice';
 export * from './useProductsSort';
 export * from './usePagination';
+export * from './useProductToolbar';

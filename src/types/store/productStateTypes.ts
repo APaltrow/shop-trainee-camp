@@ -8,3 +8,7 @@ export interface ProductsState extends IState {
   productsList: IProduct[];
   categories: Categories | null;
 }
+
+export interface ProductState extends IState {
+  product: null | IProduct;
+}

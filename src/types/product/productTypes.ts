@@ -16,7 +16,7 @@ export interface IProduct {
   stock: IStock;
   description: IDescription;
   delivery: IDelivery;
-  buyBy: BuyBy[];
+  buyBy: BuyBy;
 
   imgs: string[];
   reviews: string[];

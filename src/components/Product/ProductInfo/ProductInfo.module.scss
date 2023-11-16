@@ -1,0 +1,30 @@
+@import '@style/_mixins';
+
+.list {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  gap: 16px;
+}
+
+.title {
+  min-width: 100px;
+  max-width: 100px;
+
+  color: var(--clr-secondary-300);
+
+  @include with-text-overflow;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.text {
+  @include with-text-overflow;
+}

@@ -14,3 +14,4 @@ export * from './generateArray';
 export * from './getDeliveryTime';
 export * from './getDeliveryCost';
 export * from './getAdditionalInfo';
+export * from './getProductDetails';
