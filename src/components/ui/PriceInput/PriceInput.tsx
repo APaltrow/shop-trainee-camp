@@ -1,6 +1,7 @@
 import { ChangeEvent, FC } from 'react';
 
-import { PRICE_PLACEHOLDER, SPECIAL_CHARACTERS } from '@constants';
+import { PRICE_PLACEHOLDER } from '@constants';
+import { handleKeyDown } from '@helpers';
 
 import style from './PriceInput.module.scss';
 
@@ -30,12 +31,6 @@ export const PriceInput: FC<PriceInputProps> = ({
 
   onChange,
 }) => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (SPECIAL_CHARACTERS.includes(e.key)) {
-      e.preventDefault();
-    }
-  };
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const numericValue = +e.target.value;
 

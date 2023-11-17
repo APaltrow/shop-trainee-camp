@@ -2,8 +2,6 @@
 @import '@style/_media';
 
 .container {
-  max-width: 1360px;
-  margin: 0 auto;
 }
 
 .wrapper {
@@ -12,11 +10,10 @@
 }
 
 .left_section {
-  width: calc((100vw - 120px) / 2);
 }
 
 .right_section {
-  width: calc((100vw - 120px) / 2);
+  width: calc(55vw - 120px);
 
   display: flex;
   flex-direction: column;
@@ -75,18 +72,19 @@
   font-weight: 400;
 }
 
-@include laptop {
-  .left_section {
-    width: calc(100vw - 30px);
-  }
-
-  .right_section {
-    width: calc(100vw - 30px);
-  }
-
+@include desktop {
   .additional_info {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@include laptop {
+  .left_section {
+  }
+
+  .right_section {
+    width: calc(55vw - 30px);
   }
 }
 
@@ -96,7 +94,6 @@
   }
 
   .left_section {
-    width: calc(100vw - 20px);
   }
 
   .right_section {

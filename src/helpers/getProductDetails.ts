@@ -13,13 +13,11 @@ export const getProductDetails = (
 };
 
 export const getProductInfo = (
-  size: string,
   buyBy: string,
   delivery: string,
   deliveryArea: string,
 ) => {
   return Object.entries({
-    size,
     'buy by': buyBy,
     delivery,
     'delivery area': deliveryArea,

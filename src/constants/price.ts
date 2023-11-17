@@ -7,3 +7,7 @@ export const ZERO_GAP = 0;
 export const MIN_GAP = 5;
 export const MIN_PRICE_GAP_USD = 1;
 export const PRICE_PLACEHOLDER = '0,00';
+export const UNIT_PLACEHOLDER = '0';
+export const UNIT_STEP = 1;
+export const UNIT_MIN_VALUE = 1;
+export const DEFAULT_UNIT_AMOUNT = 1;

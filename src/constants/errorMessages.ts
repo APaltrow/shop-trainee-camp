@@ -4,6 +4,7 @@ export enum ErrorsMessages {
   NO_RESULTS = 'No results ...',
   NOT_FOUND = 'Not found',
   CONTACT_SUPPORT = 'Looks like an error occured, please try to contact support team.',
+  PRODUCT_DOES_NOT_EXIST = 'Looks like the product you are looking for is not found or does not exist...',
 }
 
 export enum PriceErrors {

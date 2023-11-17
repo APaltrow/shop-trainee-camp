@@ -5,7 +5,11 @@ import {
   ButtonSizes,
   SelectVariants,
   ButtonVariants,
+  UNIT_STEP,
+  UNIT_MIN_VALUE,
+  UNIT_PLACEHOLDER,
 } from '@constants';
+import { handleKeyDown } from '@helpers';
 import { useProductToolbar } from '@hooks';
 import { BinarySection, CustomButton, CustomSelect, Icon } from '@components';
 
@@ -18,7 +22,9 @@ export const ProductToolbar: FC = () => {
 
   const {
     price,
+    unitsMax,
     unitsInfo,
+    unitsError,
     unitsAmount,
     buyByOptions,
     totalDueAmount,
@@ -47,12 +53,15 @@ export const ProductToolbar: FC = () => {
           <BinarySection
             leftElement={
               <input
+                className={style.units_input}
                 type="number"
-                value={unitsAmount || ''}
+                placeholder={UNIT_PLACEHOLDER}
                 onChange={onUnitsAmountChange}
-                min={1}
-                max={50}
-                step={1}
+                onKeyDown={handleKeyDown}
+                step={UNIT_STEP}
+                min={UNIT_MIN_VALUE}
+                max={unitsMax}
+                value={unitsAmount || ''}
               />
             }
             rightElement={
@@ -66,6 +75,7 @@ export const ProductToolbar: FC = () => {
           />
 
           {isUnitsInfoVisible && <p className={style.hint}>{unitsInfo}</p>}
+          {!!unitsError && <span className={style.error}>{unitsError}</span>}
         </div>
 
         <CustomButton

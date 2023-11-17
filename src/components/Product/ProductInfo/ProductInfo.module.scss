@@ -27,4 +27,8 @@
 
 .text {
   @include with-text-overflow;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }

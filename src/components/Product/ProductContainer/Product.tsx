@@ -2,21 +2,17 @@ import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
-import { getProductDetails, getProductInfo } from '@helpers';
+import { ErrorsMessages, LIST_DIVIDER } from '@constants';
+import { checkIfPlural, getProductDetails, getProductInfo } from '@helpers';
 import { Rating, Error } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
 import { ProductGallery } from '../ProductGallery';
 import { ProductInfo } from '../ProductInfo';
 import { ProductToolbar } from '../ProductToolbar';
+import { ProductSkeleton } from '../ProductSkeleton';
 
 import style from './Product.module.scss';
-
-const DEFAULT_DESCRIPTION = `Carrots from Tomissy Farm are one of the best on the market.
-Tomisso and his family are giving a full love to his Bio products.
-To misso’s carrots are growing on the fields naturally. *****`;
-
-const DEFAULT_SIZES = 'all sizes ???';
 
 export const Product: FC = () => {
   const { product, isLoading, error } = useAppSelector(
@@ -33,14 +29,15 @@ export const Product: FC = () => {
   }, [id]);
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <ProductSkeleton />;
   }
 
   if (error) {
     return <Error errorMessage={error} />;
   }
 
-  if (!product) return null;
+  if (!product)
+    return <Error errorMessage={ErrorsMessages.PRODUCT_DOES_NOT_EXIST} />;
 
   const {
     imgs,
@@ -57,11 +54,19 @@ export const Product: FC = () => {
     stock,
   } = product;
 
+  const { timeframe } = delivery;
+
   const buyByOptions = Object.keys(buyBy);
   const stockInfo = `${stock.amount} ${stock.measure}`;
-  const buyByInfo = buyByOptions.join(', ');
-  const deliveryInfo = `${delivery.timeframe} days`;
-  const deliveryArea = delivery.area.join(', ');
+  const buyByInfo = buyByOptions.join(LIST_DIVIDER);
+  const deliveryInfo = `${timeframe} ${checkIfPlural('day', timeframe)} `;
+  const deliveryArea = delivery.area.join(LIST_DIVIDER);
+  const reviewsCount = reviews.length;
+
+  const reviewsInfo = `(${reviewsCount} ${checkIfPlural(
+    'Customer review',
+    reviewsCount,
+  )})`;
 
   const productDetailsList = getProductDetails(
     originCountry,
@@ -70,19 +75,11 @@ export const Product: FC = () => {
     stockInfo,
   );
 
-  const productInfoList = getProductInfo(
-    DEFAULT_SIZES,
-    buyByInfo,
-    deliveryInfo,
-    deliveryArea,
-  );
-
-  const reviewsCount = `(${reviews.length} Customer review)`;
+  const productInfoList = getProductInfo(buyByInfo, deliveryInfo, deliveryArea);
 
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-        {/* LEFT SECTION */}
         <div className={style.left_section}>
           <ProductTooltips
             discount={price.discount}
@@ -95,21 +92,17 @@ export const Product: FC = () => {
           />
         </div>
 
-        {/* RIGHT SECTION */}
         <div className={style.right_section}>
-          {/* INFO CONTAINER */}
           <article className={style.info_wrapper}>
             <div className={style.info_header}>
               <h1 className={style.title}>{productTitle}</h1>
               <div className={style.reviews}>
                 <Rating rating={rating} />
-                <span className={style.reviews_count}>{reviewsCount}</span>
+                <span className={style.reviews_count}>{reviewsInfo}</span>
               </div>
             </div>
 
-            <p className={style.description}>
-              {DEFAULT_DESCRIPTION + description.long}
-            </p>
+            <p className={style.description}>{description.long}</p>
 
             <div className={style.additional_info}>
               <ProductInfo infoList={productDetailsList} />
@@ -120,12 +113,10 @@ export const Product: FC = () => {
           </article>
 
           {/* DESCRIPTIONS  REVIEWS QUESTIONS */}
-          <div>TABS</div>
         </div>
       </div>
 
       {/* SUGGESTED PRODUCTS */}
-      <div>maybe love products</div>
     </div>
   );
 };
