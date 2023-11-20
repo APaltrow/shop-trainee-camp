@@ -14,3 +14,9 @@ export enum PriceErrors {
   MIN_EXCEED = 'Min price cannot exceed',
   MIN_BELOW = 'Min price cannot be less than',
 }
+
+export enum UnitsErrors {
+  NO_ERROR = '',
+  INVALID_AMOUNT = 'Invalid units amount',
+  TOTAL_EXCEED = 'Total should not exceed',
+}

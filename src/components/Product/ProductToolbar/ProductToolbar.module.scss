@@ -50,7 +50,7 @@
     font-weight: 600;
     color: var(--clr-secondary-300);
     text-decoration: line-through;
-    text-wrap: nowrap;
+    @include with-text-overflow;
   }
 }
 

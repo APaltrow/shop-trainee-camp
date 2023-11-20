@@ -1,13 +1,20 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { DEFAULT_UNIT_AMOUNT, PRICE_DECIMALS, ZERO_INDEX } from '@constants';
+import {
+  DEFAULT_UNITS_AMOUNT,
+  ONE_ITEM,
+  PRICE_DECIMALS,
+  UNITS_PER_PROP,
+  UnitsErrors,
+  ZERO_INDEX,
+} from '@constants';
 import { getActualProductPrice } from '@helpers';
 import { useAppSelector } from '@redux';
 
 export const useProductToolbar = () => {
   const { product } = useAppSelector((state) => state.product);
 
-  if (!product) return;
+  if (!product) return null;
 
   const { buyBy, price, stock } = product;
 
@@ -15,21 +22,32 @@ export const useProductToolbar = () => {
   const defaultBuyBy = buyByOptions[ZERO_INDEX];
 
   const [buyByActiveOption, setBuyByActiveOption] = useState(defaultBuyBy);
-  const [unitsAmount, setUnitsAmount] = useState(DEFAULT_UNIT_AMOUNT);
-  const [unitsError, setUnitsError] = useState('');
+  const [unitsAmount, setUnitsAmount] = useState(DEFAULT_UNITS_AMOUNT);
+  const [unitsError, setUnitsError] = useState<UnitsErrors | string>(
+    UnitsErrors.NO_ERROR,
+  );
 
   const actualPrice = getActualProductPrice(price);
   const activeUnitsAmount = buyBy[buyByActiveOption];
-  const productUnits = unitsAmount * (activeUnitsAmount || DEFAULT_UNIT_AMOUNT);
+  const productUnits =
+    unitsAmount * (activeUnitsAmount || DEFAULT_UNITS_AMOUNT);
   const totalDueAmount = (actualPrice * productUnits).toFixed(PRICE_DECIMALS);
-  const unitsInfo = `* ${activeUnitsAmount} units in 1 ${buyByActiveOption}`;
+  const unitsInProp = `${activeUnitsAmount} ${UNITS_PER_PROP} ${buyByActiveOption}`;
+  const totalPCS = `${unitsAmount * activeUnitsAmount} ${defaultBuyBy} total`;
+  const unitsInfo = unitsAmount > ONE_ITEM ? totalPCS : unitsInProp;
   const unitsMax = stock.amount / activeUnitsAmount;
+  const beforeDiscount = (price.amount * productUnits).toFixed(PRICE_DECIMALS);
+
+  const totalDue = `${totalDueAmount} ${price.currency}`;
+  const totalBeforeDiscount = price.discount
+    ? `${beforeDiscount} ${price.currency}`
+    : null;
 
   const isUnitsInfoVisible = buyByActiveOption !== defaultBuyBy && !unitsError;
 
   const onActiveBuyByChange = (option: string) => {
     setBuyByActiveOption(option);
-    setUnitsAmount(DEFAULT_UNIT_AMOUNT);
+    setUnitsAmount(DEFAULT_UNITS_AMOUNT);
   };
 
   const onUnitsAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,26 +60,28 @@ export const useProductToolbar = () => {
     const totalUnits = unitsAmount * activeUnitsAmount;
 
     if (!unitsAmount) {
-      setUnitsError('Invalid units amount');
+      setUnitsError(UnitsErrors.INVALID_AMOUNT);
       return;
     }
 
     if (totalUnits > stock.amount) {
-      setUnitsError(`Should not exceed ${stock.amount} pcs`);
+      setUnitsError(
+        `${UnitsErrors.TOTAL_EXCEED} ${stock.amount} ${stock.measure}`,
+      );
       return;
     }
 
-    setUnitsError('');
+    setUnitsError(UnitsErrors.NO_ERROR);
   }, [unitsAmount, buyByActiveOption]);
 
   return {
-    price,
     unitsMax,
+    totalDue,
     unitsInfo,
     unitsError,
     unitsAmount,
     buyByOptions,
-    totalDueAmount,
+    totalBeforeDiscount,
     buyByActiveOption,
     isUnitsInfoVisible,
 

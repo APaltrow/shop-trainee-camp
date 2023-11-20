@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 import {
+  UNIT_STEP,
+  UNIT_MIN_VALUE,
+  UNIT_PLACEHOLDER,
   IconsTypes,
   ButtonSizes,
   SelectVariants,
   ButtonVariants,
-  UNIT_STEP,
-  UNIT_MIN_VALUE,
-  UNIT_PLACEHOLDER,
 } from '@constants';
 import { handleKeyDown } from '@helpers';
 import { useProductToolbar } from '@hooks';
@@ -21,13 +21,15 @@ export const ProductToolbar: FC = () => {
   if (!toolbar) return null;
 
   const {
-    price,
     unitsMax,
     unitsInfo,
     unitsError,
     unitsAmount,
     buyByOptions,
-    totalDueAmount,
+
+    totalDue,
+    totalBeforeDiscount,
+
     buyByActiveOption,
     isUnitsInfoVisible,
 
@@ -39,13 +41,10 @@ export const ProductToolbar: FC = () => {
     <div className={style.container}>
       <div className={style.toolbar}>
         <div className={style.prices}>
-          <p className={style.due_amount}>
-            {`${totalDueAmount} ${price.currency}`}
-          </p>
-          {!!price.discount && (
-            <p className={style.discount}>
-              {`${price.discountedAmount} ${price.currency}`}
-            </p>
+          <p className={style.due_amount}>{totalDue}</p>
+
+          {totalBeforeDiscount && (
+            <p className={style.discount}>{totalBeforeDiscount}</p>
           )}
         </div>
 
@@ -56,8 +55,8 @@ export const ProductToolbar: FC = () => {
                 className={style.units_input}
                 type="number"
                 placeholder={UNIT_PLACEHOLDER}
-                onChange={onUnitsAmountChange}
                 onKeyDown={handleKeyDown}
+                onChange={onUnitsAmountChange}
                 step={UNIT_STEP}
                 min={UNIT_MIN_VALUE}
                 max={unitsMax}

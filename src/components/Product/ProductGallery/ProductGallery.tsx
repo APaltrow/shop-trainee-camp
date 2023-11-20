@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { ARRAY_INDEX_DIFF, DEFAULT_ALT } from '@constants';
 import { Image } from '@components';
@@ -14,12 +14,31 @@ export const ProductGallery: FC<ProductGalleryProps> = ({
   imgs,
   alt = DEFAULT_ALT,
 }) => {
+  const [imgList, setImgList] = useState(imgs);
+
+  const onImgClick = (imgIndex: number) => {
+    if (!imgIndex) return;
+
+    setImgList((prevList) => {
+      const [firstImg, ...restImgs] = prevList;
+      const newFirstImg = prevList[imgIndex];
+
+      const newList = [newFirstImg, ...restImgs];
+
+      newList[imgIndex] = firstImg;
+
+      return newList;
+    });
+  };
+
   return (
     <div className={style.container}>
-      {imgs.map((imgUrl, idx) => (
+      {imgList.map((imgUrl, idx) => (
         <div
-          data-imgs={`${idx}`}
+          onClick={() => onImgClick(idx)}
           key={`img_${idx + ARRAY_INDEX_DIFF}`}
+          data-imgs={`${idx}`}
+          className={style.item}
         >
           <Image
             src={imgUrl}
