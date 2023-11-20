@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useActions, useAppSelector } from '@redux';
 import { ErrorsMessages, LIST_DIVIDER } from '@constants';
 import { checkIfPlural, getProductDetails, getProductInfo } from '@helpers';
-import { Rating, Error } from '@components';
+import { Rating, Error, InfoTooltip } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
 import { ProductGallery } from '../ProductGallery';
@@ -113,6 +113,39 @@ export const Product: FC = () => {
           </article>
 
           {/* DESCRIPTIONS  REVIEWS QUESTIONS */}
+
+          <div className={style.details_container}>
+            <ul className={style.details}>
+              <li className={`${style.details_item} ${style.active}`}>
+                <h3>Description</h3>
+              </li>
+              <li className={style.details_item}>
+                <h3>Reviews</h3>
+                <InfoTooltip info="5" />
+              </li>
+              <li className={style.details_item}>
+                <h3>Questions</h3>
+                <InfoTooltip info="3" />
+              </li>
+            </ul>
+
+            <div>
+              <h4>Origins</h4>
+              <p>
+                We work hard to ensure that the fruit and vegetables we sell are
+                fresh and high in quality. If we don’t grow them ourselves, we
+                source them from carefully chosen suppliers, preferring to buy
+                locally whenever possible.
+              </p>
+
+              <h4>How to cook</h4>
+              <p>
+                From roasts, salads and soups to casseroles and cakes, Carrots
+                will lend sweetness, texture and colour to an enormous number of
+                recipes.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
