@@ -57,7 +57,16 @@
 .unit_select {
   position: relative;
 
-  .hint {
+  .units_info {
+    position: absolute;
+    top: -17px;
+
+    font-size: 12px;
+    text-wrap: nowrap;
+    color: var(--clr-accent-A-300);
+  }
+
+  .total_pcs {
     position: absolute;
     bottom: -17px;
 
