@@ -1,5 +1,6 @@
 @import '@style/_mixins';
 @import '@style/_media';
+@import '@style/_variables';
 
 .container {
   width: 100%;
@@ -9,6 +10,7 @@
   align-items: center;
   flex: 1;
 
+  background-color: $clr_overlay;
   @include with-border;
 }
 
@@ -22,21 +24,21 @@
   flex: 1;
 }
 
-@media (max-width: 420px) {
-  .container {
+@include small-mobile {
+  .wrapping {
     flex-direction: column;
     align-items: flex-start;
-  }
 
-  .left_el {
-    width: 100%;
-    padding: 0px 0px 10px 0px;
-    border-right: none;
-    border-bottom: 1px solid var(--clr-secondary-200);
-  }
+    .left_el {
+      width: 100%;
+      padding: 0px 0px 10px 0px;
+      border-right: none;
+      border-bottom: 1px solid var(--clr-secondary-200);
+    }
 
-  .right_el {
-    width: 100%;
-    padding: 10px 0px 0px 0px;
+    .right_el {
+      width: 100%;
+      padding: 10px 0px 0px 0px;
+    }
   }
 }

@@ -134,6 +134,7 @@ export const HeaderToolbar: FC = () => {
             />
           }
           rightElement={searchBar}
+          isWrapping
         />
       </div>
 

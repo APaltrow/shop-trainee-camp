@@ -13,6 +13,7 @@ export enum IconsTypes {
   CLOSE = 'close',
   ORDER_ASC = 'order-asc',
   ORDER_DESC = 'order-desc',
+  PLUS = 'plus',
 }
 
 export enum IconSizes {

@@ -1,0 +1,65 @@
+@import '@style/_mixins';
+@import '@style/_media';
+
+.list {
+  max-width: 98%;
+  overflow: hidden;
+
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(2, calc(50% - 16px));
+  grid-auto-flow: column;
+
+  row-gap: 12px;
+  column-gap: 32px;
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.item {
+  display: flex;
+  gap: 16px;
+}
+
+.title {
+  min-width: 100px;
+  max-width: 100px;
+
+  color: var(--clr-secondary-300);
+
+  @include with-text-overflow;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.text {
+  @include with-text-overflow;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+@include desktop {
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@include tablet {
+  .list {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(2, calc(50% - 16px));
+    grid-auto-flow: column;
+  }
+}
+
+@include mobile {
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+}

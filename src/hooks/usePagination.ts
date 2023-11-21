@@ -30,7 +30,7 @@ export const usePagination = (itemsCount: number, resetDeps: unknown[]) => {
 
   useEffect(() => {
     setPagesRecord(getPagesRecord(itemsCount));
-    onActivePageChange(DEFAULT_ACTIVE_PAGE);
+    setActivePage(DEFAULT_ACTIVE_PAGE);
   }, [...resetDeps]);
 
   return {

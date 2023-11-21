@@ -23,3 +23,9 @@
     @content;
   }
 }
+
+@mixin small-mobile() {
+  @media (max-width: $breakpoint_small_mobile) {
+    @content;
+  }
+}

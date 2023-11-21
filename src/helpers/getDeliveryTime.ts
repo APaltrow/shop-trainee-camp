@@ -1,5 +1,5 @@
-import { ONE_DAY } from '@constants';
+import { checkIfPlural } from '@helpers';
 
 export const getDeliveryTime = (timeframe: number) => {
-  return `Delivery in ${timeframe} day${timeframe > ONE_DAY ? 's' : ''}`;
+  return `Delivery in ${timeframe} ${checkIfPlural('day', timeframe)}`;
 };

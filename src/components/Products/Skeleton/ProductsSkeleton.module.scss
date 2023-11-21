@@ -11,6 +11,21 @@
   border-radius: 12px;
 }
 
+.stars {
+  padding: 10px 0px;
+  display: flex;
+  gap: 5px;
+}
+
+.star {
+  height: 16px;
+  width: 16px;
+
+  border-radius: 5px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .skeleton_item {
   height: 18px;
   width: 100px;

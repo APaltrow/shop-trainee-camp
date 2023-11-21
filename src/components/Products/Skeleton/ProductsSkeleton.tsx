@@ -26,7 +26,7 @@ export const ProductsSkeleton: FC = () => {
           <li key={`${element}_${idx + ARRAY_INDEX_DIFF} `}>
             <div className={style.container}>
               <div
-                className={`${styleimg.container} ${skeletonStyle.skeleton}`}
+                className={`${styleimg.container} ${styleimg.fixed} ${skeletonStyle.skeleton}`}
               />
 
               <div className={style.content}>
@@ -35,9 +35,20 @@ export const ProductsSkeleton: FC = () => {
                     <p
                       className={`${skeletonStyle.skeleton_title} ${skeletonStyle.skeleton}`}
                     />
+
+                    <ul className={skeletonStyle.stars}>
+                      <li className={skeletonStyle.star} />
+                      <li className={skeletonStyle.star} />
+                      <li className={skeletonStyle.star} />
+                      <li className={skeletonStyle.star} />
+                      <li className={skeletonStyle.star} />
+                    </ul>
                   </div>
                   <div className={style.additional_info_container}>
-                    <ul className={style.additional_info}>
+                    <ul
+                      className={style.additional_info}
+                      style={{ paddingBottom: '10px' }}
+                    >
                       <p
                         className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}
                       />

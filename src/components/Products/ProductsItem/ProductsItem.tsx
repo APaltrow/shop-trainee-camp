@@ -12,6 +12,7 @@ import {
   ButtonSizes,
   ButtonVariants,
   IconsTypes,
+  LIST_DIVIDER,
   PRICE_DECIMALS,
   ZERO_INDEX,
 } from '@constants';
@@ -44,7 +45,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   const additionalInfoList = getAdditionalInfo(
     originCountry,
     brand,
-    delivery.area.join(', '),
+    delivery.area.join(LIST_DIVIDER),
     stock,
   );
 

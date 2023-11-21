@@ -1,0 +1,67 @@
+@import '@style/_mixins';
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.title {
+  height: 32px;
+  width: 70%;
+  border-radius: 12px;
+}
+
+.review {
+  height: 14px;
+  width: 180px;
+  border-radius: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+}
+
+.tooltip_container {
+  padding: 15px 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.tooltip {
+  height: 20px;
+  width: 80px;
+
+  border-radius: 10px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+
+  border-radius: 5px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.select {
+  height: 30px;
+  width: 150px;
+
+  border-radius: 12px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.item {
+  height: 20px;
+  width: 180px;
+  border-radius: 12px;
+}
+
+.description {
+  height: 80px;
+  border-radius: 12px;
+}
+
+@include with-skeleton;

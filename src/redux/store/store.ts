@@ -16,7 +16,7 @@ import { rootReducer } from '../slices/reducers';
 const persistConfig = {
   key: 'key',
   storage,
-  blacklist: ['products'],
+  blacklist: ['products', 'product'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

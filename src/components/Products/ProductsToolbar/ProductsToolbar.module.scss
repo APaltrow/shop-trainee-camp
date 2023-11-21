@@ -64,3 +64,13 @@
     display: none;
   }
 }
+
+@include small-mobile {
+  .container {
+    gap: 2px;
+  }
+
+  .sort {
+    gap: 2px;
+  }
+}
