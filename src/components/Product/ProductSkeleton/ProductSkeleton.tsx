@@ -8,6 +8,7 @@ import toolbarStyle from '../ProductToolbar/ProductToolbar.module.scss';
 
 import galleryStyle from '../ProductGallery/ProductGallery.module.scss';
 
+import { TabsSkeleton } from './TabsSkeleton';
 import skeletonStyle from './ProductSkeleton.module.scss';
 
 export const ProductSkeleton: FC = () => {
@@ -154,6 +155,8 @@ export const ProductSkeleton: FC = () => {
               </div>
             </div>
           </article>
+
+          <TabsSkeleton />
         </div>
       </div>
     </div>

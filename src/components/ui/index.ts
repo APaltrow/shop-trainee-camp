@@ -15,3 +15,4 @@ export * from './Dropdown';
 export * from './Slider';
 export * from './PriceInput';
 export * from './Pagination';
+export * from './Tabs';
