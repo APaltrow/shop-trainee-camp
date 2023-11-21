@@ -21,6 +21,7 @@
 }
 
 .info_wrapper {
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -63,26 +64,7 @@
   word-break: break-all;
 }
 
-.additional_info {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(auto, 50%));
-  gap: 30px;
-
-  font-size: 14px;
-  font-weight: 400;
-}
-
-@include desktop {
-  .additional_info {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 @include laptop {
-  .left_section {
-  }
-
   .right_section {
     width: calc(55vw - 60px);
   }
@@ -93,24 +75,12 @@
     flex-direction: column;
   }
 
-  .left_section {
-  }
-
   .right_section {
     width: calc(100vw - 20px);
-  }
-
-  .additional_info {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(auto, 50%));
   }
 }
 
 @include mobile {
-  .additional_info {
-    display: flex;
-    flex-direction: column;
-  }
   .info_header {
     .title {
       font-size: 24px;

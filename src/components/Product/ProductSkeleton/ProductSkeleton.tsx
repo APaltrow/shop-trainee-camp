@@ -97,9 +97,6 @@ export const ProductSkeleton: FC = () => {
                     className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
                   />
                 </div>
-              </div>
-
-              <div className={infoStyle.list}>
                 <div className={infoStyle.item}>
                   <div
                     className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}

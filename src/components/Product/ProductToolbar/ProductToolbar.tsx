@@ -26,6 +26,7 @@ export const ProductToolbar: FC = () => {
     unitsError,
     unitsAmount,
     buyByOptions,
+    unitsInProp,
 
     totalDue,
     totalBeforeDiscount,
@@ -72,8 +73,8 @@ export const ProductToolbar: FC = () => {
               />
             }
           />
-
-          {isUnitsInfoVisible && <p className={style.hint}>{unitsInfo}</p>}
+          {unitsInProp && <p className={style.units_info}>{unitsInProp}</p>}
+          {isUnitsInfoVisible && <p className={style.total_pcs}>{unitsInfo}</p>}
           {!!unitsError && <span className={style.error}>{unitsError}</span>}
         </div>
 

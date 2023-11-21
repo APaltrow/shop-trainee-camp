@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import { ErrorsMessages, LIST_DIVIDER } from '@constants';
-import { checkIfPlural, getProductDetails, getProductInfo } from '@helpers';
+import { checkIfPlural, getProductDetails } from '@helpers';
 import { Rating, Error, Tabs } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
@@ -77,9 +77,10 @@ export const Product: FC = () => {
     category,
     brand,
     stockInfo,
+    buyByInfo,
+    deliveryInfo,
+    deliveryArea,
   );
-
-  const productInfoList = getProductInfo(buyByInfo, deliveryInfo, deliveryArea);
 
   // TABS
 
@@ -123,12 +124,7 @@ export const Product: FC = () => {
             </div>
 
             <p className={style.description}>{description.long}</p>
-
-            <div className={style.additional_info}>
-              <ProductInfo infoList={productDetailsList} />
-              <ProductInfo infoList={productInfoList} />
-            </div>
-
+            <ProductInfo infoList={productDetailsList} />
             <ProductToolbar />
           </article>
 

@@ -7,6 +7,7 @@ import {
   UNITS_PER_PROP,
   UnitsErrors,
   ZERO_INDEX,
+  ZERO_PRICE,
 } from '@constants';
 import { getActualProductPrice } from '@helpers';
 import { useAppSelector } from '@redux';
@@ -32,16 +33,25 @@ export const useProductToolbar = () => {
   const productUnits =
     unitsAmount * (activeUnitsAmount || DEFAULT_UNITS_AMOUNT);
   const totalDueAmount = (actualPrice * productUnits).toFixed(PRICE_DECIMALS);
-  const unitsInProp = `${activeUnitsAmount} ${UNITS_PER_PROP} ${buyByActiveOption}`;
+  const unitsInProp =
+    buyByActiveOption !== defaultBuyBy
+      ? `${activeUnitsAmount} ${UNITS_PER_PROP} ${buyByActiveOption}`
+      : null;
   const totalPCS = `${unitsAmount * activeUnitsAmount} ${defaultBuyBy} total`;
-  const unitsInfo = unitsAmount > ONE_ITEM ? totalPCS : unitsInProp;
+  const unitsInfo = unitsAmount > ONE_ITEM ? totalPCS : null;
   const unitsMax = stock.amount / activeUnitsAmount;
-  const beforeDiscount = (price.amount * productUnits).toFixed(PRICE_DECIMALS);
+  const beforeDiscountTotal = (price.amount * productUnits).toFixed(
+    PRICE_DECIMALS,
+  );
 
-  const totalDue = `${totalDueAmount} ${price.currency}`;
-  const totalBeforeDiscount = price.discount
-    ? `${beforeDiscount} ${price.currency}`
-    : null;
+  const totalDue = `${!unitsError ? totalDueAmount : ZERO_PRICE} ${
+    price.currency
+  }`;
+
+  const beforeDiscount = `${!unitsError ? beforeDiscountTotal : ZERO_PRICE} ${
+    price.currency
+  }`;
+  const totalBeforeDiscount = price.discount ? beforeDiscount : null;
 
   const isUnitsInfoVisible = buyByActiveOption !== defaultBuyBy && !unitsError;
 
@@ -78,6 +88,7 @@ export const useProductToolbar = () => {
     unitsMax,
     totalDue,
     unitsInfo,
+    unitsInProp,
     unitsError,
     unitsAmount,
     buyByOptions,
