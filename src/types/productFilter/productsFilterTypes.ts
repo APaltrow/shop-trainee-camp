@@ -1,11 +1,11 @@
 import { IPriceRange, ISort } from '@types';
 
 export interface ProductsFilterState {
-  activeCategory: null | string;
+  activeCategory: string | null;
   activeBrands: string[];
   activeRatings: number[];
   priceRange: IPriceRange;
   activePriceRange: IPriceRange;
-  sort: null | ISort;
+  sort: ISort | null;
   searchValue: string;
 }

@@ -11,6 +11,6 @@ export interface ProductsState extends IState {
 }
 
 export interface ProductState extends IState {
-  product: null | IProduct;
-  additionalInfo: null | IAdditionalInfo;
+  product: IProduct | null;
+  additionalInfo: IAdditionalInfo | null;
 }

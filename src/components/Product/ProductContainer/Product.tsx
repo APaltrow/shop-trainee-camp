@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import { ErrorsMessages, LIST_DIVIDER } from '@constants';
-import { checkIfPlural, getProductDetails } from '@helpers';
+import { checkIfPlural, getProductDetails, scrollToTop } from '@helpers';
 import { Rating, Error, Tabs } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
@@ -26,6 +26,8 @@ export const Product: FC = () => {
 
   useEffect(() => {
     if (!id) return;
+
+    scrollToTop();
 
     fetchProductThunk(id);
   }, [id]);

@@ -46,8 +46,7 @@ export const ProductsSkeleton: FC = () => {
                   </div>
                   <div className={style.additional_info_container}>
                     <ul
-                      className={style.additional_info}
-                      style={{ paddingBottom: '10px' }}
+                      className={`${style.additional_info} ${skeletonStyle.with_padding}`}
                     >
                       <p
                         className={`${skeletonStyle.skeleton_item} ${skeletonStyle.skeleton}`}

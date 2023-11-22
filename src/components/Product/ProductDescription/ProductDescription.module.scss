@@ -26,6 +26,6 @@
 .text {
   font-size: 14px;
   font-weight: 400;
-  @include with-text-overflow;
-  text-wrap: wrap;
+
+  word-break: break-word;
 }

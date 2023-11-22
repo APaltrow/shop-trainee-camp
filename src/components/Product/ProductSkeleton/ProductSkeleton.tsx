@@ -134,13 +134,11 @@ export const ProductSkeleton: FC = () => {
 
             <div className={toolbarStyle.container}>
               <div
-                className={toolbarStyle.toolbar}
-                style={{ border: 'none' }}
+                className={`${toolbarStyle.toolbar} ${skeletonStyle.no_border}`}
               >
                 <div className={toolbarStyle.prices}>
                   <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
-                    style={{ marginBottom: '5px' }}
+                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton} ${skeletonStyle.with_margin}`}
                   />
                   <div
                     className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
