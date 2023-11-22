@@ -13,6 +13,7 @@ import { ProductToolbar } from '../ProductToolbar';
 import { ProductSkeleton } from '../ProductSkeleton';
 import { ProductDescription } from '../ProductDescription';
 import { ProductComments } from '../ProductComments';
+import { ProductSuggestions } from '../ProductSuggestions';
 
 import style from './Product.module.scss';
 
@@ -84,8 +85,6 @@ export const Product: FC = () => {
     deliveryArea,
   );
 
-  // TABS
-
   const tabsCountDTO = {
     description: null,
     reviews: reviewsCount,
@@ -137,7 +136,7 @@ export const Product: FC = () => {
         </div>
       </div>
 
-      {/* SUGGESTED PRODUCTS */}
+      <ProductSuggestions />
     </div>
   );
 };
