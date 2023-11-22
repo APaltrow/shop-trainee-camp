@@ -11,8 +11,12 @@ export const useCarousel = () => {
   const [isPrevVisible, setPrevVisible] = useState(false);
   const [isNextVisible, setNextVisible] = useState(false);
 
-  const childWidth =
-    carouselContentRef.current?.firstChild?.offsetWidth || INITIAL_OFFSET;
+  const element = carouselContentRef?.current?.firstChild
+    ? (carouselContentRef.current.firstChild as HTMLElement)
+    : INITIAL_OFFSET;
+
+  const childWidth = element ? element.offsetWidth : INITIAL_OFFSET;
+
   const carouselStep = childWidth + CAROUSEL_GAP;
 
   const getContainerWidth = () => {
