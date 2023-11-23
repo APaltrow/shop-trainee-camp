@@ -11,7 +11,7 @@ import {
   ZERO_INDEX,
 } from '@constants';
 
-import { CustomButton, InfoTooltip, Image } from '@components';
+import { CustomButton, InfoTooltip, CustomImage } from '@components';
 
 import style from './ProductSuggestions.module.scss';
 
@@ -32,7 +32,7 @@ export const ProductSuggestion: FC<ProductSuggestionProps> = ({ product }) => {
     <article className={style.carousel_item}>
       <NavLink to={navPath}>
         <div className={style.img_container}>
-          <Image
+          <CustomImage
             src={imgUrl}
             alt={productTitle}
             fullSize

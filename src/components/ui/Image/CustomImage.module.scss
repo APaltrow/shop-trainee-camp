@@ -23,6 +23,15 @@
   object-position: 50% 50%;
 }
 
+.loading {
+  filter: blur(5px);
+}
+
+.loaded {
+  filter: blur(0);
+  transition: filter 0.1s linear;
+}
+
 .img_skeleton {
   width: 100%;
   height: 100%;

@@ -14,3 +14,4 @@ export * from './usePagination';
 export * from './useProductToolbar';
 export * from './useCarousel';
 export * from './useProductSuggestions';
+export * from './useImage';

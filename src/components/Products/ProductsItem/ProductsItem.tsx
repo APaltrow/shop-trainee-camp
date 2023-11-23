@@ -16,7 +16,7 @@ import {
   PRICE_DECIMALS,
   ZERO_INDEX,
 } from '@constants';
-import { CustomButton, Icon, Rating, Image } from '@components';
+import { CustomButton, Icon, Rating, CustomImage } from '@components';
 
 import style from './ProductsItem.module.scss';
 
@@ -52,7 +52,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
   return (
     <article className={style.container}>
       <NavLink to={productId}>
-        <Image
+        <CustomImage
           src={imgs[ZERO_INDEX]}
           alt={productTitle}
         />

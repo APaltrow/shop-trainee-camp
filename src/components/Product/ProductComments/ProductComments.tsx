@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { IReview, IQuestion } from '@types';
+import { CustomImage } from '@components';
 
 import style from './ProductComments.module.scss';
 
@@ -17,11 +18,14 @@ export const ProductComments: FC<CommentsProps> = ({ list = [] }) => {
           key={id}
         >
           <article className={style.comment}>
-            <img
-              className={style.profile_img}
-              src={imgUrl}
-              alt={userName}
-            />
+            <div className={style.profile_img}>
+              <CustomImage
+                src={imgUrl}
+                alt={userName}
+                fullSize
+              />
+            </div>
+
             <div className={style.content}>
               <div className={style.header}>
                 <h5 className={style.username}>{userName}</h5>
