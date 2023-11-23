@@ -17,7 +17,8 @@ export const ProductsList: FC<ProductsListProps> = ({
   productsList,
   isLoading,
 }) => {
-  if (isLoading) {
+  //isLoading
+  if (true) {
     return <ProductsSkeleton />;
   }
 
