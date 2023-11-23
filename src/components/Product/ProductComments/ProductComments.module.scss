@@ -1,9 +1,16 @@
 @import '@style/_media';
+@import '@style/_mixins';
 
 .list {
+  max-height: 350px;
+
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  overflow-y: auto;
+
+  @include with-scrollbar(10px);
 }
 
 .item:last-child {
@@ -69,6 +76,12 @@
 }
 
 @include tablet {
+  .list {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .username {
     max-width: 120px;
   }

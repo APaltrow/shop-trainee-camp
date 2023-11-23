@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const INITIAL_OFFSET = 0;
 const CAROUSEL_GAP = 32;
+const OFFSET_MOBILE_DIFF = 3;
 
 export const useCarousel = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -55,7 +56,9 @@ export const useCarousel = () => {
   const onSlideNextClick = () => {
     setOffset((prev) => {
       const newOffset = prev + carouselStep;
-      const isContentEnd = newOffset + getContainerWidth() >= getContentWidth();
+      const isContentEnd =
+        newOffset + OFFSET_MOBILE_DIFF >=
+        getContentWidth() - getContainerWidth();
 
       if (newOffset > INITIAL_OFFSET) {
         setPrevVisible(true);

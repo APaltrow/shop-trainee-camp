@@ -47,6 +47,7 @@
 
 .active {
   position: relative;
+  pointer-events: none;
 
   &::after {
     position: absolute;

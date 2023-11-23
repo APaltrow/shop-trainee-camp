@@ -61,7 +61,7 @@ export const useProductToolbar = () => {
   };
 
   const onUnitsAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const units = +e.target.value;
+    const units = Math.floor(+e.target.value);
 
     setUnitsAmount(units);
   };

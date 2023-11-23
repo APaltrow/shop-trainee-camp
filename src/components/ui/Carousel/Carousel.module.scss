@@ -40,16 +40,13 @@
 }
 
 @include small-mobile {
-  .arrow_icon {
-    padding: 0;
-    border: none;
-  }
-
   .next_btn {
-    right: -10px;
+    bottom: 20px;
+    right: 40px;
   }
 
   .prev_btn {
-    left: -10px;
+    bottom: 20px;
+    left: 40px;
   }
 }
