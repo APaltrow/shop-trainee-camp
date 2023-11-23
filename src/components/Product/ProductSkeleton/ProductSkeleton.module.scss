@@ -1,6 +1,7 @@
 @import '@style/_mixins';
 
 .skeleton {
+  pointer-events: none;
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -57,6 +58,8 @@
   height: 20px;
   width: 180px;
   border-radius: 12px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .no_border {
@@ -68,7 +71,7 @@
 }
 
 .with_margin {
-  margin-bottom: '5px';
+  margin-bottom: 5px;
 }
 
 .with_padding {
@@ -78,6 +81,56 @@
 .description {
   height: 80px;
   border-radius: 12px;
+}
+
+.suggestions_container {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+
+  overflow: hidden;
+}
+
+.suggestions_item {
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .suggestions_img {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prices {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 90px;
+    height: 35px;
+    border-radius: 10px;
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  .price {
+    width: 90px;
+    height: 16px;
+    border-radius: 10px;
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
 }
 
 @include with-skeleton;

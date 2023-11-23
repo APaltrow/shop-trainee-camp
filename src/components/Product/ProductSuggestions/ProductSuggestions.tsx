@@ -20,6 +20,8 @@ export const ProductSuggestions: FC = () => {
     return isSameCategory && !isSameProduct;
   });
 
+  if (!suggestionsList.length) return null;
+
   return (
     <section className={style.container}>
       <h3 className={style.title}>You will maybe love</h3>

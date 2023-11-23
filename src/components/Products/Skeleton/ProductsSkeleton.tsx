@@ -1,10 +1,6 @@
 import { FC } from 'react';
 
-import {
-  ARRAY_INDEX_DIFF,
-  PRODUCT_SKELETONS_COUNT,
-  PRODUCT_SKELETON_NAME,
-} from '@constants';
+import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
 import { generateArray } from '@helpers';
 
 import listStyle from '../ProductsList/ProductsList.module.scss';
@@ -15,8 +11,8 @@ import skeletonStyle from './ProductsSkeleton.module.scss';
 
 export const ProductsSkeleton: FC = () => {
   const skeletons = generateArray(
-    PRODUCT_SKELETONS_COUNT,
-    PRODUCT_SKELETON_NAME,
+    SkeletonCounts.PRODUCT,
+    SkeletonNames.PRODUCT,
   );
 
   return (
