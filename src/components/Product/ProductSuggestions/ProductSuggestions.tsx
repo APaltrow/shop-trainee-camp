@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useAppSelector } from '@redux';
+import { useProductSuggestions } from '@hooks';
 import { Carousel } from '@components';
 
 import { ProductSuggestion } from './ProductSuggestion';
@@ -8,17 +8,11 @@ import { ProductSuggestion } from './ProductSuggestion';
 import style from './ProductSuggestions.module.scss';
 
 export const ProductSuggestions: FC = () => {
-  const { product } = useAppSelector((state) => state.product);
-  const { productsList } = useAppSelector((state) => state.products);
+  const suggestions = useProductSuggestions();
 
-  if (!product) return null;
+  if (!suggestions) return null;
 
-  const suggestionsList = productsList.filter(({ category, productId }) => {
-    const isSameCategory = category === product.category;
-    const isSameProduct = productId === product.productId;
-
-    return isSameCategory && !isSameProduct;
-  });
+  const { suggestionsList } = suggestions;
 
   if (!suggestionsList.length) return null;
 
