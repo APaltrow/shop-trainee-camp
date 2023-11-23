@@ -33,15 +33,14 @@
   font-weight: 400;
   color: var(--clr-secondary-400);
 
-  & > p {
-    padding-bottom: 10px;
-
-    @include with-text-overflow;
-  }
-
   & > div > svg {
     fill: var(--clr-secondary);
   }
+}
+
+.description_short {
+  padding-bottom: 10px;
+  word-break: break-word;
 }
 
 .title {

@@ -65,7 +65,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
               <NavLink to={productId}>{productTitle}</NavLink>
             </h2>
 
-            <p>{description.short}</p>
+            <p className={style.description_short}>{description.short}</p>
             <Rating rating={rating} />
           </div>
 

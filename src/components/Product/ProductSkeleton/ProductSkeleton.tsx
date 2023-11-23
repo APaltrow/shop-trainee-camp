@@ -8,6 +8,7 @@ import toolbarStyle from '../ProductToolbar/ProductToolbar.module.scss';
 
 import galleryStyle from '../ProductGallery/ProductGallery.module.scss';
 
+import { TabsSkeleton } from './TabsSkeleton';
 import skeletonStyle from './ProductSkeleton.module.scss';
 
 export const ProductSkeleton: FC = () => {
@@ -133,13 +134,11 @@ export const ProductSkeleton: FC = () => {
 
             <div className={toolbarStyle.container}>
               <div
-                className={toolbarStyle.toolbar}
-                style={{ border: 'none' }}
+                className={`${toolbarStyle.toolbar} ${skeletonStyle.no_border}`}
               >
                 <div className={toolbarStyle.prices}>
                   <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
-                    style={{ marginBottom: '5px' }}
+                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton} ${skeletonStyle.with_margin}`}
                   />
                   <div
                     className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
@@ -151,6 +150,8 @@ export const ProductSkeleton: FC = () => {
               </div>
             </div>
           </article>
+
+          <TabsSkeleton />
         </div>
       </div>
     </div>

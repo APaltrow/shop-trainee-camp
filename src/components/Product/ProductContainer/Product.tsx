@@ -3,19 +3,21 @@ import { useParams } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import { ErrorsMessages, LIST_DIVIDER } from '@constants';
-import { checkIfPlural, getProductDetails } from '@helpers';
-import { Rating, Error } from '@components';
+import { checkIfPlural, getProductDetails, scrollToTop } from '@helpers';
+import { Rating, Error, Tabs } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
 import { ProductGallery } from '../ProductGallery';
 import { ProductInfo } from '../ProductInfo';
 import { ProductToolbar } from '../ProductToolbar';
 import { ProductSkeleton } from '../ProductSkeleton';
+import { ProductDescription } from '../ProductDescription';
+import { ProductComments } from '../ProductComments';
 
 import style from './Product.module.scss';
 
 export const Product: FC = () => {
-  const { product, isLoading, error } = useAppSelector(
+  const { product, additionalInfo, isLoading, error } = useAppSelector(
     (state) => state.product,
   );
 
@@ -24,6 +26,8 @@ export const Product: FC = () => {
 
   useEffect(() => {
     if (!id) return;
+
+    scrollToTop();
 
     fetchProductThunk(id);
   }, [id]);
@@ -36,14 +40,14 @@ export const Product: FC = () => {
     return <Error errorMessage={error} />;
   }
 
-  if (!product)
+  if (!product || !additionalInfo) {
     return <Error errorMessage={ErrorsMessages.PRODUCT_DOES_NOT_EXIST} />;
+  }
 
   const {
     imgs,
     productTitle,
     rating,
-    reviews,
     description,
     price,
     delivery,
@@ -53,6 +57,8 @@ export const Product: FC = () => {
     buyBy,
     stock,
   } = product;
+
+  const { reviews, questions, description: fullDescription } = additionalInfo;
 
   const { timeframe } = delivery;
 
@@ -77,6 +83,22 @@ export const Product: FC = () => {
     deliveryInfo,
     deliveryArea,
   );
+
+  // TABS
+
+  const tabsCountDTO = {
+    description: null,
+    reviews: reviewsCount,
+    questions: questions.length,
+  };
+
+  const tabsElementsDTO = {
+    description: (
+      <ProductDescription description={Object.entries(fullDescription)} />
+    ),
+    reviews: <ProductComments list={reviews} />,
+    questions: <ProductComments list={questions} />,
+  };
 
   return (
     <div className={style.container}>
@@ -108,7 +130,10 @@ export const Product: FC = () => {
             <ProductToolbar />
           </article>
 
-          {/* DESCRIPTIONS  REVIEWS QUESTIONS */}
+          <Tabs
+            tabsCount={tabsCountDTO}
+            tabsElements={tabsElementsDTO}
+          />
         </div>
       </div>
 

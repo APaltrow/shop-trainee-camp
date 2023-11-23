@@ -59,6 +59,22 @@
   border-radius: 12px;
 }
 
+.no_border {
+  border: 'none';
+}
+
+.with_margin_bottom {
+  margin-bottom: 15px;
+}
+
+.with_margin {
+  margin-bottom: '5px';
+}
+
+.with_padding {
+  padding: 10px;
+}
+
 .description {
   height: 80px;
   border-radius: 12px;
