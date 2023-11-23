@@ -1,33 +1,33 @@
 import { useEffect, useRef, useState } from 'react';
 
-const INITIAL_OFFSET = 0;
-const CAROUSEL_GAP = 32;
-const OFFSET_MOBILE_DIFF = 3;
+import { CarouselConstants } from '@constants';
 
 export const useCarousel = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const carouselContentRef = useRef<HTMLUListElement | null>(null);
 
-  const [offset, setOffset] = useState(INITIAL_OFFSET);
+  const [offset, setOffset] = useState(CarouselConstants.INITIAL_OFFSET);
   const [isPrevVisible, setPrevVisible] = useState(false);
   const [isNextVisible, setNextVisible] = useState(false);
 
   const element = carouselContentRef?.current?.firstChild
     ? (carouselContentRef.current.firstChild as HTMLElement)
-    : INITIAL_OFFSET;
+    : null;
 
-  const childWidth = element ? element.offsetWidth : INITIAL_OFFSET;
+  const childWidth = element
+    ? element.offsetWidth
+    : CarouselConstants.INITIAL_OFFSET;
 
-  const carouselStep = childWidth + CAROUSEL_GAP;
+  const carouselStep = childWidth + CarouselConstants.GAP;
 
   const getContainerWidth = () => {
-    if (!carouselRef.current) return INITIAL_OFFSET;
+    if (!carouselRef.current) return CarouselConstants.INITIAL_OFFSET;
 
     return carouselRef.current.offsetWidth;
   };
 
   const getContentWidth = () => {
-    if (!carouselContentRef.current) return INITIAL_OFFSET;
+    if (!carouselContentRef.current) return CarouselConstants.INITIAL_OFFSET;
 
     return carouselContentRef.current.scrollWidth;
   };
@@ -37,7 +37,7 @@ export const useCarousel = () => {
       const newOffset = prev - carouselStep;
       const isContentEnd = newOffset + getContainerWidth() >= getContentWidth();
 
-      if (newOffset > INITIAL_OFFSET) {
+      if (newOffset > CarouselConstants.INITIAL_OFFSET) {
         setPrevVisible(true);
       } else {
         setPrevVisible(false);
@@ -56,11 +56,12 @@ export const useCarousel = () => {
   const onSlideNextClick = () => {
     setOffset((prev) => {
       const newOffset = prev + carouselStep;
-      const isContentEnd =
-        newOffset + OFFSET_MOBILE_DIFF >=
-        getContentWidth() - getContainerWidth();
+      const offsetWithDiff = newOffset + CarouselConstants.OFFSET_MOBILE_DIFF;
+      const contentWidthDiff = getContentWidth() - getContainerWidth();
 
-      if (newOffset > INITIAL_OFFSET) {
+      const isContentEnd = offsetWithDiff >= contentWidthDiff;
+
+      if (newOffset > CarouselConstants.INITIAL_OFFSET) {
         setPrevVisible(true);
       } else {
         setPrevVisible(false);

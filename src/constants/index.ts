@@ -14,3 +14,4 @@ export * from './pagination';
 export * from './skeletonsConstants';
 export * from './rating';
 export * from './tags';
+export * from './carouselConstants';
