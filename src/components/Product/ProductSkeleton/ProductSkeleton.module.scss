@@ -1,25 +1,21 @@
 @import '@style/_mixins';
-
 .skeleton {
   pointer-events: none;
-  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .title {
   height: 32px;
   width: 70%;
   border-radius: 12px;
+  pointer-events: none;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .review {
   height: 14px;
   width: 180px;
   border-radius: 12px;
-}
-
-.stars {
-  display: flex;
-  gap: 5px;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .tooltip_container {
@@ -33,15 +29,6 @@
   width: 80px;
 
   border-radius: 10px;
-
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-.star {
-  width: 16px;
-  height: 16px;
-
-  border-radius: 5px;
 
   animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -63,7 +50,7 @@
 }
 
 .no_border {
-  border: 'none';
+  border: none;
 }
 
 .with_margin_bottom {
@@ -81,6 +68,8 @@
 .description {
   height: 80px;
   border-radius: 12px;
+
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .suggestions_container {
@@ -101,9 +90,8 @@
   .suggestions_img {
     width: 100%;
     height: 180px;
-    border-radius: 12px;
 
-    animation: skeleton-loading 1s linear infinite alternate;
+    pointer-events: none;
   }
 
   .text {

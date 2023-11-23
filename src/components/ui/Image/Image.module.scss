@@ -1,4 +1,5 @@
 @import '@style/_media';
+@import '@style/_mixins';
 
 .container {
   border-radius: $border_radius;
@@ -22,6 +23,26 @@
   object-position: 50% 50%;
 }
 
+.img_skeleton {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 12px;
+  pointer-events: none;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+
+  & > svg {
+    width: 50%;
+    height: 40%;
+    fill: var(--clr-primary);
+  }
+}
+
 @include tablet {
   .fixed {
     width: 250px;
@@ -34,3 +55,5 @@
     margin: 0 auto;
   }
 }
+
+@include with-skeleton;

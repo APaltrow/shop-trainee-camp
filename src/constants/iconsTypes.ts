@@ -14,6 +14,7 @@ export enum IconsTypes {
   ORDER_ASC = 'order-asc',
   ORDER_DESC = 'order-desc',
   PLUS = 'plus',
+  CAMERA = 'camera',
 }
 
 export enum IconSizes {

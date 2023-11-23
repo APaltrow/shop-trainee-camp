@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { generateArray } from '@helpers';
 import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
+import { ImageSkeleton, RatingSkeleton } from '@components';
 
 import style from '../ProductContainer/Product.module.scss';
 
@@ -21,8 +22,6 @@ export const ProductSkeleton: FC = () => {
     SkeletonCounts.DESCRIPTION,
     SkeletonNames.DESCRIPTION,
   );
-
-  const starsSkeletons = generateArray(SkeletonCounts.STAR, SkeletonNames.STAR);
 
   const imgSkeletons = generateArray(
     SkeletonCounts.DEFAULT,
@@ -44,7 +43,9 @@ export const ProductSkeleton: FC = () => {
                 key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
                 data-imgs={`${idx}`}
                 className={skeletonStyle.skeleton}
-              />
+              >
+                <ImageSkeleton />
+              </li>
             ))}
           </ul>
         </div>
@@ -52,29 +53,16 @@ export const ProductSkeleton: FC = () => {
         <div className={style.right_section}>
           <article className={style.info_wrapper}>
             <div className={style.info_header}>
-              <div
-                className={`${skeletonStyle.title} ${skeletonStyle.skeleton}`}
-              />
+              <div className={skeletonStyle.title} />
 
               <div className={style.reviews}>
-                <ul className={skeletonStyle.stars}>
-                  {starsSkeletons.map((item, idx) => (
-                    <li
-                      className={skeletonStyle.star}
-                      key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
-                    />
-                  ))}
-                </ul>
+                <RatingSkeleton />
 
-                <div
-                  className={`${skeletonStyle.review} ${skeletonStyle.skeleton}`}
-                />
+                <div className={skeletonStyle.review} />
               </div>
             </div>
 
-            <p
-              className={`${skeletonStyle.description} ${skeletonStyle.skeleton}`}
-            />
+            <p className={skeletonStyle.description} />
 
             <div className={style.additional_info}>
               <ul className={infoStyle.list}>
@@ -84,10 +72,10 @@ export const ProductSkeleton: FC = () => {
                     key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
                   >
                     <div
-                      className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
+                      className={`${infoStyle.title} ${skeletonStyle.item}`}
                     />
                     <div
-                      className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
+                      className={`${infoStyle.text} ${skeletonStyle.item}`}
                     />
                   </li>
                 ))}
@@ -100,11 +88,9 @@ export const ProductSkeleton: FC = () => {
               >
                 <div className={toolbarStyle.prices}>
                   <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton} ${skeletonStyle.with_margin}`}
+                    className={`${skeletonStyle.item} ${skeletonStyle.with_margin}`}
                   />
-                  <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
-                  />
+                  <div className={`${skeletonStyle.item}`} />
                 </div>
 
                 <div className={skeletonStyle.select} />

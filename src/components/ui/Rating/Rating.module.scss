@@ -10,3 +10,20 @@
 .active {
   color: $clr_gold;
 }
+
+.skeleton_item {
+  padding: 10px 0px;
+
+  & > svg {
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    fill: hsl(39, 20%, 60%);
+  }
+  100% {
+    fill: hsl(39, 20%, 90%);
+  }
+}

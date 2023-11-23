@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { generateArray } from '@helpers';
 import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
+import { ImageSkeleton } from '@components';
 
 import suggestionsStyle from '../ProductSuggestions/ProductSuggestions.module.scss';
 
@@ -23,7 +24,9 @@ export const SuggestionsSkeleton: FC = () => {
             className={skeletonStyle.suggestions_item}
             key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
           >
-            <div className={skeletonStyle.suggestions_img} />
+            <div className={skeletonStyle.suggestions_img}>
+              <ImageSkeleton />
+            </div>
             <div className={skeletonStyle.text}>
               <div className={skeletonStyle.item} />
               <div className={skeletonStyle.item} />
