@@ -35,19 +35,14 @@ export const useCarousel = () => {
   const onSlidePrevClick = () => {
     setOffset((prev) => {
       const newOffset = prev - carouselStep;
-      const isContentEnd = newOffset + getContainerWidth() >= getContentWidth();
+      const isContentEnd = !(
+        newOffset + getContainerWidth() >=
+        getContentWidth()
+      );
+      const isContentScrolled = newOffset > CarouselConstants.INITIAL_OFFSET;
 
-      if (newOffset > CarouselConstants.INITIAL_OFFSET) {
-        setPrevVisible(true);
-      } else {
-        setPrevVisible(false);
-      }
-
-      if (isContentEnd) {
-        setNextVisible(false);
-      } else {
-        setNextVisible(true);
-      }
+      setPrevVisible(isContentScrolled);
+      setNextVisible(isContentEnd);
 
       return newOffset;
     });
@@ -59,19 +54,11 @@ export const useCarousel = () => {
       const offsetWithDiff = newOffset + CarouselConstants.OFFSET_MOBILE_DIFF;
       const contentWidthDiff = getContentWidth() - getContainerWidth();
 
-      const isContentEnd = offsetWithDiff >= contentWidthDiff;
+      const isContentEnd = !(offsetWithDiff >= contentWidthDiff);
+      const isContentScrolled = newOffset > CarouselConstants.INITIAL_OFFSET;
 
-      if (newOffset > CarouselConstants.INITIAL_OFFSET) {
-        setPrevVisible(true);
-      } else {
-        setPrevVisible(false);
-      }
-
-      if (isContentEnd) {
-        setNextVisible(false);
-      } else {
-        setNextVisible(true);
-      }
+      setPrevVisible(isContentScrolled);
+      setNextVisible(isContentEnd);
 
       return newOffset;
     });
@@ -81,11 +68,9 @@ export const useCarousel = () => {
     if (!getContainerWidth()) return;
     if (!getContentWidth()) return;
 
-    if (getContentWidth() < getContainerWidth()) {
-      setNextVisible(false);
-    } else {
-      setNextVisible(true);
-    }
+    const isContentOverflow = !(getContentWidth() < getContainerWidth());
+
+    setNextVisible(isContentOverflow);
   }, [
     carouselRef.current?.offsetWidth,
     carouselContentRef.current?.scrollWidth,
