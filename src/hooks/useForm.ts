@@ -25,9 +25,11 @@ export const useForm = (
   } = useValidations(initialErrors);
 
   const onInputChange = (e: FormInputEvent) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target;
 
     if (type === TYPE_CHECKBOX) {
+      const textAreaEvent = e as ChangeEvent<HTMLInputElement>;
+      const { checked } = textAreaEvent.target;
       setFormValues((prev) => ({ ...prev, [name]: checked }));
       return;
     }
