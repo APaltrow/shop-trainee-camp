@@ -1,0 +1,24 @@
+@import '@style/_media';
+
+.container {
+  padding: 16px 0px;
+
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(2, minmax(40%, auto));
+  gap: 32px;
+}
+
+.order {
+  border: 2px solid var(--clr-secondary-300);
+  border-radius: 12px;
+  text-align: center;
+
+  min-height: 400px;
+}
+
+@include desktop {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

@@ -52,7 +52,6 @@ export const Brands: FC = () => {
             key={`brands_${brand}_${idx + ARRAY_INDEX_DIFF}`}
           >
             <Checkbox
-              id={brand}
               isChecked={checkIfBrandSelected(brand)}
               onChange={(e) => handleBrandCheck(brand, e.target.checked)}
             >

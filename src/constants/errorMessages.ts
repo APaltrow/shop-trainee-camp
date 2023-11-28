@@ -20,3 +20,21 @@ export enum UnitsErrors {
   INVALID_AMOUNT = 'Invalid units amount',
   TOTAL_EXCEED = 'Total should not exceed',
 }
+
+export enum ValidationsErrors {
+  NO_ERROR = '',
+  EMPTY_FIELD = 'Field cannot be empty',
+  MIN_LENGTH = 'Min length should be',
+  MAX_LENGTH = 'Max length should be',
+  INVALID_EMAIL = 'Invalid email',
+  INVALID_PHONE = 'Invalid phone number',
+  NUMBERS_ONLY = 'Should be numbers only',
+  INVALID_ADDRESS = 'Street name and number required',
+}
+
+export enum AutocompleteErrors {
+  NO_ERROR = '',
+  INCORRECT_CITY = 'Incorrect city name',
+  INCORRECT_COUNTRY = 'Incorrect country name',
+  INCORRECT_STATE = 'Incorrect state name',
+}

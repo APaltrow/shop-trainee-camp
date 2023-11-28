@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Cart } from '@components';
+
 export const CartPage: FC = () => {
-  return <h1>Cart page</h1>;
+  return <Cart />;
 };
