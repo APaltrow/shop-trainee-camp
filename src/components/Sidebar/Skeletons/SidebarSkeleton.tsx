@@ -1,10 +1,6 @@
 import { FC } from 'react';
 
-import {
-  ARRAY_INDEX_DIFF,
-  DEFAULT_SKELETONS_COUNT,
-  SIDEBAR_SKELETON_NAME,
-} from '@constants';
+import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
 import { generateArray } from '@helpers';
 
 import containerStyle from '../SidebarBlock/SidebarBlock.module.scss';
@@ -13,8 +9,8 @@ import style from './SidebarSkeleton.module.scss';
 
 export const SidebarSkeleton: FC = () => {
   const skeletonsList = generateArray(
-    DEFAULT_SKELETONS_COUNT,
-    SIDEBAR_SKELETON_NAME,
+    SkeletonCounts.DEFAULT,
+    SkeletonNames.SIDEBAR,
   );
 
   return (

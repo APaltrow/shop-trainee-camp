@@ -1,5 +1,9 @@
 import { FC } from 'react';
 
+import { generateArray } from '@helpers';
+import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
+import { ImageSkeleton, RatingSkeleton } from '@components';
+
 import style from '../ProductContainer/Product.module.scss';
 
 import infoStyle from '../ProductInfo/ProductInfo.module.scss';
@@ -9,9 +13,21 @@ import toolbarStyle from '../ProductToolbar/ProductToolbar.module.scss';
 import galleryStyle from '../ProductGallery/ProductGallery.module.scss';
 
 import { TabsSkeleton } from './TabsSkeleton';
+import { SuggestionsSkeleton } from './SuggestionsSkeleton';
+
 import skeletonStyle from './ProductSkeleton.module.scss';
 
 export const ProductSkeleton: FC = () => {
+  const descriptionSkeletons = generateArray(
+    SkeletonCounts.DESCRIPTION,
+    SkeletonNames.DESCRIPTION,
+  );
+
+  const imgSkeletons = generateArray(
+    SkeletonCounts.DEFAULT,
+    SkeletonNames.IMGS,
+  );
+
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -21,115 +37,49 @@ export const ProductSkeleton: FC = () => {
             <div className={skeletonStyle.tooltip} />
           </div>
 
-          <div className={galleryStyle.container}>
-            <div
-              data-imgs="0"
-              className={skeletonStyle.skeleton}
-            />
-            <div
-              data-imgs="1"
-              className={skeletonStyle.skeleton}
-            />
-            <div
-              data-imgs="2"
-              className={skeletonStyle.skeleton}
-            />
-          </div>
+          <ul className={galleryStyle.container}>
+            {imgSkeletons.map((item, idx) => (
+              <li
+                key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
+                data-imgs={`${idx}`}
+                className={skeletonStyle.skeleton}
+              >
+                <ImageSkeleton />
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className={style.right_section}>
           <article className={style.info_wrapper}>
             <div className={style.info_header}>
-              <div
-                className={`${skeletonStyle.title} ${skeletonStyle.skeleton}`}
-              />
+              <div className={skeletonStyle.title} />
 
               <div className={style.reviews}>
-                <div className={skeletonStyle.stars}>
-                  <div className={skeletonStyle.star} />
-                  <div className={skeletonStyle.star} />
-                  <div className={skeletonStyle.star} />
-                  <div className={skeletonStyle.star} />
-                  <div className={skeletonStyle.star} />
-                </div>
+                <RatingSkeleton />
 
-                <div
-                  className={`${skeletonStyle.review} ${skeletonStyle.skeleton}`}
-                />
+                <div className={skeletonStyle.review} />
               </div>
             </div>
 
-            <p
-              className={`${skeletonStyle.description} ${skeletonStyle.skeleton}`}
-            />
+            <p className={skeletonStyle.description} />
 
             <div className={style.additional_info}>
-              <div className={infoStyle.list}>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-                <div className={infoStyle.item}>
-                  <div
-                    className={`${infoStyle.title} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                  <div
-                    className={`${infoStyle.text} ${skeletonStyle.skeleton} ${skeletonStyle.item}`}
-                  />
-                </div>
-              </div>
+              <ul className={infoStyle.list}>
+                {descriptionSkeletons.map((item, idx) => (
+                  <li
+                    className={infoStyle.item}
+                    key={`${item}_${idx + ARRAY_INDEX_DIFF}`}
+                  >
+                    <div
+                      className={`${infoStyle.title} ${skeletonStyle.item}`}
+                    />
+                    <div
+                      className={`${infoStyle.text} ${skeletonStyle.item}`}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className={toolbarStyle.container}>
@@ -138,11 +88,9 @@ export const ProductSkeleton: FC = () => {
               >
                 <div className={toolbarStyle.prices}>
                   <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton} ${skeletonStyle.with_margin}`}
+                    className={`${skeletonStyle.item} ${skeletonStyle.with_margin}`}
                   />
-                  <div
-                    className={`${skeletonStyle.item} ${skeletonStyle.skeleton}`}
-                  />
+                  <div className={`${skeletonStyle.item}`} />
                 </div>
 
                 <div className={skeletonStyle.select} />
@@ -154,6 +102,7 @@ export const ProductSkeleton: FC = () => {
           <TabsSkeleton />
         </div>
       </div>
+      <SuggestionsSkeleton />
     </div>
   );
 };

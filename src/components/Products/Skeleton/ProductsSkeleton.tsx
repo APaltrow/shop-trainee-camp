@@ -1,22 +1,18 @@
 import { FC } from 'react';
 
-import {
-  ARRAY_INDEX_DIFF,
-  PRODUCT_SKELETONS_COUNT,
-  PRODUCT_SKELETON_NAME,
-} from '@constants';
+import { ARRAY_INDEX_DIFF, SkeletonCounts, SkeletonNames } from '@constants';
 import { generateArray } from '@helpers';
+import { ImageSkeleton, RatingSkeleton } from '@components';
 
 import listStyle from '../ProductsList/ProductsList.module.scss';
-import styleimg from '../../ui/Image/Image.module.scss';
 import style from '../ProductsItem/ProductsItem.module.scss';
 
 import skeletonStyle from './ProductsSkeleton.module.scss';
 
 export const ProductsSkeleton: FC = () => {
   const skeletons = generateArray(
-    PRODUCT_SKELETONS_COUNT,
-    PRODUCT_SKELETON_NAME,
+    SkeletonCounts.PRODUCT,
+    SkeletonNames.PRODUCT,
   );
 
   return (
@@ -25,9 +21,9 @@ export const ProductsSkeleton: FC = () => {
         {skeletons.map((element, idx) => (
           <li key={`${element}_${idx + ARRAY_INDEX_DIFF} `}>
             <div className={style.container}>
-              <div
-                className={`${styleimg.container} ${styleimg.fixed} ${skeletonStyle.skeleton}`}
-              />
+              <div className={skeletonStyle.img}>
+                <ImageSkeleton />
+              </div>
 
               <div className={style.content}>
                 <div className={style.info}>
@@ -35,14 +31,7 @@ export const ProductsSkeleton: FC = () => {
                     <p
                       className={`${skeletonStyle.skeleton_title} ${skeletonStyle.skeleton}`}
                     />
-
-                    <ul className={skeletonStyle.stars}>
-                      <li className={skeletonStyle.star} />
-                      <li className={skeletonStyle.star} />
-                      <li className={skeletonStyle.star} />
-                      <li className={skeletonStyle.star} />
-                      <li className={skeletonStyle.star} />
-                    </ul>
+                    <RatingSkeleton />
                   </div>
                   <div className={style.additional_info_container}>
                     <ul

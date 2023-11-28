@@ -1,0 +1,52 @@
+@import '@style/_variables';
+@import '@style/_mixins';
+@import '@style/_media';
+
+.carousel_container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.carousel {
+  display: flex;
+  gap: 32px;
+
+  transition: transform 0.5s;
+}
+
+.arrow_icon {
+  padding: 5px;
+
+  color: var(--clr-accent-A);
+  border: 1px solid var(--clr-accent-A);
+  border-radius: 12px;
+}
+
+.prev_btn {
+  position: absolute;
+
+  left: 0;
+  bottom: 50%;
+  transform: rotate(90deg);
+}
+
+.next_btn {
+  position: absolute;
+
+  right: 0;
+  bottom: 50%;
+  transform: rotate(-90deg);
+}
+
+@include small-mobile {
+  .next_btn {
+    bottom: 20px;
+    right: 40px;
+  }
+
+  .prev_btn {
+    bottom: 20px;
+    left: 40px;
+  }
+}

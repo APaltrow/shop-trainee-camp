@@ -6,6 +6,6 @@ export enum ButtonVariants {
 
 export enum ButtonSizes {
   DEFAULT = 'default',
-  SALL = 'sm',
+  SMALL = 'sm',
   MID = 'md',
 }

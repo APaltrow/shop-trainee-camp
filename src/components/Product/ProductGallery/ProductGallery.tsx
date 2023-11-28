@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
 import { ARRAY_INDEX_DIFF, DEFAULT_ALT } from '@constants';
-import { Image } from '@components';
+import { CustomImage } from '@components';
 
 import style from './ProductGallery.module.scss';
 
@@ -40,7 +40,7 @@ export const ProductGallery: FC<ProductGalleryProps> = ({
           data-imgs={`${idx}`}
           className={style.item}
         >
-          <Image
+          <CustomImage
             src={imgUrl}
             alt={alt}
             fullSize

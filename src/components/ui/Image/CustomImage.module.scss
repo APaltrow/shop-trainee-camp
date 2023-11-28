@@ -1,0 +1,68 @@
+@import '@style/_media';
+@import '@style/_mixins';
+
+.container {
+  border-radius: $border_radius;
+  overflow: hidden;
+}
+
+.fixed {
+  width: 270px;
+  height: 283px;
+}
+
+.fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.loading {
+  filter: blur(5px);
+}
+
+.loaded {
+  filter: blur(0);
+  transition: filter 0.1s linear;
+}
+
+.img_skeleton {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 12px;
+  pointer-events: none;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+
+  & > svg {
+    width: 50%;
+    height: 40%;
+    fill: var(--clr-primary);
+  }
+}
+
+@include tablet {
+  .fixed {
+    width: 250px;
+  }
+}
+
+@include mobile {
+  .fixed {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@include with-skeleton;

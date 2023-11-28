@@ -17,7 +17,6 @@ export const Header: FC = () => {
           <HeaderCategories />
         </div>
         <Breadcrumbs />
-        <div className={style.overlay_bg} />
       </div>
     </header>
   );
