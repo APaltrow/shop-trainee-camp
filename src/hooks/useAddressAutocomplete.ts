@@ -101,7 +101,7 @@ export const useAddressAutocomplete = (
   const isValidCountry = checkIsInList(country, countries);
   const countryWithState =
     states.length && isValidCountry
-      ? states.map((stateOption) => `${country}, ${stateOption}`)
+      ? states.map((stateOption) => `${country.trim()}, ${stateOption.trim()}`)
       : countryOptions;
 
   const inputLists: Record<string, string[]> = {
