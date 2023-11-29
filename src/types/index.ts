@@ -7,3 +7,4 @@ export * from './address/addressStateTypes';
 export * from './form/formTypes';
 export * from './form/validationsTypes';
 export * from './cart/cartStateTypes';
+export * from './cart/cartTypes';

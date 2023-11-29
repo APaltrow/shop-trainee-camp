@@ -1,11 +1,19 @@
 @import '@style/_media';
+@import '@style/_mixins';
 
-.container {
+.form {
   padding: 16px 0px;
 
   display: grid;
   grid-template: repeat(1, 1fr) / repeat(2, minmax(40%, auto));
   gap: 32px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .order {
@@ -20,5 +28,12 @@
   .container {
     display: flex;
     flex-direction: column-reverse;
+  }
+}
+
+@include mobile {
+  .submit {
+    display: flex;
+    flex-direction: column;
   }
 }
