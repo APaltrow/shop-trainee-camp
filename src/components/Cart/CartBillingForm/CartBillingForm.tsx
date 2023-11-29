@@ -142,9 +142,19 @@ export const CartBillingForm: FC = () => {
             >
               <span className={style.agreement}>
                 I agree with our
-                <a href="#">terms and conditions</a>
+                <a
+                  href="#"
+                  className={style.agreement_links}
+                >
+                  terms and conditions
+                </a>
                 and
-                <a href="#">privacy policy</a>.
+                <a
+                  href="#"
+                  className={style.agreement_links}
+                >
+                  privacy policy.
+                </a>
               </span>
             </Checkbox>
           </div>

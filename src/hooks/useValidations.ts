@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Validations } from '@types';
 import {
   ZERO_INDEX,
   EMAIL_VALIDATOR,
@@ -8,8 +9,6 @@ import {
   ValidationTypes,
   ADDRESS_VALIDATOR,
 } from '@constants';
-
-export type Validations = Record<string, string | number | boolean>;
 
 export const useValidations = (initialErrors: Record<string, string>) => {
   const [errors, setErrors] = useState(initialErrors);

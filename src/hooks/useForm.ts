@@ -1,15 +1,13 @@
 import { ChangeEvent, useState } from 'react';
 
 import { TYPE_CHECKBOX } from '@constants';
-import { Validations, useValidations } from '@hooks';
-
-export type FormInputEvent = ChangeEvent<
-  HTMLInputElement | HTMLTextAreaElement
->;
-
-export type FormValues = Record<string, string | boolean>;
-export type FormValidations = Record<string, Validations>;
-export type FormErrors = Record<string, string>;
+import { useValidations } from '@hooks';
+import {
+  FormErrors,
+  FormInputEvent,
+  FormValidations,
+  FormValues,
+} from '@types';
 
 export const useForm = (
   initialValues: FormValues,
