@@ -17,11 +17,162 @@
 }
 
 .order {
-  border: 2px solid var(--clr-secondary-300);
-  border-radius: 12px;
-  text-align: center;
-
   min-height: 400px;
+  padding: 32px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  border: 2px solid var(--clr-secondary-200);
+  border-radius: 12px;
+}
+
+.order_title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.order_text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--clr-secondary-300);
+}
+
+.order_list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.order_item {
+  min-height: 160px;
+  padding-bottom: 16px;
+
+  display: flex;
+  gap: 16px;
+
+  border-bottom: 1px solid var(--clr-secondary-200);
+}
+
+.order_item_left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.order_item_right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.order_item_description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order_item_price_section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.order_item_title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.order_item_list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.order_item_price {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--clr-accent-A);
+}
+
+.order_item_img {
+  width: 100px;
+  height: 70px;
+}
+
+.order_item_btn {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--clr-secondary-300);
+}
+
+.order_item_icon_heart {
+  color: var(--clr-accent-C);
+  & > svg {
+    height: 14px;
+    width: 14px;
+  }
+}
+
+.order_tax {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.promo_code {
+  position: relative;
+}
+
+.apply_btn {
+  padding: 12px 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.order_sub_total {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.order_sub_total_item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.order_total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  font-size: 14px;
+}
+
+.order_total_title {
+  font-weight: 600;
+}
+
+.order_total_delivery {
+  font-weight: 400;
+  color: var(--clr-accent-A);
+}
+
+.order_total_price {
+  font-size: 26px;
+  font-weight: 600;
+
+  color: var(--clr-accent-A);
 }
 
 @include desktop {
@@ -35,5 +186,10 @@
   .submit {
     display: flex;
     flex-direction: column;
+  }
+
+  .order_total {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
