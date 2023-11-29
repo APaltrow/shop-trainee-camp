@@ -25,7 +25,7 @@
 }
 
 @include desktop {
-  .container {
+  .form {
     display: flex;
     flex-direction: column-reverse;
   }
