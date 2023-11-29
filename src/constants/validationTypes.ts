@@ -1,4 +1,4 @@
-import { Validations } from '@hooks';
+import { Validations } from '@types';
 
 export enum ValidationTypes {
   EMPTY = 'isEmpty',
