@@ -1,16 +1,18 @@
-import { FC } from 'react';
+import { ChangeEvent, FC, useEffect } from 'react';
 
 import {
   INITIAL_BILLING_FORM_ERRORS,
-  INITIAL_BILLING_FORM_VALUES,
   BILLING_FORM_VALIDATIONS,
   BILLING_FORM_INPUTS,
   BillingFormInputs,
   BillingFormInfo,
   ButtonVariants,
   ButtonSizes,
+  TYPE_CHECKBOX,
 } from '@constants';
-import { useAddressAutocomplete, useForm } from '@hooks';
+import { FormInputEvent } from '@types';
+import { useAddressAutocomplete, useValidations } from '@hooks';
+import { useActions, useAppSelector } from '@redux';
 import {
   Checkbox,
   CustomButton,
@@ -23,26 +25,40 @@ import { CartFieldset } from '../CartFieldset';
 import style from './CartBillingForm.module.scss';
 
 export const CartBillingForm: FC = () => {
-  const {
-    formValues,
-    errors,
-
-    onInputChange,
-    onFormSubmit,
-  } = useForm(
-    INITIAL_BILLING_FORM_VALUES,
-    BILLING_FORM_VALIDATIONS,
-    INITIAL_BILLING_FORM_ERRORS,
-  );
-  const { stateOrCountry, townOrCity } = formValues;
-
-  const { inputLists, errors: autocompleteErrors } = useAddressAutocomplete(
-    stateOrCountry as string,
-    townOrCity as string,
-  );
+  const { billingInfo } = useAppSelector((state) => state.cart);
+  const { setBillingInfo } = useActions();
 
   const { termsOfUse, marketingAgreement, orderNotes, ...inputValues } =
-    formValues;
+    billingInfo;
+
+  const { inputLists, errors: autocompleteErrors } = useAddressAutocomplete(
+    billingInfo.stateOrCountry as string,
+    billingInfo.townOrCity as string,
+  );
+
+  const {
+    errors,
+
+    validateInput,
+  } = useValidations(INITIAL_BILLING_FORM_ERRORS);
+
+  const onInputChange = (e: FormInputEvent) => {
+    const { name, value, type } = e.target;
+
+    if (type === TYPE_CHECKBOX) {
+      const textAreaEvent = e as ChangeEvent<HTMLInputElement>;
+      const { checked } = textAreaEvent.target;
+
+      setBillingInfo([name, checked]);
+      return;
+    }
+
+    const inputValidations = BILLING_FORM_VALIDATIONS[name];
+
+    validateInput(name, value, inputValidations);
+
+    setBillingInfo([name, value]);
+  };
 
   const getInputProps = (name: string) => {
     const readonlyDTO: Record<string, boolean> = {
@@ -65,11 +81,21 @@ export const CartBillingForm: FC = () => {
     };
   };
 
+  const onFormSubmit = () => {
+    window.alert('Form has been submitted successfully!!!');
+  };
+
   const isValidForm =
     !marketingAgreement ||
     !termsOfUse ||
     !!Object.values(errors).find((error) => !!error) ||
     !!Object.values(autocompleteErrors).find((error) => !!error);
+
+  useEffect(() => {
+    Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
+      validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
+    });
+  }, []);
 
   return (
     <form
