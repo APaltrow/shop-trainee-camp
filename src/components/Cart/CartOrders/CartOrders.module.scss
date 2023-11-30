@@ -1,0 +1,130 @@
+@import '@style/_media';
+@import '@style/_mixins';
+
+.list {
+  max-height: 50vh;
+  padding-right: 10px;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include with-scrollbar(10px);
+}
+
+.container {
+  min-height: 160px;
+  padding-bottom: 16px;
+
+  display: flex;
+  gap: 16px;
+
+  border-bottom: 1px solid var(--clr-secondary-200);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.img {
+  width: 100px;
+  height: 70px;
+}
+
+.icon_heart {
+  color: var(--clr-accent-C);
+  & > svg {
+    margin-right: 2px;
+    height: 14px;
+    width: 14px;
+  }
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--clr-secondary-300);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.description_list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.description_item {
+  display: flex;
+  gap: 10px;
+}
+
+.description_title {
+  min-width: 80px;
+  max-width: 80px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.description_text {
+  max-width: 200px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input {
+  width: 30px;
+  background-color: transparent;
+}
+
+.price_section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--clr-accent-A);
+}
+
+@include mobile {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+  }
+
+  .price_section {
+    flex-direction: column;
+  }
+
+  .input {
+    width: calc(100vw - 250px);
+  }
+}

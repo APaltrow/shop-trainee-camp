@@ -11,17 +11,15 @@ import {
 import { BillingInputProps, FormInputEvent } from '@types';
 import { useAddressAutocomplete, useValidations } from '@hooks';
 import { useActions, useAppSelector } from '@redux';
-import {
-  CustomButton,
-  CustomImage,
-  CustomInput,
-  Icon,
-  Rating,
-} from '@components';
+import { CustomButton } from '@components';
 
 import { CartBillingInfo } from '../CartBillingInfo';
 import { CartAdditionalInfo } from '../CartAdditionalInfo';
 import { CartConfirmations } from '../CartConfirmations';
+
+import { CartOrders } from '../CartOrders';
+import { CartPromo } from '../CartPromo';
+import { CartTax } from '../CartTax';
 
 import style from './CartContainer.module.scss';
 
@@ -133,100 +131,36 @@ export const Cart: FC = () => {
         </div>
       </div>
 
-      <section className={style.order}>
-        <div>
-          <h2 className={style.order_title}>Order summary</h2>
-          <p className={style.order_text}>
-            Price can change depending on shipping method and taxes of your
-            state.
-          </p>
-        </div>
-        <ul className={style.order_list}>
-          {[...new Array(3)].map((_, idx) => (
-            <li key={idx}>
-              <article className={style.order_item}>
-                <div className={style.order_item_left}>
-                  <div className={style.order_item_img}>
-                    <CustomImage
-                      fullSize
-                      src="https://images.pexels.com/photos/15469650/pexels-photo-15469650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                  </div>
-
-                  <CustomButton>
-                    <span className={style.order_item_icon_heart}>
-                      <Icon iconName={IconsTypes.HEART} />
-                    </span>
-
-                    <span className={style.order_item_btn}>Wishlist</span>
-                  </CustomButton>
-
-                  <CustomButton>
-                    <Icon iconName={IconsTypes.CLOSE} />
-                    <span className={style.order_item_btn}>Remove</span>
-                  </CustomButton>
-                </div>
-                <div className={style.order_item_right}>
-                  <div className={style.order_item_description}>
-                    <h3 className={style.order_item_title}>Product Title</h3>
-                    <ul className={style.order_item_list}>
-                      <li>
-                        <span>Farm: </span>
-                        <span>Tharamis Farm</span>
-                      </li>
-                      <li>
-                        <span>Freshness: </span>
-                        <span>1 day old</span>
-                      </li>
-                    </ul>
-                    <Rating
-                      rating={4}
-                      isActive
-                    />
-                  </div>
-
-                  <div className={style.order_item_price_section}>
-                    <p className={style.order_item_price}>36.99 USD</p>
-                    <span>SELECT here</span>
-                  </div>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
-
-        <div className={style.order_tax}>
-          <div className={style.order_sub_total}>
-            <p className={style.order_sub_total_item}>
-              <span>Subtotal</span>
-              <span>73.98 USD</span>
-            </p>
-            <p className={style.order_sub_total_item}>
-              <span>Tax</span>
-              <span>17% 16.53 USD</span>
+      <div>
+        <section className={style.order}>
+          <div className={style.order_header}>
+            <h2 className={style.order_title}>Order summary</h2>
+            <p className={style.order_text}>
+              Price can change depending on shipping method and taxes of your
+              state.
             </p>
           </div>
 
-          <div className={style.promo_code}>
-            <CustomInput placeholder="Apply promo code" />
+          <CartOrders />
 
-            <span className={style.apply_btn}>
-              <CustomButton onClick={() => {}}>Apply now</CustomButton>
-            </span>
-          </div>
-        </div>
-
-        <div className={style.order_total}>
-          <div>
-            <p className={style.order_total_title}>Total Order</p>
-            <p className={style.order_total_delivery}>
-              Guaranteed delivery day: June 12, 2020
-            </p>
+          <div className={style.order_tax}>
+            <CartTax />
+            <CartPromo />
           </div>
 
-          <p className={style.order_total_price}>89.84 USD</p>
-        </div>
-      </section>
+          <div className={style.order_total}>
+            <div>
+              <p className={style.order_total_title}>Total Order</p>
+              <p className={style.order_total_delivery}>
+                <span>Guaranteed delivery day:</span>
+                <span>{`${'June 12, 2020'}`}</span>
+              </p>
+            </div>
+
+            <p className={style.order_total_price}>89.84 USD</p>
+          </div>
+        </section>
+      </div>
     </form>
   );
 };
