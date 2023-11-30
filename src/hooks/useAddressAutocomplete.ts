@@ -7,7 +7,7 @@ import {
   COUNTRY_AND_STATE_DIVIDER,
   MIN_SEARCH_LENGTH,
 } from '@constants';
-import { checkIsInList } from '@helpers';
+import { checkIsInList, filterList } from '@helpers';
 
 import { useActions, useAppSelector } from '@redux';
 
@@ -96,17 +96,21 @@ export const useAddressAutocomplete = (
   }, [countryName, cityName]);
 
   const countryOptions =
-    countryName.length > MIN_SEARCH_LENGTH ? countries : [];
+    countryName.length > MIN_SEARCH_LENGTH
+      ? filterList(countries, country)
+      : [];
 
   const isValidCountry = checkIsInList(country, countries);
   const countryWithState =
     states.length && isValidCountry
-      ? states.map((stateOption) => `${country.trim()}, ${stateOption.trim()}`)
+      ? filterList(states, state).map(
+          (stateOption) => `${country.trim()}, ${stateOption.trim()}`,
+        )
       : countryOptions;
 
   const inputLists: Record<string, string[]> = {
     stateOrCountry: countryWithState,
-    townOrCity: cities,
+    townOrCity: filterList(cities, cityName),
   };
 
   return {

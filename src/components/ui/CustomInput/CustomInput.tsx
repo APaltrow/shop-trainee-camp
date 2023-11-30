@@ -1,5 +1,8 @@
 import { ChangeEvent, FC, useId, useState } from 'react';
 
+import { useToggle } from '@hooks';
+import { Dropdown, DropdownItem } from '@components';
+
 import style from './CustomInput.module.scss';
 
 interface CustomInputProps {
@@ -13,6 +16,8 @@ interface CustomInputProps {
   isDisabled: boolean;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: () => void;
+  onSelect: (option: string) => void;
 }
 
 export const CustomInput: FC<CustomInputProps> = ({
@@ -26,10 +31,12 @@ export const CustomInput: FC<CustomInputProps> = ({
   isDisabled = false,
 
   onChange,
+  onFocus,
+  onSelect,
 }) => {
   const [isTouched, setTouched] = useState(false);
+  const { isOpened, onClose, onOpen } = useToggle();
   const inputId = useId();
-  const listId = useId();
 
   const handleBlur = () => {
     if (isTouched) return;
@@ -37,43 +44,59 @@ export const CustomInput: FC<CustomInputProps> = ({
     setTouched(true);
   };
 
+  const handleFocus = () => {
+    onOpen();
+
+    if (!onFocus) return;
+    onFocus();
+  };
+
+  const onOptionSelect = (option: string) => {
+    onClose();
+    onSelect(option);
+  };
+
   return (
-    <div className={style.container}>
-      {!!label && (
-        <label
-          htmlFor={inputId}
-          className={style.label}
-        >
-          {label}
-        </label>
-      )}
+    <Dropdown
+      isOpened={isOpened}
+      onClose={onClose}
+      anchor={
+        <div className={style.container}>
+          {!!label && (
+            <label
+              htmlFor={inputId}
+              className={style.label}
+            >
+              {label}
+            </label>
+          )}
 
-      <input
-        className={style.input}
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={handleBlur}
-        id={inputId}
-        autoComplete="off"
-        list={listId}
-        readOnly={isDisabled}
-      />
+          <input
+            className={style.input}
+            type={type}
+            name={name}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            id={inputId}
+            autoComplete="off"
+            readOnly={isDisabled}
+          />
 
-      {!!error && isTouched && <span className={style.error}>{error}</span>}
-
-      {!!optionsList.length && (
-        <datalist id={listId}>
-          {optionsList.map((option) => (
-            <option
-              value={option}
-              key={option}
-            />
-          ))}
-        </datalist>
-      )}
-    </div>
+          {!!error && isTouched && <span className={style.error}>{error}</span>}
+        </div>
+      }
+    >
+      {!!optionsList.length &&
+        optionsList.map((option) => (
+          <DropdownItem
+            key={option}
+            option={option}
+            onSelect={() => onOptionSelect(option)}
+          />
+        ))}
+    </Dropdown>
   );
 };

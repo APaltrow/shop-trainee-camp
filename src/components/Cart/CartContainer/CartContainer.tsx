@@ -54,6 +54,13 @@ export const Cart: FC = () => {
     setBillingInfo([name, value]);
   };
 
+  const onAutocompleteSelect = (name: string, option: string) => {
+    const inputValidations = BILLING_FORM_VALIDATIONS[name];
+
+    validateInput(name, option, inputValidations);
+    setBillingInfo([name, option]);
+  };
+
   const getInputProps = (name: string): BillingInputProps => {
     const readonlyDTO: Record<string, boolean> = {
       townOrCity: !!autocompleteErrors.stateOrCountry,
@@ -100,6 +107,7 @@ export const Cart: FC = () => {
         <CartBillingInfo
           getInputProps={getInputProps}
           onInputChange={onInputChange}
+          onSelect={onAutocompleteSelect}
         />
 
         <CartAdditionalInfo
