@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import {
   UNIT_STEP,
@@ -36,6 +38,7 @@ export const ProductToolbar: FC = () => {
 
     onUnitsAmountChange,
     onActiveBuyByChange,
+    onAddToCart,
   } = toolbar;
 
   return (
@@ -79,7 +82,8 @@ export const ProductToolbar: FC = () => {
         </div>
 
         <CustomButton
-          onClick={() => {}}
+          isDisabled={!!unitsError}
+          onClick={onAddToCart}
           variant={ButtonVariants.PRIMARY}
           size={ButtonSizes.MID}
         >
@@ -94,6 +98,8 @@ export const ProductToolbar: FC = () => {
         <Icon iconName={IconsTypes.HEART} />
         Add to my wishlist
       </CustomButton>
+
+      <ToastContainer autoClose={1300} />
     </div>
   );
 };

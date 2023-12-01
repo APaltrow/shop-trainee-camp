@@ -1,0 +1,27 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  padding: 0px 4px;
+  min-width: 16px;
+  position: absolute;
+  right: calc(100% - 10px);
+  top: calc(100% - 10px);
+
+  background-color: var(--clr-accent-C);
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--clr-primary);
+  text-wrap: nowrap;
+  text-align: center;
+
+  box-shadow: 0px 0px 3px var(--clr-secondary);
+}

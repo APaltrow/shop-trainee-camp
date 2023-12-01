@@ -1,0 +1,66 @@
+@import '@style/_variables';
+@import '@style/_media';
+
+.overlay {
+  padding-top: 30px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 200;
+  background-color: rgba($color: black, $alpha: 0.3);
+}
+
+.container {
+  position: relative;
+  padding: 30px 10px 10px;
+  width: 30vw;
+  margin: 0 auto;
+
+  background-color: var(--clr-primary);
+  border-radius: 12px;
+  box-shadow: 0px 0px 3px var(--clr-secondary-300);
+
+  animation: fade-in 0.3s ease-in;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  text-align: center;
+  color: var(--clr-secondary);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@include laptop {
+  .container {
+    width: 50vw;
+  }
+}
+
+@include tablet {
+  .container {
+    width: 90vw;
+  }
+}

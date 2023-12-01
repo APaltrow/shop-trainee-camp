@@ -17,3 +17,5 @@ export * from './useProductSuggestions';
 export * from './useImage';
 export * from './useValidations';
 export * from './useAddressAutocomplete';
+export * from './useCartTotals';
+export * from './useAlert';

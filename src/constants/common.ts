@@ -9,6 +9,7 @@ export const PORTAL_ID = 'portal';
 export const PATH_DIVIDER = '/';
 export const LIST_DIVIDER = ', ';
 export const COUNTRY_AND_STATE_DIVIDER = ',';
+export const HASH_DIVIDER = '***';
 export const CLICK_EVENT = 'click';
 export const TOP_POSITION = 0;
 export const SMOOTH_BEHAVIOR = 'smooth';

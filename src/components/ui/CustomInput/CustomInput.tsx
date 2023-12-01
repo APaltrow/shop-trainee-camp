@@ -10,7 +10,7 @@ interface CustomInputProps {
   placeholder: string;
   error: string;
   optionsList?: string[];
-  isDisabled: boolean;
+  isDisabled?: boolean;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }

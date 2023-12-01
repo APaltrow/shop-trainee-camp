@@ -18,3 +18,5 @@ export * from './getProductDetails';
 export * from './handleKeyDown';
 export * from './checkIfPlural';
 export * from './checkIsInList';
+export * from './generateLotId';
+export * from './getGuaranteedDeliveryDate';

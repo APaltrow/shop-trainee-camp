@@ -2,6 +2,7 @@
 @import '@style/_mixins';
 
 .list {
+  padding-bottom: 80px;
   max-height: 50vh;
   padding-right: 10px;
   overflow: auto;
@@ -86,6 +87,8 @@
   overflow: hidden;
   text-wrap: nowrap;
   text-overflow: ellipsis;
+
+  color: var(--clr-secondary-300);
 }
 
 .description_text {
@@ -93,6 +96,10 @@
   overflow: hidden;
   text-wrap: nowrap;
   text-overflow: ellipsis;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .input {
@@ -115,9 +122,6 @@
 @include mobile {
   .container {
     flex-direction: column;
-  }
-
-  .left {
   }
 
   .price_section {

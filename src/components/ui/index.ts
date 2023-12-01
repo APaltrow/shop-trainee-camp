@@ -19,3 +19,5 @@ export * from './Tabs';
 export * from './Carousel';
 export * from './CustomTextarea';
 export * from './CustomInput';
+export * from './Badge';
+export * from './Alert';

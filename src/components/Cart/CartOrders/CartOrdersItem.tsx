@@ -1,6 +1,17 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { IconsTypes, SelectVariants } from '@constants';
+import {
+  AlertMessages,
+  IconsTypes,
+  PRICE_DECIMALS,
+  RoutesPaths,
+  SelectVariants,
+  ZERO_INDEX,
+} from '@constants';
+import { useActions, useAppSelector } from '@redux';
+import { IOrderItem } from '@types';
+import { useAlert } from '@hooks';
 import {
   BinarySection,
   CustomButton,
@@ -8,27 +19,59 @@ import {
   CustomSelect,
   Icon,
   Rating,
+  Alert,
 } from '@components';
 
 import style from './CartOrders.module.scss';
 
-const IMG_SRC =
-  'https://images.pexels.com/photos/15469650/pexels-photo-15469650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
-const IMG_ALT = 'asdasd';
+interface CartOrdersItemProps {
+  cartItem: IOrderItem;
+}
 
-export const CartOrdersItem: FC = () => {
+export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
+  const products = useAppSelector((state) => state.products.productsList);
+
+  const { removeOrderItem } = useActions();
+  const { alert, onAlertCall, onAlertCancel } = useAlert();
+
+  const product = products.find(
+    ({ productId }) => productId === cartItem.productId,
+  );
+
+  if (!product) return null;
+
+  const { imgs, productTitle, category, brand, rating, buyBy } = product;
+
+  const totalDueAmount = `${cartItem.totalCost.toFixed(PRICE_DECIMALS)} ${
+    cartItem.currency
+  }`;
+
+  const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${cartItem.productId}`;
+
+  const handleRemoveItem = (lotId: string) => {
+    onAlertCall({
+      text: AlertMessages.REMOVE_PRODUCT,
+      onConfirm: () => {
+        removeOrderItem(lotId);
+        onAlertCancel();
+      },
+    });
+  };
+
   return (
     <article className={style.container}>
       <div className={style.left}>
-        <div className={style.img}>
-          <CustomImage
-            fullSize
-            src={IMG_SRC}
-            alt={IMG_ALT}
-          />
-        </div>
+        <NavLink to={navPath}>
+          <div className={style.img}>
+            <CustomImage
+              fullSize
+              src={imgs[ZERO_INDEX]}
+              alt={productTitle}
+            />
+          </div>
+        </NavLink>
 
-        <CustomButton>
+        <CustomButton onClick={() => {}}>
           <span className={style.icon_heart}>
             <Icon iconName={IconsTypes.HEART} />
           </span>
@@ -36,7 +79,7 @@ export const CartOrdersItem: FC = () => {
           <span className={style.btn}>Wishlist</span>
         </CustomButton>
 
-        <CustomButton>
+        <CustomButton onClick={() => handleRemoveItem(cartItem.lotId)}>
           <Icon iconName={IconsTypes.CLOSE} />
           <span className={style.btn}>Remove</span>
         </CustomButton>
@@ -44,37 +87,40 @@ export const CartOrdersItem: FC = () => {
 
       <div className={style.right}>
         <div className={style.description}>
-          <h3 className={style.title}>Product Title</h3>
+          <NavLink to={navPath}>
+            <h3 className={style.title}>{productTitle}</h3>
+          </NavLink>
+
           <ul className={style.description_list}>
             <li className={style.description_item}>
-              <span className={style.description_title}>Farm: </span>
-              <span className={style.description_text}>Tharamis Farm</span>
+              <span className={style.description_title}>Brand: </span>
+              <span className={style.description_text}>{brand}</span>
             </li>
             <li className={style.description_item}>
-              <span className={style.description_title}>Freshness: </span>
-              <span className={style.description_text}>1 day old</span>
+              <span className={style.description_title}>Category: </span>
+              <span className={style.description_text}>{category}</span>
             </li>
           </ul>
           <Rating
-            rating={4}
+            rating={rating}
             isActive
           />
         </div>
 
         <div className={style.price_section}>
-          <p className={style.price}>36.99 USD</p>
+          <p className={style.price}>{totalDueAmount}</p>
           <div>
             <BinarySection
               leftElement={
                 <input
-                  value={1}
+                  value={cartItem.totalQuantity}
                   className={style.input}
                 />
               }
               rightElement={
                 <CustomSelect
-                  options={['pcs', 'box', 'pack']}
-                  selected="pcs"
+                  options={Object.keys(buyBy)}
+                  selected={cartItem.measure}
                   variant={SelectVariants.DEFAULT}
                   onChange={() => {}}
                 />
@@ -83,6 +129,14 @@ export const CartOrdersItem: FC = () => {
           </div>
         </div>
       </div>
+
+      {!!alert && (
+        <Alert
+          text={alert.text}
+          onCancel={onAlertCancel}
+          onConfirm={alert.onConfirm}
+        />
+      )}
     </article>
   );
 };

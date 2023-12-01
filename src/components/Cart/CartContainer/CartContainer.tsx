@@ -1,15 +1,16 @@
 import { ChangeEvent, FC, useEffect } from 'react';
 
 import {
+  ButtonSizes,
+  ButtonVariants,
+  TYPE_CHECKBOX,
+  PRICE_DECIMALS,
   INITIAL_BILLING_FORM_ERRORS,
   BILLING_FORM_VALIDATIONS,
-  ButtonVariants,
-  ButtonSizes,
-  TYPE_CHECKBOX,
-  IconsTypes,
 } from '@constants';
 import { BillingInputProps, FormInputEvent } from '@types';
-import { useAddressAutocomplete, useValidations } from '@hooks';
+import { useAddressAutocomplete, useCartTotals, useValidations } from '@hooks';
+import { getGuaranteedDeliveryDate } from '@helpers';
 import { useActions, useAppSelector } from '@redux';
 import { CustomButton } from '@components';
 
@@ -24,8 +25,17 @@ import { CartTax } from '../CartTax';
 import style from './CartContainer.module.scss';
 
 export const Cart: FC = () => {
-  const { billingInfo } = useAppSelector((state) => state.cart);
+  const { billingInfo, orders } = useAppSelector((state) => state.cart);
   const { setBillingInfo } = useActions();
+  const {
+    subTotal,
+    taxAmount,
+    taxPercent,
+    totalAmount,
+    promoDiscountPercent,
+    promoDiscountAmount,
+    addPromoDiscount,
+  } = useCartTotals();
 
   const { termsOfUse, marketingAgreement, orderNotes, ...inputValues } =
     billingInfo;
@@ -90,6 +100,8 @@ export const Cart: FC = () => {
     !!Object.values(errors).find((error) => !!error) ||
     !!Object.values(autocompleteErrors).find((error) => !!error);
 
+  const guaranteedDeliveryDate = getGuaranteedDeliveryDate(orders);
+
   useEffect(() => {
     Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
       validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
@@ -144,8 +156,18 @@ export const Cart: FC = () => {
           <CartOrders />
 
           <div className={style.order_tax}>
-            <CartTax />
-            <CartPromo />
+            <CartTax
+              subTotal={subTotal}
+              taxAmount={taxAmount}
+              taxPercent={taxPercent}
+              promoPercent={promoDiscountPercent}
+              promoAmount={promoDiscountAmount}
+            />
+
+            <CartPromo
+              isPromoApplied={!!promoDiscountPercent}
+              onPromoDiscount={addPromoDiscount}
+            />
           </div>
 
           <div className={style.order_total}>
@@ -153,11 +175,13 @@ export const Cart: FC = () => {
               <p className={style.order_total_title}>Total Order</p>
               <p className={style.order_total_delivery}>
                 <span>Guaranteed delivery day:</span>
-                <span>{`${'June 12, 2020'}`}</span>
+                <span>{guaranteedDeliveryDate}</span>
               </p>
             </div>
 
-            <p className={style.order_total_price}>89.84 USD</p>
+            <p className={style.order_total_price}>
+              {totalAmount.toFixed(PRICE_DECIMALS)} USD
+            </p>
           </div>
         </section>
       </div>
