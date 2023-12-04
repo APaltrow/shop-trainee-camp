@@ -105,6 +105,7 @@ export const Cart: FC = () => {
   const isValidForm =
     !marketingAgreement ||
     !termsOfUse ||
+    !orders.length ||
     !!Object.values(errors).find((error) => !!error) ||
     !!Object.values(autocompleteErrors).find((error) => !!error);
 
