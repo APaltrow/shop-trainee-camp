@@ -121,7 +121,7 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
 
         <div className={style.price_section}>
           <p className={style.price}>{totalDueAmount}</p>
-          <div>
+          <div className={style.select_section}>
             <BinarySection
               leftElement={
                 <input
