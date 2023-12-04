@@ -21,3 +21,4 @@ export * from './checkIsInList';
 export * from './generateLotId';
 export * from './getGuaranteedDeliveryDate';
 export * from './getValueFromPercent';
+export * from './filterList';

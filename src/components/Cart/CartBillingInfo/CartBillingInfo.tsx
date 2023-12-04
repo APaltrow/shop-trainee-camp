@@ -11,11 +11,13 @@ import style from './CartBillingInfo.module.scss';
 interface CartBillingInfoProps {
   getInputProps: (name: string) => BillingInputProps;
   onInputChange: (e: FormInputEvent) => void;
+  onSelect: (name: string, option: string) => void;
 }
 
 export const CartBillingInfo: FC<CartBillingInfoProps> = ({
   getInputProps,
   onInputChange,
+  onSelect,
 }) => {
   return (
     <CartFieldset
@@ -38,6 +40,7 @@ export const CartBillingInfo: FC<CartBillingInfoProps> = ({
               isDisabled={readonly}
               optionsList={autocomplete}
               onChange={onInputChange}
+              onSelect={(option) => onSelect(name, option)}
             />
           );
         })}
