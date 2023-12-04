@@ -17,3 +17,5 @@ export * from './getAdditionalInfo';
 export * from './getProductDetails';
 export * from './handleKeyDown';
 export * from './checkIfPlural';
+export * from './checkIsInList';
+export * from './filterList';

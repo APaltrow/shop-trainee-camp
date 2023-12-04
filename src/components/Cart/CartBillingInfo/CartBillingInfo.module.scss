@@ -1,0 +1,14 @@
+@import '@style/_mixins';
+@import '@style/_media';
+
+.form_grid {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(2, minmax(250px, auto));
+  gap: 32px;
+}
+
+@include mobile {
+  .form_grid {
+    grid-template: repeat(8, 1fr) / repeat(1, minmax(280px, auto));
+  }
+}

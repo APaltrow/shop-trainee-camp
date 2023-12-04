@@ -17,3 +17,5 @@ export * from './PriceInput';
 export * from './Pagination';
 export * from './Tabs';
 export * from './Carousel';
+export * from './CustomTextarea';
+export * from './CustomInput';

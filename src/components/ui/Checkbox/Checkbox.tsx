@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, ReactNode } from 'react';
+import { ChangeEvent, FC, ReactNode, useId } from 'react';
 
 import { IconSizes, IconsTypes } from '@constants';
 import { Icon } from '@components';
@@ -6,31 +6,34 @@ import { Icon } from '@components';
 import style from './Checkbox.module.scss';
 
 interface CheckboxProps {
-  id: string;
   isChecked: boolean;
+  name?: string;
   children?: ReactNode;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
-  id,
   isChecked,
   children,
+  name,
 
   onChange,
 }) => {
+  const checkboxID = useId();
+
   return (
     <div className={style.container}>
       <input
         type="checkbox"
-        id={id}
+        id={checkboxID}
+        name={name}
         onChange={onChange}
         checked={isChecked}
         className={style.input}
       />
       <label
-        htmlFor={id}
+        htmlFor={checkboxID}
         className={style.label}
       >
         <span className={style.content}>{children}</span>

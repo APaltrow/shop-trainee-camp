@@ -7,14 +7,16 @@
 }
 
 .options_list {
+  padding: 10px 0px;
   position: absolute;
-  left: -15px;
-  top: 32px;
+  left: 0;
+  top: 110%;
   z-index: 50;
   max-width: 100%;
   min-width: 110px;
+  max-height: 300px;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   display: flex;
   flex-direction: column;
@@ -22,6 +24,14 @@
   background-color: var(--clr-primary);
   @include with-border;
   box-shadow: -2px 2px 5px var(--clr-secondary-300);
+
+  @include with-scrollbar(10px);
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 0px 12px 12px 0px;
+  }
 }
 
 .wrapper {

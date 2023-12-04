@@ -36,7 +36,6 @@ export const SidebarRating: FC = () => {
           return (
             <li key={`${ratingitem}_${ratingValue}`}>
               <Checkbox
-                id={`checkbox_${ratingValue}`}
                 isChecked={checkIfRatingSelected(ratingValue)}
                 onChange={(e) =>
                   handleRatingSelect(ratingValue, e.target.checked)

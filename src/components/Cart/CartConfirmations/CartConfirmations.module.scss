@@ -1,0 +1,33 @@
+@import '@style/_mixins';
+@import '@style/_media';
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.checkbox {
+  min-width: 60%;
+  max-width: auto;
+  @include with-border-bg;
+}
+
+.agreement {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  text-wrap: wrap;
+}
+
+.agreement_links {
+  text-decoration: underline;
+}
+
+.marketing {
+  text-wrap: wrap;
+}

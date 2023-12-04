@@ -5,6 +5,13 @@
   border-radius: $border_radius;
 }
 
+@mixin with-border-bg {
+  @include with-border;
+  padding: 10px 16px;
+
+  background-color: $clr_overlay;
+}
+
 @mixin with-text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
