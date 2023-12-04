@@ -19,3 +19,4 @@ export * from './useValidations';
 export * from './useAddressAutocomplete';
 export * from './useCartTotals';
 export * from './useAlert';
+export * from './usePromoCode';

@@ -20,6 +20,7 @@ import {
   Icon,
   Rating,
   Alert,
+  InfoTooltip,
 } from '@components';
 
 import style from './CartOrders.module.scss';
@@ -40,13 +41,17 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
 
   if (!product) return null;
 
-  const { imgs, productTitle, category, brand, rating, buyBy } = product;
+  const { imgs, productTitle, category, brand, rating, buyBy, price } = product;
 
   const totalDueAmount = `${cartItem.totalCost.toFixed(PRICE_DECIMALS)} ${
     cartItem.currency
   }`;
 
+  const imgUrl = imgs[ZERO_INDEX];
+
   const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${cartItem.productId}`;
+
+  const discount = price.discount ? `- ${price.discount} %` : null;
 
   const handleRemoveItem = (lotId: string) => {
     onAlertCall({
@@ -65,31 +70,38 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
           <div className={style.img}>
             <CustomImage
               fullSize
-              src={imgs[ZERO_INDEX]}
+              src={imgUrl}
               alt={productTitle}
             />
+            {!!discount && (
+              <span className={style.discount}>
+                <InfoTooltip info={discount} />
+              </span>
+            )}
           </div>
         </NavLink>
 
-        <CustomButton onClick={() => {}}>
-          <span className={style.icon_heart}>
-            <Icon iconName={IconsTypes.HEART} />
-          </span>
+        <div className={style.btns}>
+          <CustomButton onClick={() => {}}>
+            <span className={style.icon_heart}>
+              <Icon iconName={IconsTypes.HEART} />
+            </span>
 
-          <span className={style.btn}>Wishlist</span>
-        </CustomButton>
+            <span className={style.btn}>Wishlist</span>
+          </CustomButton>
 
-        <CustomButton onClick={() => handleRemoveItem(cartItem.lotId)}>
-          <Icon iconName={IconsTypes.CLOSE} />
-          <span className={style.btn}>Remove</span>
-        </CustomButton>
+          <CustomButton onClick={() => handleRemoveItem(cartItem.lotId)}>
+            <Icon iconName={IconsTypes.CLOSE} />
+            <span className={style.btn}>Remove</span>
+          </CustomButton>
+        </div>
       </div>
 
       <div className={style.right}>
         <div className={style.description}>
-          <NavLink to={navPath}>
-            <h3 className={style.title}>{productTitle}</h3>
-          </NavLink>
+          <h3 className={style.title}>
+            <NavLink to={navPath}>{productTitle}</NavLink>
+          </h3>
 
           <ul className={style.description_list}>
             <li className={style.description_item}>

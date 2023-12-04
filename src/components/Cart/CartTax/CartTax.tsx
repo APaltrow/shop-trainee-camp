@@ -10,6 +10,7 @@ interface CartTaxProps {
   taxPercent: number;
   promoPercent: number;
   promoAmount: number;
+  currency: string;
 }
 
 export const CartTax: FC<CartTaxProps> = ({
@@ -18,33 +19,27 @@ export const CartTax: FC<CartTaxProps> = ({
   taxPercent,
   promoPercent,
   promoAmount,
+  currency,
 }) => {
-  const subTotalWithCurrency = `${subTotal.toFixed(PRICE_DECIMALS)} USD`;
-
-  const taxAmountAndPercent = `${taxPercent}% ${taxAmount.toFixed(
-    PRICE_DECIMALS,
-  )} USD`;
-
-  const promoAmountAndPercent = `${promoPercent}% ${promoAmount.toFixed(
-    PRICE_DECIMALS,
-  )} USD`;
+  const taxInfo = Object.entries({
+    subtotal: `${subTotal.toFixed(PRICE_DECIMALS)} ${currency}`,
+    promo: `${promoPercent}% ${promoAmount.toFixed(
+      PRICE_DECIMALS,
+    )} ${currency}`,
+    tax: `${taxPercent}% ${taxAmount.toFixed(PRICE_DECIMALS)} ${currency}`,
+  });
 
   return (
-    <div className={style.sub_total}>
-      <p className={style.item}>
-        <span>Subtotal</span>
-        <span>{subTotalWithCurrency}</span>
-      </p>
-      {!!promoPercent && (
-        <p className={style.item}>
-          <span>Promo</span>
-          <span>{promoAmountAndPercent}</span>
-        </p>
-      )}
-      <p className={style.item}>
-        <span>Tax</span>
-        <span>{taxAmountAndPercent}</span>
-      </p>
-    </div>
+    <ul className={style.sub_total}>
+      {taxInfo.map(([title, info]) => (
+        <li
+          key={title}
+          className={style.item}
+        >
+          <span className={style.title}>{title}</span>
+          <span>{info}</span>
+        </li>
+      ))}
+    </ul>
   );
 };

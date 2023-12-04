@@ -28,6 +28,7 @@
 body[class='no-scroll'] {
   height: 100vh;
   overflow-y: hidden;
+  padding-right: 15px;
 }
 
 .app {
@@ -49,5 +50,9 @@ body[class='no-scroll'] {
 @include tablet {
   .app {
     padding: 0px 10px;
+  }
+
+  body[class='no-scroll'] {
+    padding-right: 0px;
   }
 }

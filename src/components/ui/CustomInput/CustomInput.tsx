@@ -4,7 +4,7 @@ import style from './CustomInput.module.scss';
 
 interface CustomInputProps {
   label?: string;
-  type: string;
+  type?: string;
   name: string;
   value: string;
   placeholder: string;

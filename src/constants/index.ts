@@ -23,3 +23,4 @@ export * from './validators/citiesValidator';
 export * from './validators/addressValidator';
 export * from './addressConstants';
 export * from './alertMessages';
+export * from './promo';

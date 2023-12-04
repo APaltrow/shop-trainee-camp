@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { IProduct } from '@types';
 import {
   AlertMessages,
   DEFAULT_UNITS_AMOUNT,
@@ -12,13 +13,9 @@ import {
   ZERO_PRICE,
 } from '@constants';
 import { getActualProductPrice, generateLotId } from '@helpers';
-import { useActions, useAppSelector } from '@redux';
+import { useActions } from '@redux';
 
-export const useProductToolbar = () => {
-  const { product } = useAppSelector((state) => state.product);
-
-  if (!product) return null;
-
+export const useProductToolbar = (product: IProduct) => {
   const { buyBy, price, stock } = product;
 
   const buyByOptions = Object.keys(buyBy);

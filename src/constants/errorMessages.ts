@@ -38,3 +38,8 @@ export enum AutocompleteErrors {
   INCORRECT_COUNTRY = 'Incorrect country name',
   INCORRECT_STATE = 'Incorrect state name',
 }
+
+export enum PromoErrors {
+  INVALID_PROMO = 'Invalid promo code',
+  NO_ERROR = '',
+}

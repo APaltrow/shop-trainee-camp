@@ -28,6 +28,7 @@ export const Cart: FC = () => {
   const { billingInfo, orders } = useAppSelector((state) => state.cart);
   const { setBillingInfo } = useActions();
   const {
+    currency,
     subTotal,
     taxAmount,
     taxPercent,
@@ -102,6 +103,10 @@ export const Cart: FC = () => {
 
   const guaranteedDeliveryDate = getGuaranteedDeliveryDate(orders);
 
+  const totalAmountWithCurrency = `${totalAmount.toFixed(
+    PRICE_DECIMALS,
+  )} ${currency}`;
+
   useEffect(() => {
     Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
       validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
@@ -157,6 +162,7 @@ export const Cart: FC = () => {
 
           <div className={style.order_tax}>
             <CartTax
+              currency={currency}
               subTotal={subTotal}
               taxAmount={taxAmount}
               taxPercent={taxPercent}
@@ -179,9 +185,7 @@ export const Cart: FC = () => {
               </p>
             </div>
 
-            <p className={style.order_total_price}>
-              {totalAmount.toFixed(PRICE_DECIMALS)} USD
-            </p>
+            <p className={style.order_total_price}>{totalAmountWithCurrency}</p>
           </div>
         </section>
       </div>

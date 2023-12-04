@@ -20,3 +20,4 @@ export * from './checkIfPlural';
 export * from './checkIsInList';
 export * from './generateLotId';
 export * from './getGuaranteedDeliveryDate';
+export * from './getValueFromPercent';
