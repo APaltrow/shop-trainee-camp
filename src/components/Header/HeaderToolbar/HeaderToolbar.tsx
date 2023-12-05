@@ -21,6 +21,7 @@ import {
   DropdownItem,
   BinarySection,
   CustomSelect,
+  Badge,
 } from '@components';
 import logo from '@assets/Freshnesecom.svg';
 
@@ -28,6 +29,7 @@ import style from './HeaderToolbar.module.scss';
 
 export const HeaderToolbar: FC = () => {
   const { categories } = useAppSelector((state) => state.products);
+  const { orders } = useAppSelector((state) => state.cart);
   const { activeCategory, activeBrands } = useAppSelector(
     (state) => state.productsFilter,
   );
@@ -143,12 +145,13 @@ export const HeaderToolbar: FC = () => {
           iconName={IconsTypes.PROFILE}
           size={IconSizes.LARGE}
         />
-
         <NavLink to={NavigationPaths.CART}>
-          <Icon
-            iconName={IconsTypes.CART}
-            size={IconSizes.LARGE}
-          />
+          <Badge info={orders.length}>
+            <Icon
+              iconName={IconsTypes.CART}
+              size={IconSizes.LARGE}
+            />
+          </Badge>
         </NavLink>
       </div>
     </div>

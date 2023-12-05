@@ -1,14 +1,16 @@
 import { ChangeEvent, FC, useEffect } from 'react';
 
 import {
+  ButtonSizes,
+  ButtonVariants,
+  TYPE_CHECKBOX,
+  PRICE_DECIMALS,
   INITIAL_BILLING_FORM_ERRORS,
   BILLING_FORM_VALIDATIONS,
-  ButtonVariants,
-  ButtonSizes,
-  TYPE_CHECKBOX,
 } from '@constants';
 import { BillingInputProps, FormInputEvent } from '@types';
-import { useAddressAutocomplete, useValidations } from '@hooks';
+import { useAddressAutocomplete, useCartTotals, useValidations } from '@hooks';
+import { getGuaranteedDeliveryDate } from '@helpers';
 import { useActions, useAppSelector } from '@redux';
 import { CustomButton } from '@components';
 
@@ -16,11 +18,25 @@ import { CartBillingInfo } from '../CartBillingInfo';
 import { CartAdditionalInfo } from '../CartAdditionalInfo';
 import { CartConfirmations } from '../CartConfirmations';
 
+import { CartOrders } from '../CartOrders';
+import { CartPromo } from '../CartPromo';
+import { CartTax } from '../CartTax';
+
 import style from './CartContainer.module.scss';
 
 export const Cart: FC = () => {
-  const { billingInfo } = useAppSelector((state) => state.cart);
+  const { billingInfo, orders } = useAppSelector((state) => state.cart);
   const { setBillingInfo } = useActions();
+  const {
+    currency,
+    subTotal,
+    taxAmount,
+    taxPercent,
+    totalAmount,
+    promoDiscountPercent,
+    promoDiscountAmount,
+    addPromoDiscount,
+  } = useCartTotals();
 
   const { termsOfUse, marketingAgreement, orderNotes, ...inputValues } =
     billingInfo;
@@ -89,8 +105,15 @@ export const Cart: FC = () => {
   const isValidForm =
     !marketingAgreement ||
     !termsOfUse ||
+    !orders.length ||
     !!Object.values(errors).find((error) => !!error) ||
     !!Object.values(autocompleteErrors).find((error) => !!error);
+
+  const guaranteedDeliveryDate = getGuaranteedDeliveryDate(orders);
+
+  const totalAmountWithCurrency = `${totalAmount.toFixed(
+    PRICE_DECIMALS,
+  )} ${currency}`;
 
   useEffect(() => {
     Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
@@ -134,9 +157,49 @@ export const Cart: FC = () => {
         </div>
       </div>
 
-      <section className={style.order}>
-        <h2>Cart lots here</h2>
-      </section>
+      <div>
+        <section className={style.order}>
+          <div className={style.order_header}>
+            <h2 className={style.order_title}>Order summary</h2>
+            <p className={style.order_text}>
+              Price can change depending on shipping method and taxes of your
+              state.
+            </p>
+          </div>
+
+          <CartOrders />
+
+          <div className={style.order_tax}>
+            <CartTax
+              currency={currency}
+              subTotal={subTotal}
+              taxAmount={taxAmount}
+              taxPercent={taxPercent}
+              promoPercent={promoDiscountPercent}
+              promoAmount={promoDiscountAmount}
+            />
+
+            <CartPromo
+              isPromoApplied={!!promoDiscountPercent}
+              onPromoDiscount={addPromoDiscount}
+            />
+          </div>
+
+          <div className={style.order_total}>
+            <div>
+              <p className={style.order_total_title}>Total Order</p>
+              {!!orders.length && (
+                <p className={style.order_total_delivery}>
+                  <span>Guaranteed delivery day:</span>
+                  <span>{guaranteedDeliveryDate}</span>
+                </p>
+              )}
+            </div>
+
+            <p className={style.order_total_price}>{totalAmountWithCurrency}</p>
+          </div>
+        </section>
+      </div>
     </form>
   );
 };

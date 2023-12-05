@@ -6,18 +6,18 @@ import { Dropdown, DropdownItem } from '@components';
 import style from './CustomInput.module.scss';
 
 interface CustomInputProps {
-  label?: string;
-  type: string;
   name: string;
   value: string;
   placeholder: string;
   error: string;
   optionsList?: string[];
-  isDisabled: boolean;
+  isDisabled?: boolean;
+  label?: string;
+  type?: string;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
-  onSelect: (option: string) => void;
+  onSelect?: (option: string) => void;
 }
 
 export const CustomInput: FC<CustomInputProps> = ({
@@ -52,6 +52,8 @@ export const CustomInput: FC<CustomInputProps> = ({
   };
 
   const onOptionSelect = (option: string) => {
+    if (!onSelect) return;
+
     onClose();
     onSelect(option);
   };

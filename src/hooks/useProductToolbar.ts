@@ -1,6 +1,9 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
+import { IProduct } from '@types';
 import {
+  AlertMessages,
   DEFAULT_UNITS_AMOUNT,
   ONE_ITEM,
   PRICE_DECIMALS,
@@ -9,14 +12,10 @@ import {
   ZERO_INDEX,
   ZERO_PRICE,
 } from '@constants';
-import { getActualProductPrice } from '@helpers';
-import { useAppSelector } from '@redux';
+import { getActualProductPrice, generateLotId } from '@helpers';
+import { useActions } from '@redux';
 
-export const useProductToolbar = () => {
-  const { product } = useAppSelector((state) => state.product);
-
-  if (!product) return null;
-
+export const useProductToolbar = (product: IProduct) => {
   const { buyBy, price, stock } = product;
 
   const buyByOptions = Object.keys(buyBy);
@@ -27,6 +26,7 @@ export const useProductToolbar = () => {
   const [unitsError, setUnitsError] = useState<UnitsErrors | string>(
     UnitsErrors.NO_ERROR,
   );
+  const { addOrderItem } = useActions();
 
   const actualPrice = getActualProductPrice(price);
   const activeUnitsAmount = buyBy[buyByActiveOption];
@@ -66,6 +66,24 @@ export const useProductToolbar = () => {
     setUnitsAmount(units);
   };
 
+  const onAddToCart = () => {
+    const { productId, delivery } = product;
+    const lotId = generateLotId([productId, buyByActiveOption]);
+
+    const orderItem = {
+      productId,
+      lotId,
+      totalQuantity: unitsAmount,
+      totalCost: +totalDueAmount,
+      measure: buyByActiveOption,
+      currency: price.currency,
+      timeframe: delivery.timeframe,
+    };
+
+    addOrderItem(orderItem);
+    toast.success(AlertMessages.PRODUCT_ADDED);
+  };
+
   useEffect(() => {
     const totalUnits = unitsAmount * activeUnitsAmount;
 
@@ -98,5 +116,6 @@ export const useProductToolbar = () => {
 
     onUnitsAmountChange,
     onActiveBuyByChange,
+    onAddToCart,
   };
 };

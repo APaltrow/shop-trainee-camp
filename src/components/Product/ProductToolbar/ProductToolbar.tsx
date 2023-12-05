@@ -1,5 +1,8 @@
 import { FC } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
+import { useAppSelector } from '@redux';
 import {
   UNIT_STEP,
   UNIT_MIN_VALUE,
@@ -16,9 +19,11 @@ import { BinarySection, CustomButton, CustomSelect, Icon } from '@components';
 import style from './ProductToolbar.module.scss';
 
 export const ProductToolbar: FC = () => {
-  const toolbar = useProductToolbar();
+  const { product } = useAppSelector((state) => state.product);
 
-  if (!toolbar) return null;
+  if (!product) return null;
+
+  const toolbar = useProductToolbar(product);
 
   const {
     unitsMax,
@@ -36,6 +41,7 @@ export const ProductToolbar: FC = () => {
 
     onUnitsAmountChange,
     onActiveBuyByChange,
+    onAddToCart,
   } = toolbar;
 
   return (
@@ -44,7 +50,7 @@ export const ProductToolbar: FC = () => {
         <div className={style.prices}>
           <p className={style.due_amount}>{totalDue}</p>
 
-          {totalBeforeDiscount && (
+          {!!totalBeforeDiscount && (
             <p className={style.discount}>{totalBeforeDiscount}</p>
           )}
         </div>
@@ -79,7 +85,8 @@ export const ProductToolbar: FC = () => {
         </div>
 
         <CustomButton
-          onClick={() => {}}
+          isDisabled={!!unitsError}
+          onClick={onAddToCart}
           variant={ButtonVariants.PRIMARY}
           size={ButtonSizes.MID}
         >
@@ -94,6 +101,8 @@ export const ProductToolbar: FC = () => {
         <Icon iconName={IconsTypes.HEART} />
         Add to my wishlist
       </CustomButton>
+
+      <ToastContainer autoClose={1300} />
     </div>
   );
 };

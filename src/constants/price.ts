@@ -13,3 +13,5 @@ export const UNITS_PER_PROP = 'units in 1';
 export const UNIT_STEP = 1;
 export const UNIT_MIN_VALUE = 1;
 export const DEFAULT_UNITS_AMOUNT = 1;
+export const STATE_TAX_PERCENT = 17;
+export const DEFAULT_CURRENCY = 'USD';
