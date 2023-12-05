@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { IProduct } from '@types';
+
 import {
   AlertMessages,
   DEFAULT_UNITS_AMOUNT,
@@ -14,6 +15,7 @@ import {
 } from '@constants';
 import { getActualProductPrice, generateLotId } from '@helpers';
 import { useActions } from '@redux';
+import { useTotalPcs } from '@hooks';
 
 export const useProductToolbar = (product: IProduct) => {
   const { buyBy, price, stock } = product;
@@ -27,9 +29,11 @@ export const useProductToolbar = (product: IProduct) => {
     UnitsErrors.NO_ERROR,
   );
   const { addOrderItem } = useActions();
+  const { getTotalsInCart, getTotalPcsInCart } = useTotalPcs(product.productId);
 
   const actualPrice = getActualProductPrice(price);
   const activeUnitsAmount = buyBy[buyByActiveOption];
+
   const productUnits =
     unitsAmount * (activeUnitsAmount || DEFAULT_UNITS_AMOUNT);
   const totalDueAmount = (actualPrice * productUnits).toFixed(PRICE_DECIMALS);
@@ -43,17 +47,18 @@ export const useProductToolbar = (product: IProduct) => {
   const beforeDiscountTotal = (price.amount * productUnits).toFixed(
     PRICE_DECIMALS,
   );
-
   const totalDue = `${!unitsError ? totalDueAmount : ZERO_PRICE} ${
     price.currency
   }`;
-
   const beforeDiscount = `${!unitsError ? beforeDiscountTotal : ZERO_PRICE} ${
     price.currency
   }`;
   const totalBeforeDiscount = price.discount ? beforeDiscount : null;
-
   const isUnitsInfoVisible = buyByActiveOption !== defaultBuyBy && !unitsError;
+  const totalPcsInCart = getTotalPcsInCart(buyBy);
+  const itemsInCartMsg = getTotalsInCart();
+  const totalUnits = unitsAmount * activeUnitsAmount + totalPcsInCart;
+  const isSoldOut = totalPcsInCart >= stock.amount;
 
   const onActiveBuyByChange = (option: string) => {
     setBuyByActiveOption(option);
@@ -81,12 +86,11 @@ export const useProductToolbar = (product: IProduct) => {
     };
 
     addOrderItem(orderItem);
+    setUnitsAmount(DEFAULT_UNITS_AMOUNT);
     toast.success(AlertMessages.PRODUCT_ADDED);
   };
 
   useEffect(() => {
-    const totalUnits = unitsAmount * activeUnitsAmount;
-
     if (!unitsAmount) {
       setUnitsError(UnitsErrors.INVALID_AMOUNT);
       return;
@@ -100,7 +104,7 @@ export const useProductToolbar = (product: IProduct) => {
     }
 
     setUnitsError(UnitsErrors.NO_ERROR);
-  }, [unitsAmount, buyByActiveOption]);
+  }, [unitsAmount, buyByActiveOption, totalPcsInCart]);
 
   return {
     unitsMax,
@@ -109,10 +113,12 @@ export const useProductToolbar = (product: IProduct) => {
     unitsInProp,
     unitsError,
     unitsAmount,
+    itemsInCartMsg,
     buyByOptions,
     totalBeforeDiscount,
     buyByActiveOption,
     isUnitsInfoVisible,
+    isSoldOut,
 
     onUnitsAmountChange,
     onActiveBuyByChange,

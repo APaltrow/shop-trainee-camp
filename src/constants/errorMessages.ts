@@ -19,6 +19,7 @@ export enum UnitsErrors {
   NO_ERROR = '',
   INVALID_AMOUNT = 'Invalid units amount',
   TOTAL_EXCEED = 'Total should not exceed',
+  SOLD_OUT = 'Product is sold out',
 }
 
 export enum ValidationsErrors {

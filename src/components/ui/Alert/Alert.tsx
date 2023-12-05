@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { ButtonSizes, ButtonVariants } from '@constants';
 import { CustomButton, Portal } from '@components';
@@ -18,6 +18,25 @@ export const Alert: FC<AlertProps> = ({
   onCancel,
   onConfirm,
 }) => {
+  useEffect(() => {
+    const pos = Math.trunc(window.scrollY);
+    const disableScroll = () => {
+      window.scrollTo({
+        top: pos,
+      });
+    };
+
+    document.addEventListener('scroll', disableScroll, false);
+    document.addEventListener('mousewheel', disableScroll, false);
+    document.addEventListener('touchmove', disableScroll, false);
+
+    return () => {
+      document.removeEventListener('scroll', disableScroll);
+      document.removeEventListener('mousewheel', disableScroll);
+      document.removeEventListener('touchmove', disableScroll);
+    };
+  }, []);
+
   return (
     <Portal>
       <div className={style.overlay}>

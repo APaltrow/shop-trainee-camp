@@ -2,6 +2,7 @@
 @import '@style/_media';
 
 .overlay {
+  overscroll-behavior: contain;
   padding-top: 30px;
   position: fixed;
   top: 0;
