@@ -25,12 +25,6 @@
   @include with-scrollbar(15px);
 }
 
-body[class='no-scroll'] {
-  // height: 100vh;
-  // overflow-y: hidden;
-  // padding-right: 15px;
-}
-
 .app {
   min-height: 100vh;
 
@@ -50,9 +44,5 @@ body[class='no-scroll'] {
 @include tablet {
   .app {
     padding: 0px 10px;
-  }
-
-  body[class='no-scroll'] {
-    padding-right: 0px;
   }
 }
