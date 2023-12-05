@@ -188,10 +188,12 @@ export const Cart: FC = () => {
           <div className={style.order_total}>
             <div>
               <p className={style.order_total_title}>Total Order</p>
-              <p className={style.order_total_delivery}>
-                <span>Guaranteed delivery day:</span>
-                <span>{guaranteedDeliveryDate}</span>
-              </p>
+              {!!orders.length && (
+                <p className={style.order_total_delivery}>
+                  <span>Guaranteed delivery day:</span>
+                  <span>{guaranteedDeliveryDate}</span>
+                </p>
+              )}
             </div>
 
             <p className={style.order_total_price}>{totalAmountWithCurrency}</p>

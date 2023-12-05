@@ -5,13 +5,15 @@ export const SINGLE_CATEGORY_ITEM = 1;
 export const ONE_ITEM = 1;
 export const INITIAL_ZERO = 0;
 
-export const NO_SCROLL_CLASS = 'no-scroll';
 export const PORTAL_ID = 'portal';
 export const PATH_DIVIDER = '/';
 export const LIST_DIVIDER = ', ';
 export const COUNTRY_AND_STATE_DIVIDER = ',';
 export const HASH_DIVIDER = '***';
 export const CLICK_EVENT = 'click';
+export const SCROLL_EVENT = 'scroll';
+export const MOUSEWHEEL_EVENT = 'mousewheel';
+export const TOUCHMOVE_EVENT = 'touchmove';
 export const TOP_POSITION = 0;
 export const SMOOTH_BEHAVIOR = 'smooth';
 export const TYPE_CHECKBOX = 'checkbox';

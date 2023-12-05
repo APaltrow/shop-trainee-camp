@@ -6,14 +6,14 @@ import { Dropdown, DropdownItem } from '@components';
 import style from './CustomInput.module.scss';
 
 interface CustomInputProps {
-  label?: string;
-  type?: string;
   name: string;
   value: string;
   placeholder: string;
   error: string;
   optionsList?: string[];
   isDisabled?: boolean;
+  label?: string;
+  type?: string;
 
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;

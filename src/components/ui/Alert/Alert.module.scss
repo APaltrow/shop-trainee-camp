@@ -9,6 +9,10 @@
   left: 0;
   right: 0;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   z-index: 200;
   background-color: rgba($color: black, $alpha: 0.3);
 }
@@ -16,7 +20,7 @@
 .container {
   position: relative;
   padding: 30px 10px 10px;
-  width: 30vw;
+  min-width: 50vw;
   margin: 0 auto;
 
   background-color: var(--clr-primary);
@@ -53,14 +57,9 @@
   }
 }
 
-@include laptop {
-  .container {
-    width: 50vw;
-  }
-}
-
 @include tablet {
   .container {
+    min-width: 90vw;
     width: 90vw;
   }
 }

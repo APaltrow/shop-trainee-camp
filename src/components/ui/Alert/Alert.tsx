@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { ButtonSizes, ButtonVariants } from '@constants';
 import { CustomButton, Portal } from '@components';
+import { useNoScroll } from '@hooks';
 
 import style from './Alert.module.scss';
 
@@ -18,6 +19,8 @@ export const Alert: FC<AlertProps> = ({
   onCancel,
   onConfirm,
 }) => {
+  useNoScroll(true);
+
   return (
     <Portal>
       <div className={style.overlay}>
