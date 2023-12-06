@@ -154,6 +154,27 @@
   word-break: break-word;
 }
 
+.button_skeleton {
+  width: 100px;
+  height: 17px;
+  border-radius: 12px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.title_skeleton {
+  width: 150px;
+  height: 25px;
+  border-radius: 12px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.desc_skeleton {
+  width: 50px;
+  height: 14px;
+  border-radius: 12px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 @include tablet {
   .list {
     &::-webkit-scrollbar {
@@ -190,3 +211,5 @@
     justify-content: space-between;
   }
 }
+
+@include with-skeleton;

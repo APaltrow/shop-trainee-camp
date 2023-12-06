@@ -4,18 +4,14 @@ import { ToastContainer } from 'react-toastify';
 
 import { useAppSelector } from '@redux';
 import {
-  UNIT_STEP,
-  UNIT_MIN_VALUE,
-  UNIT_PLACEHOLDER,
   IconsTypes,
   ButtonSizes,
-  SelectVariants,
   ButtonVariants,
   UnitsErrors,
 } from '@constants';
-import { handleKeyDown } from '@helpers';
+
 import { useProductToolbar } from '@hooks';
-import { BinarySection, CustomButton, CustomSelect, Icon } from '@components';
+import { CustomButton, Icon, UnitsSelect } from '@components';
 
 import style from './ProductToolbar.module.scss';
 
@@ -64,35 +60,19 @@ export const ProductToolbar: FC = () => {
           )}
         </div>
 
-        <div className={style.unit_select}>
-          <BinarySection
-            leftElement={
-              <input
-                className={style.units_input}
-                type="number"
-                placeholder={UNIT_PLACEHOLDER}
-                onKeyDown={handleKeyDown}
-                onChange={onUnitsAmountChange}
-                step={UNIT_STEP}
-                min={UNIT_MIN_VALUE}
-                readOnly={!!soldOutError}
-                max={unitsMax}
-                value={unitsAmount || ''}
-              />
-            }
-            rightElement={
-              <CustomSelect
-                options={buyByOptions}
-                selected={buyByActiveOption}
-                variant={SelectVariants.DEFAULT}
-                onChange={onActiveBuyByChange}
-              />
-            }
-          />
-          {!!unitsInProp && <p className={style.units_info}>{unitsInProp}</p>}
-          {isUnitsInfoVisible && <p className={style.total_pcs}>{unitsInfo}</p>}
-          {!!error && <span className={style.error}>{error}</span>}
-        </div>
+        <UnitsSelect
+          unitsMax={unitsMax}
+          error={error}
+          unitsInProp={unitsInProp || ''}
+          unitsAmount={unitsAmount}
+          unitsInfo={unitsInfo || ''}
+          isUnitsInfoVisible={isUnitsInfoVisible}
+          options={buyByOptions}
+          selected={buyByActiveOption}
+          isDisabled={!!soldOutError}
+          onUnitsAmountChange={onUnitsAmountChange}
+          onSelect={onActiveBuyByChange}
+        />
 
         <CustomButton
           isDisabled={isDisabled}

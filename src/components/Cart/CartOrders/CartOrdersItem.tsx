@@ -6,51 +6,57 @@ import {
   IconsTypes,
   PRICE_DECIMALS,
   RoutesPaths,
-  SelectVariants,
   ZERO_INDEX,
 } from '@constants';
 import { useActions, useAppSelector } from '@redux';
-import { IOrderItem } from '@types';
-import { useAlert } from '@hooks';
+import { IOrderItem, IProduct } from '@types';
+import { generateLotId } from '@helpers';
+import { useAlert, useProductToolbar } from '@hooks';
 import {
-  BinarySection,
   CustomButton,
   CustomImage,
-  CustomSelect,
   Icon,
   Rating,
   Alert,
   InfoTooltip,
+  UnitsSelect,
 } from '@components';
 
 import style from './CartOrders.module.scss';
 
 interface CartOrdersItemProps {
   cartItem: IOrderItem;
+  product: IProduct;
 }
 
-export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
-  const products = useAppSelector((state) => state.products.productsList);
+export const CartOrdersItem: FC<CartOrdersItemProps> = ({
+  cartItem,
+  product,
+}) => {
+  const { orders } = useAppSelector((state) => state.cart);
 
   const { removeOrderItem } = useActions();
   const { alert, onAlertCall, onAlertCancel } = useAlert();
 
-  const product = products.find(
-    ({ productId }) => productId === cartItem.productId,
-  );
+  const {
+    unitsMax,
+    unitsError,
+    unitsAmount,
+    buyByOptions,
+    buyByActiveOption,
 
-  if (!product) return null;
+    mergeLotsInCart,
+    swapLotsInCart,
+    onUnitsAmountChangeInCart,
+    onUnitsInputBlur,
+  } = useProductToolbar(product, cartItem.totalQuantity, cartItem.measure);
 
-  const { imgs, productTitle, category, brand, rating, buyBy, price } = product;
-
+  const { imgs, productTitle, category, brand, rating, price } = product;
   const totalDueAmount = `${cartItem.totalCost.toFixed(PRICE_DECIMALS)} ${
     cartItem.currency
   }`;
-
   const imgUrl = imgs[ZERO_INDEX];
-
   const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${cartItem.productId}`;
-
   const discount = price.discount ? `- ${price.discount} %` : null;
 
   const handleRemoveItem = (lotId: string) => {
@@ -61,6 +67,23 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
         onAlertCancel();
       },
     });
+  };
+
+  const handleMeasureChange = (option: string) => {
+    const lotIdToSearch = generateLotId([product.productId, option]);
+    const isInCart = orders.find(({ lotId }) => lotId === lotIdToSearch);
+
+    if (isInCart) {
+      onAlertCall({
+        text: `You already have ${isInCart.totalQuantity} ${isInCart.measure}, would you like to merge?`,
+        onConfirm: () => {
+          mergeLotsInCart(option, lotIdToSearch, cartItem.lotId);
+          onAlertCancel();
+        },
+      });
+    } else {
+      swapLotsInCart(option, cartItem.lotId);
+    }
   };
 
   return (
@@ -121,24 +144,16 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({ cartItem }) => {
 
         <div className={style.price_section}>
           <p className={style.price}>{totalDueAmount}</p>
-          <div className={style.select_section}>
-            <BinarySection
-              leftElement={
-                <input
-                  value={cartItem.totalQuantity}
-                  className={style.input}
-                />
-              }
-              rightElement={
-                <CustomSelect
-                  options={Object.keys(buyBy)}
-                  selected={cartItem.measure}
-                  variant={SelectVariants.DEFAULT}
-                  onChange={() => {}}
-                />
-              }
-            />
-          </div>
+          <UnitsSelect
+            unitsMax={unitsMax}
+            unitsAmount={unitsAmount}
+            error={unitsError}
+            options={buyByOptions}
+            selected={buyByActiveOption}
+            onUnitsAmountChange={onUnitsAmountChangeInCart}
+            onSelect={handleMeasureChange}
+            onBlur={onUnitsInputBlur}
+          />
         </div>
       </div>
 

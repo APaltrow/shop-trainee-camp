@@ -20,6 +20,9 @@ export const cartSlice = createSlice({
 
       state.billingInfo[name] = value;
     },
+    resetBillingInfo: (state) => {
+      state.billingInfo = INITIAL_BILLING_FORM_VALUES;
+    },
     addOrderItem: (state, { payload }: PayloadAction<IOrderItem>) => {
       const existingLot = state.orders.find(
         ({ lotId }) => lotId === payload.lotId,
@@ -35,6 +38,19 @@ export const cartSlice = createSlice({
     },
     removeOrderItem: (state, { payload }: PayloadAction<string>) => {
       state.orders = state.orders.filter(({ lotId }) => lotId !== payload);
+    },
+    updateOrderItem: (state, { payload }: PayloadAction<IOrderItem>) => {
+      const existingLot = state.orders.find(
+        ({ lotId }) => lotId === payload.lotId,
+      );
+
+      if (!existingLot) return;
+
+      existingLot.totalQuantity = payload.totalQuantity;
+      existingLot.totalCost = payload.totalCost;
+    },
+    resetOrders: (state) => {
+      state.orders = [];
     },
   },
 });

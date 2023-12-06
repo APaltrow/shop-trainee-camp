@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import {
   ButtonSizes,
@@ -21,12 +21,13 @@ import { CartConfirmations } from '../CartConfirmations';
 import { CartOrders } from '../CartOrders';
 import { CartPromo } from '../CartPromo';
 import { CartTax } from '../CartTax';
+import { CartFormSubmitted } from '../CartFormSubmitted';
 
 import style from './CartContainer.module.scss';
 
 export const Cart: FC = () => {
   const { billingInfo, orders } = useAppSelector((state) => state.cart);
-  const { setBillingInfo } = useActions();
+  const { setBillingInfo, resetBillingInfo, resetOrders } = useActions();
   const {
     currency,
     subTotal,
@@ -37,6 +38,8 @@ export const Cart: FC = () => {
     promoDiscountAmount,
     addPromoDiscount,
   } = useCartTotals();
+
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   const { termsOfUse, marketingAgreement, orderNotes, ...inputValues } =
     billingInfo;
@@ -99,7 +102,9 @@ export const Cart: FC = () => {
   };
 
   const onFormSubmit = () => {
-    window.alert('Form has been submitted successfully!!!');
+    resetBillingInfo();
+    resetOrders();
+    setFormSubmitted(true);
   };
 
   const isValidForm =
@@ -120,6 +125,10 @@ export const Cart: FC = () => {
       validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
     });
   }, []);
+
+  if (isFormSubmitted) {
+    return <CartFormSubmitted />;
+  }
 
   return (
     <form

@@ -20,6 +20,8 @@ export enum UnitsErrors {
   INVALID_AMOUNT = 'Invalid units amount',
   TOTAL_EXCEED = 'Total should not exceed',
   SOLD_OUT = 'Product is sold out',
+  FAILED_SWAP = 'Swap fail: stock amount exceeded',
+  FAILED_MERGE = 'Merge fail: stock amount exceeded',
 }
 
 export enum ValidationsErrors {

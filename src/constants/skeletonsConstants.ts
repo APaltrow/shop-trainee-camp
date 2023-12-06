@@ -14,4 +14,5 @@ export enum SkeletonNames {
   STAR = 'star_skeleton',
   TABS = 'tab_skeleton',
   IMGS = 'images_skeleton',
+  CART_ITEM = 'cart_skeleton',
 }

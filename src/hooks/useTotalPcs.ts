@@ -2,7 +2,7 @@ import { BuyBy } from '@types';
 import { useAppSelector } from '@redux';
 import { ARRAY_INDEX_DIFF } from '@constants';
 
-const INITIAL_ZERO = 0;
+const INITIAL_AMOUNT = 0;
 
 export const useTotalPcs = (currentProdId: string) => {
   const { orders } = useAppSelector((state) => state.cart);
@@ -21,12 +21,16 @@ export const useTotalPcs = (currentProdId: string) => {
     }, '');
   };
 
-  const getTotalPcsInCart = (buyBy: BuyBy) => {
+  const getTotalPcsInCart = (buyBy: BuyBy, omitMeasure?: string) => {
     return cartOrdersById.reduce((totalPcs, { measure, totalQuantity }) => {
+      if (omitMeasure === measure) {
+        return totalPcs;
+      }
+
       totalPcs += totalQuantity * buyBy[measure];
 
       return totalPcs;
-    }, INITIAL_ZERO);
+    }, INITIAL_AMOUNT);
   };
 
   return {
