@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { AlertMessages, IconsTypes, RoutesPaths, ZERO_INDEX } from '@constants';
 import { useActions, useAppSelector } from '@redux';
 import { IOrderItem, IProduct } from '@types';
-import { formatPrice, generateLotId } from '@helpers';
+import { formatPlural, formatPrice, generateLotId } from '@helpers';
 import { useAlert, useProductToolbar } from '@hooks';
 import {
   CustomButton,
@@ -67,8 +67,11 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({
     const isInCart = orders.find(({ lotId }) => lotId === lotIdToSearch);
 
     if (isInCart) {
+      const { totalQuantity, measure } = isInCart;
+      const measureWithPlural = formatPlural(measure, totalQuantity);
+
       onAlertCall({
-        text: `You already have ${isInCart.totalQuantity} ${isInCart.measure}, would you like to merge?`,
+        text: `You already have ${totalQuantity} ${measureWithPlural}, would you like to merge?`,
         onConfirm: () => {
           mergeLotsInCart(option, lotIdToSearch, cartItem.lotId);
           onAlertCancel();

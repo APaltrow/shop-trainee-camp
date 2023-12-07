@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useActions, useAppSelector } from '@redux';
 import { ErrorsMessages, LIST_DIVIDER } from '@constants';
-import { checkIfPlural, getProductDetails, scrollToTop } from '@helpers';
+import { formatPlural, getProductDetails, scrollToTop } from '@helpers';
 import { Rating, Error, Tabs } from '@components';
 
 import { ProductTooltips } from '../ProductTooltips';
@@ -66,11 +66,11 @@ export const Product: FC = () => {
   const buyByOptions = Object.keys(buyBy);
   const stockInfo = `${stock.amount} ${stock.measure}`;
   const buyByInfo = buyByOptions.join(LIST_DIVIDER);
-  const deliveryInfo = `${timeframe} ${checkIfPlural('day', timeframe)} `;
+  const deliveryInfo = `${timeframe} ${formatPlural('day', timeframe)} `;
   const deliveryArea = delivery.area.join(LIST_DIVIDER);
   const reviewsCount = reviews.length;
 
-  const reviewsInfo = `(${reviewsCount} ${checkIfPlural(
+  const reviewsInfo = `(${reviewsCount} ${formatPlural(
     'Customer review',
     reviewsCount,
   )})`;

@@ -1,6 +1,7 @@
 import { BuyBy } from '@types';
 import { useAppSelector } from '@redux';
 import { ARRAY_INDEX_DIFF } from '@constants';
+import { formatPlural } from '@helpers';
 
 const INITIAL_AMOUNT = 0;
 
@@ -14,8 +15,9 @@ export const useTotalPcs = (currentProdId: string) => {
   const getTotalsInCart = () => {
     return cartOrdersById.reduce((mgs, { measure, totalQuantity }, idx) => {
       const isLast = idx === orders.length - ARRAY_INDEX_DIFF;
+      const measureWithPrefix = formatPlural(measure, totalQuantity);
 
-      mgs += `${measure} ${totalQuantity}${isLast ? '' : ','} `;
+      mgs += `${totalQuantity} ${measureWithPrefix}${isLast ? '' : ','} `;
 
       return mgs;
     }, '');
