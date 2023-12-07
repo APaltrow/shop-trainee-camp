@@ -14,7 +14,7 @@ export const useTotalPcs = (currentProdId: string) => {
 
   const getTotalsInCart = () => {
     return cartOrdersById.reduce((mgs, { measure, totalQuantity }, idx) => {
-      const isLast = idx === orders.length - ARRAY_INDEX_DIFF;
+      const isLast = idx === cartOrdersById.length - ARRAY_INDEX_DIFF;
       const measureWithPrefix = formatPlural(measure, totalQuantity);
 
       mgs += `${totalQuantity} ${measureWithPrefix}${isLast ? '' : ','} `;
