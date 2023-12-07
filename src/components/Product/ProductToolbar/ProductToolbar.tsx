@@ -11,6 +11,7 @@ import {
   ButtonSizes,
   SelectVariants,
   ButtonVariants,
+  UnitsErrors,
 } from '@constants';
 import { handleKeyDown } from '@helpers';
 import { useProductToolbar } from '@hooks';
@@ -23,8 +24,6 @@ export const ProductToolbar: FC = () => {
 
   if (!product) return null;
 
-  const toolbar = useProductToolbar(product);
-
   const {
     unitsMax,
     unitsInfo,
@@ -32,20 +31,30 @@ export const ProductToolbar: FC = () => {
     unitsAmount,
     buyByOptions,
     unitsInProp,
-
+    itemsInCartMsg,
     totalDue,
     totalBeforeDiscount,
-
     buyByActiveOption,
+
     isUnitsInfoVisible,
+    isSoldOut,
 
     onUnitsAmountChange,
     onActiveBuyByChange,
     onAddToCart,
-  } = toolbar;
+  } = useProductToolbar(product);
+
+  const soldOutError = isSoldOut ? UnitsErrors.SOLD_OUT : null;
+  const isDisabled = !!unitsError || isSoldOut;
+  const error = soldOutError || unitsError;
 
   return (
     <div className={style.container}>
+      {!!itemsInCartMsg && (
+        <span
+          className={style.cart_msg}
+        >{`* In the cart: ${itemsInCartMsg}`}</span>
+      )}
       <div className={style.toolbar}>
         <div className={style.prices}>
           <p className={style.due_amount}>{totalDue}</p>
@@ -66,6 +75,7 @@ export const ProductToolbar: FC = () => {
                 onChange={onUnitsAmountChange}
                 step={UNIT_STEP}
                 min={UNIT_MIN_VALUE}
+                readOnly={!!soldOutError}
                 max={unitsMax}
                 value={unitsAmount || ''}
               />
@@ -79,13 +89,13 @@ export const ProductToolbar: FC = () => {
               />
             }
           />
-          {unitsInProp && <p className={style.units_info}>{unitsInProp}</p>}
+          {!!unitsInProp && <p className={style.units_info}>{unitsInProp}</p>}
           {isUnitsInfoVisible && <p className={style.total_pcs}>{unitsInfo}</p>}
-          {!!unitsError && <span className={style.error}>{unitsError}</span>}
+          {!!error && <span className={style.error}>{error}</span>}
         </div>
 
         <CustomButton
-          isDisabled={!!unitsError}
+          isDisabled={isDisabled}
           onClick={onAddToCart}
           variant={ButtonVariants.PRIMARY}
           size={ButtonSizes.MID}
