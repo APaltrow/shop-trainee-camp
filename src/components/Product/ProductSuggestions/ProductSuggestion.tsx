@@ -6,7 +6,6 @@ import { formatPrice, getActualProductPrice } from '@helpers';
 import {
   ButtonSizes,
   ButtonVariants,
-  PRICE_DECIMALS,
   RoutesPaths,
   ZERO_INDEX,
 } from '@constants';
