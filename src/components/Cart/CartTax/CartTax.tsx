@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { PRICE_DECIMALS } from '@constants';
+import { formatPrice } from '@helpers';
 
 import style from './CartTax.module.scss';
 
@@ -22,11 +22,9 @@ export const CartTax: FC<CartTaxProps> = ({
   currency,
 }) => {
   const taxInfo = Object.entries({
-    subtotal: `${subTotal.toFixed(PRICE_DECIMALS)} ${currency}`,
-    promo: `${promoPercent}% ${promoAmount.toFixed(
-      PRICE_DECIMALS,
-    )} ${currency}`,
-    tax: `${taxPercent}% ${taxAmount.toFixed(PRICE_DECIMALS)} ${currency}`,
+    subtotal: formatPrice(subTotal, currency),
+    promo: `${promoPercent}% ${formatPrice(promoAmount, currency)}`,
+    tax: `${taxPercent}% ${formatPrice(taxAmount, currency)}`,
   });
 
   return (

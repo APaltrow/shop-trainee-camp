@@ -1,16 +1,10 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import {
-  AlertMessages,
-  IconsTypes,
-  PRICE_DECIMALS,
-  RoutesPaths,
-  ZERO_INDEX,
-} from '@constants';
+import { AlertMessages, IconsTypes, RoutesPaths, ZERO_INDEX } from '@constants';
 import { useActions, useAppSelector } from '@redux';
 import { IOrderItem, IProduct } from '@types';
-import { generateLotId } from '@helpers';
+import { formatPrice, generateLotId } from '@helpers';
 import { useAlert, useProductToolbar } from '@hooks';
 import {
   CustomButton,
@@ -52,9 +46,8 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({
   } = useProductToolbar(product, cartItem.totalQuantity, cartItem.measure);
 
   const { imgs, productTitle, category, brand, rating, price } = product;
-  const totalDueAmount = `${cartItem.totalCost.toFixed(PRICE_DECIMALS)} ${
-    cartItem.currency
-  }`;
+  const totalDueAmount = formatPrice(cartItem.totalCost, cartItem.currency);
+
   const imgUrl = imgs[ZERO_INDEX];
   const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${cartItem.productId}`;
   const discount = price.discount ? `- ${price.discount} %` : null;

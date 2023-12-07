@@ -4,13 +4,12 @@ import {
   ButtonSizes,
   ButtonVariants,
   TYPE_CHECKBOX,
-  PRICE_DECIMALS,
   INITIAL_BILLING_FORM_ERRORS,
   BILLING_FORM_VALIDATIONS,
 } from '@constants';
 import { BillingInputProps, FormInputEvent } from '@types';
 import { useAddressAutocomplete, useCartTotals, useValidations } from '@hooks';
-import { getGuaranteedDeliveryDate } from '@helpers';
+import { formatPrice, getGuaranteedDeliveryDate } from '@helpers';
 import { useActions, useAppSelector } from '@redux';
 import { CustomButton } from '@components';
 
@@ -116,9 +115,7 @@ export const Cart: FC = () => {
 
   const guaranteedDeliveryDate = getGuaranteedDeliveryDate(orders);
 
-  const totalAmountWithCurrency = `${totalAmount.toFixed(
-    PRICE_DECIMALS,
-  )} ${currency}`;
+  const totalAmountWithCurrency = formatPrice(totalAmount, currency);
 
   useEffect(() => {
     Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {

@@ -22,3 +22,4 @@ export * from './generateLotId';
 export * from './getGuaranteedDeliveryDate';
 export * from './getValueFromPercent';
 export * from './filterList';
+export * from './formatPrice';

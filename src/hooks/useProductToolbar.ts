@@ -13,7 +13,7 @@ import {
   UNITS_PER_PROP,
   DEFAULT_UNITS_AMOUNT,
 } from '@constants';
-import { getActualProductPrice, generateLotId } from '@helpers';
+import { getActualProductPrice, generateLotId, formatPrice } from '@helpers';
 import { useActions } from '@redux';
 import { useTotalPcs } from '@hooks';
 
@@ -52,12 +52,12 @@ export const useProductToolbar = (
   const beforeDiscountTotal = (price.amount * productUnits).toFixed(
     PRICE_DECIMALS,
   );
-  const totalDue = `${!unitsError ? totalDueAmount : ZERO_PRICE} ${
-    price.currency
-  }`;
-  const beforeDiscount = `${!unitsError ? beforeDiscountTotal : ZERO_PRICE} ${
-    price.currency
-  }`;
+
+  const duePrice = !unitsError ? +totalDueAmount : ZERO_PRICE;
+  const totalDue = formatPrice(duePrice, price.currency);
+  const beforeDiscountPrice = !unitsError ? +beforeDiscountTotal : ZERO_PRICE;
+  const beforeDiscount = formatPrice(beforeDiscountPrice, price.currency);
+
   const totalBeforeDiscount = price.discount ? beforeDiscount : null;
   const isUnitsInfoVisible =
     buyByActiveOption !== buyByOptions[ZERO_INDEX] && !unitsError;

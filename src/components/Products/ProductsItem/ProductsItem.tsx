@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { IProduct } from '@types';
 import {
+  formatPrice,
   getActualProductPrice,
   getAdditionalInfo,
   getDeliveryCost,
@@ -13,7 +14,6 @@ import {
   ButtonVariants,
   IconsTypes,
   LIST_DIVIDER,
-  PRICE_DECIMALS,
   ZERO_INDEX,
 } from '@constants';
 import { CustomButton, Icon, Rating, CustomImage } from '@components';
@@ -38,8 +38,11 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     originCountry,
   } = product;
 
-  const productOriginalPrice = price.amount.toFixed(PRICE_DECIMALS);
-  const productPrice = getActualProductPrice(price).toFixed(PRICE_DECIMALS);
+  const productOriginalPrice = formatPrice(price.amount, price.currency);
+  const productPrice = formatPrice(
+    getActualProductPrice(price),
+    price.currency,
+  );
   const deliveryCost = getDeliveryCost(delivery.cost, price.currency);
   const deliveryTime = getDeliveryTime(delivery.timeframe);
   const additionalInfoList = getAdditionalInfo(
@@ -84,7 +87,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
 
         <div className={style.price_and_delivery_container}>
           <div className={style.price}>
-            <p>{`${productPrice} ${price.currency}`}</p>
+            <p>{productPrice}</p>
 
             {!!price.discount && (
               <p className={style.old_price}>{productOriginalPrice}</p>
