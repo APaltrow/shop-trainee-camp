@@ -1,16 +1,15 @@
-import { ChangeEvent, FC, useEffect } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 
 import {
   ButtonSizes,
   ButtonVariants,
   TYPE_CHECKBOX,
-  PRICE_DECIMALS,
   INITIAL_BILLING_FORM_ERRORS,
   BILLING_FORM_VALIDATIONS,
 } from '@constants';
 import { BillingInputProps, FormInputEvent } from '@types';
 import { useAddressAutocomplete, useCartTotals, useValidations } from '@hooks';
-import { getGuaranteedDeliveryDate } from '@helpers';
+import { formatPrice, getGuaranteedDeliveryDate, scrollToTop } from '@helpers';
 import { useActions, useAppSelector } from '@redux';
 import { CustomButton } from '@components';
 
@@ -21,12 +20,13 @@ import { CartConfirmations } from '../CartConfirmations';
 import { CartOrders } from '../CartOrders';
 import { CartPromo } from '../CartPromo';
 import { CartTax } from '../CartTax';
+import { CartFormSubmitted } from '../CartFormSubmitted';
 
 import style from './CartContainer.module.scss';
 
 export const Cart: FC = () => {
   const { billingInfo, orders } = useAppSelector((state) => state.cart);
-  const { setBillingInfo } = useActions();
+  const { setBillingInfo, resetBillingInfo, resetOrders } = useActions();
   const {
     currency,
     subTotal,
@@ -37,6 +37,8 @@ export const Cart: FC = () => {
     promoDiscountAmount,
     addPromoDiscount,
   } = useCartTotals();
+
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   const { termsOfUse, marketingAgreement, orderNotes, ...inputValues } =
     billingInfo;
@@ -99,7 +101,10 @@ export const Cart: FC = () => {
   };
 
   const onFormSubmit = () => {
-    window.alert('Form has been submitted successfully!!!');
+    resetBillingInfo();
+    resetOrders();
+    setFormSubmitted(true);
+    scrollToTop();
   };
 
   const isValidForm =
@@ -111,15 +116,17 @@ export const Cart: FC = () => {
 
   const guaranteedDeliveryDate = getGuaranteedDeliveryDate(orders);
 
-  const totalAmountWithCurrency = `${totalAmount.toFixed(
-    PRICE_DECIMALS,
-  )} ${currency}`;
+  const totalAmountWithCurrency = formatPrice(totalAmount, currency);
 
   useEffect(() => {
     Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
       validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
     });
   }, []);
+
+  if (isFormSubmitted) {
+    return <CartFormSubmitted />;
+  }
 
   return (
     <form

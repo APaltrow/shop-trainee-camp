@@ -2,11 +2,10 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { IProduct } from '@types';
-import { getActualProductPrice } from '@helpers';
+import { formatPrice, getActualProductPrice } from '@helpers';
 import {
   ButtonSizes,
   ButtonVariants,
-  PRICE_DECIMALS,
   RoutesPaths,
   ZERO_INDEX,
 } from '@constants';
@@ -25,8 +24,8 @@ export const ProductSuggestion: FC<ProductSuggestionProps> = ({ product }) => {
   const { discount, amount, currency } = price;
   const imgUrl = imgs[ZERO_INDEX];
   const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${productId}`;
-  const actualPrice = getActualProductPrice(price).toFixed(PRICE_DECIMALS);
-  const priceBeforeDiscount = amount.toFixed(PRICE_DECIMALS);
+  const actualPrice = formatPrice(getActualProductPrice(price), currency);
+  const priceBeforeDiscount = formatPrice(amount, currency);
 
   return (
     <article className={style.carousel_item}>
@@ -56,11 +55,9 @@ export const ProductSuggestion: FC<ProductSuggestionProps> = ({ product }) => {
 
       <div className={style.item_price_container}>
         <div className={style.item_prices}>
-          <p className={style.item_price}>{`${actualPrice} ${currency}`}</p>
+          <p className={style.item_price}>{actualPrice}</p>
           {!!discount && (
-            <p
-              className={style.item_price_discounted}
-            >{`${priceBeforeDiscount} ${currency}`}</p>
+            <p className={style.item_price_discounted}>{priceBeforeDiscount}</p>
           )}
         </div>
 

@@ -24,3 +24,4 @@ export * from './validators/addressValidator';
 export * from './addressConstants';
 export * from './alertMessages';
 export * from './promo';
+export * from './pluralSuffixes';

@@ -23,16 +23,6 @@
   .add_icon {
     color: var(--clr-accent-A-300);
   }
-
-  .units_input {
-    width: 35px;
-
-    background-color: transparent;
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
 }
 
 .cart_msg {
@@ -59,48 +49,10 @@
   }
 }
 
-.unit_select {
-  position: relative;
-
-  .units_info {
-    position: absolute;
-    top: -17px;
-
-    font-size: 12px;
-    text-wrap: nowrap;
-    color: var(--clr-accent-A-300);
-  }
-
-  .total_pcs {
-    position: absolute;
-    bottom: -17px;
-
-    font-size: 12px;
-    text-wrap: nowrap;
-    color: var(--clr-accent-A-300);
-  }
-
-  .error {
-    position: absolute;
-    bottom: -17px;
-    font-size: 12px;
-    text-wrap: nowrap;
-    color: var(--clr-accent-C-300);
-  }
-}
-
 @include small-mobile {
   .toolbar {
     & > button {
       width: 100%;
-    }
-  }
-
-  .unit_select {
-    width: 100%;
-
-    .units_input {
-      width: 35vw;
     }
   }
 }

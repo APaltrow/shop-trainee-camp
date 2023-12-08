@@ -1,5 +1,5 @@
-import { checkIfPlural } from '@helpers';
+import { formatPlural } from '@helpers';
 
 export const getDeliveryTime = (timeframe: number) => {
-  return `Delivery in ${timeframe} ${checkIfPlural('day', timeframe)}`;
+  return `Delivery in ${timeframe} ${formatPlural('day', timeframe)}`;
 };

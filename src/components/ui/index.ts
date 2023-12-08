@@ -21,3 +21,4 @@ export * from './CustomTextarea';
 export * from './CustomInput';
 export * from './Badge';
 export * from './Alert';
+export * from './UnitsSelect';
