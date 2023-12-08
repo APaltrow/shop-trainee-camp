@@ -20,8 +20,12 @@
 
 .buttons {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   color: transparent;
+}
+
+.heart_icon {
+  color: var(--clr-secondary);
 }
 
 @include tablet {
@@ -37,5 +41,9 @@
     order: 3;
     width: 100%;
     min-width: auto;
+  }
+
+  .buttons {
+    gap: 15px;
   }
 }

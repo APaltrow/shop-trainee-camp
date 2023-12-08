@@ -141,6 +141,16 @@ export const HeaderToolbar: FC = () => {
       </div>
 
       <div className={style.buttons}>
+        <NavLink to={NavigationPaths.WISHLIST}>
+          <Badge info={2}>
+            <span className={style.heart_icon}>
+              <Icon
+                iconName={IconsTypes.HEART}
+                size={IconSizes.LARGE}
+              />
+            </span>
+          </Badge>
+        </NavLink>
         <Icon
           iconName={IconsTypes.PROFILE}
           size={IconSizes.LARGE}
