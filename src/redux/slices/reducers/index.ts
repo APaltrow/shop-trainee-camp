@@ -5,6 +5,7 @@ import * as thunks from '../thunks';
 import { productsActions, productsReducer } from './productsReducer';
 import { cartReducer, cartActions } from './cartReducer';
 import { productReducer } from './productReducer';
+import { wishlistReducer, wishlistActions } from './wishlistReducer';
 import {
   addressAutocompleteReducer,
   addressAutocompleteActions,
@@ -20,6 +21,7 @@ export const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   addressAutocomplete: addressAutocompleteReducer,
+  wishlist: wishlistReducer,
 });
 
 export const ActionCreators = {
@@ -28,4 +30,5 @@ export const ActionCreators = {
   ...productsFilterActions,
   ...cartActions,
   ...addressAutocompleteActions,
+  ...wishlistActions,
 };

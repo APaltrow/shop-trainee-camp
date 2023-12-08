@@ -1,11 +1,17 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { AlertMessages, IconsTypes, RoutesPaths, ZERO_INDEX } from '@constants';
+import {
+  AlertMessages,
+  IconsTypes,
+  RoutesPaths,
+  WishlistTypes,
+  ZERO_INDEX,
+} from '@constants';
 import { useActions, useAppSelector } from '@redux';
 import { IOrderItem, IProduct } from '@types';
 import { formatPlural, formatPrice, generateLotId } from '@helpers';
-import { useAlert, useProductToolbar } from '@hooks';
+import { useAlert, useProductToolbar, useWishlist } from '@hooks';
 import {
   CustomButton,
   CustomImage,
@@ -31,6 +37,7 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({
 
   const { removeOrderItem } = useActions();
   const { alert, onAlertCall, onAlertCancel } = useAlert();
+  const { checkIsInWishlist, onWishlistToggle } = useWishlist();
 
   const {
     unitsMax,
@@ -51,6 +58,10 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({
   const imgUrl = imgs[ZERO_INDEX];
   const navPath = `../${RoutesPaths.ALL_PRODUCTS}/${cartItem.productId}`;
   const discount = price.discount ? `- ${price.discount} %` : null;
+
+  const isWishlisted = checkIsInWishlist(cartItem.productId);
+
+  const handleWishlist = () => onWishlistToggle(cartItem.productId);
 
   const handleRemoveItem = (lotId: string) => {
     onAlertCall({
@@ -101,12 +112,18 @@ export const CartOrdersItem: FC<CartOrdersItemProps> = ({
         </NavLink>
 
         <div className={style.btns}>
-          <CustomButton onClick={() => {}}>
+          <CustomButton onClick={handleWishlist}>
             <span className={style.icon_heart}>
-              <Icon iconName={IconsTypes.HEART} />
+              <Icon
+                iconName={
+                  isWishlisted ? IconsTypes.HEART_FULL : IconsTypes.HEART
+                }
+              />
             </span>
 
-            <span className={style.btn}>Wishlist</span>
+            <span className={style.btn}>
+              {isWishlisted ? WishlistTypes.ADDED : WishlistTypes.ADD_SHORT}
+            </span>
           </CustomButton>
 
           <CustomButton onClick={() => handleRemoveItem(cartItem.lotId)}>

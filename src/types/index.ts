@@ -9,3 +9,4 @@ export * from './form/validationsTypes';
 export * from './cart/cartStateTypes';
 export * from './cart/cartTypes';
 export * from './cart/orderTypes';
+export * from './wishlist/wishlistTypes';

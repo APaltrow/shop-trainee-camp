@@ -9,11 +9,14 @@ import {
   getDeliveryCost,
   getDeliveryTime,
 } from '@helpers';
+import { useWishlist } from '@hooks';
 import {
   ButtonSizes,
   ButtonVariants,
   IconsTypes,
   LIST_DIVIDER,
+  NavigationPaths,
+  WishlistTypes,
   ZERO_INDEX,
 } from '@constants';
 import { CustomButton, Icon, Rating, CustomImage } from '@components';
@@ -38,6 +41,8 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     originCountry,
   } = product;
 
+  const { onWishlistToggle, checkIsInWishlist } = useWishlist();
+
   const productOriginalPrice = formatPrice(price.amount, price.currency);
   const productPrice = formatPrice(
     getActualProductPrice(price),
@@ -52,9 +57,15 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
     stock,
   );
 
+  const navPath = `../${NavigationPaths.ALL_PRODUCTS}/${productId}`;
+
+  const isWishlisted = checkIsInWishlist(productId);
+
+  const handleWishlist = () => onWishlistToggle(productId);
+
   return (
     <article className={style.container}>
-      <NavLink to={productId}>
+      <NavLink to={navPath}>
         <CustomImage
           src={imgs[ZERO_INDEX]}
           alt={productTitle}
@@ -65,7 +76,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
         <div className={style.info}>
           <div className={style.description}>
             <h2 className={style.title}>
-              <NavLink to={productId}>{productTitle}</NavLink>
+              <NavLink to={navPath}>{productTitle}</NavLink>
             </h2>
 
             <p className={style.description_short}>{description.short}</p>
@@ -100,7 +111,7 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
           </div>
 
           <div className={style.buttons}>
-            <NavLink to={productId}>
+            <NavLink to={navPath}>
               <span className={style.arrow}>
                 <CustomButton
                   variant={ButtonVariants.PRIMARY}
@@ -116,10 +127,14 @@ export const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
             <CustomButton
               variant={ButtonVariants.SECONDARY}
               size={ButtonSizes.MID}
-              onClick={() => {}}
+              onClick={handleWishlist}
             >
-              <Icon iconName={IconsTypes.HEART} />
-              Add to wish list
+              <Icon
+                iconName={
+                  isWishlisted ? IconsTypes.HEART_FULL : IconsTypes.HEART
+                }
+              />
+              {isWishlisted ? WishlistTypes.ADDED : WishlistTypes.ADD}
             </CustomButton>
           </div>
         </div>

@@ -1,0 +1,16 @@
+.container {
+  padding: 48px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  color: var(--clr-accent-C);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}

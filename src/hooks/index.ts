@@ -21,3 +21,4 @@ export * from './useCartTotals';
 export * from './useAlert';
 export * from './usePromoCode';
 export * from './useTotalPcs';
+export * from './useWishlist';
