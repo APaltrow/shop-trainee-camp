@@ -9,7 +9,7 @@ import {
 } from '@constants';
 import { BillingInputProps, FormInputEvent } from '@types';
 import { useAddressAutocomplete, useCartTotals, useValidations } from '@hooks';
-import { formatPrice, getGuaranteedDeliveryDate } from '@helpers';
+import { formatPrice, getGuaranteedDeliveryDate, scrollToTop } from '@helpers';
 import { useActions, useAppSelector } from '@redux';
 import { CustomButton } from '@components';
 
@@ -104,6 +104,7 @@ export const Cart: FC = () => {
     resetBillingInfo();
     resetOrders();
     setFormSubmitted(true);
+    scrollToTop();
   };
 
   const isValidForm =
