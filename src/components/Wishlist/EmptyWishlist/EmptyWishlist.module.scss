@@ -1,3 +1,5 @@
+@import '@style/_media';
+
 .container {
   padding: 48px;
 
@@ -8,9 +10,16 @@
   gap: 32px;
 
   color: var(--clr-accent-C);
+  text-align: center;
 }
 
 .title {
   font-size: 22px;
   font-weight: 600;
+}
+
+@include mobile {
+  .container {
+    padding: 48px 0px;
+  }
 }

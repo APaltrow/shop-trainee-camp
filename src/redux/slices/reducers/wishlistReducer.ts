@@ -16,6 +16,9 @@ export const wishlistSlice = createSlice({
     removeFromWishlist: (state, { payload: prodId }: PayloadAction<string>) => {
       state.wishlist = state.wishlist.filter((id) => id !== prodId);
     },
+    clearWishlist: (state) => {
+      state.wishlist = [];
+    },
   },
 });
 
