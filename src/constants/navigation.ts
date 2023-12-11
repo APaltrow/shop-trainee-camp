@@ -2,12 +2,14 @@ export enum NavigationPaths {
   HOME = '',
   ALL_PRODUCTS = 'all-products',
   CART = 'cart',
+  WISHLIST = 'wish-list',
 }
 
 export const PATHS_TO_BREADCRUMBS: Record<NavigationPaths, string> = {
   [NavigationPaths.HOME]: 'Homepage',
   [NavigationPaths.ALL_PRODUCTS]: 'All products',
   [NavigationPaths.CART]: 'Cart',
+  [NavigationPaths.WISHLIST]: 'Wish list',
 };
 
 export const CONTACT_LINKS = [

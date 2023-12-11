@@ -5,6 +5,7 @@ import {
   NotFoundPage,
   CartPage,
   ProductPage,
+  WishlistPage,
 } from '@pages';
 
 export const AppRoutes = [
@@ -23,6 +24,10 @@ export const AppRoutes = [
   {
     path: RoutesPaths.CART,
     element: <CartPage />,
+  },
+  {
+    path: RoutesPaths.WISHLIST,
+    element: <WishlistPage />,
   },
   {
     path: RoutesPaths.NOT_FOUND,

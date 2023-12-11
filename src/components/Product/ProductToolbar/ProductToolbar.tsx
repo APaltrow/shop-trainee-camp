@@ -8,9 +8,10 @@ import {
   ButtonSizes,
   ButtonVariants,
   UnitsErrors,
+  WishlistTypes,
 } from '@constants';
 
-import { useProductToolbar } from '@hooks';
+import { useProductToolbar, useWishlist } from '@hooks';
 import { CustomButton, Icon, UnitsSelect } from '@components';
 
 import style from './ProductToolbar.module.scss';
@@ -40,9 +41,15 @@ export const ProductToolbar: FC = () => {
     onAddToCart,
   } = useProductToolbar(product);
 
+  const { onWishlistToggle, checkIsInWishlist } = useWishlist();
+
   const soldOutError = isSoldOut ? UnitsErrors.SOLD_OUT : null;
   const isDisabled = !!unitsError || isSoldOut;
   const error = soldOutError || unitsError;
+
+  const isWishlisted = checkIsInWishlist(product.productId);
+
+  const handleWishlist = () => onWishlistToggle(product.productId);
 
   return (
     <div className={style.container}>
@@ -87,9 +94,11 @@ export const ProductToolbar: FC = () => {
         </CustomButton>
       </div>
 
-      <CustomButton onClick={() => {}}>
-        <Icon iconName={IconsTypes.HEART} />
-        Add to my wishlist
+      <CustomButton onClick={handleWishlist}>
+        <Icon
+          iconName={isWishlisted ? IconsTypes.HEART_FULL : IconsTypes.HEART}
+        />
+        {isWishlisted ? WishlistTypes.ADDED : WishlistTypes.ADD}
       </CustomButton>
 
       <ToastContainer autoClose={1300} />

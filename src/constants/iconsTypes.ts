@@ -7,6 +7,8 @@ export enum IconsTypes {
   STAR = 'star',
   STAR_EMPTY = 'star-empty',
   HEART = 'heart',
+  HEART_FULL = 'heart-full',
+  HEART_BROKEN = 'heart-broken',
   ERROR = 'error',
   CHECK_MARK = 'check-mark',
   FILTER = 'filter',

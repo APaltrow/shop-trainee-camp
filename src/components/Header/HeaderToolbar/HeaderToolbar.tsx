@@ -29,6 +29,7 @@ import style from './HeaderToolbar.module.scss';
 
 export const HeaderToolbar: FC = () => {
   const { categories } = useAppSelector((state) => state.products);
+  const { wishlist } = useAppSelector((state) => state.wishlist);
   const { orders } = useAppSelector((state) => state.cart);
   const { activeCategory, activeBrands } = useAppSelector(
     (state) => state.productsFilter,
@@ -141,6 +142,16 @@ export const HeaderToolbar: FC = () => {
       </div>
 
       <div className={style.buttons}>
+        <NavLink to={NavigationPaths.WISHLIST}>
+          <Badge info={wishlist.length}>
+            <span className={style.heart_icon}>
+              <Icon
+                iconName={IconsTypes.HEART}
+                size={IconSizes.LARGE}
+              />
+            </span>
+          </Badge>
+        </NavLink>
         <Icon
           iconName={IconsTypes.PROFILE}
           size={IconSizes.LARGE}
