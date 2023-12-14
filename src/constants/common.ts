@@ -4,6 +4,7 @@ export const ZERO_INDEX = 0;
 export const SINGLE_CATEGORY_ITEM = 1;
 export const ONE_ITEM = 1;
 export const INITIAL_ZERO = 0;
+export const PREVIOUS_ROUTE_COUNT = -2;
 
 export const PORTAL_ID = 'portal';
 export const PATH_DIVIDER = '/';
@@ -24,3 +25,4 @@ export const LOGO_ALT = 'Freshnesecom logo';
 export const FREE_SHIPPING = 'Free Shipping';
 export const SEARCH_PLACEHOLDER = 'Search products...';
 export const DEFAULT_ALT = 'Product image';
+export const AVATAR_ALT = 'User avatar';

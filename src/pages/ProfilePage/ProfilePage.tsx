@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Wishlist } from '@components';
+import { Profile } from '@components';
 import { AuthLayout } from '@layouts';
 
-export const WishlistPage: FC = () => {
+export const ProfilePage: FC = () => {
   return (
     <AuthLayout>
-      <Wishlist />
+      <Profile />
     </AuthLayout>
   );
 };

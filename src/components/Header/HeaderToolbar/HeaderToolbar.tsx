@@ -152,10 +152,12 @@ export const HeaderToolbar: FC = () => {
             </span>
           </Badge>
         </NavLink>
-        <Icon
-          iconName={IconsTypes.PROFILE}
-          size={IconSizes.LARGE}
-        />
+        <NavLink to={NavigationPaths.PROFILE}>
+          <Icon
+            iconName={IconsTypes.PROFILE}
+            size={IconSizes.LARGE}
+          />
+        </NavLink>
         <NavLink to={NavigationPaths.CART}>
           <Badge info={orders.length}>
             <Icon

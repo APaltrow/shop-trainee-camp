@@ -3,9 +3,10 @@ import { combineReducers } from '@reduxjs/toolkit';
 import * as thunks from '../thunks';
 
 import { productsActions, productsReducer } from './productsReducer';
+import { wishlistReducer, wishlistActions } from './wishlistReducer';
 import { cartReducer, cartActions } from './cartReducer';
 import { productReducer } from './productReducer';
-import { wishlistReducer, wishlistActions } from './wishlistReducer';
+import { authReducer, authActions } from './authReducer';
 import {
   addressAutocompleteReducer,
   addressAutocompleteActions,
@@ -22,6 +23,7 @@ export const rootReducer = combineReducers({
   cart: cartReducer,
   addressAutocomplete: addressAutocompleteReducer,
   wishlist: wishlistReducer,
+  auth: authReducer,
 });
 
 export const ActionCreators = {
@@ -31,4 +33,5 @@ export const ActionCreators = {
   ...cartActions,
   ...addressAutocompleteActions,
   ...wishlistActions,
+  ...authActions,
 };

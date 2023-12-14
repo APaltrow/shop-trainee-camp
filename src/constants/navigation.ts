@@ -3,6 +3,8 @@ export enum NavigationPaths {
   ALL_PRODUCTS = 'all-products',
   CART = 'cart',
   WISHLIST = 'wish-list',
+  PROFILE = 'profile',
+  LOGIN = 'login',
 }
 
 export const PATHS_TO_BREADCRUMBS: Record<NavigationPaths, string> = {
@@ -10,6 +12,8 @@ export const PATHS_TO_BREADCRUMBS: Record<NavigationPaths, string> = {
   [NavigationPaths.ALL_PRODUCTS]: 'All products',
   [NavigationPaths.CART]: 'Cart',
   [NavigationPaths.WISHLIST]: 'Wish list',
+  [NavigationPaths.PROFILE]: 'Profile',
+  [NavigationPaths.LOGIN]: 'Login',
 };
 
 export const CONTACT_LINKS = [

@@ -4,5 +4,7 @@ export enum RoutesPaths {
   PRODUCT = 'all-products/:id',
   CART = 'cart',
   WISHLIST = 'wish-list',
+  PROFILE = 'profile',
+  LOGIN = 'login',
   NOT_FOUND = '*',
 }
