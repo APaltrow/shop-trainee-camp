@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import { useAppSelector } from '@redux';
 import { NavigationPaths } from '@constants';
@@ -11,7 +11,15 @@ interface AuthLayoutProps {
 export const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
   const { isAuth } = useAppSelector((state) => state.auth);
 
-  if (!isAuth) return <Navigate to={`../${NavigationPaths.LOGIN}`} />;
+  const { pathname } = useLocation();
+
+  if (!isAuth)
+    return (
+      <Navigate
+        to={`../${NavigationPaths.LOGIN}`}
+        state={{ prevUrl: pathname }}
+      />
+    );
 
   return children;
 };

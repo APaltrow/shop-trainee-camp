@@ -1,18 +1,27 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import {
   GoogleAuthProvider,
   signInWithPopup,
   getAuth,
   signOut,
+  UserCredential,
 } from 'firebase/auth';
 
 import { useActions } from '@redux';
-import { FIREBASE_CONFIG, PREVIOUS_ROUTE_COUNT } from '@constants';
+import { FIREBASE_CONFIG, NavigationPaths } from '@constants';
+
+interface AuthResult extends UserCredential {
+  _tokenResponse: {
+    firstName: string;
+    lastName: string;
+  };
+}
 
 export const useFirebase = () => {
   const navigate = useNavigate();
   const { login, logout } = useActions();
+  const location = useLocation();
 
   const app = initializeApp(FIREBASE_CONFIG);
 
@@ -22,10 +31,18 @@ export const useFirebase = () => {
   const onLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
-      const { photoURL, email, displayName } = result.user;
+      const { user, _tokenResponse: info } = result as AuthResult;
 
-      login({ photoURL, email, displayName });
-      navigate(PREVIOUS_ROUTE_COUNT);
+      const userData = {
+        photoURL: user.photoURL || '',
+        email: user.email || '',
+        displayName: user.displayName || '',
+        firstName: info.firstName || '',
+        lastName: info.lastName || '',
+      };
+
+      login(userData);
+      navigate(location?.state?.prevUrl || NavigationPaths.HOME);
     } catch (error) {
       logout();
     }

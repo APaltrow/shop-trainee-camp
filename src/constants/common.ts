@@ -4,7 +4,6 @@ export const ZERO_INDEX = 0;
 export const SINGLE_CATEGORY_ITEM = 1;
 export const ONE_ITEM = 1;
 export const INITIAL_ZERO = 0;
-export const PREVIOUS_ROUTE_COUNT = -2;
 
 export const PORTAL_ID = 'portal';
 export const PATH_DIVIDER = '/';
