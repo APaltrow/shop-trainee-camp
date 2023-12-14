@@ -13,13 +13,14 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
 
   const { pathname } = useLocation();
 
-  if (!isAuth)
+  if (!isAuth) {
     return (
       <Navigate
         to={`../${NavigationPaths.LOGIN}`}
         state={{ prevUrl: pathname }}
       />
     );
+  }
 
   return children;
 };

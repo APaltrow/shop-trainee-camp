@@ -1,13 +1,29 @@
 import { FC } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import { useFirebase } from '@hooks';
-import { ButtonSizes, ButtonVariants, IconsTypes } from '@constants';
+import { useAppSelector } from '@redux';
+import {
+  ButtonSizes,
+  ButtonVariants,
+  IconsTypes,
+  NavigationPaths,
+} from '@constants';
 import { CustomButton, Icon } from '@components';
 
 import style from './Login.module.scss';
 
 export const Login: FC = () => {
+  const { isAuth } = useAppSelector((state) => state.auth);
   const { onLogin } = useFirebase();
+
+  const location = useLocation();
+
+  if (isAuth) {
+    return (
+      <Navigate to={`../${location?.state?.prevUrl || NavigationPaths.HOME}`} />
+    );
+  }
 
   return (
     <article className={style.container}>
