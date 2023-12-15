@@ -17,6 +17,7 @@ export enum IconsTypes {
   ORDER_DESC = 'order-desc',
   PLUS = 'plus',
   CAMERA = 'camera',
+  GOOGLE = 'google',
 }
 
 export enum IconSizes {

@@ -6,6 +6,8 @@ import {
   CartPage,
   ProductPage,
   WishlistPage,
+  LoginPage,
+  ProfilePage,
 } from '@pages';
 
 export const AppRoutes = [
@@ -28,6 +30,14 @@ export const AppRoutes = [
   {
     path: RoutesPaths.WISHLIST,
     element: <WishlistPage />,
+  },
+  {
+    path: RoutesPaths.LOGIN,
+    element: <LoginPage />,
+  },
+  {
+    path: RoutesPaths.PROFILE,
+    element: <ProfilePage />,
   },
   {
     path: RoutesPaths.NOT_FOUND,

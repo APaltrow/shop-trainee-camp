@@ -26,3 +26,4 @@ export * from './alertMessages';
 export * from './promo';
 export * from './pluralSuffixes';
 export * from './wishlist';
+export * from './firebaseConfig';

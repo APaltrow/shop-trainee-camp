@@ -6,3 +6,5 @@ export * from './Sidebar';
 export * from './Product';
 export * from './Cart';
 export * from './Wishlist';
+export * from './Login';
+export * from './Profile';

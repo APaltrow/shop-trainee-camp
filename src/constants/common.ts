@@ -24,3 +24,4 @@ export const LOGO_ALT = 'Freshnesecom logo';
 export const FREE_SHIPPING = 'Free Shipping';
 export const SEARCH_PLACEHOLDER = 'Search products...';
 export const DEFAULT_ALT = 'Product image';
+export const AVATAR_ALT = 'User avatar';

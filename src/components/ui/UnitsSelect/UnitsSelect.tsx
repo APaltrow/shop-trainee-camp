@@ -41,6 +41,8 @@ export const UnitsSelect: FC<UnitsSelectProps> = ({
   onSelect,
   onBlur,
 }) => {
+  const inputValue = unitsAmount ? unitsAmount.toString() : '';
+
   return (
     <div className={style.container}>
       <BinarySection
@@ -56,7 +58,7 @@ export const UnitsSelect: FC<UnitsSelectProps> = ({
             min={UNIT_MIN_VALUE}
             readOnly={isDisabled}
             max={unitsMax}
-            value={unitsAmount || ''}
+            value={inputValue}
           />
         }
         rightElement={

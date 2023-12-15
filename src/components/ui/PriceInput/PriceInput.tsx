@@ -31,6 +31,8 @@ export const PriceInput: FC<PriceInputProps> = ({
 
   onChange,
 }) => {
+  const inputValue = value ? value.toString() : '';
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const numericValue = +e.target.value;
 
@@ -54,7 +56,7 @@ export const PriceInput: FC<PriceInputProps> = ({
         onKeyDown={(e) => handleKeyDown(e)}
         onChange={handleChange}
         step={step}
-        value={value || ''}
+        value={inputValue}
         placeholder={PRICE_PLACEHOLDER}
       />
     </label>

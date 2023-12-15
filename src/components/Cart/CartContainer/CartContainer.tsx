@@ -26,7 +26,9 @@ import style from './CartContainer.module.scss';
 
 export const Cart: FC = () => {
   const { billingInfo, orders } = useAppSelector((state) => state.cart);
-  const { setBillingInfo, resetBillingInfo, resetOrders } = useActions();
+  const { isAuth, user } = useAppSelector((state) => state.auth);
+  const { setBillingInfo, resetBillingInfo, resetOrders, setAuthUserInfo } =
+    useActions();
   const {
     currency,
     subTotal,
@@ -107,6 +109,21 @@ export const Cart: FC = () => {
     scrollToTop();
   };
 
+  const revalidateForm = (formFields: Record<string, string | boolean>) => {
+    Object.entries(formFields).forEach(([name, value]) => {
+      validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
+    });
+  };
+
+  const autoFillUserInfo = () => {
+    if (!isAuth || !user) return;
+
+    const { displayName, photoURL, ...userInfo } = user;
+
+    setAuthUserInfo(userInfo);
+    revalidateForm(userInfo);
+  };
+
   const isValidForm =
     !marketingAgreement ||
     !termsOfUse ||
@@ -119,9 +136,9 @@ export const Cart: FC = () => {
   const totalAmountWithCurrency = formatPrice(totalAmount, currency);
 
   useEffect(() => {
-    Object.entries({ ...inputValues, orderNotes }).forEach(([name, value]) => {
-      validateInput(name, String(value), BILLING_FORM_VALIDATIONS[name]);
-    });
+    revalidateForm({ ...inputValues, orderNotes });
+
+    autoFillUserInfo();
   }, []);
 
   if (isFormSubmitted) {

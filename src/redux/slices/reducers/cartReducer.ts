@@ -20,6 +20,15 @@ export const cartSlice = createSlice({
 
       state.billingInfo[name] = value;
     },
+    setAuthUserInfo: (
+      state,
+      { payload }: PayloadAction<Record<string, string>>,
+    ) => {
+      state.billingInfo = {
+        ...state.billingInfo,
+        ...payload,
+      };
+    },
     resetBillingInfo: (state) => {
       state.billingInfo = INITIAL_BILLING_FORM_VALUES;
     },

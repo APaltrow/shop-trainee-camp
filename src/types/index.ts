@@ -10,3 +10,4 @@ export * from './cart/cartStateTypes';
 export * from './cart/cartTypes';
 export * from './cart/orderTypes';
 export * from './wishlist/wishlistTypes';
+export * from './auth';
