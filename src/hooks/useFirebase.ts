@@ -54,6 +54,8 @@ export const useFirebase = () => {
       logout();
     } catch (error) {
       logout();
+    } finally {
+      logout();
     }
   };
 
